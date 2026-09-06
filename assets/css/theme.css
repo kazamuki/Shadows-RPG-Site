@@ -408,6 +408,30 @@ main { display: block; }
 
 .callout-strip h2 { color: var(--color-text-light); }
 
+/* --- News archive --- */
+
+.news-list {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.news-entry {
+  background: rgba(32, 63, 123, 0.18);
+  border: 1px solid rgba(32, 63, 123, 0.5);
+  border-radius: 8px;
+  padding: 1.75rem;
+}
+
+.news-entry h2 { margin-top: 0; }
+
+.news-date {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-static-cyan);
+  margin-bottom: 0.5em;
+}
+
 /* --- Footer --- */
 
 .site-footer {
