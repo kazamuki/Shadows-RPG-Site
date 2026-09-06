@@ -101,8 +101,14 @@ being copy-pasted across every page.
   GitHub Pages build anyway — so this file only ever does anything on a local modern-Ruby preview.
 - `.claude/launch.json` — `jekyll serve --destination _site --port 4000`, for previewing in the
   Browser pane via `preview_start`.
-- Stub pages exist at `/world/`, `/rules/`, `/news/`, `/about/`, `/credits/` (just a status tag +
-  one-liner) so primary nav doesn't 404 while those sections aren't built yet — not real content.
+- Stub pages remain at `/news/`, `/about/`, `/credits/` (just a status tag + one-liner) so primary
+  nav doesn't 404 while those sections aren't built yet — not real content.
+- CRB manuscript chapters get extracted to plain text before writing a page against them —
+  `.docx` isn't directly readable, so a small PowerShell function (`Extract-DocxText`, unzips the
+  `.docx` and strips `word/document.xml`'s XML) dumps each chapter to
+  `Google-Page-Original/crb-extracted/*.txt` first. That folder is inside the gitignored
+  `Google-Page-Original/` tree, so it's local scratch, not tracked — re-run the extraction in a
+  future session rather than looking for those `.txt` files to still be there.
 
 ## Build status
 
@@ -110,7 +116,21 @@ being copy-pasted across every page.
   the old site's actual extracted text (not just the inventory summary) with the 2079→2099 fix
   and a rewritten CRB-status line (the old "getting close to making it a reality" line was stale
   per the inventory's own warning — replaced with something that doesn't overpromise timeline).
-- Every other nav destination is a stub (see above). Building them out is the next work.
+- **Rules Preview hub + all 6 sub-pages — built**, 2026-09-06: `/rules/`, `character-creation/`,
+  `power-levels/`, `stats-and-skills/`, `advantages-disadvantages/`, `archetypes/`, `equipment/`.
+  Sourced directly from the CRB v4 manuscript (020/030/040/041/042/043/044 + `Gear.docx`), not the
+  old site — the manuscript has moved on in real ways the old site doesn't reflect (e.g. Power
+  Levels dropped from the old site's 7 named tiers to 4: Street Level, Heroic, Shadows, World
+  Coming Down). These are deliberately curated *samples* of much larger manuscript tables
+  (Advantages/Disadvantages, the Gear catalog, Archetype milestone trees) rather than full
+  transcriptions — matches the "shorthand, not the book" framing in `content/sitemap.md`. Arcanist
+  is tagged "under construction" because the manuscript itself says so inline.
+- **The World (`/world/`) — built**, 2026-09-06, from `010_Onboarding.docx`, almost entirely
+  verbatim in the manuscript's in-world voice per the sitemap's voice-split decision — this page
+  intentionally carries almost no site-voice wrapper, since it's meant to read as an actual page
+  out of the book. Left out `010_Onboarding.docx`'s "What play at the table looks like" section
+  (table-procedure content, not setting/world content — out of scope for this page).
+- Remaining: News, About, Credits are still one-line stubs.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
