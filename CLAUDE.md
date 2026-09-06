@@ -123,7 +123,14 @@ being copy-pasted across every page.
   Levels dropped from the old site's 7 named tiers to 4: Street Level, Heroic, Shadows, World
   Coming Down). These are deliberately curated *samples* of much larger manuscript tables
   (Advantages/Disadvantages, the Gear catalog, Archetype milestone trees) rather than full
-  transcriptions — matches the "shorthand, not the book" framing in `content/sitemap.md`. Arcanist
+  transcriptions — matches the "shorthand, not the book" framing in `content/sitemap.md`.
+  **Corrected once already, 2026-09-06:** the first pass on Character Creation and Stats & Skills
+  leaned too far into verbatim CRB mechanics — the actual stat bonus table, dice formulas, and
+  skill-check math, not just flavor text. Ken's steer: keep these pages high-level enough to give
+  a sense of the Synergy System's tone, never a copy-able ruleset. Rewritten to drop exact
+  numbers/tables/formulas in favor of plain-English gists; Advantages & Disadvantages trimmed from
+  a costed sample table to ~4 flavor-only examples per side. Keep this in mind for any future
+  Rules Preview page sourced from the manuscript. Arcanist
   is tagged "under construction" because the manuscript itself says so inline.
 - **The World (`/world/`) — built**, 2026-09-06, from `010_Onboarding.docx`, almost entirely
   verbatim in the manuscript's in-world voice per the sitemap's voice-split decision — this page
