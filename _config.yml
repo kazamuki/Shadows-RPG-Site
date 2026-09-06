@@ -2,8 +2,13 @@ title: Shadows RPG
 description: >-
   A cybernetic, supernatural roleplaying game set in NYTE City, 2099 — the public preview
   layer for the Shadows Core Rulebook.
-url: "https://shadowsrpg.com"
-baseurl: ""
+url: "https://kazamuki.github.io"
+baseurl: "/Shadows-RPG-Site"
+# TEMPORARY: GitHub Pages is currently serving this as a project page
+# (kazamuki.github.io/Shadows-RPG-Site/), not the shadowsrpg.com custom domain, which is why
+# baseurl isn't empty. Once a CNAME file + DNS point shadowsrpg.com at this repo, change url to
+# "https://shadowsrpg.com" and baseurl back to "" — a project-page baseurl breaks every asset
+# and internal link on a root custom domain.
 
 markdown: kramdown
 kramdown:
