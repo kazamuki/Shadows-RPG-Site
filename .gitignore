@@ -1,0 +1,9 @@
+# Original Google Sites Takeout export. Kept locally as reference material for the
+# rebuild (see CLAUDE.md / content/inventory.md), but excluded from version control:
+# Google's own exported HTML embeds several "AIza..." Google API keys as part of the
+# Sites platform's own front-end bundle (confirmed 2026-09-05, present identically
+# across all 4 exported pages — not anything Ken generated or owns). They're almost
+# certainly referrer-restricted public keys, not a real credential leak, but there's
+# no reason to keep tripping secret scanners over content that's already been fully
+# mined into content/inventory.md.
+/Google-Page-Original/
