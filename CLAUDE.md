@@ -137,7 +137,18 @@ being copy-pasted across every page.
   intentionally carries almost no site-voice wrapper, since it's meant to read as an actual page
   out of the book. Left out `010_Onboarding.docx`'s "What play at the table looks like" section
   (table-procedure content, not setting/world content — out of scope for this page).
-- Remaining: News, About, Credits are still one-line stubs.
+- **News, About, Credits — built**, 2026-09-06, per `content/sitemap.md` §5/§6. News seeded
+  with one real, factual milestone entry (the site rebuild itself) rather than inventing past
+  history — future entries get appended chronologically as real milestones happen, newest first.
+  About is pure site-copy voice (studio blurb + GD family framing, mailing list/Patreon CTAs
+  reused from Home). Credits carries the Dean Spencer required credit line (per
+  `brand/asset-licensing.md`) plus stock-photography and brand-mark attribution, kept generic
+  about which specific images it covers since that's unverified — the CRB archetype spread
+  screenshots on Home plausibly contain his art, so the line errs toward compliance rather than
+  waiting for certainty. All three skip the Rules-Preview-style status tag (Draft/In
+  Progress/Final) since that convention is scoped to Rules Preview WIP content, not general
+  pages — same precedent as Home.
+- No remaining stub pages — every page in the approved sitemap is now built.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
@@ -182,13 +193,19 @@ being copy-pasted across every page.
 ## Still open
 
 - Is the old Google Form mailing-list link still current?
-- **Blog cross-posting (flagged 2026-09-06, deferred):** Ken wants blog posts — currently hosted
-  on the main Getdangerous.net site — to also appear here on Shadowsrpg.com. Not yet scoped
-  (feed/embed vs. duplicated posts vs. a shared component between the two repos; how it relates
-  to the already-approved `/news/` archive in `content/sitemap.md` §6, which is a separate,
-  Shadows-specific milestone log, not the GD blog). Explicitly deferred until *after* old-site
-  content is copied into the new theme/colors/voice — revisit this once that pass is done, not
-  before.
+- **Blog cross-posting — link-out shipped 2026-09-06, feed/embed still deferred.** Old-site
+  content is now fully ported, so this was revisited (per the deferral note that used to live
+  here). The GD blog (`GetDangerousGames-Site`) already tags Shadows-relevant posts `Shadows` and
+  has a client-side tag-filter UI on `/blog/`; `News` now links out to
+  `https://getdangerous.net/blog/?tag=Shadows` via a "Follow the studio too" strip, kept
+  deliberately separate from the milestone list above it (the `/news/` archive stays a
+  Shadows-specific log, not the GD blog — see `content/sitemap.md` §6). To make that link
+  deep-linkable, `GetDangerousGames-Site/blog/index.html`'s tag-filter script was extended to
+  read a `?tag=` query param on load and pre-select the matching pill — see that repo's CLAUDE.md.
+  **Not done:** pulling GD posts to render inline on this site (JSON/RSS fetched client-side).
+  Blocked on confirming GitHub Pages actually serves cross-origin-readable responses between
+  shadowsrpg.com and getdangerous.net once both custom domains are live post-DNS-migration — untested,
+  don't assume it works. Revisit once DNS settles and that's been checked in a real browser.
 
 ## Conventions
 
