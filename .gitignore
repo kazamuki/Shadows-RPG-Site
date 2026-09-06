@@ -7,3 +7,9 @@
 # no reason to keep tripping secret scanners over content that's already been fully
 # mined into content/inventory.md.
 /Google-Page-Original/
+
+# Jekyll build output — GitHub Pages builds this itself from source, don't commit it.
+/_site/
+.jekyll-cache/
+.jekyll-metadata
+

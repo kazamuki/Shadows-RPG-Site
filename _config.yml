@@ -1,0 +1,31 @@
+title: Shadows RPG
+description: >-
+  A cybernetic, supernatural roleplaying game set in NYTE City, 2099 — the public preview
+  layer for the Shadows Core Rulebook.
+url: "https://shadowsrpg.com"
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+permalink: pretty
+
+# Reference/working docs live alongside the site source in this repo but aren't part of
+# the published site — keep Jekyll from trying to build them as pages.
+exclude:
+  - content/
+  - brand/
+  - Google-Page-Original/
+  - CLAUDE.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

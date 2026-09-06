@@ -1,0 +1,14 @@
+<header class="site-header">
+  <a class="site-title" href="{{ '/' | relative_url }}">Shadows RPG</a>
+
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
+    <a href="{{ '/world/' | relative_url }}"{% if page.url == '/world/' %} aria-current="page"{% endif %}>The World</a>
+    <a href="{{ '/rules/' | relative_url }}"{% if page.url contains '/rules/' %} aria-current="page"{% endif %}>Rules Preview</a>
+    <a href="{{ '/news/' | relative_url }}"{% if page.url == '/news/' %} aria-current="page"{% endif %}>News</a>
+    <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+    <a class="gd-mark" href="https://getdangerous.net" title="Part of the Get Dangerous Games family">
+      <img src="{{ '/assets/img/gd-logo-mark.png' | relative_url }}" alt="Get Dangerous Games" width="34" height="34">
+    </a>
+  </nav>
+</header>

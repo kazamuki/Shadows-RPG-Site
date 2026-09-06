@@ -56,11 +56,61 @@ stand alone technically but must read as one brand visually and tonally.
 2. **Propose a sitemap** as a markdown outline (not code) — done and fully approved, see
    `content/sitemap.md`. No open items remain.
 3. **Only after sitemap approval**, move to actual HTML/CSS, using `brand/THEME.md` for site-copy
-   voice/colors/fonts and `brand/GUIDE_Shadows_Voice.md` for in-world voice. Cleared to start.
+   voice/colors/fonts and `brand/GUIDE_Shadows_Voice.md` for in-world voice. **Started 2026-09-06.**
 
 Don't skip ahead to implementation even if a page's content/structure seems obvious — the whole
 point of doing this in stages is to catch scope and structure questions before they're baked
 into code.
+
+## Site architecture (chosen 2026-09-06)
+
+**Jekyll**, building at the repo root, deployed via GitHub Pages' native Jekyll build (no
+Actions workflow, no Gemfile — see below on why). Ken picked this over hand-duplicated HTML or a
+custom build script specifically so nav/footer/status-tags live once in `_includes/` instead of
+being copy-pasted across every page.
+
+- `_config.yml` — site config; `exclude:` keeps `content/`, `brand/`, `Google-Page-Original/`,
+  and `CLAUDE.md` out of the Jekyll build (they're working docs, not site pages, even though some
+  have YAML front matter that would otherwise make Jekyll try to render them).
+- `_layouts/default.html` + `_includes/nav.html` / `footer.html` — shared chrome for every page.
+- `assets/css/theme.css` — hand-rolled CSS, variables lifted straight from `brand/THEME.md`. Keep
+  the two in sync if the palette changes.
+- `assets/img/` — brand marks (`gd-logo-mark.png` is GD Assets' `LOGO NO TEXT.png`, used small in
+  the top-right nav corner per Ken's steer 2026-09-06; `favicon-skull-dice.jpg`) and
+  `assets/img/crb-spreads/` (the 5 real CRB book-spread screenshots from the old site's Home
+  carousel, resized/compressed for web — originals in `Google-Page-Original/DRAFT/Home/` were
+  3-6MB each straight out of the export). `hero-background.jpg` is also from that same old-export
+  folder (`02e5d996...jpg`) — Ken confirmed 2026-09-06 he wants to keep this specific image (a
+  moody cyberpunk figure in neon rain) even though the inventory's original pass undersold it as
+  "generic dark texture, not distinctive"; it's actually the exact hero image still live at
+  shadowsrpg.com today. Since this file's provenance is otherwise unverified per
+  `brand/asset-licensing.md`'s old-export caution, treat Ken's 2026-09-06 confirmation as the
+  clearance for this one file specifically, not a blanket exception for the rest of that folder.
+- **No `Gemfile`.** One was tried and tracked down to a real bug: on this machine's Ruby 4.0.6,
+  loading the `github-pages` gem via Bundler silently breaks Jekyll's own `_plugins/*.rb`
+  autoloading (confirmed by reproducing with a debug plugin file — it loads fine without a
+  Gemfile, never loads with one present, regardless of safe mode or plugin path config). Skipping
+  the Gemfile and running the globally-installed `jekyll` gem directly (matches GitHub Pages'
+  own build) sidesteps it. GitHub Pages' legacy build doesn't require a Gemfile in the repo, so
+  this doesn't affect the live build — only local `jekyll build`/`serve`.
+- `_plugins/local_ruby_compat.rb` — a **local-dev-only** shim. Ruby 3.2+ removed
+  `String#tainted?`/`#untaint`, but the Liquid 4.0.3 that ships with Jekyll 3.9.0 (GitHub Pages'
+  pinned version) still calls it, which crashes `jekyll build`/`serve` outright on this machine's
+  Ruby 4.0.6. The shim no-ops those two methods only if they're missing. GitHub Pages' own build
+  servers run a Ruby where the methods still exist, and custom plugins are ignored by the legacy
+  GitHub Pages build anyway — so this file only ever does anything on a local modern-Ruby preview.
+- `.claude/launch.json` — `jekyll serve --destination _site --port 4000`, for previewing in the
+  Browser pane via `preview_start`.
+- Stub pages exist at `/world/`, `/rules/`, `/news/`, `/about/`, `/credits/` (just a status tag +
+  one-liner) so primary nav doesn't 404 while those sections aren't built yet — not real content.
+
+## Build status
+
+- **Home (`/`) — built**, 2026-09-06. Full content per `content/sitemap.md` §1, copy adapted from
+  the old site's actual extracted text (not just the inventory summary) with the 2079→2099 fix
+  and a rewritten CRB-status line (the old "getting close to making it a reality" line was stale
+  per the inventory's own warning — replaced with something that doesn't overpromise timeline).
+- Every other nav destination is a stub (see above). Building them out is the next work.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
@@ -105,6 +155,13 @@ into code.
 ## Still open
 
 - Is the old Google Form mailing-list link still current?
+- **Blog cross-posting (flagged 2026-09-06, deferred):** Ken wants blog posts — currently hosted
+  on the main Getdangerous.net site — to also appear here on Shadowsrpg.com. Not yet scoped
+  (feed/embed vs. duplicated posts vs. a shared component between the two repos; how it relates
+  to the already-approved `/news/` archive in `content/sitemap.md` §6, which is a separate,
+  Shadows-specific milestone log, not the GD blog). Explicitly deferred until *after* old-site
+  content is copied into the new theme/colors/voice — revisit this once that pass is done, not
+  before.
 
 ## Conventions
 
