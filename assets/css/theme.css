@@ -1,24 +1,77 @@
 /* Shadows RPG — site theme. Palette/type source: brand/THEME.md. Keep the two in sync. */
 
+/* ==========================================================================
+   Shared theme tokens + light/dark toggle button
+   ==========================================================================
+   Shared across Get Dangerous Games, Shadows RPG, and the Shadows Character
+   Sheet app — all three sites can drop this block in as-is to get the same
+   palette and toggle behavior. Keep it in sync across the three repos.
+
+   Pair with assets/js/theme-init.js (blocking, sets html[data-theme] before
+   first paint) and assets/js/theme-toggle.js (wires up the toggle button).
+
+   PORTING TO A NEW SITE: this block only carries the token system and the
+   toggle button — component CSS below still has to *use* these tokens
+   correctly. Three bug categories showed up wiring this in:
+   1. Any text sitting on an "always-dark" photo/hero band must get an
+      explicit fixed color (var(--text-light) or a literal rgba(255,255,255,X)),
+      never a bare inherited color — inheriting body's --text-primary looks
+      fine in dark mode (it resolves to white) but silently flips to dark
+      text once a light theme exists.
+   2. If a photo-band's gradient fades toward --bg-page to blend with the
+      page below, check what's *actually* below it first. It's only correct
+      when the next section is real theme-aware content. If another
+      permanently-dark band follows instead, keep that gradient's end stop
+      on a fixed dark color.
+   3. A color-mix()'d "tint" reused for both an outline style (mixed color as
+      text/border) and a filled style (mixed color as background) needs two
+      separate custom properties, not one — mix toward var(--text-primary)
+      for the outline, but toward fixed white for a fill paired with fixed
+      dark text.
+   ========================================================================== */
+
 :root {
-  /* Primary */
-  --color-aether-pulse: #712B8C;
-  --color-deep-circuit: #203F7B;
-  --color-neutral-zone: #E7E7E7;
+  /* Brand constants — fixed, never swap with theme. Solid-fill buttons and
+     photo-band scrims reference these directly and are theme-invariant. */
+  --aether-pulse: #712B8C;
+  --deep-circuit: #203F7B;
+  --neutral-zone: #E7E7E7;
+  --neon-veil: #BC489A;
+  --midnight: #0D1731;
+  --signal-gold: #F2C94C;
+  --static-cyan: #1BBBC4;
+  --ghostly-green: #71C388;
+  --text-light: #FFFFFF;
+  --text-dark: #111111;
 
-  /* Secondary */
-  --color-neon-veil: #BC489A;
-  --color-midnight-underpass: #0D1731;
-  --color-signal-gold: #F2C94C;
+  /* Semantic tokens — dark theme (default) */
+  --bg-page: var(--midnight);
+  --bg-header: rgba(13, 23, 49, 0.88);
 
-  /* Accents */
-  --color-static-cyan: #1BBBC4;
-  --color-ghostly-green: #71C388;
+  --card-bg: #16294F;
+  --card-border: rgba(32, 63, 123, 0.45);
+  --card-border-hover: rgba(27, 187, 196, 0.55);
+  --chip-bg: rgba(255, 255, 255, 0.06);
+  --chip-border: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-visible: rgba(255, 255, 255, 0.16);
 
-  /* Body text */
-  --color-text-dark: #111111;
-  --color-text-light: #FFFFFF;
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-tertiary: rgba(255, 255, 255, 0.55);
+  --text-faint: rgba(255, 255, 255, 0.28);
 
+  /* Accent roles — the three dark-bg-optimized accents (cyan/gold/green)
+     pass through as-is in dark mode; each gets a light-mode-safe stand-in
+     below. */
+  --accent-cyan: var(--static-cyan);
+  --accent-green: var(--ghostly-green);
+  --accent-gold: var(--signal-gold);
+  --accent-magenta: var(--neon-veil);
+
+  --gutter: clamp(20px, 6vw, 48px);
+
+  /* Site-specific (not part of the shared token set) */
   /* Cerulean Nights isn't licensed yet (brand/THEME.md) — Audiowide (open-source, Google Fonts)
      stands in for display type until it is. */
   --font-display: 'Audiowide', 'Inter', sans-serif;
@@ -28,14 +81,75 @@
   --content-max: 72rem;
 }
 
+:root[data-theme="light"] {
+  --bg-page: #F5F4F2;
+  --bg-header: rgba(245, 244, 242, 0.88);
+
+  --card-bg: #FFFFFF;
+  --card-border: rgba(32, 63, 123, 0.22);
+  --card-border-hover: rgba(32, 63, 123, 0.55);
+  --chip-bg: rgba(32, 63, 123, 0.06);
+  --chip-border: rgba(32, 63, 123, 0.16);
+  --border-subtle: rgba(17, 17, 17, 0.12);
+  --border-visible: rgba(17, 17, 17, 0.22);
+
+  --text-primary: var(--text-dark);
+  --text-secondary: rgba(17, 17, 17, 0.78);
+  --text-tertiary: rgba(17, 17, 17, 0.58);
+  --text-faint: rgba(17, 17, 17, 0.32);
+
+  /* Static Cyan / Signal Gold / Ghostly Green all fail WCAG text contrast
+     against a light background (1.28-2.35:1). Primary palette (Deep Circuit,
+     Aether Pulse) takes over the text/icon role; Neon Veil also fails at
+     normal-text size so it folds into Aether Pulse too rather than getting
+     its own light-mode value. */
+  --accent-cyan: var(--deep-circuit);
+  --accent-green: var(--deep-circuit);
+  --accent-gold: var(--aether-pulse);
+  --accent-magenta: var(--aether-pulse);
+}
+
+/* Light/dark toggle button */
+.theme-toggle {
+  width: clamp(30px, calc(30px + 4 * (100vw - 640px) / 560), 36px);
+  height: clamp(30px, calc(30px + 4 * (100vw - 640px) / 560), 36px);
+  border-radius: 50%;
+  border: 1px solid var(--border-visible);
+  background: transparent;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: color .15s, border-color .15s;
+}
+
+.theme-toggle:hover { color: var(--accent-gold); border-color: var(--accent-gold); }
+
+/* No display here — each icon below sets its own display, and (.theme-toggle svg)
+   has higher specificity than (.theme-toggle-icon--sun) alone, so a display
+   value here would always win and show both icons at once regardless of theme. */
+.theme-toggle svg { width: 16px; height: 16px; fill: none; stroke: currentColor; }
+
+.theme-toggle-icon--sun { display: none; }
+.theme-toggle-icon--moon { display: block; }
+
+:root[data-theme="light"] .theme-toggle-icon--sun { display: block; }
+:root[data-theme="light"] .theme-toggle-icon--moon { display: none; }
+
+/* ==========================================================================
+   Site components
+   ========================================================================== */
+
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--color-midnight-underpass);
-  color: var(--color-text-light);
+  background: var(--bg-page);
+  color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
 }
@@ -48,13 +162,13 @@ h1, h2, h3, h4 {
 }
 
 h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
-h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); color: var(--color-signal-gold); }
-h3 { font-size: 1.3rem; color: var(--color-static-cyan); }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); color: var(--accent-gold); }
+h3 { font-size: 1.3rem; color: var(--accent-cyan); }
 
 p { margin: 0 0 1em; }
 
-a { color: var(--color-static-cyan); }
-a:hover { color: var(--color-ghostly-green); }
+a { color: var(--accent-cyan); }
+a:hover { color: var(--accent-green); }
 
 img { max-width: 100%; display: block; }
 
@@ -62,8 +176,8 @@ img { max-width: 100%; display: block; }
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--color-signal-gold);
-  color: var(--color-text-dark);
+  background: var(--signal-gold);
+  color: var(--text-dark);
   padding: 0.6em 1em;
   z-index: 100;
 }
@@ -84,7 +198,7 @@ img { max-width: 100%; display: block; }
 .site-title {
   font-family: var(--font-display);
   font-size: 1.4rem;
-  color: var(--color-text-light);
+  color: var(--text-primary);
   text-decoration: none;
   letter-spacing: 0.02em;
 }
@@ -97,14 +211,14 @@ img { max-width: 100%; display: block; }
 }
 
 .primary-nav a {
-  color: var(--color-neutral-zone);
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 600;
 }
 .primary-nav a:hover,
 .primary-nav a[aria-current="page"] {
-  color: var(--color-signal-gold);
+  color: var(--accent-gold);
 }
 
 .gd-mark {
@@ -138,6 +252,9 @@ main { display: block; }
 }
 
 /* --- Hero --- */
+/* Always sits on a fixed dark photo (hero-background.jpg), regardless of
+   site theme — text here stays fixed light, not theme-aware (see porting
+   note 1 above). */
 
 .hero {
   text-align: center;
@@ -148,7 +265,7 @@ main { display: block; }
 
 .hero-title {
   font-size: clamp(3rem, 9vw, 5.5rem);
-  color: var(--color-text-light);
+  color: var(--text-light);
   text-shadow:
     0 0 12px rgba(188,72,154,0.8),
     0 0 40px rgba(113,43,140,0.7),
@@ -158,7 +275,7 @@ main { display: block; }
 
 .hero-tagline {
   font-size: 1.2rem;
-  color: var(--color-neutral-zone);
+  color: rgba(255, 255, 255, 0.85);
   max-width: 38rem;
   margin: 0 auto 1.75rem;
 }
@@ -170,6 +287,8 @@ main { display: block; }
   flex-wrap: wrap;
 }
 
+/* Solid-fill buttons reference brand constants directly, fixed regardless
+   of theme (they carry their own fixed-contrast fill + text pairing). */
 .btn {
   display: inline-block;
   padding: 0.8em 1.6em;
@@ -180,17 +299,20 @@ main { display: block; }
 }
 
 .btn--primary {
-  background: var(--color-aether-pulse);
-  color: var(--color-text-light);
+  background: var(--aether-pulse);
+  color: var(--text-light);
 }
-.btn--primary:hover { background: var(--color-neon-veil); color: var(--color-text-light); }
+.btn--primary:hover { background: var(--neon-veil); color: var(--text-light); }
 
+/* Every current use of .btn--ghost sits on a fixed-dark surface (.hero's
+   photo band or .callout-strip's solid fill), never the page background —
+   so its colors stay fixed regardless of site theme, not theme-tracked. */
 .btn--ghost {
   background: transparent;
-  color: var(--color-neutral-zone);
-  border: 1px solid var(--color-deep-circuit);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--deep-circuit);
 }
-.btn--ghost:hover { border-color: var(--color-static-cyan); color: var(--color-static-cyan); }
+.btn--ghost:hover { border-color: var(--static-cyan); color: var(--static-cyan); }
 
 /* --- Rules Preview hub cards --- */
 
@@ -203,15 +325,15 @@ main { display: block; }
 
 .rules-card {
   display: block;
-  background: rgba(32, 63, 123, 0.18);
-  border: 1px solid rgba(32, 63, 123, 0.5);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   transition: border-color 0.15s ease;
 }
-.rules-card:hover { border-color: var(--color-static-cyan); }
+.rules-card:hover { border-color: var(--card-border-hover); }
 
 .rules-card img {
   width: 100%;
@@ -224,8 +346,8 @@ main { display: block; }
 .rules-card-body { padding: 1.25rem 1.5rem 1.5rem; }
 .rules-card-body--noimg { padding-top: 1.5rem; }
 
-.rules-card h3 { margin: 0.5em 0 0.4em; color: var(--color-text-light); }
-.rules-card p { color: var(--color-neutral-zone); font-size: 0.95rem; margin: 0; }
+.rules-card h3 { margin: 0.5em 0 0.4em; color: var(--text-primary); }
+.rules-card p { color: var(--text-secondary); font-size: 0.95rem; margin: 0; }
 
 /* Compact variant: Home's shortcut grid into Rules Preview (image + title, no body copy) */
 .rules-grid--home {
@@ -248,7 +370,7 @@ main { display: block; }
 .voice-note {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--color-static-cyan);
+  color: var(--accent-cyan);
   text-align: center;
   margin: -1.5rem 0 2.5rem;
 }
@@ -256,7 +378,7 @@ main { display: block; }
 .rules-section {
   margin-bottom: 2.5rem;
 }
-.rules-section h2 { border-bottom: 1px solid rgba(231,231,231,0.15); padding-bottom: 0.4em; }
+.rules-section h2 { border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.4em; }
 
 .data-table {
   width: 100%;
@@ -266,11 +388,11 @@ main { display: block; }
   font-size: 0.9rem;
 }
 .data-table th, .data-table td {
-  border: 1px solid rgba(231,231,231,0.15);
+  border: 1px solid var(--border-subtle);
   padding: 0.5em 0.75em;
   text-align: left;
 }
-.data-table th { color: var(--color-signal-gold); background: rgba(32,63,123,0.25); }
+.data-table th { color: var(--accent-gold); background: var(--chip-bg); }
 
 .power-level-list { display: grid; gap: 1.25rem; }
 .power-level-list .feature-card h3 { margin-top: 0; }
@@ -279,8 +401,8 @@ main { display: block; }
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 1.5rem;
-  background: rgba(32, 63, 123, 0.18);
-  border: 1px solid rgba(32, 63, 123, 0.5);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.75rem;
@@ -293,9 +415,9 @@ main { display: block; }
   object-fit: cover;
   border-radius: 6px;
 }
-.archetype-block h3 { margin-top: 0; color: var(--color-text-light); }
-.archetype-hook { font-style: italic; color: var(--color-signal-gold); margin-bottom: 0.75em; }
-.archetype-stats { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-static-cyan); }
+.archetype-block h3 { margin-top: 0; color: var(--text-primary); }
+.archetype-hook { font-style: italic; color: var(--accent-gold); margin-bottom: 0.75em; }
+.archetype-stats { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan); }
 
 @media (max-width: 640px) {
   .archetype-block { grid-template-columns: 1fr; }
@@ -306,9 +428,9 @@ main { display: block; }
 .manuscript-excerpt {
   margin: 1rem 0 1.5rem;
   padding: 0.25rem 0 0.25rem 1.25rem;
-  border-left: 3px solid var(--color-aether-pulse);
+  border-left: 3px solid var(--aether-pulse);
   font-style: italic;
-  color: var(--color-neutral-zone);
+  color: var(--text-secondary);
 }
 .manuscript-excerpt p:last-child { margin-bottom: 0; }
 
@@ -321,8 +443,8 @@ main { display: block; }
 }
 
 .feature-card {
-  background: rgba(32, 63, 123, 0.18);
-  border: 1px solid rgba(32, 63, 123, 0.5);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   padding: 1.75rem;
 }
@@ -357,6 +479,8 @@ main { display: block; }
   min-height: 2rem;
 }
 
+/* Solid-fill numbered badge — fixed brand color + fixed light text, same
+   treatment as .btn--primary above. */
 .step-list li::before {
   content: counter(step);
   position: absolute;
@@ -365,8 +489,8 @@ main { display: block; }
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 50%;
-  background: var(--color-deep-circuit);
-  color: var(--color-text-light);
+  background: var(--deep-circuit);
+  color: var(--text-light);
   font-family: var(--font-mono);
   font-weight: 700;
   display: flex;
@@ -388,20 +512,30 @@ main { display: block; }
   border-radius: 999px;
   border: 1px solid currentColor;
 }
-.status-tag--draft { color: var(--color-neon-veil); }
-.status-tag--in-progress { color: var(--color-signal-gold); }
-.status-tag--final { color: var(--color-ghostly-green); }
+.status-tag--draft { color: var(--accent-magenta); }
+.status-tag--in-progress { color: var(--accent-gold); }
+.status-tag--final { color: var(--accent-green); }
 
 /* --- Mailing list / support strip --- */
+/* Solid deep-circuit fill, fixed regardless of theme — text inside stays
+   fixed light to match (see porting note 1). */
 
 .callout-strip {
-  background: var(--color-deep-circuit);
+  background: var(--deep-circuit);
+  color: var(--text-light);
   border-radius: 10px;
   padding: 2rem;
   text-align: center;
 }
 
-.callout-strip h2 { color: var(--color-text-light); }
+.callout-strip h2 { color: var(--text-light); }
+
+/* Plain links (not .btn) inside the strip would otherwise inherit the
+   global `a` rule, whose --accent-cyan resolves to the same deep-circuit
+   navy as this fixed background in light mode — invisible. Fixed gold
+   instead, same reasoning as .btn--ghost above. */
+.callout-strip a:not(.btn) { color: var(--signal-gold); }
+.callout-strip a:not(.btn):hover { color: var(--neutral-zone); }
 
 /* --- News archive --- */
 
@@ -411,8 +545,8 @@ main { display: block; }
 }
 
 .news-entry {
-  background: rgba(32, 63, 123, 0.18);
-  border: 1px solid rgba(32, 63, 123, 0.5);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   padding: 1.75rem;
 }
@@ -423,14 +557,14 @@ main { display: block; }
   display: block;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--color-static-cyan);
+  color: var(--accent-cyan);
   margin-bottom: 0.5em;
 }
 
 /* --- Footer --- */
 
 .site-footer {
-  border-top: 1px solid rgba(231,231,231,0.12);
+  border-top: 1px solid var(--border-subtle);
   margin-top: 2rem;
 }
 
@@ -453,11 +587,11 @@ main { display: block; }
 }
 
 .footer-nav a {
-  color: var(--color-neutral-zone);
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.9rem;
 }
-.footer-nav a:hover { color: var(--color-signal-gold); }
+.footer-nav a:hover { color: var(--accent-gold); }
 
 .footer-social {
   display: flex;
@@ -480,20 +614,20 @@ main { display: block; }
   justify-content: center;
   width: 22px;
   height: 22px;
-  color: var(--color-neutral-zone);
+  color: var(--text-secondary);
 }
 .social-badge svg { width: 100%; height: 100%; fill: currentColor; }
-.social-badge:hover { color: var(--color-signal-gold); }
+.social-badge:hover { color: var(--accent-gold); }
 
 .footer-social-text {
-  color: var(--color-neutral-zone);
+  color: var(--text-secondary);
   text-decoration: none;
 }
-.footer-social-text:hover { color: var(--color-signal-gold); }
+.footer-social-text:hover { color: var(--accent-gold); }
 
 .footer-copyright {
   font-size: 0.8rem;
-  color: rgba(231,231,231,0.6);
+  color: var(--text-tertiary);
   max-width: 40rem;
 }
 
