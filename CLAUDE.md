@@ -223,19 +223,34 @@ being copy-pasted across every page.
 
 ## Still open
 
-- **Blog cross-posting — link-out shipped 2026-09-06, feed/embed still deferred.** Old-site
-  content is now fully ported, so this was revisited (per the deferral note that used to live
-  here). The GD blog (`GetDangerousGames-Site`) already tags Shadows-relevant posts `Shadows` and
-  has a client-side tag-filter UI on `/blog/`; `News` now links out to
-  `https://getdangerous.net/blog/?tag=Shadows` via a "Follow the studio too" strip, kept
-  deliberately separate from the milestone list above it (the `/news/` archive stays a
-  Shadows-specific log, not the GD blog — see `content/sitemap.md` §6). To make that link
-  deep-linkable, `GetDangerousGames-Site/blog/index.html`'s tag-filter script was extended to
-  read a `?tag=` query param on load and pre-select the matching pill — see that repo's CLAUDE.md.
-  **Not done:** pulling GD posts to render inline on this site (JSON/RSS fetched client-side).
-  Blocked on confirming GitHub Pages actually serves cross-origin-readable responses between
-  shadowsrpg.com and getdangerous.net once both custom domains are live post-DNS-migration — untested,
-  don't assume it works. Revisit once DNS settles and that's been checked in a real browser.
+- **Blog cross-posting — link-out shipped and confirmed live 2026-09-06/07.** The GD blog
+  (`GetDangerousGames-Site`) tags Shadows-relevant posts `Shadows` and has a client-side
+  tag-filter UI on `/blog/`; `News` links out to `https://getdangerous.net/blog/?tag=Shadows` via
+  a "Follow the studio too" strip, kept deliberately separate from the milestone list above it
+  (the `/news/` archive stays a Shadows-specific log, not the GD blog — see `content/sitemap.md`
+  §6). The deep-link support (`?tag=` query param support in `blog/index.html`'s tag-filter
+  script) was implemented by Ken directly in that repo (commit `4268919`, alongside pointing
+  getdangerous.net's DNS at GitHub Pages) rather than through the pending patch this repo had
+  drafted — **verified live 2026-09-07**: `getdangerous.net/blog/?tag=Shadows` resolves, DNS is
+  confirmed switched, and the "Shadows" pill pre-selects correctly, showing only the 3
+  Shadows-tagged posts. The `C:\Apps\NEXT-shadows-blog-cross-link.md` / `PENDING-shadows-blog-tag-filter.patch`
+  files that were sitting outside this repo for that change are now obsolete — safe to delete.
+  **The JSON/RSS-embed option is no longer blocked either:** tested a live cross-origin `fetch()`
+  from a page on a different origin to `getdangerous.net/blog/?tag=Shadows` on 2026-09-07 — it
+  succeeded (`status 200`, `response.type: "cors"`, full body readable), confirming GitHub Pages'
+  custom-domain hosting does serve cross-origin-readable responses. The previous blocker
+  (untested CORS behavior) no longer applies; pulling GD posts to render inline on this site via
+  client-side fetch is now a real option whenever it's wanted, not just a link-out.
+- **shadowsrpg.com's own DNS is NOT yet switched over (caught 2026-09-07).** While verifying the
+  above, `https://shadowsrpg.com` was checked live and is still serving the **old Google Sites
+  site** (same platform bundle flagged elsewhere in this file, `AIza...` keys and all) — not this
+  repo's Jekyll build. This repo has never had a `CNAME` file, and `_config.yml` still carries
+  the temporary `kazamuki.github.io/Shadows-RPG-Site` project-page `url`/`baseurl` (with a
+  comment noting exactly this — see "Site architecture" above). This isn't a bug introduced by
+  any of this repo's work; shadowsrpg.com's DNS simply hasn't been pointed at this GitHub Pages
+  repo yet, unlike getdangerous.net's already-completed switch. Whenever that DNS work happens,
+  remember to also add a `CNAME` file here and flip `_config.yml`'s `url`/`baseurl` per that
+  existing comment — otherwise every asset and internal link will break on the real domain.
 
 ## Conventions
 
