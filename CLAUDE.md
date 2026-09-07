@@ -149,6 +149,34 @@ being copy-pasted across every page.
   Progress/Final) since that convention is scoped to Rules Preview WIP content, not general
   pages — same precedent as Home.
 - No remaining stub pages — every page in the approved sitemap is now built.
+- **Footer social icons + "See the game live" (2026-09-06):** caught a real gap against
+  `content/sitemap.md`'s footer spec — YouTube was missing from the footer social row, and it was
+  plain text links instead of the "clean icon assets" the sitemap called for. Fixed: added a
+  `social:` block to `_config.yml` (twitch/patreon/twitter/youtube), a shared
+  `_includes/social-icons.html` (simple-icons SVGs, same markup/paths as
+  `GetDangerousGames-Site/_includes/social-icons.html` for brand consistency — Discord
+  intentionally omitted here since Shadows doesn't have its own Discord presence), and matching
+  `.social-row`/`.social-badge` CSS in `theme.css`. Separately, Home gained a **"See the game
+  live"** section (after the CRB carousel, before the Rules Preview/World/News quick-links grid)
+  linking directly to the 4 real Shadows actual-play YouTube playlists (Shadows 2.0, World's
+  Apart, The Old Regime, 13th Floor) — playlist URLs pulled straight from
+  `GetDangerousGames-Site/youtube/index.html`'s "Shadows RPG, at the table" section rather than
+  re-curated, so they stay identical to the canonical list over there. No GD-repo edits were
+  needed for this — pure read, no write.
+- **Mailing list → Patreon (2026-09-06):** replaced the "Join the mailing list" button
+  (`https://forms.gle/q9SjtWLFTzedQiT39`, on Home and About) with a "Get updates on Patreon"
+  button pointing to `patreon.com/d33kode` — Patreon's free-follow tier covers the same
+  "subscribe to updates" need the Google Form served. Kept the existing "Become a Patron" button
+  alongside it (both point to the same URL, on purpose — Patreon lets a visitor pick free-follow
+  vs. paid membership once they land there; the two buttons signal both options exist). The old
+  Google Form link is no longer used anywhere on the site.
+- **Cerulean Nights fallback → Audiowide (2026-09-06):** per Ken's steer, swapped the temporary
+  display-font fallback from plain Inter to **Audiowide** (Google Fonts, open-source/OFL) —
+  `--font-display: 'Audiowide', 'Inter', sans-serif;` in `theme.css`, font loaded via the existing
+  Google Fonts `<link>` in `_layouts/default.html`. `brand/THEME.md` updated to match, with a
+  divergence note: `GetDangerousGames-Site` already uses a *different* stand-in (Unbounded) for
+  itself, so the two sites currently render display type in two different temporary fonts — this
+  is accepted, not a bug, until Cerulean Nights is actually licensed and self-hosted on both.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
@@ -192,7 +220,6 @@ being copy-pasted across every page.
 
 ## Still open
 
-- Is the old Google Form mailing-list link still current?
 - **Blog cross-posting — link-out shipped 2026-09-06, feed/embed still deferred.** Old-site
   content is now fully ported, so this was revisited (per the deferral note that used to live
   here). The GD blog (`GetDangerousGames-Site`) already tags Shadows-relevant posts `Shadows` and

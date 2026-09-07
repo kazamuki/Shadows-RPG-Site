@@ -29,6 +29,12 @@ exclude:
   - vendor/
   - node_modules/
 
+social:
+  twitch: https://twitch.tv/d33kode
+  patreon: https://patreon.com/d33kode
+  twitter: https://twitter.com/Shadows_RPG
+  youtube: https://www.youtube.com/@d33kode
+
 defaults:
   - scope:
       path: ""

@@ -49,16 +49,25 @@ default for dark-mode sections, code/terminal-styled panels, or hero banners.
 
 | Typeface | Role | Notes |
 |---|---|---|
-| **Cerulean Nights** (by Chequered Ink) | Display — titles, chapter/section headings, major brand moments | Mixed case only, never all-caps (the capital E's sharp corners clash with the font's curves). **Commercial license required before use — free-for-personal-use only on DaFont; see open items below.** |
+| **Cerulean Nights** (by Chequered Ink) | Display — titles, chapter/section headings, major brand moments | Mixed case only, never all-caps (the capital E's sharp corners clash with the font's curves). **Commercial license required before use — free-for-personal-use only on DaFont; see open items below.** Until licensed, Shadowsrpg.com uses **Audiowide** (Google Fonts, open-source/OFL) as its stand-in display font — see "Divergence" note below. |
 | **Inter** (Light, Regular, Semibold, Bold, Italic) | Body — the workhorse for headings and body copy | Freely available via Google Fonts. Default choice for anything long-form or read at length. |
 | **Roboto Mono** | Technical/UI voice — stat blocks, tables, system-output styling, code-like or terminal-flavored UI elements | Freely available via Google Fonts. Looks best on Gutter Black or White backgrounds, or with an accent color. Use for anything that should feel like a HUD readout or diagnostic panel. |
 
 Suggested CSS stack as a starting point:
 ```css
---font-display: 'Cerulean Nights', 'Inter', sans-serif; /* fallback until licensed */
+--font-display: 'Cerulean Nights', 'Audiowide', 'Inter', sans-serif; /* fallback until licensed */
 --font-body: 'Inter', system-ui, sans-serif;
 --font-mono: 'Roboto Mono', ui-monospace, monospace;
 ```
+
+**Divergence (2026-09-06):** Shadowsrpg.com currently ships `--font-display: 'Audiowide', 'Inter',
+sans-serif;` (no `'Cerulean Nights'` in the live stack — it isn't self-hosted anywhere yet, so
+there's nothing for that name to match). GetDangerousGames-Site picked a *different* stand-in
+(Unbounded) for itself already, per its own CLAUDE.md — so the two sites currently render display
+type in two different fonts, both temporary. This is a known, accepted gap while Cerulean Nights
+isn't licensed, not a sync bug — don't "fix" one site to match the other without asking Ken. Once
+Cerulean Nights is licensed and self-hosted, both should switch to it and this divergence goes
+away.
 
 ### Cerulean Nights: sourcing and embedding
 
