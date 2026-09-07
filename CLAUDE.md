@@ -166,10 +166,13 @@ being copy-pasted across every page.
 - **Mailing list → Patreon (2026-09-06):** replaced the "Join the mailing list" button
   (`https://forms.gle/q9SjtWLFTzedQiT39`, on Home and About) with a "Get updates on Patreon"
   button pointing to `patreon.com/d33kode` — Patreon's free-follow tier covers the same
-  "subscribe to updates" need the Google Form served. Kept the existing "Become a Patron" button
-  alongside it (both point to the same URL, on purpose — Patreon lets a visitor pick free-follow
-  vs. paid membership once they land there; the two buttons signal both options exist). The old
-  Google Form link is no longer used anywhere on the site.
+  "subscribe to updates" need the Google Form served. The old Google Form link is no longer used
+  anywhere on the site. **Corrected 2026-09-06:** originally shipped with a second "Become a
+  Patron" button alongside it, both pointing at the identical URL (reasoning at the time: Patreon
+  lets a visitor pick free-follow vs. paid once they land there, so two buttons would signal both
+  options exist). Ken flagged this as reading like a duplicate-button bug rather than an
+  intentional choice — two CTAs going to the exact same place looks broken, not helpful. Collapsed
+  to a single "Follow on Patreon" button on both Home and About.
 - **Cerulean Nights fallback → Audiowide (2026-09-06):** per Ken's steer, swapped the temporary
   display-font fallback from plain Inter to **Audiowide** (Google Fonts, open-source/OFL) —
   `--font-display: 'Audiowide', 'Inter', sans-serif;` in `theme.css`, font loaded via the existing
