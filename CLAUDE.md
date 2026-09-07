@@ -306,6 +306,20 @@ being copy-pasted across every page.
   last looked. Home's "Latest Update" card copy was also updated to match (no longer says
   "project milestones").
 
+- **Character Creation links to the live character sheet (2026-09-07).** The Shadows-Character-Sheet
+  repo shipped a real demo (interactive app) and a standalone blank/printable sheet, hosted on
+  GitHub Pages at `charactersheet.shadowsrpg.com` (Ken/Scott set the DNS + Pages config; the
+  Character Sheet repo's own `deploy-demo.yml` publishes on tag). Added a closing `.callout-strip`
+  to `/rules/character-creation/` — "Build one right now" — with two buttons: **Launch the
+  Character Sheet** (`https://charactersheet.shadowsrpg.com/`) and **Download a Blank Sheet**
+  (`.../blank-sheet.html`), both external links (`target="_blank"`). Used a `.rules-section` wrapper
+  around the strip rather than nesting another `.section` inside this page's single outer one —
+  `.section` sets its own max-width/padding, and nesting it double-pads instead of composing.
+  Verified locally via `jekyll serve` (Ruby/Jekyll are available in this environment, unlike the
+  session noted below) — renders correctly, no console errors. No other pages touched; Home's own
+  "How do I make a character?" section still links to this page as the entry point, so the new CTA
+  only needs to exist here.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
