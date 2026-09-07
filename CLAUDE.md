@@ -253,26 +253,30 @@ being copy-pasted across every page.
   confirmed switched, and the "Shadows" pill pre-selects correctly, showing only the 3
   Shadows-tagged posts. The `C:\Apps\NEXT-shadows-blog-cross-link.md` / `PENDING-shadows-blog-tag-filter.patch`
   files that were sitting outside this repo for that change are now obsolete — safe to delete.
-  **The JSON/RSS-embed option is no longer blocked either:** tested a live cross-origin `fetch()`
-  from a page on a different origin to `getdangerous.net/blog/?tag=Shadows` on 2026-09-07 — it
-  succeeded (`status 200`, `response.type: "cors"`, full body readable), confirming GitHub Pages'
-  custom-domain hosting does serve cross-origin-readable responses. The previous blocker
-  (untested CORS behavior) no longer applies; pulling GD posts to render inline on this site via
-  client-side fetch is now a real option whenever it's wanted, not just a link-out.
-- **BLOCKED: shadowsrpg.com's own DNS is NOT yet switched over — Ken doesn't own this domain.**
-  Confirmed 2026-09-07: `https://shadowsrpg.com` is still serving the **old Google Sites site**
-  (same platform bundle flagged elsewhere in this file, `AIza...` keys and all) — not this repo's
-  Jekyll build. This repo has never had a `CNAME` file, and `_config.yml` still carries the
-  temporary `kazamuki.github.io/Shadows-RPG-Site` project-page `url`/`baseurl` (comment in that
-  file explains exactly this — see "Site architecture" above). **Why this is stuck, unlike
-  getdangerous.net's already-completed switch: Ken doesn't personally control the shadowsrpg.com
-  domain — Scott does.** Ken needs to get in touch with Scott before any DNS change can happen
-  here; this isn't a technical blocker, it's an access/ownership one, and not something a future
-  session can work around. **Do not attempt any DNS/domain configuration for shadowsrpg.com** —
-  wait for Ken to confirm he has Scott's cooperation before touching this. Once that access
-  exists, the technical steps are: add a `CNAME` file (content: `shadowsrpg.com`) and flip
-  `_config.yml`'s `url` to `"https://shadowsrpg.com"` / `baseurl` to `""` per the existing comment
-  — otherwise every asset and internal link breaks on the real domain.
+  **The client-side embed is now built, 2026-09-07** (the JSON/RSS-embed option flagged as
+  unblocked, above, turned into this rather than an actual JSON feed — GD's blog has no feed
+  endpoint, so the embed fetches `getdangerous.net/blog/?tag=Shadows`'s raw HTML and parses it
+  with `DOMParser`, filtering `.post-card` elements by their `data-tags` attribute for `Shadows`).
+  Lives in `news/index.html` as a `#gd-blog-embed` section, hidden until the fetch resolves with
+  at least one matching post, rendered above the existing "Follow the studio too" link-out (kept
+  as a fallback for fetch failures and as the "see everything" path). Verified working via local
+  `jekyll serve` — pulled and rendered the 3 real Shadows-tagged posts with correct absolute links
+  back to `getdangerous.net`. **Fragile by nature:** this scrapes GD's blog page markup rather
+  than a stable data contract, so a future redesign of `GetDangerousGames-Site/blog/index.html`
+  that renames `.post-card`/`.post-card-date`/`data-tags` will silently break this (it just fails
+  the fetch/parse and falls back to the link-out — no visible error, so it's worth spot-checking
+  `/news/` after any GD blog markup change).
+- **shadowsrpg.com DNS/CNAME switch — code side done 2026-09-07, waiting on DNS propagation.**
+  Scott (who controls the shadowsrpg.com domain, not Ken) gained access to the domain's DNS
+  settings and pointed it at GitHub Pages using the same record set already proven out for
+  getdangerous.net (GitHub Pages' 4 apex `A` records + a `www` `CNAME` to `kazamuki.github.io`).
+  With that in place, this repo added the `CNAME` file (content: `shadowsrpg.com`) and flipped
+  `_config.yml`'s `url` to `"https://shadowsrpg.com"` / `baseurl` to `""`. **Until DNS actually
+  propagates and GitHub issues the HTTPS cert, `https://shadowsrpg.com` will keep serving the old
+  Google Sites site** (same platform bundle flagged elsewhere in this file, `AIza...` keys and
+  all) — that's expected, not a sign anything is broken; don't re-touch the CNAME/config over it.
+  A future session should just check whether `https://shadowsrpg.com` now serves this Jekyll
+  build before assuming more work is needed here.
 
 ## Conventions
 

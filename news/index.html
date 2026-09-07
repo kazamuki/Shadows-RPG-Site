@@ -32,6 +32,14 @@ description: Dated project milestones for Shadows — CRB progress, playtests, a
   </div>
 </section>
 
+<section class="section section--tight" id="gd-blog-embed" hidden>
+  <div class="section-intro">
+    <h2>From the studio blog</h2>
+    <p>Shadows-tagged posts from the Get Dangerous Games blog.</p>
+  </div>
+  <div class="news-list" id="gd-blog-embed-list"></div>
+</section>
+
 <section class="section section--tight">
   <div class="callout-strip">
     <h2>Follow the studio too</h2>
@@ -42,3 +50,68 @@ description: Dated project milestones for Shadows — CRB progress, playtests, a
     </p>
   </div>
 </section>
+
+<script>
+  (function () {
+    var section = document.getElementById('gd-blog-embed');
+    var list = document.getElementById('gd-blog-embed-list');
+    if (!section || !list) return;
+
+    fetch('https://getdangerous.net/blog/?tag=Shadows')
+      .then(function (res) { return res.ok ? res.text() : Promise.reject(new Error('bad status')); })
+      .then(function (html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var posts = [];
+
+        doc.querySelectorAll('.post-card').forEach(function (card) {
+          var tags = (card.getAttribute('data-tags') || '').split('|');
+          if (tags.indexOf('Shadows') === -1) return;
+
+          var href = card.getAttribute('href');
+          var dateEl = card.querySelector('.post-card-date');
+          var titleEl = card.querySelector('h3');
+          var excerptEl = card.querySelector('p');
+
+          posts.push({
+            url: new URL(href, 'https://getdangerous.net/').href,
+            date: dateEl ? dateEl.textContent : '',
+            title: titleEl ? titleEl.textContent : '',
+            excerpt: excerptEl ? excerptEl.textContent : ''
+          });
+        });
+
+        if (!posts.length) return;
+
+        posts.slice(0, 3).forEach(function (post) {
+          var article = document.createElement('article');
+          article.className = 'news-entry';
+
+          var dateSpan = document.createElement('span');
+          dateSpan.className = 'news-date';
+          dateSpan.textContent = post.date;
+
+          var h2 = document.createElement('h2');
+          var link = document.createElement('a');
+          link.href = post.url;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.textContent = post.title;
+          h2.appendChild(link);
+
+          var p = document.createElement('p');
+          p.textContent = post.excerpt;
+
+          article.appendChild(dateSpan);
+          article.appendChild(h2);
+          article.appendChild(p);
+          list.appendChild(article);
+        });
+
+        section.hidden = false;
+      })
+      .catch(function () {
+        // Fetch failed (offline, CORS regression, etc.) — the "Follow the studio" link-out
+        // below still covers this case, so there's nothing else to do here.
+      });
+  })();
+</script>
