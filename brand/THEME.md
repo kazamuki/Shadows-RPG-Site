@@ -45,6 +45,38 @@ colors — if cyan or green start to dominate a layout, pull back.
 Static Cyan or Ghostly Green accents is confirmed to work well and is a good
 default for dark-mode sections, code/terminal-styled panels, or hero banners.
 
+## Light mode (added 2026-09-07)
+
+Shadowsrpg.com, Getdangerous.net, and the Shadows Character Sheet app share one
+light/dark token system and toggle (`assets/css/theme.css`'s `:root` /
+`:root[data-theme="light"]` blocks, `assets/js/theme-init.js`,
+`assets/js/theme-toggle.js` — keep all three in sync across repos, same as
+this file). The palette above stays the source of truth for the *brand
+constants* (Aether Pulse, Deep Circuit, Static Cyan, etc.), which are
+theme-invariant; everything that actually paints on-page — background, card
+fill, borders, body/heading text — goes through semantic tokens
+(`--bg-page`, `--card-bg`, `--text-primary/secondary/tertiary`,
+`--accent-cyan/gold/green/magenta`, `--border-subtle/visible`) that resolve
+to different values per theme. Static Cyan, Signal Gold, and Ghostly Green
+all fail WCAG text contrast against the light background, so in light mode
+`--accent-cyan`/`--accent-green` fall back to Deep Circuit and
+`--accent-gold`/`--accent-magenta` fall back to Aether Pulse — component CSS
+should reference the `--accent-*` tokens, not the raw palette constants
+directly, for anything that needs to stay legible on the page background in
+both themes.
+
+The one exception: anything that sits on a **fixed-dark surface regardless of
+site theme** (a photo band like the home hero, or a solid brand-color fill
+like `.callout-strip`) must use fixed colors (`--text-light`, the raw
+`--static-cyan`/`--signal-gold` constants, or a literal `rgba(255,255,255,X)`)
+instead of the theme-tracked `--accent-*`/`--text-*` tokens — those tokens
+assume they're sitting on `--bg-page`, and swapping to their light-mode value
+on a surface that's always dark makes the text disappear. Shadowsrpg.com hit
+this for real once already: `.btn--ghost` (used inside the hero and every
+`.callout-strip`) and plain links inside `.callout-strip` both need fixed
+colors for exactly this reason — see `assets/css/theme.css`'s comments at
+those rules.
+
 ## Typography
 
 | Typeface | Role | Notes |

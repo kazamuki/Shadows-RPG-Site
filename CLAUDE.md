@@ -320,6 +320,56 @@ being copy-pasted across every page.
   "How do I make a character?" section still links to this page as the entry point, so the new CTA
   only needs to exist here.
 
+- **Light mode added (2026-09-07).** Ken supplied portable `theme.css`/`theme-init.js`/
+  `theme-toggle.js` files (already proven out on `GetDangerousGames-Site` — confirmed byte-identical
+  to that repo's copies via diff) implementing a shared light/dark token system + toggle button,
+  used across Shadowsrpg.com, Getdangerous.net, and the Shadows Character Sheet app. Persistence
+  is via `localStorage`, and `theme-init.js` runs as a blocking `<script>` before the CSS `<link>`
+  in `<head>` (added to `_layouts/default.html`) so `html[data-theme]` is set before first paint —
+  no dark-then-light flash on repeat visits, which was Ken's specific ask.
+  This repo's `assets/css/theme.css` previously hardcoded every color as either a raw palette
+  variable (`--color-signal-gold`, etc.) or literal `rgba()` — unlike GD, which had already been
+  retrofitted to reference semantic tokens (`--card-bg`, `--text-primary`, `--accent-cyan`, etc.)
+  everywhere a color actually paints on-page. Adding the token `:root` blocks alone would have done
+  nothing visually, so the whole file was retrofitted the same way GD's `main.css` was: every card/
+  border/text color now goes through the semantic tokens instead of the raw constants, and the
+  `--color-*` variable names were dropped in favor of the shared system's names (`--aether-pulse`,
+  `--deep-circuit`, etc., no prefix). Toggle button markup added to `_includes/nav.html` (matches
+  GD's SVG sun/moon markup exactly, `data-theme-toggle` attribute wired by the shared JS).
+  **Two real light-mode-only bugs found and fixed during verification** (see `brand/THEME.md`'s new
+  "Light mode" section for the general rule these both fall under — fixed-dark surfaces need fixed
+  colors, not theme-tracked tokens):
+  1. `.btn--ghost` (used inside the home hero and every `.callout-strip`) initially used the
+     theme-tracked `--text-secondary`/`--accent-cyan` tokens, which flip to dark values in light
+     mode — making "Meet NYTE City" and "Join the Discord" nearly invisible against those buttons'
+     always-dark backing. Fixed to fixed `rgba(255,255,255,0.8)` text + fixed `--static-cyan` hover.
+  2. Plain (non-`.btn`) links inside `.callout-strip` (About's "News" link, News's "studio blog"
+     link) inherited the global `a` rule's `--accent-cyan`, which resolves to the same Deep Circuit
+     navy as the strip's fixed background in light mode — invisible. Added a fixed `--signal-gold`
+     override for `.callout-strip a:not(.btn)`.
+  Also fixed three inline-style accent colors on About's crew cards (`about/index.html`) that
+  referenced the raw `--color-static-cyan`/`--color-ghostly-green`/`--color-neon-veil` directly —
+  same WCAG-failure issue the shared token file warns about — now `--accent-cyan`/`--accent-green`/
+  `--accent-magenta`, and the muted nickname text now uses `--text-secondary` instead of the
+  near-white `--color-neutral-zone` (which would've nearly disappeared on a white card).
+  Verified live via `jekyll serve`: toggled both directions on Home, confirmed `localStorage`
+  persistence survives a fresh navigation (no flash), spot-checked Rules Preview hub, Character
+  Creation's new character-sheet callout-strip, About, and The World in both themes, and confirmed
+  dark mode is pixel-identical to before this change (regression check). `brand/THEME.md` updated
+  with a "Light mode" section documenting the token system and the fixed-vs-theme-tracked rule for
+  future pages/components.
+
+- **Reddit added to socials (2026-09-07).** Ken confirmed `r/shadowsRPG` is the game's official
+  subreddit. Added `reddit: https://www.reddit.com/r/shadowsRPG/` to `_config.yml`'s `social:`
+  block and a Reddit badge (simple-icons mark) to `_includes/social-icons.html`, per Ken's
+  requested order: Discord, Patreon, Reddit, then the rest (Twitch, X, YouTube unchanged relative
+  to each other). **This is a deliberate, one-way divergence from `GetDangerousGames-Site`'s copy
+  of `social-icons.html`** — the 2026-09-07 social-sync entry above notes the two were byte-for-byte
+  identical at the time, but Reddit is Shadows-specific (the game's subreddit, not a studio-wide
+  account) and the reorder was a Shadows-only ask, so GD's copy is intentionally left as-is rather
+  than back-ported. A future full social-sync pass should treat this file's divergence as expected,
+  not drift to fix.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
