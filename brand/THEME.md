@@ -60,14 +60,12 @@ Suggested CSS stack as a starting point:
 --font-mono: 'Roboto Mono', ui-monospace, monospace;
 ```
 
-**Divergence (2026-09-06):** Shadowsrpg.com currently ships `--font-display: 'Audiowide', 'Inter',
-sans-serif;` (no `'Cerulean Nights'` in the live stack — it isn't self-hosted anywhere yet, so
-there's nothing for that name to match). GetDangerousGames-Site picked a *different* stand-in
-(Unbounded) for itself already, per its own CLAUDE.md — so the two sites currently render display
-type in two different fonts, both temporary. This is a known, accepted gap while Cerulean Nights
-isn't licensed, not a sync bug — don't "fix" one site to match the other without asking Ken. Once
-Cerulean Nights is licensed and self-hosted, both should switch to it and this divergence goes
-away.
+**Temporary stand-in, both sites now aligned (as of 2026-09-06/07):** Shadowsrpg.com ships
+`--font-display: 'Audiowide', 'Inter', sans-serif;` (no `'Cerulean Nights'` in the live stack — it
+isn't self-hosted anywhere yet, so there's nothing for that name to match). GetDangerousGames-Site
+initially picked a different stand-in (Unbounded) for itself, but Ken switched it to Audiowide too
+— both sites currently render display type in the same temporary font. Once Cerulean Nights is
+licensed and self-hosted, both should switch to it and `'Audiowide'` drops out of both stacks.
 
 ### Cerulean Nights: sourcing and embedding
 

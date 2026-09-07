@@ -176,10 +176,28 @@ being copy-pasted across every page.
 - **Cerulean Nights fallback → Audiowide (2026-09-06):** per Ken's steer, swapped the temporary
   display-font fallback from plain Inter to **Audiowide** (Google Fonts, open-source/OFL) —
   `--font-display: 'Audiowide', 'Inter', sans-serif;` in `theme.css`, font loaded via the existing
-  Google Fonts `<link>` in `_layouts/default.html`. `brand/THEME.md` updated to match, with a
-  divergence note: `GetDangerousGames-Site` already uses a *different* stand-in (Unbounded) for
-  itself, so the two sites currently render display type in two different temporary fonts — this
-  is accepted, not a bug, until Cerulean Nights is actually licensed and self-hosted on both.
+  Google Fonts `<link>` in `_layouts/default.html`. `brand/THEME.md` updated to match. **Update
+  2026-09-06/07:** the divergence noted at the time (GD using Unbounded as its own stand-in) is
+  now resolved — Ken separately switched `GetDangerousGames-Site` to Audiowide too (commit
+  `4268919`), so both sites currently converge on the same temporary display font. `brand/THEME.md`
+  still needs its divergence note corrected/removed to match — flagged here so a future session
+  doesn't leave it stale.
+- **Social links made consistent with `GetDangerousGames-Site` (2026-09-07):** per Ken's ask,
+  compared every social link against the GD repo and fixed real drift: `_config.yml`'s `social:`
+  block now uses the exact same URL format GD uses for shared accounts (`https://www.twitch.tv/d33kode`,
+  `https://www.patreon.com/d33kode` — both previously missing `www.` here). Every hardcoded
+  Patreon link in `index.html`/`about/index.html` was replaced with `{{ site.social.patreon }}` so
+  there's one source of truth going forward instead of three places that could drift independently.
+  Added a **Discord** icon to the footer (`https://discord.gg/yMfKRtuvwt`) matching GD's — Ken
+  confirmed this explicitly since the approved sitemap's footer spec never listed Discord for this
+  site (Discord wasn't part of the original decision, so this needed a real yes rather than being
+  assumed). `_includes/social-icons.html` is now byte-for-byte identical to
+  `GetDangerousGames-Site/_includes/social-icons.html` (confirmed with a whitespace-insensitive
+  diff) — same 5 icons, same order (Discord, Twitch, X, YouTube, Patreon), same SVG markup.
+  **Deliberately NOT changed:** the Twitter/X account. This site uses the dedicated
+  `twitter.com/Shadows_RPG` handle while GD uses the creator's personal `twitter.com/d33KODE` —
+  different accounts on purpose (confirmed against `content/inventory.md`'s record of the old
+  site's own footer, which already used `Shadows_RPG`), not a drift to fix.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
@@ -241,16 +259,20 @@ being copy-pasted across every page.
   custom-domain hosting does serve cross-origin-readable responses. The previous blocker
   (untested CORS behavior) no longer applies; pulling GD posts to render inline on this site via
   client-side fetch is now a real option whenever it's wanted, not just a link-out.
-- **shadowsrpg.com's own DNS is NOT yet switched over (caught 2026-09-07).** While verifying the
-  above, `https://shadowsrpg.com` was checked live and is still serving the **old Google Sites
-  site** (same platform bundle flagged elsewhere in this file, `AIza...` keys and all) — not this
-  repo's Jekyll build. This repo has never had a `CNAME` file, and `_config.yml` still carries
-  the temporary `kazamuki.github.io/Shadows-RPG-Site` project-page `url`/`baseurl` (with a
-  comment noting exactly this — see "Site architecture" above). This isn't a bug introduced by
-  any of this repo's work; shadowsrpg.com's DNS simply hasn't been pointed at this GitHub Pages
-  repo yet, unlike getdangerous.net's already-completed switch. Whenever that DNS work happens,
-  remember to also add a `CNAME` file here and flip `_config.yml`'s `url`/`baseurl` per that
-  existing comment — otherwise every asset and internal link will break on the real domain.
+- **BLOCKED: shadowsrpg.com's own DNS is NOT yet switched over — Ken doesn't own this domain.**
+  Confirmed 2026-09-07: `https://shadowsrpg.com` is still serving the **old Google Sites site**
+  (same platform bundle flagged elsewhere in this file, `AIza...` keys and all) — not this repo's
+  Jekyll build. This repo has never had a `CNAME` file, and `_config.yml` still carries the
+  temporary `kazamuki.github.io/Shadows-RPG-Site` project-page `url`/`baseurl` (comment in that
+  file explains exactly this — see "Site architecture" above). **Why this is stuck, unlike
+  getdangerous.net's already-completed switch: Ken doesn't personally control the shadowsrpg.com
+  domain — Scott does.** Ken needs to get in touch with Scott before any DNS change can happen
+  here; this isn't a technical blocker, it's an access/ownership one, and not something a future
+  session can work around. **Do not attempt any DNS/domain configuration for shadowsrpg.com** —
+  wait for Ken to confirm he has Scott's cooperation before touching this. Once that access
+  exists, the technical steps are: add a `CNAME` file (content: `shadowsrpg.com`) and flip
+  `_config.yml`'s `url` to `"https://shadowsrpg.com"` / `baseurl` to `""` per the existing comment
+  — otherwise every asset and internal link breaks on the real domain.
 
 ## Conventions
 
