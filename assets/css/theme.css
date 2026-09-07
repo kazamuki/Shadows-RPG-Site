@@ -19,8 +19,9 @@
   --color-text-dark: #111111;
   --color-text-light: #FFFFFF;
 
-  /* Cerulean Nights isn't licensed yet (brand/THEME.md) — fall back to Inter until it is. */
-  --font-display: 'Inter', sans-serif;
+  /* Cerulean Nights isn't licensed yet (brand/THEME.md) — Audiowide (open-source, Google Fonts)
+     stands in for display type until it is. */
+  --font-display: 'Audiowide', 'Inter', sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'Roboto Mono', ui-monospace, monospace;
 
@@ -466,12 +467,35 @@ main { display: block; }
 
 .footer-social {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   font-family: var(--font-mono);
   font-size: 0.85rem;
 }
+
+.social-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: var(--color-neutral-zone);
+}
+.social-badge svg { width: 100%; height: 100%; fill: currentColor; }
+.social-badge:hover { color: var(--color-signal-gold); }
+
+.footer-social-text {
+  color: var(--color-neutral-zone);
+  text-decoration: none;
+}
+.footer-social-text:hover { color: var(--color-signal-gold); }
 
 .footer-copyright {
   font-size: 0.8rem;
