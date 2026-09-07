@@ -227,6 +227,16 @@ main { display: block; }
 .rules-card h3 { margin: 0.5em 0 0.4em; color: var(--color-text-light); }
 .rules-card p { color: var(--color-neutral-zone); font-size: 0.95rem; margin: 0; }
 
+/* Compact variant: Home's shortcut grid into Rules Preview (image + title, no body copy) */
+.rules-grid--home {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+.rules-grid--home .rules-card img { height: 120px; }
+.rules-grid--home .rules-card-body { padding: 1rem 1.1rem 1.1rem; text-align: center; }
+.rules-grid--home .rules-card-body--noimg { padding-top: 1.1rem; }
+.rules-grid--home .rules-card h3 { margin: 0; font-size: 1rem; }
+
 /* --- Rules Preview sub-pages --- */
 
 .page-header {
@@ -317,6 +327,18 @@ main { display: block; }
   padding: 1.75rem;
 }
 
+/* --- Crew avatars (About) --- */
+
+.crew-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
 /* --- Chargen steps --- */
 
 .step-list {
@@ -353,53 +375,6 @@ main { display: block; }
 }
 
 /* --- CRB spread carousel --- */
-
-.crb-carousel {
-  display: flex;
-  gap: 1.25rem;
-  overflow-x: auto;
-  padding: 0.5rem 0 1rem;
-  scroll-snap-type: x mandatory;
-}
-
-.crb-carousel figure {
-  flex: 0 0 auto;
-  width: min(320px, 80vw);
-  margin: 0;
-  scroll-snap-align: start;
-}
-
-.crb-carousel a {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-}
-
-.crb-carousel img {
-  border-radius: 6px;
-  border: 1px solid rgba(231,231,231,0.15);
-  transition: border-color 0.15s ease, opacity 0.15s ease;
-}
-
-.crb-carousel a:hover img,
-.crb-carousel a:focus-visible img {
-  border-color: var(--color-signal-gold);
-  opacity: 0.9;
-}
-
-.crb-carousel figcaption {
-  margin-top: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--color-neutral-zone);
-  text-align: center;
-  transition: color 0.15s ease;
-}
-
-.crb-carousel a:hover figcaption,
-.crb-carousel a:focus-visible figcaption {
-  color: var(--color-signal-gold);
-}
 
 /* --- Status tags (Draft / In Progress / Final) --- */
 

@@ -49,7 +49,7 @@ default for dark-mode sections, code/terminal-styled panels, or hero banners.
 
 | Typeface | Role | Notes |
 |---|---|---|
-| **Cerulean Nights** (by Chequered Ink) | Display — titles, chapter/section headings, major brand moments | Mixed case only, never all-caps (the capital E's sharp corners clash with the font's curves). **Commercial license required before use — free-for-personal-use only on DaFont; see open items below.** Until licensed, Shadowsrpg.com uses **Audiowide** (Google Fonts, open-source/OFL) as its stand-in display font — see "Divergence" note below. |
+| **Cerulean Nights** (by Chequered Ink) | Display — titles, chapter/section headings, major brand moments | Mixed case only, never all-caps (the capital E's sharp corners clash with the font's curves). **Commercial license required before use — free-for-personal-use only on DaFont; see open items below.** Until licensed, Shadowsrpg.com uses **Audiowide** (Google Fonts, open-source/OFL) as its stand-in display font — see the temporary stand-in note below. |
 | **Inter** (Light, Regular, Semibold, Bold, Italic) | Body — the workhorse for headings and body copy | Freely available via Google Fonts. Default choice for anything long-form or read at length. |
 | **Roboto Mono** | Technical/UI voice — stat blocks, tables, system-output styling, code-like or terminal-flavored UI elements | Freely available via Google Fonts. Looks best on Gutter Black or White backgrounds, or with an accent color. Use for anything that should feel like a HUD readout or diagnostic panel. |
 

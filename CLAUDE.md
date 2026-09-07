@@ -76,7 +76,8 @@ being copy-pasted across every page.
 - `assets/css/theme.css` — hand-rolled CSS, variables lifted straight from `brand/THEME.md`. Keep
   the two in sync if the palette changes.
 - `assets/img/` — brand marks (`gd-logo-mark.png` is GD Assets' `LOGO NO TEXT.png`, used small in
-  the top-right nav corner per Ken's steer 2026-09-06; `favicon-skull-dice.jpg`) and
+  the top-right nav corner per Ken's steer 2026-09-06; `favicon-skull-dice.png`, swapped from a
+  `.jpg` 2026-09-07 — see Build status below) and
   `assets/img/crb-spreads/` (the 5 real CRB book-spread screenshots from the old site's Home
   carousel, resized/compressed for web — originals in `Google-Page-Original/DRAFT/Home/` were
   3-6MB each straight out of the export). `hero-background.jpg` is also from that same old-export
@@ -180,8 +181,8 @@ being copy-pasted across every page.
   2026-09-06/07:** the divergence noted at the time (GD using Unbounded as its own stand-in) is
   now resolved — Ken separately switched `GetDangerousGames-Site` to Audiowide too (commit
   `4268919`), so both sites currently converge on the same temporary display font. `brand/THEME.md`
-  still needs its divergence note corrected/removed to match — flagged here so a future session
-  doesn't leave it stale.
+  has since been corrected to match (its "Temporary stand-in, both sites now aligned" note) — no
+  longer a stale-doc risk.
 - **Social links made consistent with `GetDangerousGames-Site` (2026-09-07):** per Ken's ask,
   compared every social link against the GD repo and fixed real drift: `_config.yml`'s `social:`
   block now uses the exact same URL format GD uses for shared accounts (`https://www.twitch.tv/d33kode`,
@@ -198,6 +199,94 @@ being copy-pasted across every page.
   `twitter.com/Shadows_RPG` handle while GD uses the creator's personal `twitter.com/d33KODE` —
   different accounts on purpose (confirmed against `content/inventory.md`'s record of the old
   site's own footer, which already used `Shadows_RPG`), not a drift to fix.
+- **First-feedback pass (2026-09-07):** Ken's first real user feedback since launch, actioned in
+  one session:
+  - **Home's CRB carousel replaced with a shortcut grid into Rules Preview.** The old
+    `.crb-carousel` (horizontal scroll-snap filmstrip) had a real bug Ken caught: the Human and
+    Cyborg archetype spreads both linked to `/rules/archetypes/` — two cards, same destination.
+    Replaced with a `.rules-grid.rules-grid--home` (new compact CSS variant of the existing
+    Rules-Preview-hub `.rules-grid`/`.rules-card` component — image + title only, no body copy,
+    smaller tiles) linking to all 6 Rules Preview sub-pages once each — Character Creation, Power
+    Levels, Stats & Skills, Advantages & Disadvantages, Archetypes, Equipment — plus a "Browse the
+    full Rules Preview →" link below the grid. The old `.crb-carousel` CSS block is now dead code
+    and was removed from `theme.css`.
+  - **About page now names the crew**, matching how `GetDangerousGames-Site/about/index.html`
+    does it (Deighton "d33Kode"/Creator, Scott "Melf"/GM & Technical Writer, Ken "Kaza"/Site &
+    Systems) instead of the old generic "a small independent studio" copy — Ken's steer was that
+    calling the team out by name reads better than staying anonymous. Three `.feature-card`s, role
+    label + name + one Shadows-specific line each. **Crew photos added same session**: Ken
+    attached the three avatars (confirmed identical to `GetDangerousGames-Site/assets/images/
+    about-deighton.png`/`about-scott.png`/`about-ken.png` by direct file comparison — Deighton is
+    the d33kode bear-mascot logo, Scott a cartoon avatar, Ken a stone-gargoyle photo), copied into
+    this repo as `assets/img/about-{deighton,scott,ken}.png`. New `.crew-avatar` CSS in
+    `theme.css` (72px circle, 2px `currentColor` border) mirrors GD's own `main.css` rule
+    byte-for-byte in spirit, with each avatar's `border-color` set inline to match that person's
+    role-label accent color (static-cyan / ghostly-green / neon-veil).
+  - **Discord CTA added** alongside the existing Patreon button on About's closing callout-strip,
+    and (for consistency, not explicitly requested but the same component appears on both pages)
+    on Home's matching "Follow along and get in the game" strip too. Both use
+    `{{ site.social.discord }}`, already wired up in `_config.yml` from the prior social-sync pass.
+  - **Fixed an overpromise on Character Creation:** the page said "The full breakdown of Stats and
+    how a check actually resolves lives on Stats & Skills" — but Stats & Skills was deliberately
+    rewritten (see the 2026-09-06 Build status entry above) to drop exact formulas/tables in favor
+    of plain-English gists. The link target never delivered on that specific promise. Reworded to
+    "More on how Stats work, and what a Skill Check actually feels like at the table, lives on
+    Stats & Skills." Found the identical pattern in two more places during a full-site text pass
+    and fixed both for consistency: Home's Synergy System blurb ("Full mechanics live in Rules
+    Preview" → "More on how it works lives in..."), and the Rules Preview hub's own Stats & Skills
+    card blurb ("the math under everything" → "a feel for how the Synergy System's d10 skill check
+    resolves").
+  - **Social links (item 2 of Ken's feedback) needed no changes** — the 2026-09-07 sync entry
+    above already covers this; re-verified discord/twitch/patreon/youtube URLs are still
+    byte-identical to `GetDangerousGames-Site/_config.yml`, and the Twitter divergence is still
+    the confirmed-intentional one.
+  - **Not verified in a live browser:** this session's sandboxed tool environment has no Ruby/
+    Jekyll on `PATH` (checked common install locations, none found), so `jekyll serve`/`build`
+    couldn't be run to visually confirm the rendered result. All edits were hand-checked for
+    balanced Liquid/HTML tags and matched against existing working patterns elsewhere in these
+    same files, but a future session (or Ken locally) should run `jekyll serve` and eyeball
+    `/` and `/about/` at least once before calling this fully verified.
+- **Crew photos added to About (2026-09-07, same day as the feedback pass above).** Ken attached
+  the three avatars used on `GetDangerousGames-Site/about/index.html` — confirmed identical to
+  that repo's `assets/images/about-deighton.png`/`about-scott.png`/`about-ken.png` by direct file
+  comparison (Deighton is the d33kode bear-mascot logo, Scott a cartoon avatar, Ken a
+  stone-gargoyle photo) — copied into this repo as `assets/img/about-{deighton,scott,ken}.png`.
+  New `.crew-avatar` CSS in `theme.css` (72px circle, 2px `currentColor` border) mirrors GD's own
+  `main.css` rule, with each avatar's `border-color` set inline to match that person's role-label
+  accent color (static-cyan / ghostly-green / neon-veil).
+- **Google Analytics added (2026-09-07).** Ken already had a GA4 property for this site — no
+  Scott/domain coordination needed, despite Scott controlling the shadowsrpg.com DNS (see the DNS
+  entry below): a GA4 measurement ID is just a property Ken creates himself and pastes into
+  config, unrelated to who owns the domain's DNS. `_config.yml` gained
+  `google_analytics: "G-XPJHE8H4SJ"`; `_layouts/default.html` gained the same hand-rolled
+  `gtag.js` snippet `GetDangerousGames-Site/_layouts/default.html` uses (GitHub Pages' legacy
+  Jekyll build has no analytics plugin in its allowed list, so both sites just inline the script
+  rather than relying on a plugin) — guarded by `{% if site.google_analytics %}` same as GD.
+  **Not yet verified live**: same local-Ruby-unavailable limitation as the rest of this session
+  applies — worth confirming the Realtime report in GA shows a hit after the next real deploy.
+- **OG/Twitter-card meta tags added (2026-09-07).** Ken noticed shadowsrpg.com links weren't
+  showing an image in Discord — the root cause was simply that no OG meta existed at all (this
+  repo has no `jekyll-seo-tag`, unlike `GetDangerousGames-Site`). Hand-rolled in
+  `_layouts/default.html` rather than pulling in the plugin: `og:title`/`og:description`/`og:url`/
+  `og:image` + `twitter:card summary_large_image` and its title/description/image, all built from
+  `page.title`/`page.description` (same fallback-to-site-defaults pattern the `<title>` tag
+  already used) plus a new `page.image` front-matter override (matches GD's own per-page `image:`
+  convention) that falls back to `hero-background.jpg` (1920×1080) site-wide when a page doesn't
+  set one. No page currently sets `image:` — every page shares the hero shot as its link-preview
+  image until/unless a page-specific one is added later. **Not yet verified**: Discord caches
+  unfurled link previews per-URL, so re-testing the exact same previously-shared link may still
+  show the old (image-less) preview even after this deploy — check with a fresh link/channel.
+- **Favicon fixed (2026-09-07).** Ken flagged the tab icon rendering as basically a solid black
+  square with a little purple — traced to `favicon-skull-dice.jpg` being a **JPEG** (no alpha
+  channel) of the skull/d10 mark on a black background: at favicon scale, the black square reads
+  as the icon instead of a transparent triangle mark. Replaced with `Logo - Shadows d10.png` from
+  `C:\Users\Kazam\OneDrive\Documents\Gaming\Shadows\Core Rule Book\Art Assets\Icons\` — confirmed
+  via the PNG's own header (`colortype 6` = true RGBA) that it actually carries transparency
+  around the triangle, unlike the old JPG. Copied in as `assets/img/favicon-skull-dice.png`; old
+  `.jpg` removed (only reference was the one `<link rel="icon">` tag, now repointed). This is the
+  no-text version of the mark, matching Ken's ask ("probably best to use the one without the
+  text") — the sibling file `logo png.png` in that same source folder has "shadows" text baked in
+  underneath the same triangle and was deliberately not used here.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 

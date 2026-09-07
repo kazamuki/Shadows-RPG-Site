@@ -4,6 +4,7 @@ description: >-
   layer for the Shadows Core Rulebook.
 url: "https://shadowsrpg.com"
 baseurl: ""
+google_analytics: "G-XPJHE8H4SJ"
 
 markdown: kramdown
 kramdown:
