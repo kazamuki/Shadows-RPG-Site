@@ -1,40 +1,22 @@
 ---
 title: News
-description: Dated project milestones for Shadows — CRB progress, playtests, and site updates.
+description: Shadows updates from the studio blog, and a changelog of what's changed on this site.
 ---
 
 <section class="section">
   <div class="section-intro">
     <h1>News</h1>
     <p>
-      A running, dated archive of project milestones — CRB chapter progress, playtest calls, and
-      site updates.
+      Shadows updates — dev notes, playtest calls, Patreon-style progress reports — live on the
+      studio blog now, not maintained separately here. Below is what's tagged Shadows over there,
+      plus a running changelog of what's changed on this site itself.
     </p>
-  </div>
-
-  <div class="news-list">
-    <article class="news-entry">
-      <span class="news-date">2026-09-06</span>
-      <h2>Shadowsrpg.com is getting rebuilt</h2>
-      <p>
-        This site is being rebuilt from the ground up, page by page, straight from the current
-        Core Rulebook manuscript instead of the old, years-stale version. Home, the
-        <a href="{{ '/rules/' | relative_url }}">Rules Preview</a> hub, and
-        <a href="{{ '/world/' | relative_url }}">The World</a> are up first, with everything
-        else following close behind.
-      </p>
-      <p>
-        Worth calling out: NYTE City's setting year has moved from 2079 to <strong>2099</strong>
-        in the current manuscript, and Power Levels have been streamlined from seven named tiers
-        down to four — Street Level, Heroic, Shadows, and World Coming Down.
-      </p>
-    </article>
   </div>
 </section>
 
 <section class="section section--tight" id="gd-blog-embed" hidden>
   <div class="section-intro">
-    <h2>From the studio blog</h2>
+    <h2>From the studio</h2>
     <p>Shadows-tagged posts from the Get Dangerous Games blog.</p>
   </div>
   <div class="news-list" id="gd-blog-embed-list"></div>
@@ -42,12 +24,48 @@ description: Dated project milestones for Shadows — CRB progress, playtests, a
 
 <section class="section section--tight">
   <div class="callout-strip">
-    <h2>Follow the studio too</h2>
+    <h2>See everything</h2>
     <p>
-      This archive tracks Shadows-specific milestones. For dev notes, playtest findings, and
-      everything else Get Dangerous Games is up to, see the
+      The feed above only shows the latest few. For the full history — dev notes, playtest
+      findings, and everything else Get Dangerous Games is up to — visit the
       <a href="https://getdangerous.net/blog/?tag=Shadows" target="_blank" rel="noopener">studio blog, filtered to Shadows</a>.
     </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-intro">
+    <h2>Site changelog</h2>
+    <p>What's changed here on Shadowsrpg.com, most recent first.</p>
+  </div>
+  <div class="news-list">
+    <article class="news-entry">
+      <span class="news-date">2026-09-07</span>
+      <h2>Fixed the favicon and link previews</h2>
+      <p>
+        Sharing a shadowsrpg.com link now shows a proper preview image, and the browser tab icon
+        finally shows the skull/dice mark instead of a solid black square.
+      </p>
+    </article>
+    <article class="news-entry">
+      <span class="news-date">2026-09-07</span>
+      <h2>Cleaner path into the Rules Preview</h2>
+      <p>
+        Home's Core Rulebook section is now a proper shortcut grid into every Rules Preview page,
+        instead of a scrolling carousel with a couple of dead-end duplicate links. The About page
+        introduces the team by name, and you can now join us on Discord from Home or About.
+      </p>
+    </article>
+    <article class="news-entry">
+      <span class="news-date">2026-09-06</span>
+      <h2>Shadowsrpg.com rebuilt from scratch</h2>
+      <p>
+        New Home, Rules Preview (Character Creation, Power Levels, Stats &amp; Skills, Advantages
+        &amp; Disadvantages, Archetypes, Equipment), The World, About, and Credits pages — all
+        built fresh from the current Core Rulebook manuscript instead of the old, years-stale
+        site.
+      </p>
+    </article>
   </div>
 </section>
 
@@ -110,8 +128,8 @@ description: Dated project milestones for Shadows — CRB progress, playtests, a
         section.hidden = false;
       })
       .catch(function () {
-        // Fetch failed (offline, CORS regression, etc.) — the "Follow the studio" link-out
-        // below still covers this case, so there's nothing else to do here.
+        // Fetch failed (offline, CORS regression, etc.) — the "See everything" link-out
+        // above still covers this case, so there's nothing else to do here.
       });
   })();
 </script>

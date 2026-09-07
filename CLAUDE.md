@@ -287,6 +287,24 @@ being copy-pasted across every page.
   no-text version of the mark, matching Ken's ask ("probably best to use the one without the
   text") — the sibling file `logo png.png` in that same source folder has "shadows" text baked in
   underneath the same triangle and was deliberately not used here.
+- **News restructured (2026-09-07):** Ken flagged `/news/` as feeling disjointed — it was trying
+  to be both a hand-maintained Shadows-milestone archive *and* a live mirror of the studio blog,
+  and Ken's plan going forward is to write all Shadows updates (dev notes, playtest calls,
+  Patreon-style progress reports) on the studio blog directly, not duplicate them here. Dropped
+  the manually-maintained milestone list entirely (it only ever had the one "site is being
+  rebuilt" entry) and restructured the page into two sections, in this order: **"From the
+  studio"** (the existing live scrape-embed of GD-blog posts tagged `Shadows`, unchanged, plus
+  the "See everything" link-out immediately after it as a grouped fallback) and **"Site
+  changelog"** (new — a plain dated `.news-list` of *this site's own* build changes, reusing the
+  existing `.news-entry`/`.news-date` CSS, no new styling needed). Seeded with 3 entries
+  covering 2026-09-06's initial build and 2026-09-07's two work sessions, written short and
+  visitor-facing rather than at the file-level detail this Build status log uses.
+  **New convention, going forward:** whenever a session finishes a round of visible site changes,
+  add both the detailed entry here (as always) *and* a short, terse entry to `news/index.html`'s
+  Site changelog list (newest first) — same discipline, two audiences: this file for future
+  Claude sessions, that list for actual site visitors who want to know what changed since they
+  last looked. Home's "Latest Update" card copy was also updated to match (no longer says
+  "project milestones").
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
@@ -305,7 +323,10 @@ being copy-pasted across every page.
 ## Decisions locked in (2026-09-05)
 
 - **News** `/news/` is a real page — an archive of dated project-milestone entries, not a live
-  blog. Replaces the dead Blogspot embed from the old site.
+  blog. Replaces the dead Blogspot embed from the old site. **Superseded 2026-09-07** — see the
+  Build status entry below; the "project-milestone archive" half of this decision was dropped
+  once Ken confirmed Shadows updates would be written on the studio blog going forward, not
+  maintained separately here.
 - **Rules Preview** WIP status is handled per-page/per-section with `Draft` / `In Progress` /
   `Final` tags (mirrors the manuscript's own "(under construction)" convention) rather than one
   blanket site-wide disclaimer.
