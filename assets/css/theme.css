@@ -369,9 +369,22 @@ main { display: block; }
   scroll-snap-align: start;
 }
 
+.crb-carousel a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 .crb-carousel img {
   border-radius: 6px;
   border: 1px solid rgba(231,231,231,0.15);
+  transition: border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.crb-carousel a:hover img,
+.crb-carousel a:focus-visible img {
+  border-color: var(--color-signal-gold);
+  opacity: 0.9;
 }
 
 .crb-carousel figcaption {
@@ -380,6 +393,12 @@ main { display: block; }
   font-size: 0.8rem;
   color: var(--color-neutral-zone);
   text-align: center;
+  transition: color 0.15s ease;
+}
+
+.crb-carousel a:hover figcaption,
+.crb-carousel a:focus-visible figcaption {
+  color: var(--color-signal-gold);
 }
 
 /* --- Status tags (Draft / In Progress / Final) --- */
