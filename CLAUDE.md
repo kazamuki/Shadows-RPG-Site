@@ -369,6 +369,70 @@ being copy-pasted across every page.
   account) and the reorder was a Shadows-only ask, so GD's copy is intentionally left as-is rather
   than back-ported. A future full social-sync pass should treat this file's divergence as expected,
   not drift to fix.
+- **Hidden easter-egg game added (2026-09-12).** Scott built a standalone retro shooter,
+  "SHADOWS: Night Shift" (single self-contained HTML file, canvas + Web Audio, no external
+  assets), and Ken wanted it playable on the site as a genuine secret — found by clicking around,
+  never signposted. Landed as `assets/games/night-shift.html` plus a footer-based launcher:
+  `_includes/footer.html` now renders an unlabeled 14px copy of the skull/d10 favicon mark
+  (`.egg-trigger` in `theme.css` — fixed low opacity, no hover/focus color change, no `title`
+  tooltip, only a `:focus-visible` outline for keyboard/screen-reader accessibility) plus a hidden
+  `#night-shift-modal` overlay with a lazy-loaded iframe. `assets/js/night-shift-launcher.js`
+  (loaded from `_layouts/default.html`) wires the click/close/Escape handling and swaps the
+  iframe's `src` to `about:blank` on close specifically so the game's `AudioContext` and its
+  interval-based music scheduler actually stop rather than playing on in a detached iframe.
+  **Real bug fixed in Scott's original file before shipping it**: `drawCity()` had a broken
+  double-`lit`-check (referenced `lit` before it was assigned, so the left-side building windows
+  never lit correctly) — restored to the working single-hash-per-side logic. **Two things changed
+  from Scott's original, both agreed with Ken first:**
+  1. High score used `window.storage` (an Artifacts-runtime API that doesn't exist on a static
+     site — would have silently no-op'd via its own try/catch, never actually persisting).
+     Swapped for plain `localStorage` under the key `shadows:nightshift:best`.
+  2. Added a chiptune background loop — original had SFX only (one-shot Web Audio oscillator
+     bleeps/sweeps for hits/pickups/boss cues), no music. New in-file scheduler (same section as
+     the existing `sfx()`/`sweep()` helpers) plays a 2-bar original minor-key loop (triangle-wave
+     bass + square-wave lead, 140bpm, lookahead-scheduled) starting on first input alongside the
+     existing `AudioContext` unlock. Deliberately reuses the game's existing single mute (`M` key
+     / touch icon, the `muted` flag already gating every `sfx()`/`sweep()` call) rather than adding
+     a second music-only toggle — one mute that silences everything, matching what a player already
+     expects from the existing UI.
+  Also added two rare enemy-kill drop types (mirroring the existing `chip`/`kit` drop pattern) at
+  Ken's "some mid-run power-ups, nothing crazy" steer: `core` (Overclock Core, CorpTech-flavored —
+  halves fire cooldown for 8s, tints bullets white while active) and `cell` (Aether Cell — instant
+  archetype-power refill). Flavor-named only, no new UI, no numbers exposed to the player beyond
+  what a HUD `note()` toast already shows — same "shorthand, not a system" instinct as Rules
+  Preview's altitude (see the 2026-09-06 Character Creation entry above).
+  **Deliberately NOT added to `news/index.html`'s Site changelog**, breaking the normal
+  "log every visible change there too" convention from the entry above — a public changelog line
+  announcing a hidden game would spoil the one thing Ken specifically asked for (that it stays
+  find-by-clicking, not advertised). Future sessions: this is intentional, not a missed step.
+  Verified locally via `jekyll serve` — full play loop (title → select → card → play → death →
+  best-score persisted across reload) runs with zero console errors, footer trigger opens/closes
+  the modal correctly, and the fixed-color modal backdrop/close button were spot-checked in both
+  light and dark mode (same fixed-vs-theme-tracked rule as `brand/THEME.md`'s Light mode section).
+- **Nav skull mark + longer/faster chiptune loop (2026-09-12, same-day follow-up on the easter egg
+  above).** Two pieces of Ken feedback on the first pass:
+  1. The skull/d10 mark now also appears as ordinary top-of-nav branding, unrelated to the hidden
+     game — `_includes/nav.html`'s header now wraps the existing `site-title` text link in a new
+     `.site-brand` flex row alongside a separate `.site-mark` link (same `favicon-skull-dice.png`,
+     30×34 in nav CSS), both pointing home but as two distinct clickable elements, matching how
+     `.gd-mark` is already its own link rather than being fused into the wordmark. The icon link is
+     `aria-hidden="true" tabindex="-1"` since it's a redundant same-destination link sitting right
+     next to text that already says "Shadows RPG" — standard logo+wordmark a11y pattern, avoids a
+     screen reader announcing "home" twice in a row.
+  2. The background chiptune (`assets/games/night-shift.html`'s music section) was a single 2-bar
+     (16-step) phrase looping every ~3.4s at 140bpm — Ken wanted more room before it repeats and a
+     bit more tempo. Rewrote as four chained 2-bar phrases (A/B/C/D, each still 16 steps, verified
+     equal-length so bass and lead phrases change together at the same boundaries) into one 64-step,
+     8-bar loop at 160bpm — about 12 seconds before it repeats, roughly 3.5x longer than before.
+     Phrase C is a rising/falling walking bassline for a bit of energy contrast; D is a turnaround
+     that resolves back to phrase A's opening chord. Still the same lookahead-scheduled
+     oscillator sequencer (no new mechanism, no audio files) — just longer `BASSLINE`/`LEADLINE`
+     arrays built from `BASS_A.concat(BASS_B,BASS_C,BASS_D)` and a `STEP_DUR` tempo constant.
+  Verified locally via `jekyll serve`: nav mark renders at a sane size next to the wordmark and,
+  clicked from a non-home page, correctly navigates home; zero console errors on the game page
+  after the music rewrite. Array-length parity for the new phrases was checked with a quick Node
+  script rather than by eye, since a subtle bass/lead length mismatch wouldn't crash anything —
+  it'd just slowly drift the two out of phase in a way that's easy to miss by ear.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 

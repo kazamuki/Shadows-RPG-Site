@@ -19,5 +19,17 @@
       reality is purely coincidence, though we are kind of living in a corporation-fueled
       capitalist nightmare dystopia, right?
     </p>
+
+    <button type="button" class="egg-trigger" data-night-shift-open aria-label="Play Night Shift">
+      <img src="{{ '/assets/img/favicon-skull-dice.png' | relative_url }}" alt="" width="14" height="14">
+    </button>
   </div>
 </footer>
+
+<div id="night-shift-modal" class="game-modal" hidden>
+  <div class="game-modal-backdrop" data-night-shift-close></div>
+  <div class="game-modal-frame">
+    <button type="button" class="game-modal-close" data-night-shift-close aria-label="Close game">&times;</button>
+    <iframe id="night-shift-frame" title="Shadows: Night Shift" data-src="{{ '/assets/games/night-shift.html' | relative_url }}" allow="autoplay"></iframe>
+  </div>
+</div>

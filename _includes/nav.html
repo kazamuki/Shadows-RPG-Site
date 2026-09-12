@@ -1,5 +1,10 @@
 <header class="site-header">
-  <a class="site-title" href="{{ '/' | relative_url }}">Shadows RPG</a>
+  <div class="site-brand">
+    <a class="site-mark" href="{{ '/' | relative_url }}" aria-hidden="true" tabindex="-1">
+      <img src="{{ '/assets/img/favicon-skull-dice.png' | relative_url }}" alt="" width="30" height="34">
+    </a>
+    <a class="site-title" href="{{ '/' | relative_url }}">Shadows RPG</a>
+  </div>
 
   <nav class="primary-nav" aria-label="Primary">
     <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
