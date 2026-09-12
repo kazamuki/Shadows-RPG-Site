@@ -433,6 +433,17 @@ being copy-pasted across every page.
   after the music rewrite. Array-length parity for the new phrases was checked with a quick Node
   script rather than by eye, since a subtle bass/lead length mismatch wouldn't crash anything —
   it'd just slowly drift the two out of phase in a way that's easy to miss by ear.
+- **Easter-egg trigger fixed for dark mode (2026-09-12).** Real bug from the first pass, caught by
+  Ken testing live: `favicon-skull-dice.png` is dark ink art, so the footer's low-opacity trigger
+  read fine against the light-mode footer (light `--bg-page`) but was nearly invisible against the
+  dark-mode footer's own dark background — the exact "always-dark surface needs special handling"
+  trap `brand/THEME.md`'s Light mode section already warns about, just inverted (this asset needed
+  a dark-mode-only treatment rather than a light-mode-only one). Fix: `:root:not([data-theme="light"])
+  .egg-trigger img { filter: invert(1); }` in `theme.css` — inverts the mark to a light glyph in
+  dark mode (the site's default, per `theme-init.js` only ever setting `data-theme` explicitly to
+  "light" or "dark", never leaving a system-preference fallback) so it reads at the same
+  faint-but-curious visibility in both themes instead of vanishing in one of them. No change to
+  the actual opacity/no-hover-glow secrecy design — same trigger, just visible in both themes now.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 

@@ -662,6 +662,12 @@ main { display: block; }
 .egg-trigger img { width: 14px; height: 14px; }
 .egg-trigger:focus-visible { outline: 2px solid var(--static-cyan); outline-offset: 2px; }
 
+/* The mark itself is dark ink — legible at low opacity against the light-mode
+   footer, but nearly invisible against the dark-mode footer's own dark
+   background. Invert it in dark mode so it reads at the same faint-but-there
+   visibility in both themes, instead of vanishing entirely. */
+:root:not([data-theme="light"]) .egg-trigger img { filter: invert(1); }
+
 .game-modal {
   position: fixed;
   inset: 0;
