@@ -32,6 +32,9 @@ stand alone technically but must read as one brand visually and tonally.
   (`.docx` chapter files) as the real content source for Rules Preview and The World — richer
   and more current than the old site export, and already uses the setting year **2099** (the old
   site's "2079" is stale, don't carry it forward).
+- `content/wishlist.md` — running list of ideas to add or improve (started 2026-09-22), grouped
+  by effort, with a "Needs a decision first" section at the top. Check here before proposing new
+  features; when an item ships, delete it there and log it in Build status below.
 - `brand/THEME.md` — color palette, typography, and site-copy voice guidance. **Duplicated** from
   a file Ken maintains outside any repo; also duplicated into `GetDangerousGames-Site`. If it's
   edited here, the other copies are stale until manually synced — there is no canonical source
