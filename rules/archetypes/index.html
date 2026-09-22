@@ -3,9 +3,9 @@ title: Archetypes
 description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the final pivot in who your character becomes.
 ---
 
-<section class="section">
+<section class="section section--reading">
   <div class="page-header">
-    <span class="status-tag status-tag--draft">Draft</span>
+    {% include rules-header.html %}
     <h1>Archetypes</h1>
     <p>
       Everyone starts human. What happens next is up to you. An Archetype is the pivot that
@@ -14,8 +14,17 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
     </p>
   </div>
 
-  <div class="archetype-block">
-    <img src="{{ '/assets/img/crb-spreads/human-archetype.jpg' | relative_url }}" alt="Human archetype spread from the Shadows CRB">
+  <ul class="jump-nav" aria-label="Jump to an Archetype">
+    <li><a href="#human">Human</a></li>
+    <li><a href="#arcanist">Arcanist</a></li>
+    <li><a href="#cyborg">Cyborg</a></li>
+    <li><a href="#professional">Professional</a></li>
+    <li><a href="#vampire">Vampire</a></li>
+    <li><a href="#werewolf">Werewolf</a></li>
+  </ul>
+
+  <div class="archetype-block" id="human">
+    <img src="{{ '/assets/img/crb-spreads/human-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="Human archetype spread from the Shadows CRB">
     <div>
       <h3>Human</h3>
       <p class="archetype-hook">Most humans don't know vampires, werewolves, nephilim, and demons walk among them.</p>
@@ -28,9 +37,9 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
     </div>
   </div>
 
-  <div class="archetype-block no-img">
+  <div class="archetype-block no-img" id="arcanist">
     <div>
-      <span class="status-tag status-tag--draft" style="margin-bottom: 0.5rem; display: inline-block;">Under construction in the manuscript</span>
+      <span class="status-tag status-tag--draft archetype-flag">Under construction in the manuscript</span>
       <h3>Arcanist</h3>
       <p class="archetype-hook">The Aether doesn't care how curious you are. It only cares whether you can hold on.</p>
       <p>
@@ -43,8 +52,8 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
     </div>
   </div>
 
-  <div class="archetype-block">
-    <img src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" alt="Cyborg archetype spread from the Shadows CRB">
+  <div class="archetype-block" id="cyborg">
+    <img src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="Cyborg archetype spread from the Shadows CRB">
     <div>
       <h3>Cyborg</h3>
       <p class="archetype-hook">Chrome. Tech. Art. The Cyborg is all three — and chooses to be.</p>
@@ -58,7 +67,7 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
     </div>
   </div>
 
-  <div class="archetype-block no-img">
+  <div class="archetype-block no-img" id="professional">
     <div>
       <h3>Professional</h3>
       <p class="archetype-hook">No bloodline. No implants. No covenant with forces older than language. Just a person who decided that wasn't going to be enough of a reason to lose.</p>
@@ -72,7 +81,7 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
     </div>
   </div>
 
-  <div class="archetype-block no-img">
+  <div class="archetype-block no-img" id="vampire">
     <div>
       <h3>Vampire</h3>
       <p class="archetype-hook">As old as civilization itself.</p>
@@ -86,7 +95,7 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
     </div>
   </div>
 
-  <div class="archetype-block no-img">
+  <div class="archetype-block no-img" id="werewolf">
     <div>
       <h3>Werewolf</h3>
       <p class="archetype-hook">Predators not of malice, but of duty.</p>
@@ -100,5 +109,5 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
     </div>
   </div>
 
-  <p><a class="back-link" href="{{ '/rules/' | relative_url }}">← Back to Rules Preview</a></p>
+  {% include rules-pager.html %}
 </section>

@@ -1,0 +1,47 @@
+# Single source of truth for the six Rules Preview pages, in reading order.
+# Drives the Rules Preview hub grid, Home's Core Rulebook shortcut grid, each
+# sub-page's status tag, and the prev/next pager at the bottom of each sub-page.
+# Change a page's status here and every place it shows up updates together.
+#
+# status: draft | in-progress | final   (label is derived, see _includes/status-tag.html)
+# image:  a CRB spread screenshot, OR leave it out and set `art:` instead — a short
+#         glyph rendered on a designed panel. Don't reuse the same image on two cards;
+#         it reads as a copy-paste mistake rather than a choice.
+
+- title: Character Creation
+  url: /rules/character-creation/
+  status: draft
+  image: /assets/img/crb-spreads/players-guide.jpg
+  blurb: The flow of building someone to live in NYTE City, from Campaign Power Level to first Stat roll.
+
+- title: Power Levels
+  url: /rules/power-levels/
+  status: draft
+  art: "IV"
+  art_label: Four tiers of play
+  blurb: Four scales of play, from Street Level to World Coming Down — how big a game gets to be.
+
+- title: Stats & Skills
+  url: /rules/stats-and-skills/
+  status: draft
+  image: /assets/img/crb-spreads/stats-and-attributes.jpg
+  blurb: Stats, Attributes, and a feel for how the Synergy System's d10 skill check resolves.
+
+- title: Advantages & Disadvantages
+  url: /rules/advantages-disadvantages/
+  status: draft
+  image: /assets/img/crb-spreads/advantages.jpg
+  blurb: The perks and flaws that turn two characters with the same stats into different people.
+
+- title: Archetypes
+  url: /rules/archetypes/
+  status: draft
+  image: /assets/img/crb-spreads/cyborg-archetype.jpg
+  blurb: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the final pivot in who your character becomes.
+
+- title: Equipment
+  url: /rules/equipment/
+  status: in-progress
+  art: "Ç"
+  art_label: Çredits, the city's currency
+  blurb: Weapons, Armor, Cybernetics, Vehicles, and the Çredits/Skrip economy. Not yet numbered into the book's own chapter sequence.

@@ -1,0 +1,20 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+{%- comment -%}
+  Hand-rolled instead of the jekyll-sitemap plugin: this repo deliberately has no Gemfile
+  (see CLAUDE.md), so a plugin would build on GitHub Pages but not in local `jekyll serve`.
+  Any page can opt out with `sitemap: false` in its front matter.
+{%- endcomment %}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for page in site.pages %}
+  {%- unless page.sitemap == false or page.url contains '/assets/' %}
+  {%- if page.url contains '.html' or page.url contains '.xml' or page.url contains '.txt' %}{% continue %}{% endif %}
+  <url>
+    <loc>{{ page.url | absolute_url }}</loc>
+  </url>
+  {%- endunless %}
+{%- endfor %}
+</urlset>

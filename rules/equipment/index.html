@@ -3,9 +3,9 @@ title: Equipment
 description: Weapons, Armor, Cybernetics, Vehicles, and the Çredits/Skrip economy of NYTE City.
 ---
 
-<section class="section">
+<section class="section section--reading">
   <div class="page-header">
-    <span class="status-tag status-tag--in-progress">In Progress</span>
+    {% include rules-header.html %}
     <h1>Equipment</h1>
     <p>
       Gear is a single, sprawling chapter in the CRB — one of the most complete in the current
@@ -37,6 +37,7 @@ description: Weapons, Armor, Cybernetics, Vehicles, and the Çredits/Skrip econo
       a tradeoff: the city always knows where a TAG is. Going TAGless means privacy, at the cost
       of the UBI and life entirely inside the skrip economy.
     </p>
+    <div class="table-scroll">
     <table class="data-table">
       <thead><tr><th>Class</th><th>Monthly Income</th><th>What that buys</th></tr></thead>
       <tbody>
@@ -47,6 +48,7 @@ description: Weapons, Armor, Cybernetics, Vehicles, and the Çredits/Skrip econo
         <tr><td>Hyper</td><td>25,000Ç</td><td>Whatever they want</td></tr>
       </tbody>
     </table>
+    </div>
   </div>
 
   <div class="rules-section">
@@ -87,5 +89,5 @@ description: Weapons, Armor, Cybernetics, Vehicles, and the Çredits/Skrip econo
     </p>
   </div>
 
-  <p><a class="back-link" href="{{ '/rules/' | relative_url }}">← Back to Rules Preview</a></p>
+  {% include rules-pager.html %}
 </section>

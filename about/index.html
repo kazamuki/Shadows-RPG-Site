@@ -22,28 +22,28 @@ description: >-
   </div>
 
   <div class="feature-grid">
-    <div class="feature-card">
-      <img class="crew-avatar" style="border-color: var(--accent-cyan);" src="{{ '/assets/img/about-deighton.png' | relative_url }}" alt="Deighton">
-      <p style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-cyan); margin: 0 0 0.5em;">Creator</p>
-      <h3>Deighton <span style="font-weight: 400; color: var(--text-secondary);">&ldquo;d33Kode&rdquo;</span></h3>
+    <div class="feature-card crew-card" style="--crew-accent: var(--accent-cyan);">
+      <img class="crew-avatar" src="{{ '/assets/img/about-deighton.png' | relative_url }}" width="72" height="72" loading="lazy" alt="Deighton">
+      <p class="crew-role">Creator</p>
+      <h3>Deighton <span class="crew-nick">&ldquo;d33Kode&rdquo;</span></h3>
       <p>
         25+ years behind the GM screen, and the one who built Shadows from the ground up — the
         Synergy System, NYTE City, all of it started with him.
       </p>
     </div>
-    <div class="feature-card">
-      <img class="crew-avatar" style="border-color: var(--accent-green);" src="{{ '/assets/img/about-scott.png' | relative_url }}" alt="Scott">
-      <p style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-green); margin: 0 0 0.5em;">Game Master &amp; Technical Writer</p>
-      <h3>Scott <span style="font-weight: 400; color: var(--text-secondary);">&ldquo;Melf&rdquo;</span></h3>
+    <div class="feature-card crew-card" style="--crew-accent: var(--accent-green);">
+      <img class="crew-avatar" src="{{ '/assets/img/about-scott.png' | relative_url }}" width="72" height="72" loading="lazy" alt="Scott">
+      <p class="crew-role">Game Master &amp; Technical Writer</p>
+      <h3>Scott <span class="crew-nick">&ldquo;Melf&rdquo;</span></h3>
       <p>
         Joined the crew seven years ago and fell hard for Shadows. Scott's the direct line that
         turns Deighton's raw ideas into the words that actually land in the CRB.
       </p>
     </div>
-    <div class="feature-card">
-      <img class="crew-avatar" style="border-color: var(--accent-magenta);" src="{{ '/assets/img/about-ken.png' | relative_url }}" alt="Ken">
-      <p style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-magenta); margin: 0 0 0.5em;">Site &amp; Systems</p>
-      <h3>Ken <span style="font-weight: 400; color: var(--text-secondary);">&ldquo;Kaza&rdquo;</span></h3>
+    <div class="feature-card crew-card" style="--crew-accent: var(--accent-magenta);">
+      <img class="crew-avatar" src="{{ '/assets/img/about-ken.png' | relative_url }}" width="72" height="72" loading="lazy" alt="Ken">
+      <p class="crew-role">Site &amp; Systems</p>
+      <h3>Ken <span class="crew-nick">&ldquo;Kaza&rdquo;</span></h3>
       <p>
         A relative newcomer to the hobby himself — Shadows is his only full campaign — Ken's on
         a mission to get everyone else playing it too, one rebuilt page at a time.
@@ -51,21 +51,19 @@ description: >-
     </div>
   </div>
 
-  <div class="feature-grid" style="margin-top: 2rem;">
-    <div class="feature-card">
-      <h2>Part of the Get Dangerous family</h2>
-      <p>
-        Shadows is Get Dangerous Games' flagship tabletop project, developed alongside our other
-        work over at <a href="https://getdangerous.net" target="_blank" rel="noopener">getdangerous.net</a>.
-        Same studio, same voice, different corner of the work.
-      </p>
-      <p>
-        <a href="https://getdangerous.net" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.6em;">
-          <img src="{{ '/assets/img/gd-logo-mark.png' | relative_url }}" alt="" width="28" height="28">
-          Visit Get Dangerous Games ↗
-        </a>
-      </p>
-    </div>
+  <div class="feature-card feature-card--solo">
+    <h2>Part of the Get Dangerous family</h2>
+    <p>
+      Shadows is Get Dangerous Games' flagship tabletop project, developed alongside our other
+      work over at <a href="https://getdangerous.net" target="_blank" rel="noopener">getdangerous.net</a>.
+      Same studio, same voice, different corner of the work.
+    </p>
+    <p>
+      <a class="gd-family-link" href="https://getdangerous.net" target="_blank" rel="noopener">
+        <img src="{{ '/assets/img/gd-logo-mark.png' | relative_url }}" alt="" width="28" height="28">
+        Visit Get Dangerous Games ↗
+      </a>
+    </p>
   </div>
 </section>
 
