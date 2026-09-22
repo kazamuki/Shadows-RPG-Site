@@ -1,0 +1,17 @@
+{% comment %}
+  One Rules Preview card. Pass rule=<entry from _data/rules.yml>, and compact=true for
+  Home's image-and-title-only variant.
+{% endcomment %}
+{% assign rule = include.rule %}
+<a class="rules-card" href="{{ rule.url | relative_url }}">
+  {% if rule.image %}
+  <img src="{{ rule.image | relative_url }}" alt="" width="800" height="518" loading="lazy" decoding="async">
+  {% else %}
+  <div class="rules-card-art" role="img" aria-label="{{ rule.art_label }}"><span>{{ rule.art }}</span></div>
+  {% endif %}
+  <div class="rules-card-body">
+    {% unless include.compact %}{% include status-tag.html status=rule.status %}{% endunless %}
+    <h3>{{ rule.title | escape }}</h3>
+    {% unless include.compact %}<p>{{ rule.blurb }}</p>{% endunless %}
+  </div>
+</a>

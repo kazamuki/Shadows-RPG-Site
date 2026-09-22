@@ -1,23 +1,28 @@
 <header class="site-header">
-  <div class="site-brand">
-    <a class="site-mark" href="{{ '/' | relative_url }}" aria-hidden="true" tabindex="-1">
-      <img src="{{ '/assets/img/favicon-skull-dice.png' | relative_url }}" alt="" width="30" height="34">
-    </a>
-    <a class="site-title" href="{{ '/' | relative_url }}">Shadows RPG</a>
-  </div>
+  <div class="site-header-inner">
+    <div class="site-brand">
+      <a class="site-mark" href="{{ '/' | relative_url }}" aria-hidden="true" tabindex="-1">
+        <img src="{{ '/assets/img/favicon-skull-dice.png' | relative_url }}" alt="" width="30" height="34">
+      </a>
+      <a class="site-title" href="{{ '/' | relative_url }}">Shadows RPG</a>
+    </div>
 
-  <nav class="primary-nav" aria-label="Primary">
-    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
-    <a href="{{ '/world/' | relative_url }}"{% if page.url == '/world/' %} aria-current="page"{% endif %}>The World</a>
-    <a href="{{ '/rules/' | relative_url }}"{% if page.url contains '/rules/' %} aria-current="page"{% endif %}>Rules Preview</a>
-    <a href="{{ '/news/' | relative_url }}"{% if page.url == '/news/' %} aria-current="page"{% endif %}>News</a>
-    <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
-    <a class="gd-mark" href="https://getdangerous.net" title="Part of the Get Dangerous Games family">
-      <img src="{{ '/assets/img/gd-logo-mark.png' | relative_url }}" alt="Get Dangerous Games" width="34" height="34">
-    </a>
-    <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark mode" aria-pressed="false">
-      <svg class="theme-toggle-icon theme-toggle-icon--sun" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"/></svg>
-      <svg class="theme-toggle-icon theme-toggle-icon--moon" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8.5 8.5 0 1 1 10.5 4a6.8 6.8 0 0 0 9.5 9.5Z"/></svg>
-    </button>
-  </nav>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
+      <a href="{{ '/world/' | relative_url }}"{% if page.url == '/world/' %} aria-current="page"{% endif %}>The World</a>
+      <a href="{{ '/rules/' | relative_url }}"{% if page.url contains '/rules/' %} aria-current="page"{% endif %}>Rules Preview</a>
+      <a href="{{ '/news/' | relative_url }}"{% if page.url == '/news/' %} aria-current="page"{% endif %}>News</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="gd-mark" href="https://getdangerous.net" title="Part of the Get Dangerous Games family">
+        <img src="{{ '/assets/img/gd-logo-mark.png' | relative_url }}" alt="Get Dangerous Games" width="34" height="34">
+      </a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark mode" aria-pressed="false">
+        <svg class="theme-toggle-icon theme-toggle-icon--sun" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"/></svg>
+        <svg class="theme-toggle-icon theme-toggle-icon--moon" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8.5 8.5 0 1 1 10.5 4a6.8 6.8 0 0 0 9.5 9.5Z"/></svg>
+      </button>
+    </div>
+  </div>
 </header>

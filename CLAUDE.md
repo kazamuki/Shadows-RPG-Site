@@ -32,6 +32,9 @@ stand alone technically but must read as one brand visually and tonally.
   (`.docx` chapter files) as the real content source for Rules Preview and The World — richer
   and more current than the old site export, and already uses the setting year **2099** (the old
   site's "2079" is stale, don't carry it forward).
+- `content/wishlist.md` — running list of ideas to add or improve (started 2026-09-22), grouped
+  by effort, with a "Needs a decision first" section at the top. Check here before proposing new
+  features; when an item ships, delete it there and log it in Build status below.
 - `brand/THEME.md` — color palette, typography, and site-copy voice guidance. **Duplicated** from
   a file Ken maintains outside any repo; also duplicated into `GetDangerousGames-Site`. If it's
   edited here, the other copies are stale until manually synced — there is no canonical source
@@ -94,8 +97,10 @@ being copy-pasted across every page.
   the Gemfile and running the globally-installed `jekyll` gem directly (matches GitHub Pages'
   own build) sidesteps it. GitHub Pages' legacy build doesn't require a Gemfile in the repo, so
   this doesn't affect the live build — only local `jekyll build`/`serve`.
+- `_data/rules.yml` — the six Rules Preview pages in reading order (title, url, status,
+  blurb, card image/art). See the 2026-09-22 Build status entry.
 - `_plugins/local_ruby_compat.rb` — a **local-dev-only** shim. Ruby 3.2+ removed
-  `String#tainted?`/`#untaint`, but the Liquid 4.0.3 that ships with Jekyll 3.9.0 (GitHub Pages'
+  `tainted?`/`#untaint`, but the Liquid 4.0.3 that ships with Jekyll 3.9.0 (GitHub Pages'
   pinned version) still calls it, which crashes `jekyll build`/`serve` outright on this machine's
   Ruby 4.0.6. The shim no-ops those two methods only if they're missing. GitHub Pages' own build
   servers run a Ruby where the methods still exist, and custom plugins are ignored by the legacy
@@ -444,6 +449,62 @@ being copy-pasted across every page.
   "light" or "dark", never leaving a system-preference fallback) so it reads at the same
   faint-but-curious visibility in both themes instead of vanishing in one of them. No change to
   the actual opacity/no-hover-glow secrecy design — same trigger, just visible in both themes now.
+
+- **Full-site design/UX pass (2026-09-22).** Ken gave an open brief ("green field, what would
+  fresh eyes change?"). Measured before changing anything: prose on The World and every Rules
+  Preview sub-page ran ~1100px wide (140-170 chars/line) on desktop, and the phone header was
+  174px tall because the nav wrapped raggedly into two rows. Changes:
+  - **Header** is now a full-width sticky, translucent (`--bg-header` + blur) bar with a
+    bottom border, the same treatment `GetDangerousGames-Site`'s header uses. Markup moved the GD
+    mark + theme toggle out of `.primary-nav` into a `.header-actions` group, so on phones
+    (<=720px) brand + actions share row 1 and the five nav links get their own full-width row
+    (header now ~86px). Current page also gets an underline, not just a color change.
+    `html { scroll-padding-top }` keeps in-page anchors from landing under the sticky bar.
+  - **Nav skull mark was nearly invisible in dark mode**, the same black-ink-on-navy problem
+    as the footer egg trigger, never fixed on the nav copy. Fixed with a light edge + Neon Veil
+    glow (`drop-shadow`), not `invert()`, so the brand mark keeps its colors.
+  - **`.section--reading` (48rem)** applied to The World and all six Rules Preview sub-pages.
+    `.news-list` and About's GD-family card (`.feature-card--solo`) got the same reading width.
+  - **`_data/rules.yml` is now the single source of truth for the six Rules Preview pages**
+    (title, url, status, blurb, image-or-art). It drives the hub grid (`rules/index.html`),
+    Home's Core Rulebook grid, each sub-page's breadcrumb + status tag
+    (`_includes/rules-header.html`), and a new prev/next pager
+    (`_includes/rules-pager.html`, replaces the old "← Back to Rules Preview" link). **Change a
+    page's Draft/In Progress/Final status in the data file**, not in the page. Previously the
+    status was hardcoded in two places per page and could drift.
+  - **Duplicate card image removed:** Power Levels and Stats & Skills both used
+    `stats-and-attributes.jpg`, and Equipment had no image at all. Image-less cards now get a
+    designed `.rules-card-art` panel (brand gradient + scanlines + one neon glyph: "IV" for
+    Power Levels, "Ç" for Equipment), set via `art:` in the data file. Home's grid is a fixed
+    3x2 (was 5 + an orphan); "See the game live" got `.feature-grid--four` for the same reason.
+  - **The World** got a photo `.page-banner` (reuses `hero-background.jpg`, fixed-dark like
+    Home's hero) and `.pull-line` styling on three of the manuscript's standalone one-liners.
+    The text itself is unchanged.
+  - **Archetypes** got an in-page `.jump-nav` (chip links to `#human` ... `#werewolf`).
+  - **Home:** dropped the "Rules Preview" quick-link card at the bottom, which was the 4th link to
+    `/rules/` on one page, directly under the full Rules grid. Step list centered.
+  - **News bug:** the "See everything" strip said "The feed above only shows the latest few",
+    which was wrong whenever the GD-blog embed fails and stays hidden. Reworded to stand alone.
+    Changelog entry added.
+  - **New:** themed `404.html`, hand-rolled `sitemap.xml` + `robots.txt` (no plugin, because
+    there's no Gemfile; opt a page out with `sitemap: false`), and `<link rel="canonical">`.
+  - **A11y/perf:** a single global `:focus-visible` ring, 36px footer social tap targets (the
+    icons alone were 22px, under the 24px minimum), `width`/`height`/`loading="lazy"` on card and
+    archetype images, `.table-scroll` wrapper on Equipment's table, and tighter section/card
+    padding on phones. **CRB spreads resized 1400→800px** (~1.3MB→~470KB total; nothing
+    displays them wider than ~390px) and **crew avatars 400→160px** (so they are no longer
+    byte-identical to GD's copies; the provenance note above still holds). Remaining inline
+    `style=""` attributes on About/Home/Archetypes/Power Levels moved into classes.
+  - **`_plugins/local_ruby_compat.rb` widened from `String` to `Object`:** passing a `_data`
+    hash into an include hits `Hash#tainted?` under local Ruby 4. Still local-only; GitHub
+    Pages is unaffected.
+  - **Flagged for Ken, not changed:** `stats-and-attributes.jpg` is fully legible even at 800px
+    and shows the actual stat-bonus table + point-buy math, the same content the 2026-09-06
+    steer pulled from the Stats & Skills page text. Cards only show its top strip, but the full
+    image is one click away. Home's 4-step "How do I make a character?" also differs in order
+    and count from Character Creation's 7 steps (content call, left as-is).
+  Verified locally via `jekyll serve`: clean build, every page checked at 1280px and 375px for
+  horizontal overflow, header height, and line length. Screenshots taken in dark + light mode.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 

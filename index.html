@@ -53,18 +53,15 @@ description: >-
     <h2>How do I make a character?</h2>
     <p>Character creation is straightforward, with plenty of room to grow as the campaign goes.</p>
   </div>
-  <ol class="step-list">
+  <ol class="step-list step-list--centered">
     <li>Roll for points, based on the campaign's power level.</li>
     <li>Assign points to your Stats — this is who you were before power found you.</li>
     <li>Select an Archetype (or run baseline Human) — the pivot that sharpens who you're becoming.</li>
     <li>Allocate Skill Points, then spend Character Points on Advantages and Disadvantages.</li>
   </ol>
-  <p style="text-align:center; margin-top: 1.5rem;">
+  <p class="center-note">
     As the campaign progresses, characters earn Improvement Points and Milestones for new
-    Abilities and Powers.
-  </p>
-  <p style="text-align:center; margin-top: 0.5rem;">
-    Full walkthrough on the
+    Abilities and Powers. Full walkthrough on the
     <a href="{{ '/rules/character-creation/' | relative_url }}">Character Creation</a> page.
   </p>
 </section>
@@ -80,31 +77,11 @@ description: >-
     </p>
   </div>
   <div class="rules-grid rules-grid--home">
-    <a class="rules-card" href="{{ '/rules/character-creation/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/players-guide.jpg' | relative_url }}" alt="Player's Guide table of contents spread from the Shadows CRB">
-      <div class="rules-card-body"><h3>Character Creation</h3></div>
-    </a>
-    <a class="rules-card" href="{{ '/rules/power-levels/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/stats-and-attributes.jpg' | relative_url }}" alt="Stats and Attributes spread from the Shadows CRB">
-      <div class="rules-card-body"><h3>Power Levels</h3></div>
-    </a>
-    <a class="rules-card" href="{{ '/rules/stats-and-skills/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/stats-and-attributes.jpg' | relative_url }}" alt="Stats and Attributes spread from the Shadows CRB">
-      <div class="rules-card-body"><h3>Stats &amp; Skills</h3></div>
-    </a>
-    <a class="rules-card" href="{{ '/rules/advantages-disadvantages/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/advantages.jpg' | relative_url }}" alt="Advantages spread from the Shadows CRB">
-      <div class="rules-card-body"><h3>Advantages &amp; Disadvantages</h3></div>
-    </a>
-    <a class="rules-card" href="{{ '/rules/archetypes/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" alt="Cyborg archetype spread from the Shadows CRB">
-      <div class="rules-card-body"><h3>Archetypes</h3></div>
-    </a>
-    <a class="rules-card" href="{{ '/rules/equipment/' | relative_url }}">
-      <div class="rules-card-body rules-card-body--noimg"><h3>Equipment</h3></div>
-    </a>
+    {% for rule in site.data.rules %}
+      {% include rules-card.html rule=rule compact=true %}
+    {% endfor %}
   </div>
-  <p style="text-align:center; margin-top: 1.5rem;">
+  <p class="center-note">
     <a href="{{ '/rules/' | relative_url }}">Browse the full Rules Preview →</a>
   </p>
 </section>
@@ -117,7 +94,7 @@ description: >-
       campaigns of the Synergy System in action.
     </p>
   </div>
-  <div class="feature-grid">
+  <div class="feature-grid feature-grid--four">
     <div class="feature-card">
       <h3>Shadows 2.0</h3>
       <p>Our longest-running campaign — 60-plus episodes following the Cult of Personality storyline that shaped NYTE City from the ground up.</p>
@@ -143,11 +120,6 @@ description: >-
 
 <section class="section">
   <div class="feature-grid">
-    <div class="feature-card">
-      <h3>Rules Preview</h3>
-      <p>The site's visual shorthand for the CRB — stats, skills, advantages, archetypes, and gear.</p>
-      <a href="{{ '/rules/' | relative_url }}">Browse Rules Preview →</a>
-    </div>
     <div class="feature-card">
       <h3>The World</h3>
       <p>NYTE City, 2099 — a world that pushes back, told the way the setting speaks about itself.</p>

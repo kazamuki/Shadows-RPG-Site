@@ -15,65 +15,16 @@ description: A visual shorthand for the Shadows Core Rulebook — Character Crea
       The CRB itself is still being written, chapter by chapter, so every page below carries a
       status tag instead of one blanket "unfinished" disclaimer:
     </p>
-    <p>
-      <span class="status-tag status-tag--draft">Draft</span> — early, expect to see it change &nbsp;
-      <span class="status-tag status-tag--in-progress">In Progress</span> — solid, not fully locked &nbsp;
-      <span class="status-tag status-tag--final">Final</span> — locked for print
-    </p>
+    <ul class="status-legend">
+      <li>{% include status-tag.html status="draft" %}early, expect it to change</li>
+      <li>{% include status-tag.html status="in-progress" %}solid, not fully locked</li>
+      <li>{% include status-tag.html status="final" %}locked for print</li>
+    </ul>
   </div>
 
   <div class="rules-grid">
-    <a class="rules-card" href="{{ '/rules/character-creation/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/players-guide.jpg' | relative_url }}" alt="">
-      <div class="rules-card-body">
-        <span class="status-tag status-tag--draft">Draft</span>
-        <h3>Character Creation</h3>
-        <p>The flow of building someone to live in NYTE City, from Campaign Power Level to first Stat roll.</p>
-      </div>
-    </a>
-
-    <a class="rules-card" href="{{ '/rules/power-levels/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/stats-and-attributes.jpg' | relative_url }}" alt="">
-      <div class="rules-card-body">
-        <span class="status-tag status-tag--draft">Draft</span>
-        <h3>Power Levels</h3>
-        <p>Four scales of play, from Street Level to World Coming Down — how big a game gets to be.</p>
-      </div>
-    </a>
-
-    <a class="rules-card" href="{{ '/rules/stats-and-skills/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/stats-and-attributes.jpg' | relative_url }}" alt="">
-      <div class="rules-card-body">
-        <span class="status-tag status-tag--draft">Draft</span>
-        <h3>Stats &amp; Skills</h3>
-        <p>Stats, Attributes, and a feel for how the Synergy System's d10 skill check resolves.</p>
-      </div>
-    </a>
-
-    <a class="rules-card" href="{{ '/rules/advantages-disadvantages/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/advantages.jpg' | relative_url }}" alt="">
-      <div class="rules-card-body">
-        <span class="status-tag status-tag--draft">Draft</span>
-        <h3>Advantages &amp; Disadvantages</h3>
-        <p>The perks and flaws that turn two characters with the same stats into different people.</p>
-      </div>
-    </a>
-
-    <a class="rules-card" href="{{ '/rules/archetypes/' | relative_url }}">
-      <img src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" alt="">
-      <div class="rules-card-body">
-        <span class="status-tag status-tag--draft">Draft</span>
-        <h3>Archetypes</h3>
-        <p>Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the final pivot in who your character becomes.</p>
-      </div>
-    </a>
-
-    <a class="rules-card" href="{{ '/rules/equipment/' | relative_url }}">
-      <div class="rules-card-body rules-card-body--noimg">
-        <span class="status-tag status-tag--in-progress">In Progress</span>
-        <h3>Equipment</h3>
-        <p>Weapons, Armor, Cybernetics, Vehicles, and the Çredits/Skrip economy. Not yet numbered into the book's own chapter sequence.</p>
-      </div>
-    </a>
+    {% for rule in site.data.rules %}
+      {% include rules-card.html rule=rule %}
+    {% endfor %}
   </div>
 </section>

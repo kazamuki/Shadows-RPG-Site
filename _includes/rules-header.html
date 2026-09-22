@@ -1,0 +1,9 @@
+{% comment %}
+  Top of a Rules Preview sub-page: breadcrumb back to the hub + this page's status tag,
+  both looked up from _data/rules.yml by page.url.
+{% endcomment %}
+{% assign rule = site.data.rules | where: "url", page.url | first %}
+<div class="rules-crumb">
+  <a href="{{ '/rules/' | relative_url }}">Rules Preview</a>
+  {% if rule %}{% include status-tag.html status=rule.status %}{% endif %}
+</div>

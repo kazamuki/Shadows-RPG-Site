@@ -1,0 +1,37 @@
+{% comment %}
+  Prev/next links across the six Rules Preview pages, in _data/rules.yml order, so a
+  reader can page through them like chapters instead of bouncing back to the hub.
+{% endcomment %}
+{% assign rules = site.data.rules %}
+{% for rule in rules %}
+  {% if rule.url == page.url %}
+    {% assign prev_index = forloop.index0 | minus: 1 %}
+    {% assign next_index = forloop.index0 | plus: 1 %}
+    {% assign position = forloop.index %}
+  {% endif %}
+{% endfor %}
+<nav class="rules-pager" aria-label="Rules Preview pages">
+  {% if prev_index >= 0 %}
+    {% assign prev = rules[prev_index] %}
+    <a class="rules-pager-link rules-pager-link--prev" href="{{ prev.url | relative_url }}" rel="prev">
+      <span class="rules-pager-dir">← Previous</span>
+      <span class="rules-pager-title">{{ prev.title | escape }}</span>
+    </a>
+  {% else %}
+    <span class="rules-pager-spacer"></span>
+  {% endif %}
+
+  <a class="rules-pager-hub" href="{{ '/rules/' | relative_url }}">
+    All rules<span class="rules-pager-count">{{ position }} / {{ rules.size }}</span>
+  </a>
+
+  {% if next_index < rules.size %}
+    {% assign next = rules[next_index] %}
+    <a class="rules-pager-link rules-pager-link--next" href="{{ next.url | relative_url }}" rel="next">
+      <span class="rules-pager-dir">Next →</span>
+      <span class="rules-pager-title">{{ next.title | escape }}</span>
+    </a>
+  {% else %}
+    <span class="rules-pager-spacer"></span>
+  {% endif %}
+</nav>
