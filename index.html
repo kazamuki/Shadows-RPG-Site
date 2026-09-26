@@ -41,49 +41,33 @@ description: >-
 
 <section class="section">
   <div class="section-intro">
-    <h2>How do I make a character?</h2>
-    <p>Character creation is straightforward, with plenty of room to grow as the campaign goes.</p>
-  </div>
-  <ol class="step-list step-list--centered">
-    <li>Roll for points, based on the campaign's power level.</li>
-    <li>Assign points to your Stats — this is who you were before power found you.</li>
-    <li>Select an Archetype — the pivot that sharpens who you're becoming.</li>
-    <li>Allocate Skill Points, then spend Character Points on Advantages and Disadvantages.</li>
-  </ol>
-  <p class="center-note">
-    As the campaign progresses, characters earn Improvement Points and Milestones for new
-    Abilities and Powers. Full walkthrough on the
-    <a href="{{ '/rules/character-creation/' | relative_url }}">Character Creation</a> page.
-  </p>
-</section>
-
-<section class="section">
-  <div class="section-intro">
-    <h2>Core Rulebook</h2>
+    <h2>Who you can be</h2>
     <p>
-      Shadows runs on the Synergy System, our own d10 system. One die resolves almost anything a
-      scene throws at you: hacking the NET, dropping a threat, casting a spell, or talking your
-      way out of a holding cell. The rulebook is being written chapter by chapter; jump into any
-      section below for a preview, or
-      <a href="{{ site.social.patreon }}">follow on Patreon</a> for deeper previews as they land.
+      Everyone starts human. What happens next is up to you: three ways to stay human and close
+      the gap, and two ways to leave humanity behind.
     </p>
   </div>
-  <div class="rules-grid rules-grid--home">
-    {% for rule in site.data.rules %}
-      {% include rules-card.html rule=rule compact=true %}
+  <ul class="archetype-roster">
+    {% for pair in site.data.archetypes %}
+      {% assign a = pair[1] %}
+      <li>
+        <a href="{{ '/rules/archetypes/' | relative_url }}#{{ pair[0] }}">
+          <span class="archetype-roster-name">{{ a.name }}</span>
+          <span class="archetype-roster-group">{{ a.group }}</span>
+          <span class="archetype-roster-hook">{{ a.hook }}</span>
+        </a>
+      </li>
     {% endfor %}
-  </div>
-  <p class="center-note">
-    <a href="{{ '/rules/' | relative_url }}">Browse the full Rules Preview →</a>
-  </p>
+  </ul>
 </section>
 
 <section class="section">
   <div class="section-intro">
-    <h2>See the game live</h2>
+    <h2>Watch it played</h2>
     <p>
-      Curious how Shadows actually plays at the table? These are real, full-length actual-play
-      campaigns of the Synergy System in action.
+      Shadows started with a crew who couldn't find the system they wanted, so they built one and
+      refined it over years of play. A lot of that play is on YouTube: full-length actual-play
+      campaigns, start to finish.
     </p>
   </div>
   <div class="feature-grid feature-grid--four">
@@ -111,27 +95,51 @@ description: >-
 </section>
 
 <section class="section">
-  <div class="feature-grid">
-    <div class="feature-card">
-      <h3>The World</h3>
-      <p>NYTE City, 2099 — a world that pushes back, told the way the setting speaks about itself.</p>
-      <a href="{{ '/world/' | relative_url }}">Meet the world →</a>
-    </div>
-    <div class="feature-card">
-      <h3>Latest Update</h3>
-      <p>Dev notes, playtest calls, and Core Rulebook progress from the studio.</p>
-      <a href="{{ '/news/' | relative_url }}">Read the News →</a>
-    </div>
+  <div class="section-intro">
+    <h2>How it plays</h2>
+    <p>
+      Shadows runs on the Synergy System, our own d10 system. One die resolves almost anything a
+      scene throws at you: hacking the NET, dropping a threat, casting a spell, or talking your
+      way out of a holding cell. The rulebook is being written chapter by chapter; jump into any
+      section below for a preview, or
+      <a href="{{ site.social.patreon }}">follow on Patreon</a> for deeper previews as they land.
+    </p>
   </div>
+  <div class="rules-grid rules-grid--home">
+    {% for rule in site.data.rules %}
+      {% include rules-card.html rule=rule compact=true %}
+    {% endfor %}
+  </div>
+  <p class="center-note">
+    <a href="{{ '/rules/' | relative_url }}">Browse the full Rules Preview →</a>
+  </p>
+</section>
+
+<section class="section">
+  <div class="section-intro">
+    <h2>Try it now</h2>
+    <p>
+      The book isn't finished, but the game is playable. The character sheet runs live in your
+      browser: roll your Stats, pick an Archetype, and walk out with someone ready for the table.
+      Prefer paper? Print a blank sheet instead.
+    </p>
+  </div>
+  <div class="button-row">
+    <a class="btn btn--primary" href="https://charactersheet.shadowsrpg.com/" target="_blank" rel="noopener">Launch the Character Sheet</a>
+    <a class="btn btn--outline" href="https://charactersheet.shadowsrpg.com/blank-sheet.html" target="_blank" rel="noopener">Download a Blank Sheet</a>
+  </div>
+  <p class="center-note">
+    Need a table? Players and GMs hang out on
+    <a href="{{ site.social.discord }}" target="_blank" rel="noopener">our Discord</a>.
+  </p>
 </section>
 
 <section class="section">
   <div class="callout-strip">
-    <h2>Follow along and get in the game</h2>
+    <h2>Follow along</h2>
     <p>
-      Want to follow our development progress, or see deeper previews before they're public?
-      Follow us on Patreon to get updates as they happen, free or otherwise — or drop into
-      Discord to talk Shadows with us directly.
+      Follow on Patreon for development updates and deeper previews as chapters are written, free
+      or otherwise, or drop into Discord to talk Shadows with us directly.
     </p>
     <div class="button-row" style="margin-top: 1.25rem;">
       <a class="btn btn--primary" href="{{ site.social.patreon }}" target="_blank" rel="noopener">Follow on Patreon</a>

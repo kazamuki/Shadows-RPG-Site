@@ -103,6 +103,8 @@ being copy-pasted across every page.
   this doesn't affect the live build — only local `jekyll build`/`serve`.
 - `_data/rules.yml` — the six Rules Preview pages in reading order (title, url, status,
   blurb, card image/art). See the 2026-09-22 Build status entry.
+- `_data/archetypes.yml` — the five Archetypes' names, groups and hook lines, shared by
+  Home's roster and the Archetypes page. See the Session 4 Build status entry.
 - `_plugins/local_ruby_compat.rb` — a **local-dev-only** shim. Ruby 3.2+ removed
   `tainted?`/`#untaint`, but the Liquid 4.0.3 that ships with Jekyll 3.9.0 (GitHub Pages'
   pinned version) still calls it, which crashes `jekyll build`/`serve` outright on this machine's
@@ -572,6 +574,25 @@ being copy-pasted across every page.
   no horizontal overflow, no console errors. Port 4000 was held by another session's server,
   so this session previewed on 4001 through a temporary `launch.json` entry that was not
   committed.
+
+- **Messaging plan, Session 4: "Home, part 2: proof, people, and try it now" (2026-09-26).**
+  Home below the pitch is now, in order: **Who you can be** (a `.archetype-roster` row list of
+  the five Archetypes, each linking to its `#anchor` on the Archetypes page), **Watch it
+  played** (the four playlists, renamed from "See the game live" and moved up, led by the
+  About page's origin line), **How it plays** (the Session 3 Synergy paragraph + Rules grid,
+  renamed from "Core Rulebook"), **Try it now** (character sheet + blank sheet buttons and a
+  Discord line), then the **Follow along** strip. Removed: "How do I make a character?" (and
+  its now-unused `.step-list--centered` CSS) and the bottom World / Latest Update cards.
+  **New `_data/archetypes.yml`** holds each Archetype's name, group (mortal/supernatural) and
+  hook line, keyed by anchor id; the Archetypes page now reads its five hooks from it
+  (`site.data.archetypes.<id>.hook`), so **edit hooks in the data file**, not the page. The
+  Human intro hook stays inline, since Human isn't an Archetype. New `.btn--outline`: a
+  theme-tracked outline button for the page background (`.btn--ghost` only works on fixed-dark
+  surfaces). Page height: 3,957 → 4,272px at 1280, 5,758 → 5,957px at 375; see the plan for
+  why it grew. No destination is linked more than twice in Home's body. Changelog entry added.
+  Verified via `jekyll serve` at 1280 and 375 in both themes: no overflow, no console errors,
+  Archetypes page hooks render from the data file. Ports 4000 and 4001 were both held by other
+  sessions, so this one previewed on 4014 through an uncommitted `launch.json` entry.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 

@@ -19,10 +19,6 @@ These came up during the design pass and block or shape other work.
   is legible and shows the stat-bonus table + point-buy math that the 2026-09-06 steer pulled
   from page text. Options: swap it for a different spread, crop to the art only, or blur the
   table area. **S** once decided.
-- **Home's 4 steps vs Character Creation's 7.** Different count and order (Home puts Skills
-  before Advantages; the full page adds "decide who you want to be" and history steps). Pick
-  one canonical sequence, then either trim Home to a true summary of it or match it. **S**
-  → Absorbed by `content/messaging-plan.md` Session 4 (the step list leaves Home).
 - **Analytics consent.** GA4 runs with no consent banner. For EU/UK visitors that's a GDPR
   gap. Options: add a minimal consent banner, or switch to a cookieless tool (Plausible,
   GoatCounter, Cloudflare Web Analytics) that doesn't need one. GD's site has the same setup,
@@ -33,7 +29,7 @@ These came up during the design pass and block or shape other work.
 - **Per-page link-preview images.** Every page shares the hero shot in Discord/social unfurls.
   `_data/rules.yml` already has an image per Rules page; wire `page.image` from it (and give
   The World its own). **S**
-- **Real YouTube thumbnails on "See the game live".** The four playlist cards are text-only.
+- **Real YouTube thumbnails on Home's "Watch it played".** The four playlist cards are text-only.
   One thumbnail each would make Home's most "show, don't tell" section actually show. **S**
 - **Full icon set.** Add `favicon.ico`, a 180px `apple-touch-icon`, and a small web manifest.
   Browsers request `/favicon.ico` regardless and currently get a 404, and iOS home-screen
@@ -90,9 +86,6 @@ These came up during the design pass and block or shape other work.
   World's banner, off under `prefers-reduced-motion`. **S–M**
 - **Print stylesheet for Rules Preview.** Players print rules to bring to the table. A light
   `@media print` pass (no nav or footer, black on white, no card chrome). **S**
-- **Home length.** Home is still about 4,000px tall on desktop, and well over that on a phone. After the
-  steps question above is settled, consider folding "How do I make a character?" into the
-  Core Rulebook section. **S** → Absorbed by `content/messaging-plan.md` Session 4.
 
 ## Housekeeping & infrastructure
 
