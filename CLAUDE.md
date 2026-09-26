@@ -105,6 +105,8 @@ being copy-pasted across every page.
   blurb, card image/art). See the 2026-09-22 Build status entry.
 - `_data/archetypes.yml` — the five Archetypes' names, groups and hook lines, shared by
   Home's roster and the Archetypes page. See the Session 4 Build status entry.
+- `_data/glossary.yml` — NYTE City terms, grouped; drives `/world/glossary/` and
+  `_includes/term.html` first-use links. See the Session 6 Build status entry.
 - `_plugins/local_ruby_compat.rb` — a **local-dev-only** shim. Ruby 3.2+ removed
   `tainted?`/`#untaint`, but the Liquid 4.0.3 that ships with Jekyll 3.9.0 (GitHub Pages'
   pinned version) still calls it, which crashes `jekyll build`/`serve` outright on this machine's
@@ -594,6 +596,46 @@ being copy-pasted across every page.
   Archetypes page hooks render from the data file. Ports 4000 and 4001 were both held by other
   sessions, so this one previewed on 4014 through an uncommitted `launch.json` entry.
 
+- **Messaging plan, Session 6 + wishlist quick wins (2026-09-26).** Session 6 ran before
+  Session 5, at Ken's call.
+  - **Glossary:** new `/world/glossary/` page built from `_data/glossary.yml`: 22 terms in
+    five groups (The city, Money and identity, Getting around, The hidden world, At the
+    table), each with a `short` line and a full `def`. All sourced from the CRB v4 text
+    (re-extracted this session), written in site voice at flavor level. **New
+    `_includes/term.html`**: `{% include term.html id="tag" %}` (optional `text=`) renders a
+    dotted-underline link to the entry, with `short` as hover text. **Use it on a term's first
+    use on a page only, and skip it where the same sentence already explains the term.**
+    Currently used on Home (LINK), Archetypes (Aether, NCI, Humanity, Houses, Unseen Court),
+    Advantages & Disadvantages (TAG), and Equipment (LINK). Glossary linked from the end of
+    The World and the Rules hub intro. The nav now highlights The World on any `/world/` page.
+  - **"NET" → "LINK" on Home:** the manuscript's name for the network is the LINK (about 20
+    uses; "NET" appears once, in a gear line). Home's pitch and "How it plays" said "NET".
+  - **Per-page link-preview images:** the layout's `og:image`/`twitter:image` now falls back
+    to the page's `_data/rules.yml` card image before the hero shot. `share: false` on a
+    rules entry opts out; Stats & Skills uses it because its spread shows the stat table (see
+    the wishlist's "Needs a decision" item). Glyph-panel pages (Power Levels, Equipment) keep
+    the hero shot.
+  - **Icon set:** `/favicon.ico` (16/32/48, transparent), `assets/img/apple-touch-icon.png`
+    (180px) and `icon-192.png`/`icon-512.png` (the mark on `--midnight`, since iOS fills
+    transparency with black), `site.webmanifest` (Liquid-processed, `sitemap: false`), and
+    `theme-color`. Nav and footer now load `assets/img/skull-mark-64.png` instead of the 620px
+    original. All generated from `favicon-skull-dice.png` with Pillow.
+  - **JSON-LD** (`_includes/structured-data.html`, Home only): Organization (Get Dangerous
+    Games, studio-wide channels), WebSite, and Game (Shadows, with the Shadows-only X and
+    Reddit accounts as `sameAs`).
+  - **`prefers-reduced-motion`:** turns off smooth scrolling and zeroes animations and
+    transitions; future motion work inherits it.
+  - **DNS confirmed live:** `https://shadowsrpg.com` serves this Jekyll build from GitHub
+    Pages, so the "Still open" item below is closed.
+  - **YouTube thumbnails not shipped:** they're easy to get (oEmbed), but The Old Regime's
+    thumbnail carries Artur Sadlos art, which `brand/asset-licensing.md` rules out. Moved to
+    the wishlist's "Needs a decision first".
+  Changelog entry added. Verified via `jekyll serve` on port 4020 (4000/4014 held by other
+  sessions; uncommitted `launch.json` entry): every term link resolves to an existing anchor,
+  per-page `og:image` checked on all Rules pages, JSON-LD and manifest parse, `/favicon.ico`
+  returns 200, glossary is in `sitemap.xml`, no overflow at 375px, no console errors, light and
+  dark mode.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
@@ -664,7 +706,9 @@ being copy-pasted across every page.
   that renames `.post-card`/`.post-card-date`/`data-tags` will silently break this (it just fails
   the fetch/parse and falls back to the link-out — no visible error, so it's worth spot-checking
   `/news/` after any GD blog markup change).
-- **shadowsrpg.com DNS/CNAME switch — code side done 2026-09-07, waiting on DNS propagation.**
+- **shadowsrpg.com DNS/CNAME switch — ✅ confirmed live 2026-09-26** (the site answers from
+  `Server: GitHub.com` with this Jekyll build's Home). Kept below for history.
+  **Original note, 2026-09-07: code side done, waiting on DNS propagation.**
   Scott (who controls the shadowsrpg.com domain, not Ken) gained access to the domain's DNS
   settings and pointed it at GitHub Pages using the same record set already proven out for
   getdangerous.net (GitHub Pages' 4 apex `A` records + a `www` `CNAME` to `kazamuki.github.io`).

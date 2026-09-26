@@ -11,6 +11,8 @@
 # image:  a CRB spread screenshot, OR leave it out and set `art:` instead — a short
 #         glyph rendered on a designed panel. Don't reuse the same image on two cards;
 #         it reads as a copy-paste mistake rather than a choice.
+# share:  false keeps a card image out of that page's link preview (Discord/social
+#         unfurls). The layout otherwise uses the card image as the page's og:image.
 
 - title: Archetypes
   url: /rules/archetypes/
@@ -29,6 +31,7 @@
   url: /rules/stats-and-skills/
   status: draft
   image: /assets/img/crb-spreads/stats-and-attributes.jpg
+  share: false   # legible stat table; see wishlist "Stats spread image leaks the ruleset"
   blurb: Stats, Attributes, and a feel for how the Synergy System's d10 skill check resolves.
 
 - title: Advantages & Disadvantages

@@ -2,14 +2,14 @@
   <div class="site-header-inner">
     <div class="site-brand">
       <a class="site-mark" href="{{ '/' | relative_url }}" aria-hidden="true" tabindex="-1">
-        <img src="{{ '/assets/img/favicon-skull-dice.png' | relative_url }}" alt="" width="30" height="34">
+        <img src="{{ '/assets/img/skull-mark-64.png' | relative_url }}" alt="" width="30" height="34">
       </a>
       <a class="site-title" href="{{ '/' | relative_url }}">Shadows RPG</a>
     </div>
 
     <nav class="primary-nav" aria-label="Primary">
       <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
-      <a href="{{ '/world/' | relative_url }}"{% if page.url == '/world/' %} aria-current="page"{% endif %}>The World</a>
+      <a href="{{ '/world/' | relative_url }}"{% if page.url contains '/world/' %} aria-current="page"{% endif %}>The World</a>
       <a href="{{ '/rules/' | relative_url }}"{% if page.url contains '/rules/' %} aria-current="page"{% endif %}>Rules Preview</a>
       <a href="{{ '/news/' | relative_url }}"{% if page.url == '/news/' %} aria-current="page"{% endif %}>News</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>

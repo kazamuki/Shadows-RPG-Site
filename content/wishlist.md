@@ -23,35 +23,23 @@ These came up during the design pass and block or shape other work.
   gap. Options: add a minimal consent banner, or switch to a cookieless tool (Plausible,
   GoatCounter, Cloudflare Web Analytics) that doesn't need one. GD's site has the same setup,
   so decide for both at once. **S–M**
+- **YouTube thumbnails on Home's "Watch it played" include art we can't use.** Each playlist's
+  first-video thumbnail is available (via YouTube oEmbed: `bxjEln6QhWQ`, `Hr7OZzsm7hY`,
+  `v0EDZyG1tGY`, `ocZsqTajNJk`), but The Old Regime's has a visible "ARTURSADLOS" watermark,
+  and `brand/asset-licensing.md` says not to carry Artur Sadlos art forward. Options: use
+  thumbnails for the other three and a glyph panel for The Old Regime, make new thumbnails
+  from cleared art, or skip thumbnails. **S** once decided.
 
 ## Quick wins
 
-- **Per-page link-preview images.** Every page shares the hero shot in Discord/social unfurls.
-  `_data/rules.yml` already has an image per Rules page; wire `page.image` from it (and give
-  The World its own). **S**
-- **Real YouTube thumbnails on Home's "Watch it played".** The four playlist cards are text-only.
-  One thumbnail each would make Home's most "show, don't tell" section actually show. **S**
-- **Full icon set.** Add `favicon.ico`, a 180px `apple-touch-icon`, and a small web manifest.
-  Browsers request `/favicon.ico` regardless and currently get a 404, and iOS home-screen
-  bookmarks get a blank tile. Also a 64px copy of the skull mark for the nav/footer instead of
-  scaling down the 620px original. **S**
 - **Stat icons on Stats & Skills.** The CRB spread has a distinct icon per Stat (BOD, REF,
   MOB…). If those are in `Art Assets/Icons` and cleared per `brand/asset-licensing.md`,
   putting them on the eight Stat cards would make that page read like the book. **S**
 - **Real art for the Power Levels and Equipment cards.** The new glyph panels ("IV", "Ç") are
   a good stand-in. A matching image from `brand/shutterstock-catalog.md` would be better. **S**
-- **Structured data.** A small JSON-LD block (Organization + the game) in the layout helps
-  search engines show a proper result card. **S**
-- **Respect `prefers-reduced-motion`.** Nothing animates heavily today, but set the rule now
-  (smooth scrolling currently ignores it) so future motion work inherits it. **S**
 
 ## Bigger features
 
-- **Glossary of NYTE City terms.** TAG, LINK, NET, Çredits, Skrip, Aether, Houses, Jumpers…
-  The rules pages drop these without explanation. One `/world/glossary/` page from a
-  `_data/glossary.yml`, and optionally dotted-underline tooltips where terms appear in Rules
-  Preview. A strong fit for "visual shorthand for the CRB". **M** → Scheduled as
-  `content/messaging-plan.md` Session 6.
 - **"Which Archetype are you?" quiz.** Six or seven questions ending on an Archetype, with a
   button that opens the character sheet. Shareable, fun, and a real on-ramp for new players.
   Pure client-side JS, no backend. **M**
@@ -102,8 +90,6 @@ These came up during the design pass and block or shape other work.
   third-party request (privacy). **S**
 - **Accessibility audit.** Run axe or Lighthouse across every page in both themes and fix what
   surfaces. The design pass fixed focus rings and tap targets, but hasn't done a full audit. **S–M**
-- **Confirm the DNS switch landed.** CLAUDE.md's "Still open" section is waiting on
-  shadowsrpg.com propagating to GitHub Pages. Check once, then close that item. **S**
 
 ## Decided against
 

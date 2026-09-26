@@ -1,0 +1,179 @@
+# NYTE City glossary: the terms the site uses without stopping to explain them.
+# Drives /world/glossary/ and the dotted-underline first-use links
+# (`{% include term.html id="tag" %}`) on other pages.
+#
+# Every definition is sourced from the CRB v4 manuscript (mostly 010_Onboarding,
+# 041_Archetypes, 046_Gear, 047_Cybernetics, 048_Magic), rewritten in site voice.
+# Same altitude rule as Rules Preview: flavor and meaning, never numbers or mechanics.
+#
+# id:    the anchor on the glossary page, and what term.html looks up
+# name:  how the term is written in the heading
+# short: one line, used as the hover text on first-use links
+# def:   the full entry (HTML allowed)
+# see:   optional { text, url } link to where the term matters most
+
+- group: The city
+  id: the-city
+  terms:
+    - id: nyte-city
+      name: NYTE City
+      short: The megalopolis covering the whole Eastern Seaboard in 2099.
+      def: >-
+        The megalopolis that covers the entire Eastern Seaboard in 2099, and the setting of
+        Shadows. Corporations plot private wars from the skyscrapers, people fight to survive at
+        street level, and something older moves underneath it all. The city is not a backdrop:
+        it notices what you do, and it responds.
+      see: { text: "The World", url: /world/ }
+    - id: link
+      name: The LINK
+      short: NYTE City's network. Payments, messages, records, and reputations all run through it.
+      def: >-
+        NYTE City's network. Payments, messages, records, and reputations all move through it,
+        which makes it the first place anyone looks for you. Hackers work the LINK with terminal
+        rigs; everyone else just leaves a trail in it.
+    - id: smartbrace
+      name: SMARTbrace
+      short: The personal device most residents carry for calls, messages, and the LINK.
+      def: >-
+        The personal device most residents carry. It's how people call you, message you, and
+        reach you through the LINK, and it's usually the thing buzzing right before a quiet
+        night stops being quiet.
+    - id: crank
+      name: CRANK
+      short: The gray market's job board. Anonymous contracts, reputation scores, no TAG required.
+      def: >-
+        The Contract Retrieval and Networking Knowledgebase: the gray market's answer to
+        corporate employment. Anonymous job postings, reputation-based matching, and payment in
+        Skrip. It connects people with skills to people with problems, no TAG required.
+
+- group: Money and identity
+  id: money-and-identity
+  terms:
+    - id: tag
+      name: TAG
+      short: Trusted Authentication Gateway, the government-issued digital identity everyone carries.
+      def: >-
+        Trusted Authentication Gateway: the government-issued digital identity every resident
+        carries. It's your ID, your wallet, your door key, and how people reach you. It's also a
+        tracking device. A TAG means the city knows where you are, what you buy, and who you
+        talk to.
+      see: { text: "The economy", url: /rules/equipment/#economy }
+    - id: tagless
+      name: TAGless
+      short: Living without a TAG. Privacy, at the cost of the UBI.
+      def: >-
+        Living without a TAG: no government identity, no UBI, and life entirely inside the Skrip
+        economy. It's a legitimate choice, and it comes with real limits.
+    - id: credits
+      name: Çredits (Ç)
+      short: The tracked digital currency of the legitimate economy.
+      def: >-
+        The digital currency of the legitimate economy: corporate payroll, licensed vendors,
+        government business. Every Çredit spent leaves a record of who bought what, from whom,
+        when, and where.
+    - id: skrip
+      name: Skrip ($)
+      short: Untraceable physical cash, worth about the same as a Çredit.
+      def: >-
+        Physical cash, untraceable by design and worth about the same as a Çredit. Fixers,
+        black-market vendors, and anyone working the gray economy deal in Skrip, because a Skrip
+        deal is a transaction that doesn't exist as far as any system is concerned.
+    - id: ubi
+      name: UBI
+      short: The basic income that comes with a TAG. It covers the bare minimum.
+      def: >-
+        The Universal Basic Income that comes with a TAG. It covers a coffin box, fast food, and
+        not much else, and going TAGless means giving it up.
+
+- group: Getting around
+  id: getting-around
+  terms:
+    - id: grounder
+      name: Grounder
+      short: Surface transport, wheeled or hover. How most of NYTE City moves.
+      def: >-
+        Anything that moves at street level, wheeled or hover. Automated Grounder taxis are how
+        most of NYTE City gets around, and every fare is logged.
+    - id: jumper
+      name: Jumper
+      short: Aerial vehicles working the city's vertical traffic grid.
+      def: >-
+        Aerial vehicles working the city's vertical traffic grid, above the jams at street level.
+        Faster than a Grounder, and a lot harder to miss when one lands.
+
+- group: The hidden world
+  id: the-hidden-world
+  terms:
+    - id: aether
+      name: Aether
+      short: The force that infuses the universe, and what magic is made of.
+      def: >-
+        The force that infuses the universe, and what magic is made of. Arcanists don't command
+        it from a distance; they channel it through their own bodies, and it resists being
+        shaped. Every spell is strain, focus, and risk.
+      see: { text: "Arcanist", url: /rules/archetypes/#arcanist }
+    - id: nci
+      name: NCI
+      short: Neurocybernetic Interpreter, the implant that links flesh and machine.
+      def: >-
+        Neurocybernetic Interpreter: the implant that links flesh and machine, with a pseudo-AI
+        managing the systems and the user's intent. Upgrade it far enough and you've stopped
+        being someone with implants. You're a Cyborg.
+      see: { text: "Cyborg", url: /rules/archetypes/#cyborg }
+    - id: humanity
+      name: Humanity
+      short: What cybernetics cost you besides Çredits.
+      def: >-
+        What cybernetics cost you besides Çredits. Every install shifts it a little, and none of
+        them can be walked back.
+    - id: houses
+      name: Houses
+      short: The vampire Houses, each with its own strengths, resources, allies, and enemies.
+      def: >-
+        The vampire Houses. Each has its own strengths, resources, allies, and enemies, and the
+        tension between them is half of vampire politics.
+      see: { text: "Vampire", url: /rules/archetypes/#vampire }
+    - id: unseen-court
+      name: The Unseen Court
+      short: The secretive body that keeps vampires hidden while it leans on the powerful.
+      def: >-
+        The secretive governing body that keeps vampires out of sight while it exerts influence
+        over corporations, criminal syndicates, and politicians. Vampires aren't hiding. They're
+        waiting.
+    - id: fae
+      name: Fae courts
+      short: The Fae, who negotiate contracts with finer print than any corporation.
+      def: >-
+        The Fae negotiate contracts with finer print than any corporation, and they never miss a
+        clause. They also own K-pop.
+
+- group: At the table
+  id: at-the-table
+  terms:
+    - id: crb
+      name: CRB
+      short: The Shadows Core Rulebook.
+      def: >-
+        The Shadows Core Rulebook, still being written. Rules Preview is a look inside it.
+      see: { text: "Rules Preview", url: /rules/ }
+    - id: synergy-system
+      name: Synergy System
+      short: The d10 system Shadows runs on.
+      def: >-
+        The d10 system Shadows runs on. One die resolves almost anything a scene throws at you,
+        and it's built to keep the story moving rather than stall the table.
+      see: { text: "Stats & Skills", url: /rules/stats-and-skills/ }
+    - id: archetype
+      name: Archetype
+      short: The path your character takes out of an ordinary human life.
+      def: >-
+        Everyone in Shadows starts human. Your Archetype is the path out: Professional, Cyborg,
+        or Arcanist if you stay mortal; Vampire or Werewolf if you don't.
+      see: { text: "Archetypes", url: /rules/archetypes/ }
+    - id: power-level
+      name: Power Level
+      short: How big a game gets to be, from Street Level to World Coming Down.
+      def: >-
+        The scale a campaign plays at, agreed before it starts: four tiers, from Street Level up
+        to World Coming Down.
+      see: { text: "Power Levels", url: /rules/power-levels/ }

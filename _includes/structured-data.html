@@ -1,0 +1,45 @@
+{%- comment -%}
+  JSON-LD for search engines (Home only): the studio, the site, and the game itself.
+  Game sameAs = Shadows' own accounts; Organization sameAs = the studio-wide channels.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://getdangerous.net/#organization",
+      "name": "Get Dangerous Games",
+      "url": "https://getdangerous.net",
+      "logo": "{{ '/assets/img/gd-logo-mark.png' | absolute_url }}",
+      "sameAs": [
+        "{{ site.social.youtube }}",
+        "{{ site.social.twitch }}",
+        "{{ site.social.patreon }}"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ '/' | absolute_url }}#website",
+      "url": "{{ '/' | absolute_url }}",
+      "name": {{ site.title | jsonify }},
+      "publisher": { "@id": "https://getdangerous.net/#organization" }
+    },
+    {
+      "@type": "Game",
+      "@id": "{{ '/' | absolute_url }}#game",
+      "name": "Shadows",
+      "alternateName": "Shadows RPG",
+      "url": "{{ '/' | absolute_url }}",
+      "description": {{ page.description | default: site.description | strip | jsonify }},
+      "image": "{{ '/assets/img/hero-background.jpg' | absolute_url }}",
+      "genre": ["Tabletop role-playing game", "Cyberpunk", "Urban fantasy"],
+      "publisher": { "@id": "https://getdangerous.net/#organization" },
+      "sameAs": [
+        "{{ site.social.twitter }}",
+        "{{ site.social.reddit }}"
+      ]
+    }
+  ]
+}
+</script>

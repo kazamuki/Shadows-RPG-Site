@@ -1063,3 +1063,37 @@ main { display: block; }
 .feature-grid--four { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 @media (max-width: 1000px) { .feature-grid--four { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .feature-grid--four { grid-template-columns: 1fr; } }
+
+/* Glossary (/world/glossary/) — definitions list driven by _data/glossary.yml */
+.glossary { margin: 0; }
+.glossary-entry { padding: 0.9rem 0; border-bottom: 1px solid var(--border-subtle); }
+.glossary-entry:last-child { border-bottom: 0; }
+.glossary dt {
+  font-family: var(--font-display);
+  color: var(--accent-cyan);
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+.glossary dd { margin: 0; color: var(--text-secondary); }
+.glossary-see { display: inline-block; margin-left: 0.35em; font-size: 0.9rem; white-space: nowrap; }
+.glossary-entry:target dt { color: var(--accent-gold); }
+
+/* First-use link into the glossary (_includes/term.html): reads as prose, not a nav link */
+a.term {
+  color: inherit;
+  text-decoration: underline dotted;
+  text-decoration-color: var(--accent-cyan);
+  text-underline-offset: 0.2em;
+  cursor: help;
+}
+a.term:hover { color: var(--accent-cyan); }
+
+/* Motion off for people who've asked for it; any future animation inherits this */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

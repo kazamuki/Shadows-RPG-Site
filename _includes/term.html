@@ -1,0 +1,16 @@
+{%- comment -%}
+  First-use link to a glossary entry: {% include term.html id="tag" %}
+  Optional text="..." overrides the displayed words (e.g. a plural). Use it on a term's
+  first appearance on a page only; later mentions stay plain text.
+{%- endcomment -%}
+{%- assign found = nil -%}
+{%- for group in site.data.glossary -%}
+  {%- for t in group.terms -%}
+    {%- if t.id == include.id -%}{%- assign found = t -%}{%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- if found -%}
+<a class="term" href="{{ '/world/glossary/' | relative_url }}#{{ found.id }}" title="{{ found.short | escape }}">{{ include.text | default: found.name }}</a>
+{%- else -%}
+{{ include.text | default: include.id }}
+{%- endif -%}
