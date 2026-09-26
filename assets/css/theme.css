@@ -452,6 +452,16 @@ main { display: block; }
    this keeps them around 80-90 while grids inside still get two columns. */
 .section--reading { max-width: 48rem; }
 
+/* Home's pitch: the section right under the hero */
+.home-pitch h2 { text-align: center; margin-bottom: 1.25rem; }
+.home-pitch p { font-size: 1.075rem; }
+.home-pitch .home-pitch-compare {
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 1.75rem;
+}
+
 .rules-crumb {
   display: flex;
   align-items: center;
