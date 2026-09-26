@@ -35,6 +35,10 @@ stand alone technically but must read as one brand visually and tonally.
 - `content/wishlist.md` — running list of ideas to add or improve (started 2026-09-22), grouped
   by effort, with a "Needs a decision first" section at the top. Check here before proposing new
   features; when an item ships, delete it there and log it in Build status below.
+- `content/messaging-plan.md` — session-by-session plan (written 2026-09-26) from a
+  marketing/prose review: rework Home around the game's hook, reorder Rules Preview for
+  newcomers, and strip internal production talk from visitor-facing copy. Check which sessions
+  are ticked off before starting related work, and resolve its listed decisions first.
 - `brand/THEME.md` — color palette, typography, and site-copy voice guidance. **Duplicated** from
   a file Ken maintains outside any repo; also duplicated into `GetDangerousGames-Site`. If it's
   edited here, the other copies are stale until manually synced — there is no canonical source
@@ -305,8 +309,8 @@ being copy-pasted across every page.
   covering 2026-09-06's initial build and 2026-09-07's two work sessions, written short and
   visitor-facing rather than at the file-level detail this Build status log uses.
   **New convention, going forward:** whenever a session finishes a round of visible site changes,
-  add both the detailed entry here (as always) *and* a short, terse entry to `news/index.html`'s
-  Site changelog list (newest first) — same discipline, two audiences: this file for future
+  add both the detailed entry here (as always) *and* a short, terse entry to the site changelog
+  (newest first; **moved to its own `changelog/index.html` page 2026-09-26**, see below) — same discipline, two audiences: this file for future
   Claude sessions, that list for actual site visitors who want to know what changed since they
   last looked. Home's "Latest Update" card copy was also updated to match (no longer says
   "project milestones").
@@ -406,7 +410,7 @@ being copy-pasted across every page.
   archetype-power refill). Flavor-named only, no new UI, no numbers exposed to the player beyond
   what a HUD `note()` toast already shows — same "shorthand, not a system" instinct as Rules
   Preview's altitude (see the 2026-09-06 Character Creation entry above).
-  **Deliberately NOT added to `news/index.html`'s Site changelog**, breaking the normal
+  **Deliberately NOT added to the site changelog**, breaking the normal
   "log every visible change there too" convention from the entry above — a public changelog line
   announcing a hidden game would spoil the one thing Ken specifically asked for (that it stays
   find-by-clicking, not advertised). Future sessions: this is intentional, not a missed step.
@@ -505,6 +509,28 @@ being copy-pasted across every page.
     and count from Character Creation's 7 steps (content call, left as-is).
   Verified locally via `jekyll serve`: clean build, every page checked at 1280px and 375px for
   horizontal overflow, header height, and line length. Screenshots taken in dark + light mode.
+
+- **Messaging plan, Session 1: "stop the site talking about itself" (2026-09-26).** First
+  session of `content/messaging-plan.md` (a marketing/prose review of the whole site). Removed
+  visitor-facing production talk: The World's banner voice note is now just "From the Shadows
+  Core Rulebook."; Rules hub intro rewritten (dropped "public preview layer… not marketing
+  copy… actual look at the mechanics", which also overpromised given the altitude rule);
+  Equipment's intro, `_data/rules.yml` blurb, manuscript excerpt, and Cybernetics section no
+  longer mention chapter numbering or unwritten chapters; About's "speaking for itself — no
+  in-world voice here" line removed and "Who's making Shadows" promoted to H1; Scott's "seven
+  years ago" pinned to "in 2019" (derived from the 2026-09-07 wording, **not confirmed by
+  Ken**); Home's Synergy link text now names its actual destination (Stats & Skills) and
+  "home-brewed" became "our own"; Cyborg's "Credits" → "Çredits". The World's closing link now
+  goes to Archetypes instead of Character Creation.
+  **Site changelog moved to its own page, `changelog/index.html`**, linked from the footer nav
+  and a note at the bottom of News. News now leads only with the GD-blog embed + link-out, so a
+  cold visitor no longer lands on favicon-fix entries. The new page is picked up by
+  `sitemap.xml` automatically. Changelog entry added there.
+  **Not verified in a browser:** `jekyll serve` failed this session because a Windows
+  Application Control policy blocked Ruby's `strscan.so` (a system security setting, not a repo
+  problem; Jekyll ran fine here on 2026-09-22). Edits were checked statically instead (balanced
+  tags, no leftover internal-framing phrases). Worth a `jekyll serve` look at `/news/`,
+  `/changelog/`, and `/about/` once Ruby runs again.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
