@@ -22,6 +22,7 @@ These came up during the design pass and block or shape other work.
 - **Home's 4 steps vs Character Creation's 7.** Different count and order (Home puts Skills
   before Advantages; the full page adds "decide who you want to be" and history steps). Pick
   one canonical sequence, then either trim Home to a true summary of it or match it. **S**
+  → Absorbed by `content/messaging-plan.md` Session 4 (the step list leaves Home).
 - **Analytics consent.** GA4 runs with no consent banner. For EU/UK visitors that's a GDPR
   gap. Options: add a minimal consent banner, or switch to a cookieless tool (Plausible,
   GoatCounter, Cloudflare Web Analytics) that doesn't need one. GD's site has the same setup,
@@ -53,7 +54,8 @@ These came up during the design pass and block or shape other work.
 - **Glossary of NYTE City terms.** TAG, LINK, NET, Çredits, Skrip, Aether, Houses, Jumpers…
   The rules pages drop these without explanation. One `/world/glossary/` page from a
   `_data/glossary.yml`, and optionally dotted-underline tooltips where terms appear in Rules
-  Preview. A strong fit for "visual shorthand for the CRB". **M**
+  Preview. A strong fit for "visual shorthand for the CRB". **M** → Scheduled as
+  `content/messaging-plan.md` Session 6.
 - **"Which Archetype are you?" quiz.** Six or seven questions ending on an Archetype, with a
   button that opens the character sheet. Shareable, fun, and a real on-ramp for new players.
   Pure client-side JS, no backend. **M**
@@ -90,7 +92,7 @@ These came up during the design pass and block or shape other work.
   `@media print` pass (no nav or footer, black on white, no card chrome). **S**
 - **Home length.** Home is still about 4,000px tall on desktop, and well over that on a phone. After the
   steps question above is settled, consider folding "How do I make a character?" into the
-  Core Rulebook section. **S**
+  Core Rulebook section. **S** → Absorbed by `content/messaging-plan.md` Session 4.
 
 ## Housekeeping & infrastructure
 
