@@ -1,6 +1,6 @@
 ---
 title: Archetypes
-description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the final pivot in who your character becomes.
+description: Everyone starts human. Professional, Cyborg, Arcanist, Vampire, Werewolf — the five paths out of it in NYTE City.
 ---
 
 <section class="section section--reading">
@@ -8,31 +8,68 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
     {% include rules-header.html %}
     <h1>Archetypes</h1>
     <p>
-      Everyone starts human. What happens next is up to you. An Archetype is the pivot that
-      sharpens who your character is becoming — power to start with, and Milestones that unlock
-      as you grow.
+      Everyone starts human. What happens next is up to you. An Archetype is how your character
+      survives NYTE City: the power they start with, and the Milestones that unlock as they grow.
     </p>
   </div>
 
   <ul class="jump-nav" aria-label="Jump to an Archetype">
-    <li><a href="#human">Human</a></li>
-    <li><a href="#arcanist">Arcanist</a></li>
-    <li><a href="#cyborg">Cyborg</a></li>
+    <li><a href="#human">Where everyone starts</a></li>
     <li><a href="#professional">Professional</a></li>
+    <li><a href="#cyborg">Cyborg</a></li>
+    <li><a href="#arcanist">Arcanist</a></li>
     <li><a href="#vampire">Vampire</a></li>
     <li><a href="#werewolf">Werewolf</a></li>
   </ul>
 
   <div class="archetype-block" id="human">
-    <img src="{{ '/assets/img/crb-spreads/human-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="Human archetype spread from the Shadows CRB">
+    <img src="{{ '/assets/img/crb-spreads/human-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="Human spread from the Shadows CRB">
     <div>
-      <h3>Human</h3>
+      <h2>Where everyone starts: human</h2>
       <p class="archetype-hook">Most humans don't know vampires, werewolves, nephilim, and demons walk among them.</p>
       <p>
-        The most commonly found sentient being in NYTE City, in every profession at every level.
-        No bloodline, no implants, no supernatural gift — a human character can be almost
-        infinitely customized to fit any storyline, and makes up for what they lack in raw power
-        with skills and tenacity.
+        Humans are the most common sentient beings in NYTE City, in every profession at every
+        level. Every character begins as one. The five Archetypes below are the ways a person
+        stops being ordinary: three of them stay human and close the gap on their own terms, and
+        two left humanity behind before your story begins.
+      </p>
+    </div>
+  </div>
+
+  <div class="archetype-group">
+    <h2>Mortal paths</h2>
+    <p>
+      Still human. Trained, augmented, or taught to speak to the Aether until they can stand in a
+      room with something that isn't.
+    </p>
+  </div>
+
+  <div class="archetype-block no-img" id="professional">
+    <div>
+      <h3>Professional</h3>
+      <p class="archetype-hook">No bloodline. No implants. No covenant with forces older than language. Just a person who decided that wasn't going to be enough of a reason to lose.</p>
+      <p>
+        Humans who trained until they can compete with supernatural beings. They bring skills,
+        techniques, and Tweaks into situations that expect a mundane human, and teach those
+        situations otherwise. Where others rely on supernatural gifts or tech, a Professional
+        relies on preparation and precision. They are not the most powerful thing in any room.
+        They are frequently the most dangerous.
+      </p>
+      <p class="archetype-paths">Professions: Cleaner, Enforcer, Fence, Jack of All Trades, Mercenary, Slayer, True Warrior, Wheelman</p>
+    </div>
+  </div>
+
+  <div class="archetype-block" id="cyborg">
+    <img src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="Cyborg archetype spread from the Shadows CRB">
+    <div>
+      <h3>Cyborg</h3>
+      <p class="archetype-hook">Chrome. Tech. Art. The Cyborg is all three — and chooses to be.</p>
+      <p>
+        Some people love technology; others become it. Cyborgs are humans who went all in: a
+        Neurocybernetic Interpreter, cyber-limbs, nanobots, and more. They pay for it in Çredits
+        and in Humanity, closing the gap between human and supernatural one install at a time.
+        Every enhancement is a decision you don't get to walk back, and the city keeps adding to
+        the bill.
       </p>
     </div>
   </div>
@@ -43,42 +80,22 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
       <h3>Arcanist</h3>
       <p class="archetype-hook">The Aether doesn't care how curious you are. It only cares whether you can hold on.</p>
       <p>
-        Wizards, sorcerers, mages — those who've unlocked the ability to manipulate Aether and
-        wield its power like a weapon. What they gain in power, they trade for the risk of
+        Humans who learned to use magic. Wizards, sorcerers, mages: those who can manipulate
+        Aether and wield it like a weapon. What they gain in power, they trade for the risk of
         ripping themselves, or the world, apart. Every spell is a negotiation with forces that do
-        not care whether you survive the conversation.
+        not care whether you survive the conversation, and the Aether leaves marks. Arcanists
+        wear them.
       </p>
-      <p class="archetype-stats">Primary Stats: INT, COOL, EMP</p>
+      <p class="archetype-paths">Origins: Book (magic is knowledge), Blood (magic is instinct), Bound (magic is debt)</p>
     </div>
   </div>
 
-  <div class="archetype-block" id="cyborg">
-    <img src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="Cyborg archetype spread from the Shadows CRB">
-    <div>
-      <h3>Cyborg</h3>
-      <p class="archetype-hook">Chrome. Tech. Art. The Cyborg is all three — and chooses to be.</p>
-      <p>
-        Humans who've gone all in: a Neurocybernetic Interpreter, cyber-limbs, nanobots, and
-        more. Cyborgs pay for their augmentation in Çredits and Humanity, closing the gap between
-        human and supernatural one install at a time. You redefine yourself piece by piece —
-        social infiltrator, heavy hitter, data ghost, battlefield support.
-      </p>
-      <p class="archetype-stats">Primary Stats: INT, COOL, EMP</p>
-    </div>
-  </div>
-
-  <div class="archetype-block no-img" id="professional">
-    <div>
-      <h3>Professional</h3>
-      <p class="archetype-hook">No bloodline. No implants. No covenant with forces older than language. Just a person who decided that wasn't going to be enough of a reason to lose.</p>
-      <p>
-        The quintessential human — Cleaners, Enforcers, Fences, Slayers, Wheelmen, and more,
-        every variety of person NYTE City produces when it grinds someone long enough and they
-        come out sharper instead of broken. You rely on training, foresight, and execution where
-        others rely on supernatural gifts or tech, turning preparation into a decisive advantage.
-      </p>
-      <p class="archetype-stats">Primary Stats: vary by chosen subtype</p>
-    </div>
+  <div class="archetype-group">
+    <h2>Supernatural paths</h2>
+    <p>
+      No longer human, whether they were turned, born to it, or made, and it happened before the
+      campaign starts. They live in a version of NYTE City most people will never see.
+    </p>
   </div>
 
   <div class="archetype-block no-img" id="vampire">
@@ -87,11 +104,11 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
       <p class="archetype-hook">As old as civilization itself.</p>
       <p>
         Centuries to accumulate power, influence, and everything that comes with both. Vampires
-        belong to Houses, each with their own strengths, resources, allies, and enemies. You
-        navigate hunger, power, and eternity in equal measure — your abilities are potent and
-        intoxicating, but indulgence always carries consequences.
+        belong to Houses, each with their own strengths, resources, allies, and enemies, and a
+        secretive Unseen Court keeps their kind out of sight while it leans on corporations,
+        syndicates, and politicians. You navigate hunger, power, and eternity in equal measure.
+        Feeding is not optional.
       </p>
-      <p class="archetype-stats">Primary Stats: BOD, REF, MOB</p>
     </div>
   </div>
 
@@ -101,11 +118,12 @@ description: Human, Arcanist, Cyborg, Professional, Vampire, Werewolf — the fi
       <p class="archetype-hook">Predators not of malice, but of duty.</p>
       <p>
         Lycanthropy is both a curse and a gift: immense strength, savage instinct, and the weight
-        of a tribe and lineage older than the city. You live between restraint and release — when
-        the beast emerges, subtlety fades and raw power takes over, but that power always demands
-        something in return.
+        of a tribe and lineage older than the city. Werewolves protect humanity from the things
+        beyond the Veil, whether or not anyone knows it. You live between restraint and release.
+        The beast is not a weapon you draw cleanly; it has its own opinions about how things
+        should be resolved.
       </p>
-      <p class="archetype-stats">Primary Stats: BOD, REF, MOB</p>
+      <p class="archetype-paths">Origins: Trueborn, Unblooded, Forge Fangs</p>
     </div>
   </div>
 

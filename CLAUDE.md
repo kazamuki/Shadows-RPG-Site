@@ -532,6 +532,30 @@ being copy-pasted across every page.
   tags, no leftover internal-framing phrases). Worth a `jekyll serve` look at `/news/`,
   `/changelog/`, and `/about/` once Ruby runs again.
 
+- **Messaging plan, Session 2: "Rules Preview as a journey" (2026-09-26).** Re-synced against
+  CRB v4 first. **The manuscript folder has been renumbered**: Gear is now `046_Gear.docx`, with
+  new `047_Cybernetics.docx`, `048_Magic.docx`, a `2xx` GM Workshop series, and two appendices.
+  Older entries in this file that say `Gear.docx` mean `046_Gear.docx`. Changes:
+  - `_data/rules.yml` reordered to newcomer order (D2 recommendation): Archetypes → Power
+    Levels → Stats & Skills → Advantages & Disadvantages → Equipment → Character Creation. The
+    hub grid, Home grid, and pager all follow the new order.
+  - **Archetypes rebuilt around D3** (everyone starts human). The manuscript itself now lists
+    only five archetypes. Human became the intro card (`#human`, keeps the Human spread), then
+    "Mortal paths" (Professional, Cyborg, Arcanist) and "Supernatural paths" (Vampire,
+    Werewolf) as `.archetype-group` headings. **"Primary Stats" lines dropped**: only Arcanist's
+    was in the manuscript. Replaced with `.archetype-paths` lines listing the manuscript's named
+    specializations (Professions, Arcanist Origins, Werewolf Origins). Copy refreshed from the
+    2026-09-24 chapter (Unseen Court, "some people love technology; others become it").
+  - Character Creation is now the finale: new "you've seen the pieces" intro, the duplicate
+    Stats section and the "next question is your Archetype" line are gone, and it still ends on
+    "Build one right now".
+  - Stats & Skills intro broadened. The World gained a verbatim TAG excerpt (from
+    `046_Gear`) linking to Equipment's new `#economy` anchor. Home's "(or run baseline Human)"
+    removed. Changelog entry added.
+  Verified locally via `jekyll serve` (Ruby ran fine again this session; the dev server listens
+  on `127.0.0.1:4000`, and `localhost:4000` failed to load in the Browser pane): pager order on
+  all six pages, both grids, 375px overflow, and no console errors.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
