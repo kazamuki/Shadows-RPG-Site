@@ -47,7 +47,7 @@ the book's chapter sequence"). News, for a cold visitor, is mostly favicon fixes
 | # | Decision | Needed by | Recommendation |
 |---|----------|-----------|----------------|
 | D1 | ~~Where does the site changelog go?~~ | S1 | **Decided 2026-09-26:** its own `/changelog/` page, linked from the footer and the bottom of News. |
-| D2 | Rules Preview order: book order or newcomer order? | S2 | Newcomer order: Archetypes → Power Levels → Stats & Skills → Advantages & Disadvantages → Equipment → Character Creation. |
+| D2 | ~~Rules Preview order: book order or newcomer order?~~ | S2 | **Shipped 2026-09-26 with the recommended newcomer order** (Ken started S2 without overriding it): Archetypes → Power Levels → Stats & Skills → Advantages & Disadvantages → Equipment → Character Creation. One-file revert in `_data/rules.yml` if Ken prefers book order. |
 | D3 | ~~What actually separates **Human** from **Professional**?~~ | S2 | **Answered 2026-09-26** (Ken), see below. |
 
 **D3 answer (Ken, 2026-09-26):** there is no difference between "Human" and "Professional".
@@ -110,7 +110,25 @@ site is maintained; News opens with game news; `jekyll serve` build is clean.
 
 ---
 
-## Session 2 — Rules Preview as a journey  ·  M
+## Session 2 — Rules Preview as a journey  ·  M  ·  ✅ Shipped 2026-09-26
+
+Everything below is done, synced against the CRB v4 chapters as of 2026-09-26 (`041_Archetypes`
+last edited 2026-09-24). What the manuscript check turned up:
+- **The manuscript itself has dropped Human as an archetype.** It lists five (Arcanist, Cyborg,
+  Professional, Vampire, Werewolf) and opens "Everyone starts human." That matches D3.
+- **"Primary Stats" lines removed from every Archetype.** Only Arcanist's (INT, COOL, EMP) is
+  in the manuscript. Cyborg's copy of it was the suspected copy error, and Vampire's and
+  Werewolf's BOD/REF/MOB aren't stated anywhere in the current text either. Stat abbreviations
+  were also jargon on what is now page one. Replaced them with the manuscript's named
+  specializations where it has them: Professions (8), Arcanist Origins (Book/Blood/Bound), and
+  Werewolf Origins (Trueborn/Unblooded/Forge Fangs). Cyborg and Vampire have no named ones yet.
+- **Supernatural group wording** says "turned, born to it, or made", not just "turned", because
+  the manuscript's Trueborn werewolves are born lycanthropes (slight tension with D3's "once
+  human").
+- The Equipment/TAG item went the "better" way: The World now has a short verbatim TAG excerpt
+  from `046_Gear` linking to Equipment's `#economy` section.
+- Home's step list said "(or run baseline Human)". That's fixed now rather than waiting for
+  Session 4 to remove the list.
 
 **Value when shipped:** a newcomer reading Rules Preview in order meets the exciting content
 first, every term is seen before Character Creation uses it, and the path ends on the
@@ -119,23 +137,23 @@ character-sheet call to action.
 **Needs:** D2, D3. Independent of Sessions 3–4 (Home's Rules grid picks up the new order
 automatically from `_data/rules.yml`).
 
-- [ ] Reorder `_data/rules.yml` per D2. Pager, hub grid and Home grid follow automatically.
-- [ ] **Archetypes as the opener:** its intro should work as page one ("Everyone starts
+- [x] Reorder `_data/rules.yml` per D2. Pager, hub grid and Home grid follow automatically.
+- [x] **Archetypes as the opener:** its intro should work as page one ("Everyone starts
       human. What happens next is up to you." already does most of this). Add the D3 sentence
       separating Human from Professional.
-- [ ] **Verify Archetype primary stats** against the manuscript: Arcanist and Cyborg both show
+- [x] **Verify Archetype primary stats** against the manuscript: Arcanist and Cyborg both show
       "INT, COOL, EMP", which may be a copy error. Re-extract the Archetypes `.docx` with
       `Extract-DocxText` (see CLAUDE.md) and check.
-- [ ] **Character Creation as the finale:** rewrite the intro to pull things together ("You've
+- [x] **Character Creation as the finale:** rewrite the intro to pull things together ("You've
       seen the pieces; here's how they come together"). Cut the "Stats, and the shape of a
       person" section, which repeats Stats & Skills. Remove the "next question is… your
       Archetype" line, now backwards. Keep "Build one right now" as the last thing on the page.
-- [ ] **Stats & Skills intro:** "they just tell the city how hard it has to hit before you
+- [x] **Stats & Skills intro:** "they just tell the city how hard it has to hit before you
       break" only describes resilience; broaden it.
-- [ ] **Equipment:** add a one-line hook out to The World for the TAG/UBI material, or (better)
+- [x] **Equipment:** add a one-line hook out to The World for the TAG/UBI material, or (better)
       also surface one sentence of it on The World, since it's some of the best setting detail
       on the site.
-- [ ] Check every cross-link that assumed the old order (The World's closing link, Home's
+- [x] Check every cross-link that assumed the old order (The World's closing link, Home's
       Character Creation links, the pager's first/last spacer states).
 
 **Done when:** reading all six pages in pager order, no page uses a rules term that an earlier
