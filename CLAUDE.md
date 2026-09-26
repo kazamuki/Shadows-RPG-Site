@@ -556,6 +556,23 @@ being copy-pasted across every page.
   on `127.0.0.1:4000`, and `localhost:4000` failed to load in the Browser pane): pager order on
   all six pages, both grids, 375px overflow, and no console errors.
 
+- **Messaging plan, Session 3: "Home, part 1: the hook" (2026-09-26).** Copy drafted first
+  in `content/drafts/home-hook.md` and approved by Ken before any HTML. D5 hero line: "A
+  tabletop RPG where cyberpunk and the supernatural share one city, and the city keeps score.
+  Welcome to NYTE City, 2099." Hero buttons swapped: **Meet NYTE City** is now primary,
+  Explore the Rules is ghost. The two "What is Shadows?" / "What is the Synergy System?" cards
+  became one `.home-pitch` reading-width section ("The myths never left. They adapted."): the
+  vampires/werewolves/Fae images plus the "city pushes back" idea, quoting The World's "danger
+  with weight, power with cost…" line, and ending on the D4 **unnamed** comparison line
+  ("cyberpunk and urban fantasy at the same table"; Ken chose not to name other publishers'
+  games). The Synergy card's content moved into the Core Rulebook section intro (pulled forward
+  from Session 4 so Home never loses the system). Home's `description` front matter
+  (link previews) rewritten to match. Changelog entry added.
+  Verified via `jekyll serve`: the pitch heading lands inside the first 812px screen at 375px,
+  no horizontal overflow, no console errors. Port 4000 was held by another session's server,
+  so this session previewed on 4001 through a temporary `launch.json` entry that was not
+  committed.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited

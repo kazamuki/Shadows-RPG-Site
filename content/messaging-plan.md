@@ -63,8 +63,8 @@ Human as a peer of the other five. The "Human" block's content (baseline, most c
 point everyone shares, with the five Archetypes as the paths out of it. Group them as mortal
 (Professional, Cyborg, Arcanist) and supernatural (Vampire, Werewolf). The `#human` jump link
 and the Human spread image need a new home (the intro is the natural spot).
-| D4 | Should the site name comparison games ("if you like Cyberpunk or Vampire: The Masquerade…")? | S3 | Ken's call. Fastest way to orient a stranger, but it names other publishers' games. |
-| D5 | Pick a hero line (drafts in S3 below). | S3 | — |
+| D4 | ~~Should the site name comparison games?~~ | S3 | **Decided 2026-09-26:** unnamed version: "If you've ever wanted cyberpunk and urban fantasy at the same table, this is that game." |
+| D5 | ~~Pick a hero line.~~ | S3 | **Decided 2026-09-26:** "A tabletop RPG where cyberpunk and the supernatural share one city, and the city keeps score. Welcome to NYTE City, 2099." |
 | D6 | Example-of-play scenes: in-world or site voice, and how close to mechanics can they get? | S5 | Short in-world vignettes, no numbers, same altitude rule as the rest of Rules Preview. |
 | D7 | Possible word slips in The World's verbatim manuscript text (see "Outside this repo"). | none (hand-off) | Send to Scott; mirror whatever the CRB decides. |
 
@@ -161,7 +161,12 @@ page hasn't introduced, and the last page ends on the character sheet.
 
 ---
 
-## Session 3 — Home, part 1: the hook  ·  M
+## Session 3 — Home, part 1: the hook  ·  M  ·  ✅ Shipped 2026-09-26
+
+Everything below is done. Approved copy lives in `content/drafts/home-hook.md`. One small
+pull-forward from Session 4: removing the Synergy card would have left Home without any
+mention of the system, so its content now opens the Core Rulebook section's intro. Session 4's
+"How it plays" item only needs a check that this paragraph still fits.
 
 **Value when shipped:** someone landing on Home learns what makes Shadows different in the
 first screen and a half.
@@ -169,19 +174,19 @@ first screen and a half.
 **Needs:** D4, D5. Per CLAUDE.md's working process, **draft the copy as markdown first and get
 Ken's approval before touching HTML.** Draft and build can happen in the same session.
 
-- [ ] **Hero** (`index.html`): new tagline per D5; swap button priority to "Meet NYTE City"
+- [x] **Hero** (`index.html`): new tagline per D5; swap button priority to "Meet NYTE City"
       (primary) and "Explore the Rules" (ghost). Starting drafts:
       > *Cyberpunk and the supernatural, sharing one city. NYTE City, 2099: the corporations
       > own the skyline, vampires own the nightclubs, and the city remembers everything you do.*
 
       > *A tabletop RPG where the city fights back. Chrome, magic, and monsters in NYTE City,
       > 2099.*
-- [ ] **Replace "What is Shadows?" + "What is the Synergy System?"** with one pitch section:
+- [x] **Replace "What is Shadows?" + "What is the Synergy System?"** with one pitch section:
       two short paragraphs built from The World's concrete images and the "city pushes back"
       idea, plus the D4 comparison line if approved. Site voice may quote the in-world line
       "Shadows is for players who want… danger with weight, power with cost, and hope that has
       to be earned."
-- [ ] Update Home's `description` front matter (it drives the link-preview text) to match the
+- [x] Update Home's `description` front matter (it drives the link-preview text) to match the
       new pitch.
 
 **Done when:** the first screen (desktop and 375px phone) names both differentiators, with no
