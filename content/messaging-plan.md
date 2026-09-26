@@ -65,7 +65,7 @@ point everyone shares, with the five Archetypes as the paths out of it. Group th
 and the Human spread image need a new home (the intro is the natural spot).
 | D4 | ~~Should the site name comparison games?~~ | S3 | **Decided 2026-09-26:** unnamed version: "If you've ever wanted cyberpunk and urban fantasy at the same table, this is that game." |
 | D5 | ~~Pick a hero line.~~ | S3 | **Decided 2026-09-26:** "A tabletop RPG where cyberpunk and the supernatural share one city, and the city keeps score. Welcome to NYTE City, 2099." |
-| D6 | Example-of-play scenes: in-world or site voice, and how close to mechanics can they get? | S5 | Short in-world vignettes, no numbers, same altitude rule as the rest of Rules Preview. |
+| D6 | ~~Example-of-play scenes: in-world or site voice, and how close to mechanics can they get?~~ | S5 | **Decided 2026-09-26:** short in-world scenes, no numbers or procedure, labelled "In play" so they aren't mistaken for CRB excerpts. Ken approved the drafts in `content/drafts/show-dont-tell.md`. |
 | D7 | Possible word slips in The World's verbatim manuscript text (see "Outside this repo"). | none (hand-off) | Send to Scott; mirror whatever the CRB decides. |
 
 ---
@@ -231,18 +231,27 @@ is linked more than twice.
 
 ---
 
-## Session 5 — Show, don't tell  ·  M, needs writing
+## Session 5 — Show, don't tell  ·  M, needs writing  ·  ✅ Shipped 2026-09-26
+
+Everything below is done. Approved copy lives in `content/drafts/show-dont-tell.md`. All three
+scenes shipped, and all three use the CRB's own running example from the GM Workshop
+(`232_Consequences and Fallout`): the **Missing Cargo** job, with Hyde Dynomat, the Red Hands,
+and Doc Malin (Ken OK'd using those names publicly). Reading Rules Preview in order, a visitor
+meets the same job three times. The characters (Rook, Juno) and the Power Levels scene's "a
+front for something older" are site-only inventions, kept vague so they can't contradict canon.
+Each scene is a new `.play-scene` block with an "In play" label, not a `.manuscript-excerpt`,
+because it's new writing rather than quoted book text.
 
 **Value when shipped:** Rules Preview shows the game being played, not just described. This is
 the single biggest remaining gap once the structure is fixed.
 
 **Needs:** D6, and Session 2 (so scenes land on pages in their final order).
 
-- [ ] One short example-of-play vignette on **Stats & Skills** (a check that explodes, then the
+- [x] One short example-of-play vignette on **Stats & Skills** (a check that explodes, then the
       city notices), prose only, no numbers.
-- [ ] Optionally one each on **Power Levels** (the same job at Street Level vs Shadows scale)
+- [x] Optionally one each on **Power Levels** (the same job at Street Level vs Shadows scale)
       and **Advantages & Disadvantages** (a Disadvantage coming due mid-scene).
-- [ ] Run each through the `shadows-voice-editor` skill before shipping.
+- [x] Run each through the `shadows-voice-editor` skill before shipping.
 
 **Done when:** Ken confirms the vignettes stay on the right side of the "not a copyable
 ruleset" line (see memory: Rules Preview altitude).
