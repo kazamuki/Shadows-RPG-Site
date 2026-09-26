@@ -596,8 +596,22 @@ being copy-pasted across every page.
   Archetypes page hooks render from the data file. Ports 4000 and 4001 were both held by other
   sessions, so this one previewed on 4014 through an uncommitted `launch.json` entry.
 
-- **Messaging plan, Session 6 + wishlist quick wins (2026-09-26).** Session 6 ran before
-  Session 5, at Ken's call.
+- **Messaging plan, Session 5: "Show, don't tell" (2026-09-26).** Copy drafted first in
+  `content/drafts/show-dont-tell.md` and approved by Ken (D6) before any HTML. Three short
+  in-world example-of-play scenes, no numbers or procedure: **Stats & Skills** ("The fence",
+  after "How a check resolves"), **Power Levels** ("Same job, two scales", before the closing
+  note), and **Advantages & Disadvantages** ("Paid in full", a Pact coming due, after the
+  Disadvantages grid). All three are set on the GM Workshop's **Missing Cargo** job (Hyde
+  Dynomat, the Red Hands, Doc Malin, from `232_Consequences and Fallout.docx`); Ken OK'd those
+  names on the public site. If the CRB renames them, update the scenes to match. New
+  `.play-scene` CSS (card + magenta left rule + "In play" label) keeps these visibly separate
+  from `.manuscript-excerpt`, since they're site writing in the in-world voice, not quoted
+  book text. Changelog entry added.
+  Verified via `jekyll serve` on port 4000: all three pages at 1280 and 375, dark and light, no
+  horizontal overflow, no console errors.
+
+- **Messaging plan, Session 6 + wishlist quick wins (2026-09-26).** Built in parallel with
+  Session 5 (both merged the same day); every messaging-plan session is now shipped.
   - **Glossary:** new `/world/glossary/` page built from `_data/glossary.yml`: 22 terms in
     five groups (The city, Money and identity, Getting around, The hidden world, At the
     table), each with a `short` line and a full `def`. All sourced from the CRB v4 text

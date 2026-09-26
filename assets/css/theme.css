@@ -712,6 +712,32 @@ main { display: block; }
 .manuscript-excerpt p:last-child { margin-bottom: 0; }
 .manuscript-excerpt--spaced { margin-top: 2rem; }
 
+/* Short example-of-play scenes on Rules Preview pages. These are new site
+   writing in the in-world voice, not quoted CRB text, so they get their own
+   card treatment and an "In play" label instead of .manuscript-excerpt. */
+.play-scene {
+  margin: 2rem 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 3px solid var(--accent-magenta);
+  border-radius: 8px;
+}
+.play-scene-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-magenta);
+  margin: 0 0 0.25rem;
+}
+.play-scene h2 { margin: 0 0 0.75rem; border: 0; padding: 0; }
+.play-scene p:last-child { margin-bottom: 0; }
+.play-scene .play-scene-truth { font-weight: 600; color: var(--text-primary); }
+@media (max-width: 720px) {
+  .play-scene { padding: 1.25rem; }
+}
+
 .archetype-flag { display: inline-block; margin-bottom: 0.5rem; }
 
 /* One-line standalone beats in The World's prose ("In NYTE City, if you can
