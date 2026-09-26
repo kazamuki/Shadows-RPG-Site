@@ -1,0 +1,30 @@
+# The five Archetypes, in the order the Archetypes page lists them.
+# Keyed by the page's #anchor id. `hook` is the one-liner shown both on the
+# Archetypes page and in Home's "Who you can be" roster, so edit it here,
+# not in either page. `group` is mortal or supernatural (see D3 in
+# content/messaging-plan.md: everyone starts human).
+
+professional:
+  name: Professional
+  group: mortal
+  hook: "No bloodline. No implants. No covenant with forces older than language. Just a person who decided that wasn't going to be enough of a reason to lose."
+
+cyborg:
+  name: Cyborg
+  group: mortal
+  hook: "Chrome. Tech. Art. The Cyborg is all three — and chooses to be."
+
+arcanist:
+  name: Arcanist
+  group: mortal
+  hook: "The Aether doesn't care how curious you are. It only cares whether you can hold on."
+
+vampire:
+  name: Vampire
+  group: supernatural
+  hook: "As old as civilization itself."
+
+werewolf:
+  name: Werewolf
+  group: supernatural
+  hook: "Predators not of malice, but of duty."

@@ -372,6 +372,15 @@ main { display: block; }
 }
 .btn--ghost:hover { border-color: var(--static-cyan); color: var(--static-cyan); }
 
+/* Outline button for the page background (unlike .btn--ghost, which only
+   ever sits on fixed-dark surfaces), so its colors track the theme. */
+.btn--outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--card-border-hover);
+}
+.btn--outline:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
 /* --- Rules Preview hub cards --- */
 
 .rules-grid {
@@ -460,6 +469,60 @@ main { display: block; }
   font-weight: 600;
   color: var(--text-primary);
   margin-top: 1.75rem;
+}
+
+/* Home's "Who you can be": the five Archetypes as a roster of links, one row
+   each (name + group | hook). A list rather than cards because the hooks
+   range from four words to thirty; rows absorb that, a card grid wouldn't. */
+.archetype-roster {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 48rem;
+  border-top: 1px solid var(--card-border);
+}
+.archetype-roster li { border-bottom: 1px solid var(--card-border); }
+.archetype-roster a {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  grid-template-areas: "name hook" "group hook";
+  column-gap: 1.5rem;
+  align-items: center;
+  padding: 1rem 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.15s ease;
+}
+.archetype-roster a:hover { background: var(--card-bg); }
+.archetype-roster-name {
+  grid-area: name;
+  align-self: end;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+.archetype-roster a:hover .archetype-roster-name { color: var(--accent-cyan); }
+.archetype-roster-group {
+  grid-area: group;
+  align-self: start;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.archetype-roster-hook {
+  grid-area: hook;
+  font-style: italic;
+  color: var(--accent-gold);
+}
+@media (max-width: 560px) {
+  .archetype-roster a {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "name group" "hook hook";
+    row-gap: 0.35rem;
+  }
+  .archetype-roster-group { justify-self: end; }
 }
 
 .rules-crumb {
@@ -679,7 +742,7 @@ main { display: block; }
 }
 .page-banner .voice-note { color: rgba(255, 255, 255, 0.75); }
 
-/* --- Feature grid (What is Shadows / Synergy System) --- */
+/* --- Feature grid (Home playlists, About crew) --- */
 
 .feature-grid {
   display: grid;
@@ -740,10 +803,6 @@ main { display: block; }
   padding-left: 3rem;
   min-height: 2rem;
 }
-
-/* Home's short version sits under a centered heading — center the list as a
-   block too, instead of leaving it hugging the left edge of a 72rem section. */
-.step-list--centered { max-width: 40rem; margin: 0 auto; }
 
 /* Solid-fill numbered badge — fixed brand color + fixed light text, same
    treatment as .btn--primary above. */

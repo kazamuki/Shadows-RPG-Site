@@ -194,25 +194,36 @@ repeated phrasing between hero and pitch.
 
 ---
 
-## Session 4 — Home, part 2: proof, people, and "try it now"  ·  M–L
+## Session 4 — Home, part 2: proof, people, and "try it now"  ·  M–L  ·  ✅ Shipped 2026-09-26
+
+Everything below is done. Deviations from the plan:
+- **Five Archetypes, not six**, per D3. The roster's intro carries "everyone starts human".
+  It's a row list rather than cards because the hooks run from 5 to 29 words.
+- **Page height went up, not down**: 3,957 → 4,272px at 1280, 5,758 → 5,957px at 375. The
+  removed steps and bottom cards were shorter than the two new jobs Home took on (the
+  Archetypes roster and "Try it now"). Each section now has one job, which was the real aim;
+  if Ken wants it shorter, the next cut is the Rules grid's image tiles.
+- Playlist thumbnails skipped (optional). They'd need a video ID per playlist; still on the
+  wishlist.
+- The Synergy paragraph from Session 3 fit as-is; only its heading changed ("How it plays").
 
 **Value when shipped:** Home becomes the full pitch in the target order, and much shorter.
 
 **Needs:** Session 3 shipped (the new top sets the tone for everything below it). Best after
 Session 2, so the Archetypes strip and Rules grid agree on order and wording.
 
-- [ ] **"Who you can be" strip:** six Archetypes, name + existing hook line, each linking to
+- [x] **"Who you can be" strip:** six Archetypes, name + existing hook line, each linking to
       its `#anchor` on the Archetypes page. Consider a `_data/archetypes.yml` so the hook lines
       live in one place for both Home and the Archetypes page (same pattern as `rules.yml`).
-- [ ] **Move "See the game live" up** under the Archetypes strip, and lead it with one line of
+- [x] **Move "See the game live" up** under the Archetypes strip, and lead it with one line of
       origin story from About ("a crew who couldn't find the system they wanted, built one, and
       refined it over years of play"). Optional: fold in the wishlist's playlist thumbnails.
-- [ ] **"How it plays":** one Synergy paragraph above the existing Rules grid.
-- [ ] **"Try it now" block:** the two character-sheet buttons from Character Creation, plus the
+- [x] **"How it plays":** one Synergy paragraph above the existing Rules grid.
+- [x] **"Try it now" block:** the two character-sheet buttons from Character Creation, plus the
       Discord link. This answers "can I play this now?".
-- [ ] **Remove** "How do I make a character?" (resolves the wishlist's 4-vs-7 steps item) and
+- [x] **Remove** "How do I make a character?" (resolves the wishlist's 4-vs-7 steps item) and
       the bottom World / Latest Update cards (The World is linked from the hero and nav).
-- [ ] Measure page height before and after at 1280px and 375px (wishlist noted ~4,000px on
+- [x] Measure page height before and after at 1280px and 375px (wishlist noted ~4,000px on
       desktop).
 
 **Done when:** Home matches the target shape above; each section has one job; no destination
