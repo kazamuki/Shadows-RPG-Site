@@ -258,7 +258,15 @@ ruleset" line (see memory: Rules Preview altitude).
 
 ---
 
-## Session 6 (optional) — Jargon on-ramp  ·  M
+## Session 6 (optional) — Jargon on-ramp  ·  M  ·  ✅ Shipped 2026-09-26
+
+Built in parallel with Session 5; both merged 2026-09-26. `/world/glossary/` is built from `_data/glossary.yml`
+(22 terms in five groups, all sourced from the CRB v4 text, flavor-level only), and
+`_includes/term.html` renders dotted-underline first-use links on Home, Archetypes, Advantages
+& Disadvantages, and Equipment. The manuscript calls the network **the LINK**, not "the NET",
+so Home's two "NET" mentions were changed to match. "Houses", "Jumpers", and "CRB" are in the
+glossary but only linked where a page doesn't already explain them in the same sentence. If
+Session 5 adds vignettes that use new terms, add them to the data file and link first uses.
 
 Folds in the wishlist's **Glossary** item. NET, LINK, TAG, Aether, Skrip, Çredits, Houses,
 Jumpers, CRB are all used without explanation. Build `/world/glossary/` from

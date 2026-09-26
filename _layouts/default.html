@@ -6,12 +6,23 @@
   <script src="{{ '/assets/js/theme-init.js' | relative_url }}"></script>
   <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
   <link rel="icon" type="image/png" href="{{ '/assets/img/favicon-skull-dice.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+  <meta name="theme-color" content="#0D1731">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
 
   {% assign share_title = page.title | default: site.title %}
   {% assign share_description = page.description | default: site.description %}
-  {% assign share_image = page.image | default: '/assets/img/hero-background.jpg' %}
+  {%- comment -%}
+    Link-preview image: the page's own `image:` front matter, else its Rules Preview card
+    image from _data/rules.yml (unless that entry sets `share: false`), else the hero shot.
+  {%- endcomment -%}
+  {% assign share_rule = site.data.rules | where: "url", page.url | first %}
+  {% assign share_image = page.image %}
+  {% if share_image == nil and share_rule.image and share_rule.share != false %}{% assign share_image = share_rule.image %}{% endif %}
+  {% assign share_image = share_image | default: '/assets/img/hero-background.jpg' %}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ share_title }}{% if page.title %} — {{ site.title }}{% endif %}">
   <meta property="og:description" content="{{ share_description }}">
@@ -27,6 +38,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}">
+
+  {% if page.url == '/' %}{% include structured-data.html %}{% endif %}
 
   {% if site.google_analytics %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>

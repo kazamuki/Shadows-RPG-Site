@@ -1,0 +1,43 @@
+---
+title: NYTE City Glossary
+description: TAG, the LINK, Çredits, Skrip, Aether, the Unseen Court, and the rest of the words NYTE City uses without stopping to explain them.
+---
+
+<section class="section section--reading">
+  <div class="page-header">
+    <div class="rules-crumb"><a href="{{ '/world/' | relative_url }}">The World</a></div>
+    <h1>NYTE City Glossary</h1>
+    <p>
+      The city has its own vocabulary, and nobody here stops to explain it. This is the short
+      version: what the words mean, and why they matter.
+    </p>
+  </div>
+
+  <ul class="jump-nav">
+    {% for group in site.data.glossary %}
+      <li><a href="#{{ group.id }}">{{ group.group }}</a></li>
+    {% endfor %}
+  </ul>
+
+  {% for group in site.data.glossary %}
+  <div class="rules-section" id="{{ group.id }}">
+    <h2>{{ group.group }}</h2>
+    <dl class="glossary">
+      {% for term in group.terms %}
+      <div class="glossary-entry" id="{{ term.id }}">
+        <dt>{{ term.name }}</dt>
+        <dd>
+          {{ term.def }}
+          {% if term.see %}<a class="glossary-see" href="{{ term.see.url | relative_url }}">{{ term.see.text }} →</a>{% endif %}
+        </dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </div>
+  {% endfor %}
+
+  <p class="center-note">
+    Now you speak the language.
+    <a href="{{ '/rules/archetypes/' | relative_url }}">Meet the Archetypes →</a>
+  </p>
+</section>
