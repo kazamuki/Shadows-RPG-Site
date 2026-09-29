@@ -39,6 +39,14 @@ stand alone technically but must read as one brand visually and tonally.
   marketing/prose review: rework Home around the game's hook, reorder Rules Preview for
   newcomers, and strip internal production talk from visitor-facing copy. Check which sessions
   are ticked off before starting related work, and resolve its listed decisions first.
+- `PRODUCT.md` — Impeccable product record (written 2026-09-28): primary user (cold
+  newcomers), success goals (Patreon follow, Discord join, character sheet), positioning,
+  constraints, and evidence that must not be invented. Read by `/impeccable` commands;
+  excluded from the Jekyll build.
+- `DESIGN.md` (+ `.impeccable/design.json` sidecar) — the visual system as built, recorded
+  2026-09-28 from `assets/css/theme.css`: "The Neon Codex" north star, token roles, the
+  fixed-dark and flat-surfaces rules. Complements `brand/THEME.md` (the brand-level palette);
+  if `theme.css` changes materially, re-run `/impeccable document`. Excluded from the build.
 - `brand/THEME.md` — color palette, typography, and site-copy voice guidance. **Duplicated** from
   a file Ken maintains outside any repo; also duplicated into `GetDangerousGames-Site`. If it's
   edited here, the other copies are stale until manually synced — there is no canonical source
