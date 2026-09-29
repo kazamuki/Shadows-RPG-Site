@@ -19,6 +19,8 @@ exclude:
   - brand/
   - Google-Page-Original/
   - CLAUDE.md
+  - PRODUCT.md
+  - DESIGN.md
   - README.md
   - Gemfile
   - Gemfile.lock

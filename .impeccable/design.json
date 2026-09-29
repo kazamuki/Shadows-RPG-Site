@@ -1,0 +1,415 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-29T02:32:31.498422+00:00",
+  "title": "Design System: Shadows RPG",
+  "extensions": {
+    "colorMeta": {
+      "aether-pulse": {
+        "role": "primary",
+        "displayName": "Aether Pulse",
+        "canonical": "oklch(43.5% 0.161 315.1)",
+        "tonalRamp": [
+          "#180023",
+          "#3E0053",
+          "#60187B",
+          "#823D9E",
+          "#A660C3",
+          "#CA83E9",
+          "#E9AFFF",
+          "#FCE5FF"
+        ]
+      },
+      "deep-circuit": {
+        "role": "primary",
+        "displayName": "Deep Circuit",
+        "canonical": "oklch(37.9% 0.109 262.0)",
+        "tonalRamp": [
+          "#000038",
+          "#041F59",
+          "#203F7B",
+          "#3E609F",
+          "#5E82C3",
+          "#7FA5E9",
+          "#AACAFF",
+          "#E2EFFF"
+        ]
+      },
+      "neon-veil": {
+        "role": "secondary",
+        "displayName": "Neon Veil",
+        "canonical": "oklch(58.4% 0.175 340.9)",
+        "tonalRamp": [
+          "#1D0014",
+          "#460035",
+          "#78005D",
+          "#9D2A7E",
+          "#C44FA1",
+          "#EB73C5",
+          "#FFA3E5",
+          "#FFE1FA"
+        ]
+      },
+      "signal-gold": {
+        "role": "secondary",
+        "displayName": "Signal Gold",
+        "canonical": "oklch(85.0% 0.146 90.5)",
+        "tonalRamp": [
+          "#110A00",
+          "#312300",
+          "#533F00",
+          "#785E00",
+          "#A07E00",
+          "#C8A007",
+          "#EDC447",
+          "#FFEA70"
+        ]
+      },
+      "static-cyan": {
+        "role": "tertiary",
+        "displayName": "Static Cyan",
+        "canonical": "oklch(72.2% 0.119 201.2)",
+        "tonalRamp": [
+          "#000F11",
+          "#002C2F",
+          "#004D51",
+          "#006F76",
+          "#00959D",
+          "#1ABBC4",
+          "#54E0E9",
+          "#80FFFF"
+        ]
+      },
+      "ghostly-green": {
+        "role": "tertiary",
+        "displayName": "Ghostly Green",
+        "canonical": "oklch(74.9% 0.118 151.7)",
+        "tonalRamp": [
+          "#001200",
+          "#00300D",
+          "#00521E",
+          "#1B733E",
+          "#44965E",
+          "#68BA80",
+          "#8DDFA3",
+          "#B9FFCB"
+        ]
+      },
+      "midnight": {
+        "role": "neutral",
+        "displayName": "Midnight Underpass",
+        "canonical": "oklch(21.2% 0.053 266.1)",
+        "tonalRamp": [
+          "#030921",
+          "#19243F",
+          "#35415F",
+          "#536180",
+          "#7382A3",
+          "#95A5C7",
+          "#B9C9ED",
+          "#E5EFFF"
+        ]
+      },
+      "card-navy": {
+        "role": "neutral",
+        "displayName": "Card Navy",
+        "canonical": "oklch(28.7% 0.074 262.7)",
+        "tonalRamp": [
+          "#000729",
+          "#112348",
+          "#2C4169",
+          "#4A618C",
+          "#6B82AF",
+          "#8CA5D4",
+          "#B0CAFA",
+          "#E2EFFF"
+        ]
+      },
+      "page-light": {
+        "role": "neutral",
+        "displayName": "Bone Paper",
+        "canonical": "oklch(96.7% 0.003 84.6)",
+        "tonalRamp": [
+          "#0C0B0A",
+          "#262523",
+          "#434240",
+          "#62615F",
+          "#838280",
+          "#A6A5A3",
+          "#CAC9C7",
+          "#EFEEEC"
+        ]
+      },
+      "card-light": {
+        "role": "neutral",
+        "displayName": "Card White",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#A5A5A5",
+          "#C9C9C9",
+          "#EEEEEE"
+        ]
+      },
+      "neutral-zone": {
+        "role": "neutral",
+        "displayName": "Neutral Zone",
+        "canonical": "oklch(92.8% 0.000 89.9)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#A5A5A5",
+          "#C9C9C9",
+          "#EEEEEE"
+        ]
+      },
+      "text-light": {
+        "role": "neutral",
+        "displayName": "Text Light",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#A5A5A5",
+          "#C9C9C9",
+          "#EEEEEE"
+        ]
+      },
+      "text-dark": {
+        "role": "neutral",
+        "displayName": "Gutter Black",
+        "canonical": "oklch(17.8% 0.000 89.9)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#A5A5A5",
+          "#C9C9C9",
+          "#EEEEEE"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero title only, with the triple title glow."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page H1s."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "H2 section heads, gold via --accent-gold."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "H3s, cyan via --accent-cyan; primary text on cards."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text; 48rem measure on prose pages."
+      },
+      "body-strong": {
+        "displayName": "Body Strong",
+        "purpose": "Nav links, buttons, pager titles."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase mono HUD labels: status tags, crumbs, dates, pager, crew roles."
+      }
+    },
+    "shadows": [
+      {
+        "name": "title-glow",
+        "value": "0 0 12px rgba(188,72,154,0.8), 0 0 40px rgba(113,43,140,0.7), 0 2px 4px rgba(0,0,0,0.6)",
+        "purpose": "text-shadow on the hero title and The World banner H1 only."
+      },
+      {
+        "name": "glyph-glow",
+        "value": "0 0 10px rgba(188,72,154,0.9), 0 0 28px rgba(27,187,196,0.45)",
+        "purpose": "text-shadow on rules-card art glyphs; intensifies on hover."
+      },
+      {
+        "name": "mark-trace",
+        "value": "drop-shadow(0 0 1px rgba(255,255,255,0.75)) drop-shadow(0 0 6px rgba(188,72,154,0.6))",
+        "purpose": "filter on the nav skull/d10 mark in dark mode."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-fast",
+        "value": "0.15s ease",
+        "purpose": "Color and border transitions on links, cards, chips and the toggle. Zeroed under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "560px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "720px"
+      },
+      {
+        "name": "lg",
+        "value": "860px"
+      },
+      {
+        "name": "xl",
+        "value": "1000px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Single main action in a group; fixed Aether Pulse fill in both themes.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Meet NYTE City</a>",
+      "css": ".ds-btn-primary{display:inline-block;padding:0.8em 1.6em;border-radius:4px;font-family:var(--font-body,Inter,system-ui,sans-serif);font-weight:700;text-decoration:none;background:var(--aether-pulse,#712B8C);color:#fff;transition:background .15s}.ds-btn-primary:hover{background:var(--neon-veil,#BC489A);color:#fff}.ds-btn-primary:focus-visible{outline:2px solid var(--accent-cyan,#1BBBC4);outline-offset:3px}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action on fixed-dark surfaces only (hero, callout strip). Shown here on a Midnight panel.",
+      "html": "<div class=\"ds-darkbg\"><a class=\"ds-btn-ghost\" href=\"#\">Explore the Rules</a></div>",
+      "css": ".ds-darkbg{background:#0D1731;padding:1.5rem;border-radius:10px;display:inline-block}.ds-btn-ghost{display:inline-block;padding:0.8em 1.6em;border-radius:4px;font-family:var(--font-body,Inter,system-ui,sans-serif);font-weight:700;text-decoration:none;background:transparent;color:rgba(255,255,255,0.8);border:1px solid #203F7B;transition:color .15s,border-color .15s}.ds-btn-ghost:hover{border-color:#1BBBC4;color:#1BBBC4}.ds-btn-ghost:focus-visible{outline:2px solid #1BBBC4;outline-offset:3px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Theme-tracked secondary action on the page background.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Download a Blank Sheet</a>",
+      "css": ".ds-btn-outline{display:inline-block;padding:0.8em 1.6em;border-radius:4px;font-family:var(--font-body,Inter,system-ui,sans-serif);font-weight:700;text-decoration:none;background:transparent;color:var(--text-primary,#fff);border:1px solid var(--card-border-hover,rgba(27,187,196,0.55));transition:color .15s,border-color .15s}.ds-btn-outline:hover{border-color:var(--accent-cyan,#1BBBC4);color:var(--accent-cyan,#1BBBC4)}.ds-btn-outline:focus-visible{outline:2px solid var(--accent-cyan,#1BBBC4);outline-offset:3px}"
+    },
+    {
+      "name": "Primary Nav",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Sticky translucent header: Audiowide wordmark, Inter 600 links, gold current-page underline.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-title\" href=\"#\">Shadows RPG</a><div class=\"ds-nav-links\"><a href=\"#\" aria-current=\"page\">The World</a><a href=\"#\">Rules Preview</a><a href=\"#\">News</a><a href=\"#\">About</a></div></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:0.85rem 1.5rem;background:var(--bg-header,rgba(13,23,49,0.88));backdrop-filter:blur(8px);border-bottom:1px solid var(--border-subtle,rgba(255,255,255,0.08))}.ds-nav-title{font-family:var(--font-display,Audiowide,Inter,sans-serif);font-size:1.4rem;color:var(--text-primary,#fff);text-decoration:none;letter-spacing:0.02em}.ds-nav-links{display:flex;gap:1.5rem}.ds-nav-links a{color:var(--text-secondary,rgba(255,255,255,0.8));text-decoration:none;font-family:var(--font-body,Inter,sans-serif);font-size:0.95rem;font-weight:600;padding:0.35rem 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}.ds-nav-links a:hover{color:var(--accent-gold,#F2C94C)}.ds-nav-links a[aria-current=page]{color:var(--accent-gold,#F2C94C);border-bottom-color:currentColor}.ds-nav-links a:focus-visible{outline:2px solid var(--accent-cyan,#1BBBC4);outline-offset:3px}"
+    },
+    {
+      "name": "Status Tag",
+      "kind": "chip",
+      "refersTo": "status-tag",
+      "description": "Draft / In Progress / Final on Rules Preview; outlined mono pill in currentColor.",
+      "html": "<span class=\"ds-tag ds-tag--draft\">Draft</span> <span class=\"ds-tag ds-tag--progress\">In Progress</span> <span class=\"ds-tag ds-tag--final\">Final</span>",
+      "css": ".ds-tag{display:inline-block;font-family:var(--font-mono,'Roboto Mono',ui-monospace,monospace);font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.25em 0.7em;border-radius:999px;border:1px solid currentColor}.ds-tag--draft{color:var(--accent-magenta,#BC489A)}.ds-tag--progress{color:var(--accent-gold,#F2C94C)}.ds-tag--final{color:var(--accent-green,#71C388)}"
+    },
+    {
+      "name": "Jump Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "In-page jump links (Archetypes).",
+      "html": "<a class=\"ds-chip\" href=\"#\">Cyborg</a>",
+      "css": ".ds-chip{display:inline-block;padding:0.35em 0.9em;border-radius:999px;background:var(--chip-bg,rgba(255,255,255,0.06));border:1px solid var(--chip-border,rgba(255,255,255,0.12));color:var(--text-secondary,rgba(255,255,255,0.8));font-family:var(--font-body,Inter,sans-serif);font-size:0.85rem;font-weight:600;text-decoration:none;transition:color .15s,border-color .15s}.ds-chip:hover{color:var(--accent-gold,#F2C94C);border-color:var(--accent-gold,#F2C94C)}.ds-chip:focus-visible{outline:2px solid var(--accent-cyan,#1BBBC4);outline-offset:3px}"
+    },
+    {
+      "name": "Rules Card with Glyph Art",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Rules Preview card; the fixed-dark glyph panel stands in for missing art. Flat; the border brightens on hover.",
+      "html": "<a class=\"ds-rcard\" href=\"#\"><div class=\"ds-rcard-art\"><span>IV</span></div><div class=\"ds-rcard-body\"><span class=\"ds-tag ds-tag--progress\">In Progress</span><h3>Power Levels</h3><p>Four scales of play, from Street Level to World Coming Down.</p></div></a>",
+      "css": ".ds-rcard{display:block;max-width:300px;background:var(--card-bg,#16294F);border:1px solid var(--card-border,rgba(32,63,123,0.45));border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s}.ds-rcard:hover{border-color:var(--card-border-hover,rgba(27,187,196,0.55))}.ds-rcard:focus-visible{outline:2px solid var(--accent-cyan,#1BBBC4);outline-offset:3px}.ds-rcard-art{height:160px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(0deg,rgba(255,255,255,0.035) 0 1px,transparent 1px 4px),radial-gradient(circle at 70% 20%,rgba(188,72,154,0.55),transparent 60%),linear-gradient(135deg,#712B8C,#203F7B 70%,#0D1731)}.ds-rcard-art span{font-family:var(--font-display,Audiowide,Inter,sans-serif);font-size:3.4rem;line-height:1;color:#fff;text-shadow:0 0 10px rgba(188,72,154,0.9),0 0 28px rgba(27,187,196,0.45)}.ds-rcard:hover .ds-rcard-art span{text-shadow:0 0 12px rgba(188,72,154,1),0 0 34px rgba(27,187,196,0.7)}.ds-rcard-body{padding:1.25rem 1.5rem 1.5rem;font-family:var(--font-body,Inter,sans-serif)}.ds-rcard-body h3{font-family:var(--font-display,Audiowide,Inter,sans-serif);font-weight:400;font-size:1.3rem;margin:0.5em 0 0.4em;color:var(--text-primary,#fff)}.ds-rcard-body p{margin:0;font-size:0.95rem;color:var(--text-secondary,rgba(255,255,255,0.8))}.ds-tag{display:inline-block;font-family:var(--font-mono,'Roboto Mono',ui-monospace,monospace);font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.25em 0.7em;border-radius:999px;border:1px solid currentColor}.ds-tag--progress{color:var(--accent-gold,#F2C94C)}"
+    },
+    {
+      "name": "Callout Strip",
+      "kind": "card",
+      "refersTo": "callout-strip",
+      "description": "Fixed-dark Deep Circuit closing CTA panel with primary + ghost buttons.",
+      "html": "<div class=\"ds-callout\"><h2>Follow along and get in the game</h2><div class=\"ds-callout-row\"><a class=\"ds-cbtn ds-cbtn--p\" href=\"#\">Follow on Patreon</a><a class=\"ds-cbtn ds-cbtn--g\" href=\"#\">Join the Discord</a></div></div>",
+      "css": ".ds-callout{background:#203F7B;color:#fff;border-radius:10px;padding:2rem;text-align:center;font-family:var(--font-body,Inter,sans-serif)}.ds-callout h2{font-family:var(--font-display,Audiowide,Inter,sans-serif);font-weight:400;font-size:1.8rem;color:#fff;margin:0 0 1rem}.ds-callout-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.ds-cbtn{display:inline-block;padding:0.8em 1.6em;border-radius:4px;font-family:var(--font-body,Inter,system-ui,sans-serif);font-weight:700;text-decoration:none;transition:background .15s,color .15s,border-color .15s}.ds-cbtn--p{background:#712B8C;color:#fff}.ds-cbtn--p:hover{background:#BC489A}.ds-cbtn--g{color:rgba(255,255,255,0.8);border:1px solid #203F7B}.ds-cbtn--g:hover{color:#1BBBC4;border-color:#1BBBC4}.ds-cbtn:focus-visible{outline:2px solid #1BBBC4;outline-offset:3px}"
+    },
+    {
+      "name": "In Play Scene",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "Site-written in-world example of play: magenta left edge and an 'In play' label, kept distinct from manuscript excerpts.",
+      "html": "<aside class=\"ds-scene\"><p class=\"ds-scene-label\">In play</p><h2>The fence</h2><p>The fence names a price. Your Face reads the room and knows it is a lie.</p></aside>",
+      "css": ".ds-scene{padding:1.5rem 1.75rem;background:var(--card-bg,#16294F);border:1px solid var(--card-border,rgba(32,63,123,0.45));border-left:3px solid var(--accent-magenta,#BC489A);border-radius:8px;font-family:var(--font-body,Inter,sans-serif);color:var(--text-secondary,rgba(255,255,255,0.8))}.ds-scene-label{font-size:0.75rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent-magenta,#BC489A);margin:0 0 0.25rem}.ds-scene h2{font-family:var(--font-display,Audiowide,Inter,sans-serif);font-weight:400;color:var(--accent-gold,#F2C94C);font-size:1.6rem;margin:0 0 0.75rem}.ds-scene p:last-child{margin:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Neon Codex",
+    "overview": "Shadowsrpg.com is a rulebook lit from below. The ground is Midnight Underpass navy, dark enough to feel like the city at 2am. The reading happens on it in plain, well-set Inter at a comfortable measure. Neon arrives only where the book itself would put a light: the display title glowing magenta and violet, a gold headline, a cyan data line, a skull-and-d10 mark tracing its own edge. Everything else is quiet on purpose, so that when something glows it means something.\n\nThe system has three registers of type, and each one maps to a voice. **Audiowide**, standing in for the unlicensed Cerulean Nights, is the city's signage: titles, section heads, glossary terms, archetype names. **Inter** is the page, used for everything read at length. **Roboto Mono** is the HUD: status tags, breadcrumbs, dates, pager labels, group labels, and tables. Mono text is small, uppercase and tracked, the way a readout reads. Density is moderate. Wide sections hold grids of cards, and prose pages narrow to a 48rem reading column.\n\nSurfaces are flat and bordered: navy cards with 1px Deep Circuit edges that brighten to cyan on hover. There are two fixed-dark exceptions that ignore the theme toggle: photo bands (the Home hero and The World's banner) and solid brand fills (the callout strip and the glyph panels on image-less rules cards). Light mode is a complete, equal theme on a warm off-white ground, not an afterthought. It keeps the navy-and-violet identity by moving accent duty onto Deep Circuit and Aether Pulse.\n\nThis is not a generic SaaS landing page: no gradient blobs, glassmorphism cards, or stock-icon feature grids. It is not fantasy parchment either: no aged paper, blackletter or scroll ornaments. The supernatural half of the setting shows through violet and magenta light, not medieval props.",
+    "keyCharacteristics": [
+      "Dark navy ground by default, with a full warm-light theme through semantic tokens.",
+      "Three type voices: Audiowide signage, Inter reading, Roboto Mono HUD.",
+      "Flat, bordered surfaces. Glow lives on type and marks, never under cards.",
+      "Gold for headlines, cyan for sub-heads and links, magenta and violet for action and emphasis.",
+      "Fixed-dark photo bands and brand fills that don't change with the theme.",
+      "A 48rem reading column for prose, 72rem for grids."
+    ],
+    "rules": [
+      {
+        "name": "The Indicator Light Rule",
+        "body": "Gold, cyan and green are indicator lights, not paint. They color type, borders, tags and icons, and never fill a surface. Balance target per page: about 60% ground, 25% primary, 10% secondary, 5% accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Semantic Token Rule",
+        "body": "Anything that paints on the page background uses a semantic token (`--text-*`, `--card-*`, `--accent-*`, `--border-*`), never a raw brand constant. Cyan, gold, green and Neon Veil text all fail WCAG contrast on Bone Paper. The tokens swap them for Deep Circuit or Aether Pulse; a raw constant won't.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fixed-Dark Rule",
+        "body": "Any surface that stays dark in both themes (photo bands, the callout strip, glyph panels, the game modal) uses fixed colors: `--text-light`, literal `rgba(255,255,255,x)`, and the raw `--static-cyan` or `--signal-gold`. Theme-tracked tokens there go invisible in light mode. This has already caused two real bugs.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mixed-Case Signage Rule",
+        "body": "Display type is never set in all caps. The brand guide forbids it for Cerulean Nights, and the stand-in follows the same rule so the swap is seamless. Uppercase belongs only to the small mono labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Three Voices Rule",
+        "body": "Audiowide names things, Inter explains them, Roboto Mono reports state. Don't set body copy in Audiowide or headings in mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Glow Is Light Rule",
+        "body": "Glow only ever appears on display type, glyphs and brand marks, as magenta, violet or cyan light. It never appears as a box-shadow under a card, button or panel. Surfaces stay flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do route every on-page color through the semantic tokens (`--text-*`, `--card-*`, `--accent-*`, `--border-*`) so both themes stay legible.",
+      "Do use fixed colors (`--text-light`, the raw `--static-cyan` / `--signal-gold`, literal white rgba) on anything that stays dark in both themes: photo bands, the callout strip, glyph panels, the modal.",
+      "Do keep prose inside the 48rem reading column, and fix grid counts so a known number of cards never leaves one orphaned.",
+      "Do reserve glow for display type, glyphs and brand marks, in magenta, violet or cyan.",
+      "Do mark voice changes with the existing left-rule treatments (violet for excerpts, magenta for pull-lines and \"In play\").",
+      "Do check every new component in both themes, and keep tap targets at 24px or more (footer social icons sit in 36px boxes)."
+    ],
+    "donts": [
+      "Don't build it like a generic SaaS landing page: no gradient blobs, glassmorphism cards, or stock-icon feature grids.",
+      "Don't reach for fantasy parchment: no aged paper textures, blackletter, or scroll and flourish ornaments.",
+      "Don't put a box-shadow under a card, button or panel. Depth is tone plus a 1px border.",
+      "Don't fill surfaces with gold, cyan or green. They're indicator lights for type, borders and tags.",
+      "Don't set display type in all caps, or ship Cerulean Nights before its license is confirmed.",
+      "Don't use `.btn--ghost` on the page background. Use `.btn--outline` there.",
+      "Don't put a raw brand constant (`--static-cyan`, `--signal-gold`, `--neon-veil`) on text over the page background. It fails contrast in light mode."
+    ]
+  }
+}
