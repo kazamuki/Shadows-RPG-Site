@@ -66,6 +66,69 @@ These came up during the design pass and block or shape other work.
   section into its own page once there's a real purchase path. Listed here so it isn't
   forgotten at launch. **M**
 
+## From the 2026-09-29 Impeccable critique (29/40, "Good")
+
+Whole-site critique: a design review plus the `impeccable detect` scan of `_site`. Ken's
+steer: **conversion paths first**, and "targeted shape" (not a full codex push) for the
+same-looking pages. Suggested command in brackets.
+
+- **P1 · Next-step actions on reading pages.** Only Home, About and Character Creation offer
+  Patreon, Discord or the sheet. Add a shared `_includes/next-step.html`:
+  - **The World:** Archetypes primary, sheet secondary.
+  - **Rules pages:** a slim "Build one now →" by the pager.
+  - **News:** "Follow on Patreon" for updates.
+  - **404 and Credits:** Patreon + Discord.
+
+  On mobile, Home's first success button is about 5.6 screens down. [`onboard`] **M**
+- **P1 · The World's pacing.** This is the hero button's destination, but it opens on generic
+  lines under Home's reused banner. The best lines ("not a backdrop…", TAG) are about 1,500px
+  down, and it ends on two small text links (`world/index.html:128`). Keep the text verbatim
+  and change the pacing:
+  - a lead pull-line near the top;
+  - in-world subheads to break up the 6- and 10-paragraph runs;
+  - a distinct banner crop or tint;
+  - a real closing callout.
+
+  [`layout`, `typeset`] **M**
+- **P2 · Reading measure and type ramp.**
+  - `.section--reading` (48rem) gives about 95–104 characters per line, against a target
+    under 80. Try 40–42rem.
+  - 20 font sizes in `theme.css` sit off DESIGN.md's ramp.
+  - h1–h4 are set to `font-weight: 700` (`theme.css:159`), but only Audiowide 400 is
+    loaded, so every heading is faux-bold. Set them to 400.
+
+  [`typeset`] **S**
+- **P2 · Give content its shape.**
+  - Power Levels as a widening ladder with a mono "scope" readout.
+  - Playlists with unique link text (four "Watch the playlist →" links fail WCAG 2.4.4) and
+    mono metadata, with Discord placed next to them.
+  - A signature detail on Home's archetype roster.
+  - One cleared CRB spread (Human or Cyborg, never Stats) shown readable, click to expand.
+
+  [`bolder`] **M**
+- **P2 · Accessibility and copy.**
+  - Neon Veil text on card navy is 3.1:1, below AA: the "In play" label (`theme.css:726`) and
+    About's "Site & Systems". Needs a lighter dark-mode magenta.
+  - H1 → H3 heading skips on the 404, About, the Rules hub and Power Levels.
+  - Glossary definitions are hover-only; show them on tap.
+  - Arcanist's "Under construction in the manuscript" tag narrates production.
+  - The 404 borrows the Draft tag style for its badge.
+
+  [`audit`, `clarify`] **S**
+- **P3 · Minor.**
+  - Mid-paragraph Patreon link in Home's "How it plays" (`index.html:105`).
+  - `.play-scene-label` isn't mono.
+  - The footer says "Get Dangerous", not "Get Dangerous Games".
+  - Leftover inline `style` margins (`index.html:144`, Character Creation, `about/index.html:73`).
+  - "Explore the Rules" ghost border is about 1.7:1 on the hero.
+  - The Rules hub legend explains "Final", which no page has yet.
+  - News has no loading state.
+- **Open questions from the critique:**
+  - Should the hero's primary button go to Archetypes instead of The World?
+  - Should every Rules page link the sheet?
+  - Should light mode get its own "rulebook on paper" character?
+  - Could "the city keeps score" become a visible motif?
+
 ## Design polish
 
 - **Cerulean Nights.** Swap in the real display font once the Chequered Ink license is sorted
