@@ -73,13 +73,6 @@ Whole-site critique: a design review plus the `impeccable detect` scan of `_site
 steer: **conversion paths first**, and "targeted shape" (not a full codex push) for the
 same-looking pages. Suggested command in brackets.
 
-- **P3 · Minor.**
-  - Mid-paragraph Patreon link in Home's "How it plays" (`index.html:105`).
-  - The footer says "Get Dangerous", not "Get Dangerous Games".
-  - Leftover inline `style` margin on `about/index.html:73` (Home's and Character Creation's
-    went 2026-09-30).
-  - The Rules hub legend explains "Final", which no page has yet.
-  - News has no loading state.
 - **Open questions from the critique:**
   - Should the hero's primary button go to Archetypes instead of The World?
   - Should light mode get its own "rulebook on paper" character?

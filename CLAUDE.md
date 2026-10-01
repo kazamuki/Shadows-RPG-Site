@@ -740,6 +740,20 @@ being copy-pasted across every page.
   pages, lightbox open/close, tooltip, Home roster at 375px, no overflow, no console errors.
   Not checked: light mode, and the term bubble on a real touch device.
 
+- **Clarify pass + wishlist P3 (2026-09-30, `/impeccable clarify`).** Copy and labels only.
+  Every `target="_blank"` text link and button now carries a visually-hidden "(opens in a new
+  tab)" (the `sheet` bar already did; **add it to any new external link**). "Download a Blank
+  Sheet" became **"Print a Blank Sheet"** on Home and Character Creation (it opens a printable
+  page, not a file). "CRB" is spelled out as Core Rulebook in About and the Human spread's alt
+  text; the glossary still defines CRB. Closed the five P3 items: Home's mid-paragraph Patreon
+  link is gone (the follow strip below covers it), the footer says "Get Dangerous Games", About's
+  callout uses `.next-step` instead of an inline margin, the Rules hub legend only lists
+  "Final" once some `_data/rules.yml` entry has `status: final`, and News shows "Loading the
+  latest posts..." (a `role="status"` line) until the blog embed resolves, then hides the whole
+  section on failure or no posts. Changelog entry added. Verified via `jekyll serve` (port
+  4000): News embed renders 3 posts and removes the status line, About spacing unchanged,
+  legend shows two items, no console errors. The failure path was not exercised.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
