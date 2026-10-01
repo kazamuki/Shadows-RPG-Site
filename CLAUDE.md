@@ -819,6 +819,38 @@ being copy-pasted across every page.
   automatically. Changelog entry added. Verified via `jekyll serve` (port 4061, uncommitted
   `launch.json` change): 11 icons render, dark and light, no overflow at 375px, no console errors.
 
+- **Rules page signatures (2026-09-30, `/impeccable layout`, wishlist P2).** Stats & Skills,
+  Advantages & Disadvantages and Equipment each lost their stack of navy cards for one shape of
+  their own (Power Levels already had its ladder). **Stats & Skills:** the eight Stats are a
+  `.stat-block`, one ruled panel like the character sheet (icon, Audiowide abbreviation, mono
+  full name); Attributes use the same block three across (`--derived`). COOL shows no
+  separate name since it would repeat. **Advantages & Disadvantages:** a two-column
+  `.balance-sheet` ("Earned · costs points" / "Carried · grants points", both already stated
+  by the manuscript excerpt above it). **Equipment:** each income cell draws a magenta bar
+  at its share of the Hyper bracket (`style="--share: N%"` on `td.income`; **update the
+  percentages if the incomes change**), and Weapons/Armor/Vehicles/Cybernetics became one
+  "What's out there" `.gear-manifest` (h3 + a mono list of what each includes, then the
+  unchanged prose). The four old H2s are now H3s; nothing linked to them. Copy is unchanged
+  apart from the headings and include lists. `.stat-card`/`.stat-attrs` CSS removed. DESIGN.md
+  has a new "Rules page signatures" section. Changelog entry added.
+  Verified via `jekyll serve` (port 4000): 1280px dark and 375px light screenshots of all
+  three pages, no horizontal overflow at 375px, no console errors. The detector's only new
+  finding is "cramped padding" on the balance columns, which are ruled rows with no side inset
+  on purpose, like the Ledger.
+
+- **DESIGN.md refresh (2026-09-30, `/impeccable document`, wishlist P3).** Refreshed in
+  place (North Star, voice and named rules kept). Added the `magenta-text` color
+  (`--accent-magenta-text`, "Neon Veil Text") to the frontmatter and Colors, which the
+  detector had flagged as undocumented. Documented components that had shipped without an
+  entry: the header "Character Sheet" button, the next-step bar and Rules pager, the spread
+  lightbox, the glossary tooltip, roster thumbnails and the roster's draw-out rule (the one
+  authored motion), the pitch pair's breakout from the reading column, and the 480px
+  breakpoint. New named rule: **The Ruled Page Rule** (a 3px double rule tops a ruled record).
+  Tidied Do's and Don'ts (one stray Don't had been filed under Do). `.impeccable/design.json`
+  regenerated to match: new color meta, motion and breakpoint entries, four new components
+  (Header Button, Next-step Bar, Stat Block, Balance Sheet), and its narrative re-synced
+  verbatim from DESIGN.md (it had drifted). Docs only; no site changes.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited

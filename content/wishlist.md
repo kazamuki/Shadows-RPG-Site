@@ -77,14 +77,9 @@ settle all three open decisions, and take on everything. Ordered by priority; su
 in brackets. The three trust decisions are already under "Needs a decision first" above, so they
 aren't repeated here.
 
-- **P2: Rules sub-pages share one rhythm.** Stats & Skills, Advantages & Disadvantages and
-  Equipment are all a stack of navy cards under a gold heading. Give each a signature element,
-  like the Power Levels ladder. **M** [`/impeccable layout`]
 - **P3: Glyph-panel glows.** The hero glow is the Neon Codex look, but the Rules card glyph
   panels ("IV", "Ç") push one step past it. **S** [`/impeccable quieter`]
 - **P3: Em-dash density on Stats & Skills** (17 in body text). **S** [`/impeccable clarify`]
-- **P3: DESIGN.md is missing `--accent-magenta-text`** (`#DB7DBE`), which the detector flags as
-  an undocumented color. **S** [`/impeccable document`]
 - **P3: First-time-player gaps.** "Synergy System", "Archetype" and "Aether" reach a newcomer on
   Home before they're explained, and there's no "new to tabletop?" path (see "Start here" under
   Bigger features). **S-M**

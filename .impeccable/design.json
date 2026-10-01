@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-01T01:23:09Z",
+  "generatedAt": "2026-10-01T03:30:27Z",
   "title": "Design System: Shadows RPG",
   "extensions": {
     "colorMeta": {
@@ -46,6 +46,21 @@
           "#C44FA1",
           "#EB73C5",
           "#FFA3E5",
+          "#FFE1FA"
+        ]
+      },
+      "magenta-text": {
+        "role": "secondary",
+        "displayName": "Neon Veil Text",
+        "canonical": "oklch(70.5% 0.135 341)",
+        "tonalRamp": [
+          "#1D0014",
+          "#460035",
+          "#78005D",
+          "#9D2A7E",
+          "#C44FA1",
+          "#DB7DBE",
+          "#F0B0DC",
           "#FFE1FA"
         ]
       },
@@ -272,9 +287,23 @@
         "name": "state-fast",
         "value": "0.15s ease",
         "purpose": "Color and border transitions on links, cards, chips and the toggle. Zeroed under prefers-reduced-motion."
+      },
+      {
+        "name": "roster-draw",
+        "value": "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "The magenta rule before each roster name draws out (scaleX 1.9) on hover/focus. The site's one authored motion."
+      },
+      {
+        "name": "thumb-reveal",
+        "value": "filter 0.25s ease",
+        "purpose": "Roster thumbnails go from saturate(0.75) brightness(0.9) to full strength on hover/focus."
       }
     ],
     "breakpoints": [
+      {
+        "name": "xxs",
+        "value": "480px"
+      },
       {
         "name": "xs",
         "value": "560px"
@@ -376,19 +405,50 @@
       "description": "Mono readout of what the city wrote down: account, dotted leader, entry. Words only, no numbers.",
       "html": "<div class=\"ds-ledger\"><p class=\"ds-ledger-title\">Ledger · one bad night</p><dl><div><dt>A stolen car</dt><dd>a fixer remembers</dd></div><div><dt>A body in the wrong alley</dt><dd>a gang retaliates</dd></div></dl></div>",
       "css": ".ds-ledger-title{display:flex;align-items:center;gap:.6em;margin:0 0 .4rem;font:400 .75rem 'Roboto Mono',ui-monospace,monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--text-secondary)}.ds-ledger-title::before{content:'';width:1.5rem;height:2px;background:var(--accent-magenta)}.ds-ledger dl{margin:0;border-top:1px solid var(--border-visible)}.ds-ledger dl>div{display:flex;align-items:baseline;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border-subtle);font:400 .95rem 'Roboto Mono',ui-monospace,monospace}.ds-ledger dt{display:flex;flex:1 1 auto;align-items:baseline;color:var(--text-secondary)}.ds-ledger dt::after{content:'';flex:1 1 1rem;margin:0 0 .25em .75rem;border-bottom:1px dotted var(--text-faint)}.ds-ledger dd{margin:0;text-align:right;color:var(--text-primary)}"
+    },
+    {
+      "name": "Header Button",
+      "kind": "button",
+      "refersTo": "button-header",
+      "description": "The persistent 'Character Sheet' link in the nav bar: a quiet cyan outline that fills on hover.",
+      "html": "<a class=\"ds-header-cta\" href=\"#\">Character Sheet</a>",
+      "css": ".ds-header-cta{display:inline-block;padding:.4em .9em;border:1px solid var(--accent-cyan,#1BBBC4);border-radius:4px;font:700 .95rem Inter,system-ui,sans-serif;color:var(--accent-cyan,#1BBBC4);text-decoration:none;white-space:nowrap;transition:background-color .15s ease,color .15s ease}.ds-header-cta:hover{background:var(--accent-cyan,#1BBBC4);color:var(--bg-page,#0D1731)}.ds-header-cta:focus-visible{outline:2px solid var(--accent-cyan,#1BBBC4);outline-offset:3px}"
+    },
+    {
+      "name": "Next-step Bar",
+      "kind": "card",
+      "refersTo": "next-step-bar",
+      "description": "One wide link to the live character sheet, closing each Rules page above the pager. The green dot is a literal indicator light.",
+      "html": "<a class=\"ds-next\" href=\"#\"><span class=\"ds-next-text\"><span class=\"ds-next-status\">Character sheet · live</span><span>Roll your Stats, pick an Archetype, and walk out ready for the table.</span></span><span class=\"ds-next-action\">Build one now →</span></a>",
+      "css": ".ds-next{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem 1.5rem;padding:1rem 1.25rem;background:var(--card-bg,#16294F);border:1px solid var(--card-border,rgba(32,63,123,.45));border-radius:8px;color:var(--text-secondary,rgba(255,255,255,.8));font:400 1rem/1.6 Inter,system-ui,sans-serif;text-decoration:none;transition:border-color .15s ease}.ds-next:hover{border-color:var(--card-border-hover,rgba(27,187,196,.55))}.ds-next:focus-visible{outline:2px solid var(--accent-cyan,#1BBBC4);outline-offset:3px}.ds-next-text{display:flex;flex-direction:column;gap:.25rem;flex:1 1 18rem}.ds-next-status{display:inline-flex;align-items:center;gap:.5em;font:400 .75rem 'Roboto Mono',ui-monospace,monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary,rgba(255,255,255,.55))}.ds-next-status::before{content:'';width:.5rem;height:.5rem;border-radius:50%;background:var(--accent-green,#71C388)}.ds-next-action{font-weight:700;color:var(--accent-cyan,#1BBBC4);white-space:nowrap}.ds-next:hover .ds-next-action{color:var(--accent-green,#71C388)}"
+    },
+    {
+      "name": "Stat Block",
+      "kind": "custom",
+      "refersTo": "stat-block",
+      "description": "Stats & Skills' signature: the Stats as one ruled panel like the character sheet, hairlines between cells.",
+      "html": "<ul class=\"ds-stats\"><li><span class=\"ds-stat-icon\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 21s-7-4.4-9.3-9A5.3 5.3 0 0 1 12 6.6 5.3 5.3 0 0 1 21.3 12C19 16.6 12 21 12 21z\"/></svg></span><h3><span class=\"ds-stat-abbr\">EMP</span> <span class=\"ds-stat-name\">Empathy</span></h3><p>Your overall humanity, tied directly to Sanity.</p></li><li><span class=\"ds-stat-icon\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/><circle cx=\"12\" cy=\"12\" r=\"3\" fill=\"currentColor\"/></svg></span><h3><span class=\"ds-stat-abbr\">COOL</span></h3><p>Panic is contagious. So is confidence.</p></li></ul>",
+      "css": ".ds-stats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border-visible,rgba(255,255,255,.16));border:1px solid var(--card-border,rgba(32,63,123,.45));border-radius:8px;overflow:hidden;font:400 1rem/1.6 Inter,system-ui,sans-serif}.ds-stats li{display:grid;grid-template-columns:2.25rem 1fr;column-gap:.9rem;align-content:start;padding:1.15rem 1.25rem 1.25rem;background:var(--card-bg,#16294F)}.ds-stat-icon{grid-row:span 2;width:2.25rem;height:2.25rem;color:var(--accent-magenta,#BC489A)}.ds-stat-icon svg{width:100%;height:100%;display:block}.ds-stats h3{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.6em;margin:0 0 .35rem;font:400 1.3rem/1.15 Audiowide,Inter,sans-serif;color:var(--text-primary,#fff)}.ds-stat-name{font:400 .75rem 'Roboto Mono',ui-monospace,monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--text-secondary,rgba(255,255,255,.8))}.ds-stats p{margin:0;font-size:.95rem;color:var(--text-secondary,rgba(255,255,255,.8))}"
+    },
+    {
+      "name": "Balance Sheet",
+      "kind": "custom",
+      "description": "Advantages & Disadvantages' signature: Earned and Carried as two ruled columns under a double rule. Stacks on phones.",
+      "html": "<div class=\"ds-balance\"><section><h2>A few Advantages</h2><p class=\"ds-bal-note\">Earned · costs points</p><dl><div><dt>Danger Sense</dt><dd>The city always telegraphs. Most people aren't listening.</dd></div><div><dt>Aura Sight</dt><dd>Everyone in NYTE City wears a mask. This sees behind it.</dd></div></dl></section><section class=\"ds-bal-carried\"><h2>A few Disadvantages</h2><p class=\"ds-bal-note\">Carried · grants points</p><dl><div><dt>Cursed</dt><dd>Curses don't expire. They mature.</dd></div><div><dt>Pact</dt><dd>Some deals get made before you know you're at the table.</dd></div></dl></section></div>",
+      "css": ".ds-balance{display:grid;grid-template-columns:1fr 1fr;border-top:3px double var(--border-visible,rgba(255,255,255,.16));border-bottom:1px solid var(--border-visible,rgba(255,255,255,.16));font:400 1rem/1.6 Inter,system-ui,sans-serif}.ds-balance section{padding:1.25rem 1.5rem .5rem 0}.ds-balance .ds-bal-carried{padding:1.25rem 0 .5rem 1.5rem;border-left:1px solid var(--border-visible,rgba(255,255,255,.16))}.ds-balance h2{margin:0 0 .35rem;font:400 1.3rem/1.15 Audiowide,Inter,sans-serif;color:var(--accent-gold,#F2C94C)}.ds-bal-note{display:flex;align-items:center;gap:.6em;margin:0 0 .75rem;font:400 .75rem 'Roboto Mono',ui-monospace,monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--text-secondary,rgba(255,255,255,.8))}.ds-bal-note::before{content:'';width:1.5rem;height:2px;background:var(--accent-cyan,#1BBBC4)}.ds-bal-carried .ds-bal-note::before{background:var(--accent-magenta,#BC489A)}.ds-balance dl{margin:0}.ds-balance dl>div{padding:.8rem 0;border-top:1px solid var(--border-subtle,rgba(255,255,255,.08))}.ds-balance dt{font-family:Audiowide,Inter,sans-serif;color:var(--text-primary,#fff);margin-bottom:.2rem}.ds-balance dd{margin:0;font-size:.95rem;color:var(--text-secondary,rgba(255,255,255,.8))}"
     }
   ],
   "narrative": {
     "northStar": "The Neon Codex",
     "overview": "Shadowsrpg.com is a rulebook lit from below. The ground is Midnight Underpass navy, dark enough to feel like the city at 2am. The reading happens on it in plain, well-set Inter at a comfortable measure. Neon arrives only where the book itself would put a light: the display title glowing magenta and violet, a gold headline, a cyan data line, a skull-and-d10 mark tracing its own edge. Everything else is quiet on purpose, so that when something glows it means something.\n\nThe system has three registers of type, and each one maps to a voice. **Audiowide**, standing in for the unlicensed Cerulean Nights, is the city's signage: titles, section heads, glossary terms, archetype names. **Inter** is the page, used for everything read at length. **Roboto Mono** is the HUD: status tags, breadcrumbs, dates, pager labels, group labels, and tables. Mono text is small, uppercase and tracked, the way a readout reads. Density is moderate. Wide sections hold grids of cards, and prose pages narrow to a 40rem reading column.\n\nSurfaces are flat and bordered: navy cards with 1px Deep Circuit edges that brighten to cyan on hover. There are two fixed-dark exceptions that ignore the theme toggle: photo bands (the Home hero and The World's banner) and solid brand fills (the callout strip and the glyph panels on image-less rules cards). Light mode is a complete, equal theme, set as a printed rulebook: a warm cream page, ink-black type, and cards that rest on it like loose sheets. It keeps the navy-and-violet identity by moving accent duty onto Deep Circuit and Aether Pulse.\n\nThis is not a generic SaaS landing page: no gradient blobs, glassmorphism cards, or stock-icon feature grids. It is not fantasy parchment either: no aged paper, blackletter or scroll ornaments. The supernatural half of the setting shows through violet and magenta light, not medieval props.",
     "keyCharacteristics": [
-      "Dark navy ground by default, with a full warm-light theme through semantic tokens.",
+      "Dark navy ground by default, with a full warm-light \"rulebook on paper\" theme through semantic tokens.",
+      "A mono ledger readout that records what the city wrote down; flavor only, never numbers.",
       "Three type voices: Audiowide signage, Inter reading, Roboto Mono HUD.",
-      "Flat, bordered surfaces. Glow lives on type and marks, never under cards.",
+      "Flat, bordered surfaces in dark mode (soft paper shadows in light). Glow lives on type and marks, never under cards.",
       "Gold for headlines, cyan for sub-heads and links, magenta and violet for action and emphasis.",
       "Fixed-dark photo bands and brand fills that don't change with the theme.",
-      "A 40rem reading column for prose, 72rem for grids.",
-      "A mono ledger readout that records what the city wrote down; flavor only, never numbers."
+      "A 40rem reading column for prose, 72rem for grids."
     ],
     "rules": [
       {
@@ -418,31 +478,40 @@
       },
       {
         "name": "The Glow Is Light Rule",
-        "body": "Glow only ever appears on display type, glyphs and brand marks, as magenta, violet or cyan light. It never appears as a box-shadow under a card, button or panel. Surfaces stay flat.",
+        "body": "Glow only ever appears on display type, glyphs and brand marks, as magenta, violet or cyan light. It never appears as a box-shadow under a card, button or panel.",
         "section": "elevation"
       },
       {
         "name": "The Sheet Not Scroll Rule",
         "body": "Light mode's depth is a paper shadow and a fine grain, nothing more: no texture images, stains, curled edges or aged tones. It should read as a printed book page, not a fantasy prop.",
         "section": "elevation"
+      },
+      {
+        "name": "The Ruled Page Rule",
+        "body": "A 3px double rule (`--border-visible`) marks the top of a ruled record, like a printed form: the header in light mode, the derived Attributes block, and the balance sheet. Everything inside it is divided by 1px hairlines, never boxed again.",
+        "section": "shapes"
       }
     ],
     "dos": [
-      "Do route every on-page color through the semantic tokens (`--text-*`, `--card-*`, `--accent-*`, `--border-*`) so both themes stay legible.",
-      "Do use fixed colors (`--text-light`, the raw `--static-cyan` / `--signal-gold`, literal white rgba) on anything that stays dark in both themes: photo bands, the callout strip, glyph panels, the modal.",
-      "Do keep prose inside the 40rem reading column, and fix grid counts so a known number of cards never leaves one orphaned.",
-      "Do reserve glow for display type, glyphs and brand marks, in magenta, violet or cyan.",
-      "Do mark voice changes with the existing treatments: a violet left rule for excerpts, a magenta left rule for pull-lines, and the mono \"In play\" label for scenes.",
-      "Do check every new component in both themes, and keep tap targets at 24px or more (footer social icons sit in 36px boxes)."
+      "**Do** route every on-page color through the semantic tokens (`--text-*`, `--card-*`, `--accent-*`, `--border-*`) so both themes stay legible.",
+      "**Do** use fixed colors (`--text-light`, the raw `--static-cyan` / `--signal-gold`, literal white rgba) on anything that stays dark in both themes: photo bands, the callout strip, glyph panels, the modal.",
+      "**Do** keep prose inside the 40rem reading column, and fix grid counts so a known number of cards never leaves one orphaned.",
+      "**Do** reserve glow for display type, glyphs and brand marks, in magenta, violet or cyan.",
+      "**Do** mark voice changes with the existing treatments: a violet left rule for excerpts, a magenta left rule for pull-lines, and the mono \"In play\" label for scenes.",
+      "**Do** close new \"In play\" scenes with a ledger (words only, never numbers).",
+      "**Do** give a long Rules page one shape of its own (ladder, stat block, balance sheet, manifest) instead of another stack of same-size cards.",
+      "**Do** use Neon Veil Text, not Neon Veil, for small magenta type on a card.",
+      "**Do** check every new component in both themes, and keep tap targets at 24px or more (footer social icons sit in 36px boxes)."
     ],
     "donts": [
-      "Don't build it like a generic SaaS landing page: no gradient blobs, glassmorphism cards, or stock-icon feature grids.",
-      "Don't reach for fantasy parchment: no aged or stained paper, blackletter, or scroll and flourish ornaments. Light mode's clean 5% grain is the ceiling.",
-      "Don't put a box-shadow under a card, button or panel in dark mode, and in light mode use only the paper shadow. Dark depth is tone plus a 1px border.",
-      "Don't fill surfaces with gold, cyan or green. They're indicator lights for type, borders and tags.",
-      "Don't set display type in all caps, or ship Cerulean Nights before its license is confirmed.",
-      "Don't use `.btn--ghost` on the page background. Use `.btn--outline` there.",
-      "Don't put a raw brand constant (`--static-cyan`, `--signal-gold`, `--neon-veil`) on text over the page background. It fails contrast in light mode."
+      "**Don't** build it like a generic SaaS landing page: no gradient blobs, glassmorphism cards, or stock-icon feature grids.",
+      "**Don't** reach for fantasy parchment: no aged or stained paper, blackletter, or scroll and flourish ornaments. Light mode's clean 5% grain is the ceiling.",
+      "**Don't** put a box-shadow under a card, button or panel in dark mode, and in light mode use only the paper shadow. Dark depth is tone plus a 1px border.",
+      "**Don't** fill surfaces with gold, cyan or green. They're indicator lights for type, borders and tags.",
+      "**Don't** set display type in all caps, or ship Cerulean Nights before its license is confirmed.",
+      "**Don't** put a thick colored edge on a card. Left rules belong beside bare quoted text only.",
+      "**Don't** use `.btn--ghost` on the page background. Use `.btn--outline` there.",
+      "**Don't** put a raw brand constant (`--static-cyan`, `--signal-gold`, `--neon-veil`) on text over the page background. It fails contrast in light mode."
     ]
   }
 }
