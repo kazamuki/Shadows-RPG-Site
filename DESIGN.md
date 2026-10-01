@@ -12,19 +12,20 @@ colors:
   ghostly-green: "#71C388"
   text-light: "#FFFFFF"
   text-dark: "#111111"
+  ink: "#1A1714"
   card-navy: "#16294F"
-  page-light: "#F5F4F2"
-  card-light: "#FFFFFF"
+  page-light: "#F3EFE6"
+  card-light: "#FBF8F1"
   header-dark: "rgba(13, 23, 49, 0.88)"
-  header-light: "rgba(245, 244, 242, 0.88)"
+  header-light: "rgba(243, 239, 230, 0.9)"
   card-border-dark: "rgba(32, 63, 123, 0.45)"
-  card-border-light: "rgba(32, 63, 123, 0.22)"
+  card-border-light: "rgba(32, 63, 123, 0.2)"
   card-border-hover-dark: "rgba(27, 187, 196, 0.55)"
   card-border-hover-light: "rgba(32, 63, 123, 0.55)"
   text-secondary-dark: "rgba(255, 255, 255, 0.8)"
-  text-secondary-light: "rgba(17, 17, 17, 0.78)"
+  text-secondary-light: "rgba(26, 23, 20, 0.8)"
   text-tertiary-dark: "rgba(255, 255, 255, 0.55)"
-  text-tertiary-light: "rgba(17, 17, 17, 0.58)"
+  text-tertiary-light: "rgba(26, 23, 20, 0.6)"
 typography:
   display:
     fontFamily: "Audiowide, Inter, sans-serif"
@@ -146,19 +147,21 @@ moderate. Wide sections hold grids of cards, and prose pages narrow to a 40rem r
 Surfaces are flat and bordered: navy cards with 1px Deep Circuit edges that brighten to cyan
 on hover. There are two fixed-dark exceptions that ignore the theme toggle: photo bands (the
 Home hero and The World's banner) and solid brand fills (the callout strip and the glyph
-panels on image-less rules cards). Light mode is a complete, equal theme on a warm off-white
-ground, not an afterthought. It keeps the navy-and-violet identity by moving accent duty onto
-Deep Circuit and Aether Pulse.
+panels on image-less rules cards). Light mode is a complete, equal theme, set as a printed rulebook: a warm cream page, ink-black
+type, and cards that rest on it like loose sheets. It keeps the navy-and-violet identity by
+moving accent duty onto Deep Circuit and Aether Pulse.
 
 This is not a generic SaaS landing page: no gradient blobs, glassmorphism cards, or
-stock-icon feature grids. It is not fantasy parchment either: no aged paper, blackletter or
-scroll ornaments. The supernatural half of the setting shows through violet and magenta
+stock-icon feature grids. It is not fantasy parchment either: no aged or stained paper, blackletter or
+scroll ornaments. Light mode's paper is a clean modern printing stock with a barely-there
+grain, not a prop. The supernatural half of the setting shows through violet and magenta
 light, not medieval props.
 
 **Key Characteristics:**
-- Dark navy ground by default, with a full warm-light theme through semantic tokens.
+- Dark navy ground by default, with a full warm-light "rulebook on paper" theme through semantic tokens.
+- A mono ledger readout that records what the city wrote down; flavor only, never numbers.
 - Three type voices: Audiowide signage, Inter reading, Roboto Mono HUD.
-- Flat, bordered surfaces. Glow lives on type and marks, never under cards.
+- Flat, bordered surfaces in dark mode (soft paper shadows in light). Glow lives on type and marks, never under cards.
 - Gold for headlines, cyan for sub-heads and links, magenta and violet for action and emphasis.
 - Fixed-dark photo bands and brand fills that don't change with the theme.
 - A 40rem reading column for prose, 72rem for grids.
@@ -196,12 +199,13 @@ like indicator lights on a dark console.
 - **Midnight Underpass** (`midnight`): the dark-mode page ground, and the base of every
   photo-band scrim.
 - **Card Navy** (`card-navy`): the dark-mode card fill, one step up from the ground.
-- **Bone Paper** (`page-light`): the light-mode page ground, a warm off-white, never pure
-  white.
-- **Card White** (`card-light`): the light-mode card fill, which sits just above Bone Paper.
+- **Bone Paper** (`page-light`): the light-mode page ground, a warm printed cream, never pure
+  white. Carries a fixed 5% SVG-noise grain.
+- **Card Sheet** (`card-light`): the light-mode card fill, a lighter cream that sits just above
+  Bone Paper like a loose sheet.
 - **Neutral Zone** (`neutral-zone`): sun-bleached bone. Used only as the hover color for
   links inside the callout strip.
-- **Text ladder**: pure white or Gutter Black (`text-dark`) for primary text, then about 80%,
+- **Text ladder**: pure white or Ink (`ink`, a warm near-black) for primary text, then about 80%,
   55% and 28% opacity steps for secondary, tertiary and faint text in each theme.
   Translucent header bars (`header-dark`, `header-light`) sit at 88% over an 8px blur.
 
@@ -280,11 +284,17 @@ Breakpoints in use: 1000, 860, 720, 640 and 560px.
 
 ## Elevation & Depth
 
-The site is flat. No surface casts a box-shadow. Depth comes from tone: Card Navy sits one step
-above the Midnight ground (Card White above Bone Paper in light mode), and a 1px border defines
-each edge. Hover lifts nothing; it brightens the border from Deep Circuit to cyan. The only
-layered surfaces are the translucent sticky header (88% opacity, 8px backdrop blur) and the
+Dark mode is flat. No surface casts a box-shadow: depth comes from tone (Card Navy one step
+above the Midnight ground) and a 1px border that brightens from Deep Circuit to cyan on hover.
+Light mode is the same structure with one addition: cards, play scenes and roster rows rest on
+the paper with a soft offset shadow, because a sheet on a desk casts one. The only other
+layered surfaces are the translucent sticky header (88-90% opacity, 8px backdrop blur) and the
 game modal's 85% black backdrop.
+
+### Shadow Vocabulary
+- **Paper shadow** (`box-shadow: 0 1px 2px rgba(26,23,20,0.08), 0 6px 16px -8px rgba(26,23,20,0.18)`):
+  light mode only, on `.feature-card`, `.rules-card`, `.play-scene` and roster rows. Soft,
+  offset, ink-tinted. Never in dark mode.
 
 ### Glow Vocabulary
 Glow represents light in the fiction: neon or aether. It is not an elevation effect.
@@ -298,7 +308,10 @@ Glow represents light in the fiction: neon or aether. It is not an elevation eff
 ### Named Rules
 **The Glow Is Light Rule.** Glow only ever appears on display type, glyphs and brand marks, as
 magenta, violet or cyan light. It never appears as a box-shadow under a card, button or panel.
-Surfaces stay flat.
+
+**The Sheet Not Scroll Rule.** Light mode's depth is a paper shadow and a fine grain, nothing
+more: no texture images, stains, curled edges or aged tones. It should read as a printed book
+page, not a fantasy prop.
 
 ## Shapes
 
@@ -333,8 +346,8 @@ Blunt and confident: bold Inter, a small 4px radius, no icons, no shadow.
 
 ### Cards / Containers
 - **Corner Style:** 8px.
-- **Background:** `--card-bg` (Card Navy in dark mode, Card White in light).
-- **Shadow Strategy:** none. See Elevation & Depth.
+- **Background:** `--card-bg` (Card Navy in dark mode, Card Sheet in light).
+- **Shadow Strategy:** none in dark mode; the paper shadow in light mode. See Elevation & Depth.
 - **Border:** 1px `--card-border`, turning to `--card-border-hover` on hover (linked cards only).
 - **Internal Padding:** 1.75rem, or 1.35rem on phones. Rules cards pad `1.25rem 1.5rem 1.5rem`
   under a 160px image (120px on Home's compact grid).
@@ -345,7 +358,7 @@ closing calls to action (Patreon, Discord, the character sheet). It is fixed-dar
 buttons inside it and gold plain links (Neutral Zone on hover).
 
 ### Navigation
-A sticky translucent bar with a hairline bottom border. The left side holds the skull/d10 mark
+A sticky translucent bar with a hairline bottom border (a 3px double rule in light mode, like a ruled page). The left side holds the skull/d10 mark
 (30×34) and the "Shadows RPG" wordmark in Audiowide 1.4rem. Nav links are Inter 600 at 0.95rem
 in secondary text, turning gold on hover. The current page is gold with a 2px underline, so it
 doesn't rely on color alone. The right side holds the GD Games mark (34px, 85% opacity) and a
@@ -369,6 +382,15 @@ Three treatments mark whose voice a passage is in:
   3.1:1. Site-written example-of-play scenes in the in-world voice, kept visibly
   separate from quoted book text.
 
+### Ledger (signature)
+The "city keeps score" motif: a mono readout of what a scene or a bad night left on the books.
+A `.ledger-title` in the HUD voice ("Ledger · one bad night", led by the same 1.5rem magenta
+rule as the "In play" label) over a `<dl>` between 1px hairlines. Each row is an account (Roboto
+Mono, secondary text) and an entry (primary text, right-aligned) joined by a dotted leader. Under
+480px each row stacks. It sits in prose, never in a card of its own, and states consequences in
+words only: **no numbers, no mechanics**, so it can't read as a ruleset. Used on Home's pitch
+and closing each "In play" scene.
+
 ### Archetype Roster and Glossary Rows
 Ruled lists, not cards. Roster rows are a two-column grid: the Audiowide name over a mono group
 label, then the italic gold hook. Rows fill with the card color on hover, and the name turns
@@ -391,15 +413,15 @@ cyan underline.
   magenta left rule for pull-lines, and the mono "In play" label for scenes.
 - **Don't** put a thick colored edge on a card. Left rules belong beside bare quoted text only
   (2026-09-30).
-- **Do** check every new component in both themes, and keep tap targets at 24px or more
+- **Do** close new "In play" scenes with a ledger (words only, never numbers), and check every new component in both themes, and keep tap targets at 24px or more
   (footer social icons sit in 36px boxes).
 
 ### Don't:
 - **Don't** build it like a generic SaaS landing page: no gradient blobs, glassmorphism
   cards, or stock-icon feature grids.
-- **Don't** reach for fantasy parchment: no aged paper textures, blackletter, or scroll and
-  flourish ornaments.
-- **Don't** put a box-shadow under a card, button or panel. Depth is tone plus a 1px border.
+- **Don't** reach for fantasy parchment: no aged or stained paper, blackletter, or scroll and
+  flourish ornaments. Light mode's clean 5% grain is the ceiling.
+- **Don't** put a box-shadow under a card, button or panel in dark mode, and in light mode use only the paper shadow. Dark depth is tone plus a 1px border.
 - **Don't** fill surfaces with gold, cyan or green. They're indicator lights for type,
   borders and tags.
 - **Don't** set display type in all caps, or ship Cerulean Nights before its license is

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-29T02:32:31.498422+00:00",
+  "generatedAt": "2026-10-01T01:23:09Z",
   "title": "Design System: Shadows RPG",
   "extensions": {
     "colorMeta": {
@@ -127,31 +127,31 @@
       "page-light": {
         "role": "neutral",
         "displayName": "Bone Paper",
-        "canonical": "oklch(96.7% 0.003 84.6)",
+        "canonical": "#F3EFE6",
         "tonalRamp": [
-          "#0C0B0A",
-          "#262523",
-          "#434240",
-          "#62615F",
-          "#838280",
-          "#A6A5A3",
-          "#CAC9C7",
-          "#EFEEEC"
+          "#0C0B09",
+          "#262421",
+          "#44413C",
+          "#645F59",
+          "#857F78",
+          "#A8A29A",
+          "#CCC6BC",
+          "#EFEBE2"
         ]
       },
       "card-light": {
         "role": "neutral",
-        "displayName": "Card White",
-        "canonical": "oklch(100.0% 0.000 89.9)",
+        "displayName": "Card Sheet",
+        "canonical": "#FBF8F1",
         "tonalRamp": [
-          "#0B0B0B",
-          "#252525",
-          "#424242",
-          "#616161",
-          "#828282",
-          "#A5A5A5",
-          "#C9C9C9",
-          "#EEEEEE"
+          "#0D0C0A",
+          "#272522",
+          "#45423D",
+          "#656059",
+          "#868079",
+          "#A9A39B",
+          "#CDC8BE",
+          "#F2EFE6"
         ]
       },
       "neutral-zone": {
@@ -197,6 +197,21 @@
           "#A5A5A5",
           "#C9C9C9",
           "#EEEEEE"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1A1714",
+        "tonalRamp": [
+          "#0A0908",
+          "#1A1714",
+          "#35312C",
+          "#524C45",
+          "#726B63",
+          "#948D84",
+          "#BAB3A9",
+          "#E4DFD6"
         ]
       }
     },
@@ -245,6 +260,11 @@
         "name": "mark-trace",
         "value": "drop-shadow(0 0 1px rgba(255,255,255,0.75)) drop-shadow(0 0 6px rgba(188,72,154,0.6))",
         "purpose": "filter on the nav skull/d10 mark in dark mode."
+      },
+      {
+        "name": "paper-shadow",
+        "value": "0 1px 2px rgba(26,23,20,0.08), 0 6px 16px -8px rgba(26,23,20,0.18)",
+        "purpose": "Light mode only: soft offset shadow under cards, play scenes and roster rows."
       }
     ],
     "motion": [
@@ -349,18 +369,26 @@
       "description": "Site-written in-world example of play: a plain card headed by a mono 'In play' label led by a short magenta rule, kept distinct from manuscript excerpts.",
       "html": "<aside class=\"ds-scene\"><p class=\"ds-scene-label\">In play</p><h2>The fence</h2><p>The fence names a price. Your Face reads the room and knows it is a lie.</p></aside>",
       "css": ".ds-scene{padding:1.5rem 1.75rem;background:var(--card-bg,#16294F);border:1px solid var(--card-border,rgba(32,63,123,0.45));border-radius:8px;font-family:var(--font-body,Inter,sans-serif);color:var(--text-secondary,rgba(255,255,255,0.8))}.ds-scene-label{display:flex;align-items:center;gap:0.6em;font-family:var(--font-mono,'Roboto Mono',monospace);font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-secondary,rgba(255,255,255,0.8));margin:0 0 0.5rem}.ds-scene-label::before{content:'';width:1.5rem;height:2px;background:var(--accent-magenta,#BC489A)}.ds-scene h2{font-family:var(--font-display,Audiowide,Inter,sans-serif);font-weight:400;color:var(--accent-gold,#F2C94C);font-size:1.6rem;margin:0 0 0.75rem}.ds-scene p:last-child{margin:0}"
+    },
+    {
+      "name": "Ledger",
+      "kind": "custom",
+      "description": "Mono readout of what the city wrote down: account, dotted leader, entry. Words only, no numbers.",
+      "html": "<div class=\"ds-ledger\"><p class=\"ds-ledger-title\">Ledger · one bad night</p><dl><div><dt>A stolen car</dt><dd>a fixer remembers</dd></div><div><dt>A body in the wrong alley</dt><dd>a gang retaliates</dd></div></dl></div>",
+      "css": ".ds-ledger-title{display:flex;align-items:center;gap:.6em;margin:0 0 .4rem;font:400 .75rem 'Roboto Mono',ui-monospace,monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--text-secondary)}.ds-ledger-title::before{content:'';width:1.5rem;height:2px;background:var(--accent-magenta)}.ds-ledger dl{margin:0;border-top:1px solid var(--border-visible)}.ds-ledger dl>div{display:flex;align-items:baseline;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border-subtle);font:400 .95rem 'Roboto Mono',ui-monospace,monospace}.ds-ledger dt{display:flex;flex:1 1 auto;align-items:baseline;color:var(--text-secondary)}.ds-ledger dt::after{content:'';flex:1 1 1rem;margin:0 0 .25em .75rem;border-bottom:1px dotted var(--text-faint)}.ds-ledger dd{margin:0;text-align:right;color:var(--text-primary)}"
     }
   ],
   "narrative": {
     "northStar": "The Neon Codex",
-    "overview": "Shadowsrpg.com is a rulebook lit from below. The ground is Midnight Underpass navy, dark enough to feel like the city at 2am. The reading happens on it in plain, well-set Inter at a comfortable measure. Neon arrives only where the book itself would put a light: the display title glowing magenta and violet, a gold headline, a cyan data line, a skull-and-d10 mark tracing its own edge. Everything else is quiet on purpose, so that when something glows it means something.\n\nThe system has three registers of type, and each one maps to a voice. **Audiowide**, standing in for the unlicensed Cerulean Nights, is the city's signage: titles, section heads, glossary terms, archetype names. **Inter** is the page, used for everything read at length. **Roboto Mono** is the HUD: status tags, breadcrumbs, dates, pager labels, group labels, and tables. Mono text is small, uppercase and tracked, the way a readout reads. Density is moderate. Wide sections hold grids of cards, and prose pages narrow to a 40rem reading column.\n\nSurfaces are flat and bordered: navy cards with 1px Deep Circuit edges that brighten to cyan on hover. There are two fixed-dark exceptions that ignore the theme toggle: photo bands (the Home hero and The World's banner) and solid brand fills (the callout strip and the glyph panels on image-less rules cards). Light mode is a complete, equal theme on a warm off-white ground, not an afterthought. It keeps the navy-and-violet identity by moving accent duty onto Deep Circuit and Aether Pulse.\n\nThis is not a generic SaaS landing page: no gradient blobs, glassmorphism cards, or stock-icon feature grids. It is not fantasy parchment either: no aged paper, blackletter or scroll ornaments. The supernatural half of the setting shows through violet and magenta light, not medieval props.",
+    "overview": "Shadowsrpg.com is a rulebook lit from below. The ground is Midnight Underpass navy, dark enough to feel like the city at 2am. The reading happens on it in plain, well-set Inter at a comfortable measure. Neon arrives only where the book itself would put a light: the display title glowing magenta and violet, a gold headline, a cyan data line, a skull-and-d10 mark tracing its own edge. Everything else is quiet on purpose, so that when something glows it means something.\n\nThe system has three registers of type, and each one maps to a voice. **Audiowide**, standing in for the unlicensed Cerulean Nights, is the city's signage: titles, section heads, glossary terms, archetype names. **Inter** is the page, used for everything read at length. **Roboto Mono** is the HUD: status tags, breadcrumbs, dates, pager labels, group labels, and tables. Mono text is small, uppercase and tracked, the way a readout reads. Density is moderate. Wide sections hold grids of cards, and prose pages narrow to a 40rem reading column.\n\nSurfaces are flat and bordered: navy cards with 1px Deep Circuit edges that brighten to cyan on hover. There are two fixed-dark exceptions that ignore the theme toggle: photo bands (the Home hero and The World's banner) and solid brand fills (the callout strip and the glyph panels on image-less rules cards). Light mode is a complete, equal theme, set as a printed rulebook: a warm cream page, ink-black type, and cards that rest on it like loose sheets. It keeps the navy-and-violet identity by moving accent duty onto Deep Circuit and Aether Pulse.\n\nThis is not a generic SaaS landing page: no gradient blobs, glassmorphism cards, or stock-icon feature grids. It is not fantasy parchment either: no aged paper, blackletter or scroll ornaments. The supernatural half of the setting shows through violet and magenta light, not medieval props.",
     "keyCharacteristics": [
       "Dark navy ground by default, with a full warm-light theme through semantic tokens.",
       "Three type voices: Audiowide signage, Inter reading, Roboto Mono HUD.",
       "Flat, bordered surfaces. Glow lives on type and marks, never under cards.",
       "Gold for headlines, cyan for sub-heads and links, magenta and violet for action and emphasis.",
       "Fixed-dark photo bands and brand fills that don't change with the theme.",
-      "A 40rem reading column for prose, 72rem for grids."
+      "A 40rem reading column for prose, 72rem for grids.",
+      "A mono ledger readout that records what the city wrote down; flavor only, never numbers."
     ],
     "rules": [
       {
@@ -392,6 +420,11 @@
         "name": "The Glow Is Light Rule",
         "body": "Glow only ever appears on display type, glyphs and brand marks, as magenta, violet or cyan light. It never appears as a box-shadow under a card, button or panel. Surfaces stay flat.",
         "section": "elevation"
+      },
+      {
+        "name": "The Sheet Not Scroll Rule",
+        "body": "Light mode's depth is a paper shadow and a fine grain, nothing more: no texture images, stains, curled edges or aged tones. It should read as a printed book page, not a fantasy prop.",
+        "section": "elevation"
       }
     ],
     "dos": [
@@ -404,8 +437,8 @@
     ],
     "donts": [
       "Don't build it like a generic SaaS landing page: no gradient blobs, glassmorphism cards, or stock-icon feature grids.",
-      "Don't reach for fantasy parchment: no aged paper textures, blackletter, or scroll and flourish ornaments.",
-      "Don't put a box-shadow under a card, button or panel. Depth is tone plus a 1px border.",
+      "Don't reach for fantasy parchment: no aged or stained paper, blackletter, or scroll and flourish ornaments. Light mode's clean 5% grain is the ceiling.",
+      "Don't put a box-shadow under a card, button or panel in dark mode, and in light mode use only the paper shadow. Dark depth is tone plus a 1px border.",
       "Don't fill surfaces with gold, cyan or green. They're indicator lights for type, borders and tags.",
       "Don't set display type in all caps, or ship Cerulean Nights before its license is confirmed.",
       "Don't use `.btn--ghost` on the page background. Use `.btn--outline` there.",

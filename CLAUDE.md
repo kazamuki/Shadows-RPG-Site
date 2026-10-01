@@ -770,8 +770,10 @@ being copy-pasted across every page.
     the shared tokens, so the three-repo sync block is untouched) warms the page to `#F3EFE6`,
     cards to `#FBF8F1`, text to ink `#1A1714`; adds a faint fixed SVG-noise grain on `body`, a
     soft offset `--paper-shadow` on cards/scenes/roster rows, and a `3px double` rule under the
-    header. Fixed-dark surfaces are unchanged. DESIGN.md's `*-light` color tokens still list the
-    old greys; **re-run `/impeccable document` to refresh them.**
+    header. Fixed-dark surfaces are unchanged. DESIGN.md and its sidecar were refreshed for this
+    the same day (`/impeccable document`): new light tokens, the paper shadow, the Ledger
+    component, and two reconciled rules (dark stays flat; "no parchment" now allows only the
+    clean 5% grain).
   Verified via `jekyll serve` (port 4000): ledger at 800px light and 375px (no overflow), dd
   contrast and shadows read from computed styles, no console errors. Not checked: dark-mode
   screenshots of the ledger, or the grain on a high-DPI display.
