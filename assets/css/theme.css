@@ -148,6 +148,7 @@
 :root[data-theme="light"] .feature-card,
 :root[data-theme="light"] .rules-card,
 :root[data-theme="light"] .play-scene,
+:root[data-theme="light"] .stat-block,
 :root[data-theme="light"] .archetype-roster li { box-shadow: var(--paper-shadow); }
 :root[data-theme="light"] .site-header {
   border-bottom: 3px double var(--border-visible);
@@ -1110,12 +1111,134 @@ main { display: block; }
   flex: none;
 }
 .stat-icon svg { display: block; width: 100%; height: 100%; }
-.stat-card .stat-icon { margin-bottom: 0.85rem; }
 
-.stat-attrs { list-style: none; padding: 0; margin: 1.25rem 0 0; display: grid; gap: 1rem; }
-.stat-attrs li { display: flex; align-items: flex-start; gap: 1rem; }
-.stat-attrs .stat-icon { width: 2rem; height: 2rem; margin-top: 0.1rem; }
-.stat-attrs p { margin: 0; }
+/* The stat block: the eight Stats as one ruled panel, the way they sit on the character
+   sheet, instead of eight loose cards. The 1px grid gap shows the panel's border color
+   through as hairlines between cells. The derived Attributes reuse it, three across. */
+.stat-block {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border-visible);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.stat-cell {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  column-gap: 0.9rem;
+  align-content: start;
+  padding: 1.15rem 1.25rem 1.25rem;
+  background: var(--card-bg);
+}
+.stat-cell .stat-icon { width: 2.25rem; height: 2.25rem; grid-row: span 2; }
+.stat-cell h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.6em;
+  margin: 0 0 0.35rem;
+  color: var(--text-primary);
+}
+.stat-abbr { font-size: 1.3rem; letter-spacing: 0.02em; }
+.stat-name {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.stat-cell p { margin: 0; font-size: var(--fs-small); color: var(--text-secondary); }
+.stat-block--derived { grid-template-columns: repeat(3, 1fr); border-top: 3px double var(--border-visible); }
+.stat-block--derived .stat-cell { grid-template-columns: 1fr; row-gap: 0.6rem; }
+.stat-block--derived .stat-icon { grid-row: auto; width: 2rem; height: 2rem; }
+.stat-block--derived .stat-abbr { font-size: var(--fs-lead); }
+@media (max-width: 640px) {
+  .stat-block, .stat-block--derived { grid-template-columns: 1fr; }
+  .stat-block--derived .stat-cell { grid-template-columns: 2rem 1fr; column-gap: 0.9rem; row-gap: 0; }
+  .stat-block--derived .stat-icon { grid-row: span 2; }
+}
+
+/* Advantages & Disadvantages as a balance sheet: what you earned on one side, what you
+   carry on the other, ruled like the Ledger. Stacks on phones. */
+.balance-sheet {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 2.5rem 0;
+  border-top: 3px double var(--border-visible);
+  border-bottom: 1px solid var(--border-visible);
+}
+.balance-col { padding: 1.25rem 1.5rem 0.5rem 0; }
+.balance-col--carried { padding: 1.25rem 0 0.5rem 1.5rem; border-left: 1px solid var(--border-visible); }
+.balance-col h2 { font-size: 1.3rem; margin: 0 0 0.35rem; }
+.balance-note {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.balance-note::before { content: ""; width: 1.5rem; height: 2px; background: var(--accent-cyan); }
+.balance-col--carried .balance-note::before { background: var(--accent-magenta); }
+.balance-col dl { margin: 0; }
+.balance-col dl > div { padding: 0.8rem 0; border-top: 1px solid var(--border-subtle); }
+.balance-col dt { font-family: var(--font-display); color: var(--text-primary); margin-bottom: 0.2rem; }
+.balance-col dd { margin: 0; font-size: var(--fs-small); color: var(--text-secondary); }
+@media (max-width: 640px) {
+  .balance-sheet { grid-template-columns: 1fr; }
+  .balance-col { padding-right: 0; }
+  .balance-col--carried { padding-left: 0; border-left: 0; border-top: 1px solid var(--border-visible); margin-top: 0.5rem; }
+}
+
+/* Equipment's pay scale: each income carries a bar at its share of the top bracket, so the
+   gap between the UBI and the Hyper class reads before the numbers do. */
+.data-table td.income { width: 36%; font-variant-numeric: tabular-nums; }
+.data-table td.income::after {
+  content: "";
+  display: block;
+  width: max(var(--share), 3px);
+  height: 6px;
+  margin-top: 0.4rem;
+  border-radius: 1px;
+  background: var(--accent-magenta);
+}
+
+/* The gear manifest: four catalog entries as ruled rows, name and a mono "includes"
+   readout on the left, the description beside it. Stacks on phones. */
+.gear-manifest { list-style: none; margin: 1.25rem 0 0; padding: 0; border-bottom: 1px solid var(--border-subtle); }
+.gear-manifest > li {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  column-gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+.gear-manifest h3 { margin: 0 0 0.4rem; }
+.gear-includes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.gear-manifest li > p { margin: 0; }
+@media (max-width: 640px) {
+  .gear-manifest > li { grid-template-columns: 1fr; row-gap: 0.75rem; }
+  .gear-includes li { display: inline-block; }
+  .gear-includes li:not(:last-child)::after { content: "·"; margin: 0 0.6em; }
+}
 
 .gd-family-link { display: inline-flex; align-items: center; gap: 0.6em; }
 

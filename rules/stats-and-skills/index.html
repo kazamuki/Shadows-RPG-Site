@@ -22,25 +22,25 @@ description: Stats, Attributes, and a sense of how the Synergy System's d10 core
         harder. Rise above it, and doors begin to open&hellip;sometimes dangerous ones.
       </p>
     </blockquote>
-    <div class="feature-grid">
-      <div class="feature-card stat-card"><span class="stat-icon">{% include stat-icons/bod.svg %}</span><h3>BOD &mdash; Body</h3><p>Health, endurance, raw physical damage. The machine you were issued at birth.</p></div>
-      <div class="feature-card stat-card"><span class="stat-icon">{% include stat-icons/ref.svg %}</span><h3>REF &mdash; Reflexes</h3><p>Hand-eye coordination and reaction speed. Combat, spellcasting under pressure, any moment hesitation gets you killed.</p></div>
-      <div class="feature-card stat-card"><span class="stat-icon">{% include stat-icons/mob.svg %}</span><h3>MOB &mdash; Mobility</h3><p>How fast you move when staying put stops being an option. Sets your run and sprint speed.</p></div>
-      <div class="feature-card stat-card"><span class="stat-icon">{% include stat-icons/int.svg %}</span><h3>INT &mdash; Intelligence</h3><p>Pattern recognition, argumentation, thinking three moves ahead.</p></div>
-      <div class="feature-card stat-card"><span class="stat-icon">{% include stat-icons/tech.svg %}</span><h3>TECH &mdash; Technical Aptitude</h3><p>How well you understand the machines that run the city — and how badly it goes when you don't.</p></div>
-      <div class="feature-card stat-card"><span class="stat-icon">{% include stat-icons/cool.svg %}</span><h3>COOL &mdash; Cool</h3><p>How you act when everything's on the line and everyone's watching. Panic is contagious. So is confidence.</p></div>
-      <div class="feature-card stat-card"><span class="stat-icon">{% include stat-icons/mag.svg %}</span><h3>MAG &mdash; Magnetism</h3><p>Presence. The way a room shifts when you walk in. That's not charm — that's gravity.</p></div>
-      <div class="feature-card stat-card"><span class="stat-icon">{% include stat-icons/emp.svg %}</span><h3>EMP &mdash; Empathy</h3><p>Your overall humanity, tied directly to Sanity. It's also the first thing NYTE City takes.</p></div>
-    </div>
+    <ul class="stat-block">
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/bod.svg %}</span><h3><span class="stat-abbr">BOD</span> <span class="stat-name">Body</span></h3><p>Health, endurance, raw physical damage. The machine you were issued at birth.</p></li>
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/ref.svg %}</span><h3><span class="stat-abbr">REF</span> <span class="stat-name">Reflexes</span></h3><p>Hand-eye coordination and reaction speed. Combat, spellcasting under pressure, any moment hesitation gets you killed.</p></li>
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/mob.svg %}</span><h3><span class="stat-abbr">MOB</span> <span class="stat-name">Mobility</span></h3><p>How fast you move when staying put stops being an option. Sets your run and sprint speed.</p></li>
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/int.svg %}</span><h3><span class="stat-abbr">INT</span> <span class="stat-name">Intelligence</span></h3><p>Pattern recognition, argumentation, thinking three moves ahead.</p></li>
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/tech.svg %}</span><h3><span class="stat-abbr">TECH</span> <span class="stat-name">Technical Aptitude</span></h3><p>How well you understand the machines that run the city — and how badly it goes when you don't.</p></li>
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/cool.svg %}</span><h3><span class="stat-abbr">COOL</span></h3><p>How you act when everything's on the line and everyone's watching. Panic is contagious. So is confidence.</p></li>
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/mag.svg %}</span><h3><span class="stat-abbr">MAG</span> <span class="stat-name">Magnetism</span></h3><p>Presence. The way a room shifts when you walk in. That's not charm — that's gravity.</p></li>
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/emp.svg %}</span><h3><span class="stat-abbr">EMP</span> <span class="stat-name">Empathy</span></h3><p>Your overall humanity, tied directly to Sanity. It's also the first thing NYTE City takes.</p></li>
+    </ul>
   </div>
 
   <div class="rules-section">
     <h2>Attributes</h2>
     <p>Three more traits get derived from your Stats:</p>
-    <ul class="stat-attrs">
-      <li><span class="stat-icon">{% include stat-icons/tol.svg %}</span><p><strong>Tolerance</strong>, your ceiling for pushing magic or cybernetics before your body pushes back.</p></li>
-      <li><span class="stat-icon">{% include stat-icons/will.svg %}</span><p><strong>Will</strong>, your defense against anything trying to break you from the inside.</p></li>
-      <li><span class="stat-icon">{% include stat-icons/san.svg %}</span><p><strong>Sanity</strong>, your grip on reality. In Shadows, no one is completely sane.</p></li>
+    <ul class="stat-block stat-block--derived">
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/tol.svg %}</span><h3><span class="stat-abbr">Tolerance</span></h3><p>Your ceiling for pushing magic or cybernetics before your body pushes back.</p></li>
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/will.svg %}</span><h3><span class="stat-abbr">Will</span></h3><p>Your defense against anything trying to break you from the inside.</p></li>
+      <li class="stat-cell"><span class="stat-icon">{% include stat-icons/san.svg %}</span><h3><span class="stat-abbr">Sanity</span></h3><p>Your grip on reality. In Shadows, no one is completely sane.</p></li>
     </ul>
   </div>
 

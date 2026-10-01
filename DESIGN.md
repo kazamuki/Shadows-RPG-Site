@@ -6,6 +6,7 @@ colors:
   deep-circuit: "#203F7B"
   neutral-zone: "#E7E7E7"
   neon-veil: "#BC489A"
+  magenta-text: "#DB7DBE"
   midnight: "#0D1731"
   signal-gold: "#F2C94C"
   static-cyan: "#1BBBC4"
@@ -122,6 +123,25 @@ components:
     backgroundColor: "{colors.header-dark}"
     textColor: "{colors.text-secondary-dark}"
     padding: "0.85rem 1.5rem"
+  button-header:
+    backgroundColor: "transparent"
+    textColor: "{colors.static-cyan}"
+    rounded: "{rounded.sm}"
+    padding: "0.4em 0.9em"
+    typography: "{typography.body-strong}"
+  button-header-hover:
+    backgroundColor: "{colors.static-cyan}"
+    textColor: "{colors.midnight}"
+  next-step-bar:
+    backgroundColor: "{colors.card-navy}"
+    textColor: "{colors.text-secondary-dark}"
+    rounded: "{rounded.lg}"
+    padding: "1rem 1.25rem"
+  stat-block:
+    backgroundColor: "{colors.card-navy}"
+    textColor: "{colors.text-secondary-dark}"
+    rounded: "{rounded.lg}"
+    padding: "1.15rem 1.25rem 1.25rem"
 ---
 
 # Design System: Shadows RPG
@@ -182,9 +202,12 @@ like indicator lights on a dark console.
 ### Secondary
 - **Neon Veil** (`neon-veil`): sharp nightclub magenta. The primary button's hover fill, the
   pull-line rule, the short rule before the "In play" label, and the magenta half of every display
-  glow. It is only 3.1:1 on Card Navy, so small magenta **text** on cards uses
-  `--accent-magenta-text` instead: a lighter tint (`#DB7DBE`, 5.25:1) in dark mode, Aether
-  Pulse in light. About's "Site & Systems" role label is the current user.
+  glow. It is only 3.1:1 on Card Navy, so small magenta **text** on cards uses Neon Veil Text
+  instead.
+- **Neon Veil Text** (`magenta-text`, `--accent-magenta-text`): a lighter tint of Neon Veil
+  (5.25:1 on Card Navy) for small magenta type on cards: About's "Site & Systems" role label and
+  the roster's supernatural group labels. Site-specific, outside the shared three-repo token
+  set, and it folds into Aether Pulse in light mode.
 - **Signal Gold** (`signal-gold`): warm, aether-touched gold. Every H2 in dark mode, the
   hover color for nav, footer and chip links, archetype hook lines, the "In Progress" tag,
   and the skip link's fill.
@@ -275,25 +298,31 @@ subsections, and 1.25–2rem grid gaps.
 Grids use `auto-fit, minmax(260px, 1fr)` by default. Where a count is known, the grid is fixed
 to avoid a single orphaned card: Home's Rules grid is 3×2, then 2-up under 860px, and the four
 playlists go 4-up, then 2×2 under 1000px, then stacked under 560px. Lists that hold uneven text
-(the archetype roster, the glossary) are ruled rows, not cards.
+(the archetype roster, the glossary, the gear manifest, the balance sheet) are ruled rows, not
+cards. Two-column readouts inside the reading column (the stat block, the balance sheet, the gear
+manifest) drop to one column under 640px.
+
+One element may break out of the reading column on purpose: Home's pitch pair, two painted
+panels at `min(56rem, 100vw - 2rem)` centered over the 40rem copy, stacking under 560px.
 
 The header is sticky and full-bleed. Its content is capped at 72rem. At 720px and below, the
 brand and actions share row one and the five nav links spread across row two, so the header
-stays about 86px tall. Anchors land clear of the header thanks to 5rem of `scroll-padding-top`.
-Breakpoints in use: 1000, 860, 720, 640 and 560px.
+stays about 95px tall. Under 480px the header button shortens to "Sheet" and the gaps tighten so
+brand and actions keep one row. Anchors land clear of the header thanks to 5rem of
+`scroll-padding-top`. Breakpoints in use: 1000, 860, 720, 640, 560 and 480px.
 
 ## Elevation & Depth
 
 Dark mode is flat. No surface casts a box-shadow: depth comes from tone (Card Navy one step
 above the Midnight ground) and a 1px border that brightens from Deep Circuit to cyan on hover.
-Light mode is the same structure with one addition: cards, play scenes and roster rows rest on
+Light mode is the same structure with one addition: cards, play scenes, the stat block and roster rows rest on
 the paper with a soft offset shadow, because a sheet on a desk casts one. The only other
-layered surfaces are the translucent sticky header (88-90% opacity, 8px backdrop blur) and the
-game modal's 85% black backdrop.
+layered surfaces are the translucent sticky header (88-90% opacity, 8px backdrop blur), the
+85% black backdrop behind the game modal and the spread lightbox, and the glossary tooltip.
 
 ### Shadow Vocabulary
 - **Paper shadow** (`box-shadow: 0 1px 2px rgba(26,23,20,0.08), 0 6px 16px -8px rgba(26,23,20,0.18)`):
-  light mode only, on `.feature-card`, `.rules-card`, `.play-scene` and roster rows. Soft,
+  light mode only, on `.feature-card`, `.rules-card`, `.play-scene`, `.stat-block` and roster rows. Soft,
   offset, ink-tinted. Never in dark mode.
 
 ### Glow Vocabulary
@@ -323,6 +352,11 @@ a 3px left rule marks a voice beside bare text (never on a card): Aether Pulse f
 excerpts and Neon Veil for pull-lines. Card images crop with `object-fit: cover` from the top, so book
 spreads show their headline art.
 
+### Named Rules
+**The Ruled Page Rule.** A 3px double rule (`--border-visible`) marks the top of a ruled
+record, like a printed form: the header in light mode, the derived Attributes block, and the
+balance sheet. Everything inside it is divided by 1px hairlines, never boxed again.
+
 ## Components
 
 ### Buttons
@@ -335,6 +369,10 @@ Blunt and confident: bold Inter, a small 4px radius, no icons, no shadow.
   border and text turn Static Cyan. **Only on fixed-dark surfaces** (hero, callout strip).
 - **Outline:** the theme-tracked sibling of Ghost for the page background: primary text color
   and a card-hover border, turning to `--accent-cyan` on hover.
+- **Header:** the "Character Sheet" link in the nav bar. A small outline in `--accent-cyan`
+  (1px border, 4px radius, `0.4em 0.9em`, Inter 700 at 0.95rem) that fills cyan with page-colored
+  text on hover. An outline, not a fill, so the hero's primary button stays the loudest thing on
+  Home. Theme-tracked.
 - **Focus:** the global 2px cyan `:focus-visible` ring at a 3px offset.
 
 ### Chips and Status Tags
@@ -362,7 +400,8 @@ A sticky translucent bar with a hairline bottom border (a 3px double rule in lig
 (30×34) and the "Shadows RPG" wordmark in Audiowide 1.4rem. Nav links are Inter 600 at 0.95rem
 in secondary text, turning gold on hover. The current page is gold with a 2px underline, so it
 doesn't rely on color alone. The right side holds the GD Games mark (34px, 85% opacity) and a
-circular theme toggle. On phones, the links move to their own full-width row, spread evenly.
+circular theme toggle, led by the header button (see Buttons). On phones, the links move to
+their own full-width row, spread evenly.
 
 ### Rules Card Art Panel (signature)
 Rules cards without an image get a 160px fixed-dark panel instead: faint 4px scanlines, a
@@ -391,10 +430,45 @@ Mono, secondary text) and an entry (primary text, right-aligned) joined by a dot
 words only: **no numbers, no mechanics**, so it can't read as a ruleset. Used on Home's pitch
 and closing each "In play" scene.
 
+### Next-step Bar and Rules Pager
+The closing block of every Rules page. The **next-step bar** is one wide link on a card surface
+(8px, `1rem 1.25rem`): a mono status line ("Character sheet · live") led by a 0.5rem green dot,
+a line of secondary text, and a bold cyan action that turns green on hover. The dot is a literal
+indicator light. The **pager** sits 1.5rem under it: previous and next as 8px card links (mono
+direction label in tertiary text over an Inter 600 title), with a centered cyan hub link and a
+mono "n of 6" count between them. Under 560px the hub drops to its own row.
+
+### Spread Lightbox and Glossary Tooltip
+- **Spread lightbox:** a CRB spread inside a button with a fixed-dark mono pill ("Read the book
+  page") in its lower-left corner, Aether Pulse on hover. It opens a native `<dialog>` on
+  Midnight with a cyan-hover border and an 85% black backdrop; the close button is
+  fixed-dark like a ghost button.
+- **Glossary tooltip:** a small bubble (max 18rem, 6px corners, a 1px cyan-hover border) on the
+  page background color, showing a term's short definition over a mono cyan "Glossary entry →"
+  line. Hover or focus opens it; on touch, the first tap does. It has no shadow, even in light mode.
+
+### Rules page signatures
+Each long Rules page has one shape of its own, so the six don't read as the same stack of cards:
+- **Power Levels:** the widening ladder (`.power-ladder`).
+- **Stats & Skills:** a **stat block** (`.stat-block`), one bordered panel split by 1px
+  `--border-visible` hairlines into cells, like the character sheet. Each cell has the stat icon,
+  the Audiowide abbreviation, a mono full name and a short line in secondary text. Two across,
+  one under 640px. The derived Attributes use it three across under a 3px double top rule.
+- **Advantages & Disadvantages:** a **balance sheet** (`.balance-sheet`): two ruled columns
+  under a double rule, "Earned" (cyan lead rule) and "Carried" (magenta), with Audiowide names
+  over secondary text. Stacks under 640px.
+- **Equipment:** the pay table's income cells carry a magenta bar at their share of the top
+  bracket (`td.income`, `--share`), and the gear is a ruled **manifest** (`.gear-manifest`):
+  name and a mono list of what it includes on the left, the description on the right.
+
 ### Archetype Roster and Glossary Rows
-Ruled lists, not cards. Roster rows are a two-column grid: the Audiowide name over a mono group
-label, then the italic gold hook. Rows fill with the card color on hover, and the name turns
-cyan. Glossary terms are Audiowide in cyan over secondary-text definitions, and the targeted
+Ruled lists, not cards. Roster rows are a three-column grid: a painted thumbnail (8rem, 1px
+card border, slightly desaturated until the row is hovered or focused), the Audiowide name over
+a mono group label, then the italic gold hook. A 1rem magenta rule leads each name and draws
+out to nearly double on hover (`transform: scaleX`, 0.25s, an exponential ease-out), the
+only authored motion on the site. Supernatural rows color their group label with Neon Veil Text.
+Rows fill with the card color on hover, and the name turns cyan. Under 560px the thumbnail
+shrinks to 4.5rem and the hook moves under the name. Glossary terms are Audiowide in cyan over secondary-text definitions, and the targeted
 entry turns gold. First-use glossary links read as prose, with inherited color and a dotted
 cyan underline.
 
@@ -411,9 +485,11 @@ cyan underline.
 - **Do** reserve glow for display type, glyphs and brand marks, in magenta, violet or cyan.
 - **Do** mark voice changes with the existing treatments: a violet left rule for excerpts, a
   magenta left rule for pull-lines, and the mono "In play" label for scenes.
-- **Don't** put a thick colored edge on a card. Left rules belong beside bare quoted text only
-  (2026-09-30).
-- **Do** close new "In play" scenes with a ledger (words only, never numbers), and check every new component in both themes, and keep tap targets at 24px or more
+- **Do** close new "In play" scenes with a ledger (words only, never numbers).
+- **Do** give a long Rules page one shape of its own (ladder, stat block, balance sheet,
+  manifest) instead of another stack of same-size cards.
+- **Do** use Neon Veil Text, not Neon Veil, for small magenta type on a card.
+- **Do** check every new component in both themes, and keep tap targets at 24px or more
   (footer social icons sit in 36px boxes).
 
 ### Don't:
@@ -426,6 +502,7 @@ cyan underline.
   borders and tags.
 - **Don't** set display type in all caps, or ship Cerulean Nights before its license is
   confirmed.
+- **Don't** put a thick colored edge on a card. Left rules belong beside bare quoted text only.
 - **Don't** use `.btn--ghost` on the page background. Use `.btn--outline` there.
 - **Don't** put a raw brand constant (`--static-cyan`, `--signal-gold`, `--neon-veil`) on
   text over the page background. It fails contrast in light mode.

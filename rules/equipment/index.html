@@ -39,52 +39,66 @@ description: Weapons, Armor, Cybernetics, Vehicles, and the Çredits/Skrip econo
     <table class="data-table">
       <thead><tr><th>Class</th><th>Monthly Income</th><th>What that buys</th></tr></thead>
       <tbody>
-        <tr><td>Underclass</td><td>625Ç (UBI)</td><td>A coffin box, fast food, and not much else</td></tr>
-        <tr><td>Working</td><td>2,500Ç</td><td>Rent, food, transport — the basics, covered</td></tr>
-        <tr><td>Middle</td><td>5,000Ç</td><td>Comfort, discretionary spending, some savings</td></tr>
-        <tr><td>Upper</td><td>12,500Ç</td><td>Luxury, investment, significant purchasing power</td></tr>
-        <tr><td>Hyper</td><td>25,000Ç</td><td>Whatever they want</td></tr>
+        <tr><td>Underclass</td><td class="income" style="--share: 2.5%">625Ç (UBI)</td><td>A coffin box, fast food, and not much else</td></tr>
+        <tr><td>Working</td><td class="income" style="--share: 10%">2,500Ç</td><td>Rent, food, transport — the basics, covered</td></tr>
+        <tr><td>Middle</td><td class="income" style="--share: 20%">5,000Ç</td><td>Comfort, discretionary spending, some savings</td></tr>
+        <tr><td>Upper</td><td class="income" style="--share: 50%">12,500Ç</td><td>Luxury, investment, significant purchasing power</td></tr>
+        <tr><td>Hyper</td><td class="income" style="--share: 100%">25,000Ç</td><td>Whatever they want</td></tr>
       </tbody>
     </table>
     </div>
   </div>
 
   <div class="rules-section">
-    <h2>Weapons</h2>
-    <p>
-      Handguns and SMGs up through Rifles, Heavy Weapons, Melee, and Martial Arts weapons, each
-      with its own feel at the table — plus ammunition types and mods like Silencers, Scopes, and
-      SMART Link targeting for the operators who want to fine-tune their loadout.
-    </p>
-  </div>
-
-  <div class="rules-section">
-    <h2>Armor</h2>
-    <p>
-      Armor is a trade-off between what you can afford, what you can carry, and what you expect
-      to be hit with. A denim vest is cheap, easy to conceal, and does what it can; a full suit of
-      hardened plate stops far more, at the cost of subtlety, weight, and price. Every piece wears
-      down under fire and needs upkeep to stay reliable.
-    </p>
-  </div>
-
-  <div class="rules-section">
-    <h2>Vehicles</h2>
-    <p>
-      Vehicles fall into two categories: <strong>Grounders</strong> (wheeled or hover-based
-      surface transport) and <strong>Jumpers</strong> (aerial vehicles working the city's vertical
-      traffic grid). Everything from a scavenged Crotchrocket to military-grade hardware most
-      people will never get their hands on.
-    </p>
-  </div>
-
-  <div class="rules-section">
-    <h2>Cybernetics</h2>
-    <p>
-      Chips, mods, implants, and every other way to rebuild your body — from a SMART Link neural
-      interface to the Cybernetics Maintenance Kit that keeps your chrome running in the field.
-      The full range gets a chapter of its own.
-    </p>
+    <h2>What's out there</h2>
+    <ul class="gear-manifest">
+      <li>
+        <div class="gear-head">
+          <h3>Weapons</h3>
+          <ul class="gear-includes"><li>Handguns</li><li>SMGs</li><li>Rifles</li><li>Heavy</li><li>Melee</li><li>Martial Arts</li></ul>
+        </div>
+        <p>
+          Handguns and SMGs up through Rifles, Heavy Weapons, Melee, and Martial Arts weapons, each
+          with its own feel at the table — plus ammunition types and mods like Silencers, Scopes, and
+          SMART Link targeting for the operators who want to fine-tune their loadout.
+        </p>
+      </li>
+      <li>
+        <div class="gear-head">
+          <h3>Armor</h3>
+          <ul class="gear-includes"><li>Denim vest to hardened plate</li></ul>
+        </div>
+        <p>
+          Armor is a trade-off between what you can afford, what you can carry, and what you expect
+          to be hit with. A denim vest is cheap, easy to conceal, and does what it can; a full suit of
+          hardened plate stops far more, at the cost of subtlety, weight, and price. Every piece wears
+          down under fire and needs upkeep to stay reliable.
+        </p>
+      </li>
+      <li>
+        <div class="gear-head">
+          <h3>Vehicles</h3>
+          <ul class="gear-includes"><li>Grounders</li><li>Jumpers</li></ul>
+        </div>
+        <p>
+          Vehicles fall into two categories: <strong>Grounders</strong> (wheeled or hover-based
+          surface transport) and <strong>Jumpers</strong> (aerial vehicles working the city's vertical
+          traffic grid). Everything from a scavenged Crotchrocket to military-grade hardware most
+          people will never get their hands on.
+        </p>
+      </li>
+      <li>
+        <div class="gear-head">
+          <h3>Cybernetics</h3>
+          <ul class="gear-includes"><li>Chips</li><li>Mods</li><li>Implants</li></ul>
+        </div>
+        <p>
+          Chips, mods, implants, and every other way to rebuild your body — from a SMART Link neural
+          interface to the Cybernetics Maintenance Kit that keeps your chrome running in the field.
+          The full range gets a chapter of its own.
+        </p>
+      </li>
+    </ul>
   </div>
 
   {% include next-step.html variant="sheet" %}
