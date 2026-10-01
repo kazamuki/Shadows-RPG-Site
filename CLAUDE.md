@@ -689,6 +689,12 @@ being copy-pasted across every page.
   Aether Pulse in light). It's defined in `theme.css`'s site-specific block, not the shared
   token set, so the three-repo theme sync is unaffected. Use it for any small magenta text on
   a card; plain `--accent-magenta` stays for rules, borders and glows.
+  **Decided by Ken:** the `sheet` bar's "Build one now" opens the live character sheet
+  directly, not Character Creation, because the sheet walks a new player through the process
+  itself. This answers the critique's open question "Should every Rules page link the sheet?"
+  (yes). Also fixed Power Levels' "Same job, two scales" scene, which said "NET" instead of
+  "LINK" (plus the matching line in `content/drafts/show-dont-tell.md`). No other "NET" is
+  left in site HTML or data.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 

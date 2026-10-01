@@ -116,7 +116,6 @@ same-looking pages. Suggested command in brackets.
   - News has no loading state.
 - **Open questions from the critique:**
   - Should the hero's primary button go to Archetypes instead of The World?
-  - Should every Rules page link the sheet?
   - Should light mode get its own "rulebook on paper" character?
   - Could "the city keeps score" become a visible motif?
 

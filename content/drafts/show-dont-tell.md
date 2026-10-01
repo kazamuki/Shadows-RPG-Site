@@ -48,7 +48,7 @@ your character safer" excerpt (which it sets up).
 > and the Red Hands know your face. That's a bad month.
 >
 > At **Shadows**, it's the same van. But the biotech belongs to Hyde Dynomat, the Red Hands are
-> a front for something older that doesn't want its name on the NET, and Doc Malin is the only
+> a front for something older that doesn't want its name on the LINK, and Doc Malin is the only
 > one who knows it. Get it wrong and a district goes dark, and three powers that have never
 > agreed on anything agree on you.
 >
