@@ -293,6 +293,29 @@ html { scroll-padding-top: 5rem; }
   flex: 0 0 auto;
 }
 
+/* A quiet, persistent route to the character sheet (a success goal). An outline, not a
+   fill, so the hero's primary button stays the loudest thing on Home. Tracks the theme. */
+.header-cta {
+  padding: 0.4em 0.9em;
+  border: 1px solid var(--accent-cyan);
+  border-radius: 4px;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.header-cta:hover { background: var(--accent-cyan); color: var(--bg-page); }
+@media (max-width: 480px) {
+  .header-cta-long { display: none; }
+  .header-cta { padding: 0.35em 0.7em; }
+  .header-actions { gap: 0.5rem; }
+  .site-header .site-header-inner { column-gap: 0.75rem; }
+  .site-header .site-title { font-size: 1.05rem; }
+  .site-header .site-brand { gap: 0.5rem; }
+}
+
 .site-title {
   font-family: var(--font-display);
   font-size: 1.3rem;

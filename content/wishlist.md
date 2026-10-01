@@ -80,10 +80,6 @@ settle all three open decisions, and take on everything. Ordered by priority; su
 in brackets. The three trust decisions are already under "Needs a decision first" above, so they
 aren't repeated here.
 
-- **P1: The header has no action.** Patreon, Discord and the character sheet sit three or more
-  screens down on Home and nowhere in the nav. Add a quiet persistent "Character sheet" link
-  or button to the header; the hero's primary button stays on The World (Ken's 2026-09-30
-  decision). **S** [`/impeccable onboard`]
 - **P2: Rules sub-pages share one rhythm.** Stats & Skills, Advantages & Disadvantages and
   Equipment are all a stack of navy cards under a gold heading. Give each a signature element,
   like the Power Levels ladder. **M** [`/impeccable layout`]

@@ -802,6 +802,14 @@ being copy-pasted across every page.
   Verified via `jekyll serve`: no overflow at 1024 or 375, all images load. Not checked: light
   mode.
 
+- **Header character-sheet link (2026-09-30, `/impeccable onboard`, wishlist P1).** `nav.html`
+  gained a `.header-cta` outline button ("Character Sheet", "Sheet" under 480px) at the start
+  of `.header-actions`, linking to the live sheet in a new tab. Outline, not fill, so the hero's
+  primary button (The World, Ken's decision) stays the loudest thing on Home; theme-tracked
+  cyan. On phones the title shrinks to 1.05rem and gaps tighten so brand + actions stay on one
+  row (header 95px, was 88). Changelog entry added. Verified via `jekyll serve` at 375px and
+  1024px: no overflow. Not checked: light mode.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
