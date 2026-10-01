@@ -77,6 +77,10 @@
   --font-display: 'Audiowide', 'Inter', sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'Roboto Mono', ui-monospace, monospace;
+  /* Type ramp steps beyond h1-h3 and body (DESIGN.md Typography) */
+  --fs-label: 0.75rem;
+  --fs-small: 0.95rem;
+  --fs-lead: 1.125rem;
 
   --content-max: 72rem;
 
@@ -163,7 +167,8 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
+  /* Audiowide ships at 400 only; 700 would be synthesized faux-bold */
+  font-weight: 400;
   line-height: 1.15;
   margin: 0 0 0.6em;
 }
@@ -256,7 +261,7 @@ html { scroll-padding-top: 5rem; }
 
 .site-title {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: var(--text-primary);
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -272,7 +277,7 @@ html { scroll-padding-top: 5rem; }
 .primary-nav a {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   padding: 0.35rem 0;
   border-bottom: 2px solid transparent;
@@ -339,7 +344,7 @@ main { display: block; }
 }
 
 .hero-tagline {
-  font-size: 1.2rem;
+  font-size: var(--fs-lead);
   color: rgba(255, 255, 255, 0.85);
   max-width: 38rem;
   margin: 0 auto 1.75rem;
@@ -424,7 +429,7 @@ main { display: block; }
 .rules-card-body--noimg { padding-top: 1.5rem; }
 
 .rules-card h3 { margin: 0.5em 0 0.4em; color: var(--text-primary); }
-.rules-card p { color: var(--text-secondary); font-size: 0.95rem; margin: 0; }
+.rules-card p { color: var(--text-secondary); font-size: var(--fs-small); margin: 0; }
 
 /* Image-less cards get a designed panel instead of a blank gap: a short glyph
    (set per-page as `art:` in _data/rules.yml) on the brand gradient. Always
@@ -469,11 +474,11 @@ main { display: block; }
    Preview sub-page). At the default 72rem the paragraphs ran ~140-170
    characters per line on desktop, well past comfortable reading length;
    this keeps them around 80-90 while grids inside still get two columns. */
-.section--reading { max-width: 48rem; }
+.section--reading { max-width: 40rem; }
 
 /* Home's pitch: the section right under the hero */
 .home-pitch h2 { text-align: center; margin-bottom: 1.25rem; }
-.home-pitch p { font-size: 1.075rem; }
+.home-pitch p { font-size: var(--fs-lead); }
 .home-pitch .home-pitch-compare {
   text-align: center;
   font-weight: 600;
@@ -506,17 +511,34 @@ main { display: block; }
 .archetype-roster a:hover { background: var(--card-bg); }
 .archetype-roster-name {
   grid-area: name;
+  white-space: nowrap;
   align-self: end;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: var(--fs-lead);
   color: var(--text-primary);
 }
-.archetype-roster a:hover .archetype-roster-name { color: var(--accent-cyan); }
+.archetype-roster a:hover .archetype-roster-name,
+.archetype-roster a:focus-visible .archetype-roster-name { color: var(--accent-cyan); }
+/* Signature: a short magenta rule leads each name and runs out on hover, like a line
+   being drawn to that Archetype. Supernatural rows carry magenta in the group label. */
+.archetype-roster-name::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 2px;
+  margin-right: 0.6rem;
+  vertical-align: 0.3em;
+  background: var(--accent-magenta);
+  transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.archetype-roster a:hover .archetype-roster-name::before,
+.archetype-roster a:focus-visible .archetype-roster-name::before { width: 1.9rem; }
+.archetype-roster li[data-group="supernatural"] .archetype-roster-group { color: var(--accent-magenta-text); }
 .archetype-roster-group {
   grid-area: group;
   align-self: start;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -542,7 +564,7 @@ main { display: block; }
   gap: 0.75rem;
   margin-bottom: 0.9rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-label);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -574,7 +596,7 @@ main { display: block; }
 .rules-pager-link--next { text-align: right; }
 .rules-pager-dir {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-tertiary);
@@ -593,7 +615,7 @@ main { display: block; }
 }
 .rules-pager-count {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   font-weight: 400;
   color: var(--text-tertiary);
 }
@@ -611,7 +633,7 @@ main { display: block; }
   list-style: none;
   padding: 0;
   margin: 0 -2rem;
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
   color: var(--text-secondary);
 }
 .status-legend .status-tag { margin-right: 0.4rem; }
@@ -633,7 +655,7 @@ main { display: block; }
   background: var(--chip-bg);
   border: 1px solid var(--chip-border);
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   text-decoration: none;
 }
@@ -650,7 +672,7 @@ main { display: block; }
 
 .voice-note {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: var(--fs-label);
   color: var(--accent-cyan);
   text-align: center;
   margin: 0 0 1rem;
@@ -669,7 +691,7 @@ main { display: block; }
   border-collapse: collapse;
   margin: 1rem 0 1.5rem;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
 }
 .data-table th, .data-table td {
   border: 1px solid var(--border-subtle);
@@ -678,8 +700,43 @@ main { display: block; }
 }
 .data-table th { color: var(--accent-gold); background: var(--chip-bg); }
 
-.power-level-list { display: grid; gap: 1.25rem; }
-.power-level-list .feature-card h3 { margin-top: 0; }
+/* Power Levels as a widening ladder: each rung is wider and edged in more magenta than
+   the one above it, so the scale reads before the copy does. Full width on phones. */
+.power-ladder {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+.power-rung {
+  width: calc(52% + var(--rung) * 12%);
+  background: var(--card-bg);
+  border: 1px solid color-mix(in srgb, var(--accent-magenta) calc(var(--rung) * 20%), var(--card-border));
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem 0.5rem;
+}
+.power-rung-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  column-gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+.power-rung h3 { margin: 0; }
+.power-scope {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
+.power-scope span { color: var(--text-secondary); margin-right: 0.5em; }
+@media (max-width: 640px) {
+  .power-rung { width: 100%; padding: 1.1rem 1.1rem 0.4rem; }
+}
 
 .archetype-block {
   display: grid;
@@ -699,11 +756,65 @@ main { display: block; }
   object-fit: cover;
   border-radius: 6px;
 }
+/* Cyborg's book spread opens full size in a dialog (assets/js/spread-lightbox.js) */
+.spread-zoom {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: zoom-in;
+  font: inherit;
+}
+/* Over a photo, so fixed-dark in both themes */
+.spread-zoom-hint {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+  background: rgba(13, 23, 49, 0.88);
+  color: var(--text-light);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.spread-zoom:hover .spread-zoom-hint { background: var(--aether-pulse); }
+.spread-dialog {
+  max-width: min(95vw, 800px);
+  max-height: 95vh;
+  padding: 0;
+  border: 1px solid var(--card-border-hover);
+  border-radius: 8px;
+  background: var(--midnight);
+  overflow: auto;
+}
+.spread-dialog::backdrop { background: rgba(0, 0, 0, 0.85); }
+.spread-dialog img { display: block; width: 100%; height: auto; }
+.spread-dialog-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  margin: 0.5rem;
+  padding: 0.4em 0.9em;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 4px;
+  background: rgba(13, 23, 49, 0.92);
+  color: var(--text-light);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
 .archetype-block h2,
 .archetype-block h3 { margin-top: 0; color: var(--text-primary); }
 .archetype-block h2 { font-size: 1.3rem; }
 .archetype-hook { font-style: italic; color: var(--accent-gold); margin-bottom: 0.75em; }
-.archetype-paths { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan); }
+.archetype-paths { font-family: var(--font-mono); font-size: var(--fs-small); color: var(--accent-cyan); }
 /* Mortal / Supernatural group headings between the archetype cards. */
 .archetype-group { margin: 2.5rem 0 1.25rem; }
 .archetype-group h2 { margin-bottom: 0.35em; }
@@ -744,7 +855,7 @@ main { display: block; }
   align-items: center;
   gap: 0.6em;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-label);
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -764,7 +875,7 @@ main { display: block; }
   .play-scene { padding: 1.25rem; }
 }
 
-.archetype-flag { display: inline-block; margin-bottom: 0.5rem; }
+.archetype-block .status-tag { margin-bottom: 0.5rem; }
 
 /* One-line standalone beats in The World's prose ("In NYTE City, if you can
    make it here...") — the manuscript lands these as their own paragraphs on
@@ -839,7 +950,7 @@ main { display: block; }
 
 .crew-role {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-label);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--crew-accent, var(--accent-cyan));
@@ -899,7 +1010,7 @@ main { display: block; }
 .status-tag {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--fs-label);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.25em 0.7em;
@@ -909,6 +1020,16 @@ main { display: block; }
 .status-tag--draft { color: var(--accent-magenta); }
 .status-tag--in-progress { color: var(--accent-gold); }
 .status-tag--final { color: var(--accent-green); }
+
+/* The 404 page's error code: a mono readout, deliberately not a status pill */
+.error-code {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
 
 /* --- Mailing list / support strip --- */
 /* Solid deep-circuit fill, fixed regardless of theme — text inside stays
@@ -961,7 +1082,7 @@ main { display: block; }
   align-items: center;
   gap: 0.5em;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-tertiary);
@@ -1014,7 +1135,7 @@ main { display: block; }
 .news-date {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: var(--fs-label);
   color: var(--accent-cyan);
   margin-bottom: 0.5em;
 }
@@ -1047,7 +1168,7 @@ main { display: block; }
 .footer-nav a {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
 }
 .footer-nav a:hover { color: var(--accent-gold); }
 
@@ -1058,7 +1179,7 @@ main { display: block; }
   justify-content: center;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
 }
 
 .social-row {
@@ -1088,7 +1209,7 @@ main { display: block; }
 .footer-social-text:hover { color: var(--accent-gold); }
 
 .footer-copyright {
-  font-size: 0.8rem;
+  font-size: var(--fs-label);
   color: var(--text-tertiary);
   max-width: 40rem;
 }
@@ -1102,7 +1223,7 @@ main { display: block; }
     row-gap: 0.4rem;
     padding: 0.6rem 1rem 0.2rem;
   }
-  .site-title { font-size: 1.2rem; }
+  .site-title { font-size: var(--fs-lead); }
   .site-mark img { width: 26px; height: 30px; }
   .gd-mark img { width: 30px; height: 30px; }
   .primary-nav {
@@ -1112,7 +1233,7 @@ main { display: block; }
     justify-content: space-between;
     gap: 0.5rem;
   }
-  .primary-nav a { font-size: 0.85rem; }
+  .primary-nav a { font-size: var(--fs-small); }
 }
 
 /* --- Footer easter-egg trigger + game modal ---
@@ -1194,6 +1315,14 @@ main { display: block; }
 
 /* Four-card grid (Home's actual-play playlists): 4-up, then 2x2, then
    stacked — never the 3-plus-an-orphan that auto-fit lands on. */
+.feature-meta {
+  margin: -0.35rem 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
 .feature-grid--four { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 @media (max-width: 1000px) { .feature-grid--four { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .feature-grid--four { grid-template-columns: 1fr; } }
@@ -1205,11 +1334,11 @@ main { display: block; }
 .glossary dt {
   font-family: var(--font-display);
   color: var(--accent-cyan);
-  font-size: 1.05rem;
+  font-size: var(--fs-lead);
   margin-bottom: 0.3rem;
 }
 .glossary dd { margin: 0; color: var(--text-secondary); }
-.glossary-see { display: inline-block; margin-left: 0.35em; font-size: 0.9rem; white-space: nowrap; }
+.glossary-see { display: inline-block; margin-left: 0.35em; font-size: var(--fs-small); white-space: nowrap; }
 .glossary-entry:target dt { color: var(--accent-gold); }
 
 /* First-use link into the glossary (_includes/term.html): reads as prose, not a nav link */
@@ -1221,6 +1350,30 @@ a.term {
   cursor: help;
 }
 a.term:hover { color: var(--accent-cyan); }
+/* Definition bubble (assets/js/term-tips.js): hover, focus, or first tap on touch */
+.term-tip {
+  position: fixed;
+  z-index: 900;
+  max-width: min(18rem, calc(100vw - 2rem));
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--card-border-hover);
+  border-radius: 6px;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  pointer-events: none;
+}
+.term-tip[hidden] { display: none; }
+.term-tip-more {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
 
 /* Motion off for people who've asked for it; any future animation inherits this */
 @media (prefers-reduced-motion: reduce) {

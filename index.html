@@ -50,7 +50,7 @@ description: >-
   <ul class="archetype-roster">
     {% for pair in site.data.archetypes %}
       {% assign a = pair[1] %}
-      <li>
+      <li data-group="{{ a.group }}">
         <a href="{{ '/rules/archetypes/' | relative_url }}#{{ pair[0] }}">
           <span class="archetype-roster-name">{{ a.name }}</span>
           <span class="archetype-roster-group">{{ a.group }}</span>
@@ -74,25 +74,33 @@ description: >-
   <div class="feature-grid feature-grid--four">
     <div class="feature-card">
       <h3>Shadows 2.0</h3>
+      <p class="feature-meta">60+ episodes</p>
       <p>Our longest-running campaign — 60-plus episodes following the Cult of Personality storyline that shaped NYTE City from the ground up.</p>
-      <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aHNp24EYlbXnxCNVyn9cODd" target="_blank" rel="noopener">Watch the playlist →</a>
+      <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aHNp24EYlbXnxCNVyn9cODd" target="_blank" rel="noopener">Watch Shadows 2.0 →</a>
     </div>
     <div class="feature-card">
       <h3>Shadows: World's Apart</h3>
+      <p class="feature-meta">A new crew</p>
       <p>A new crew steps into NYTE City once the dust from the first great campaign finally settles.</p>
-      <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aHPgd-lxZQ1fYZKdZ7s8rRD" target="_blank" rel="noopener">Watch the playlist →</a>
+      <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aHPgd-lxZQ1fYZKdZ7s8rRD" target="_blank" rel="noopener">Watch World's Apart →</a>
     </div>
     <div class="feature-card">
       <h3>Shadows: The Old Regime</h3>
+      <p class="feature-meta">Extra-long sessions</p>
       <p>Extra-long sessions following Arad's journey through a city on the edge — fewer episodes, a lot more table time in each one.</p>
-      <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aH17eBKUAbGRgPzB_uPUHzr" target="_blank" rel="noopener">Watch the playlist →</a>
+      <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aH17eBKUAbGRgPzB_uPUHzr" target="_blank" rel="noopener">Watch The Old Regime →</a>
     </div>
     <div class="feature-card">
       <h3>Shadows: 13th Floor</h3>
+      <p class="feature-meta">Two-part side story</p>
       <p>A tight two-part side story — a missing persons case that spirals into something much stranger.</p>
-      <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aH8bAdhppGoeE7lT11wuE1j" target="_blank" rel="noopener">Watch the playlist →</a>
+      <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aH8bAdhppGoeE7lT11wuE1j" target="_blank" rel="noopener">Watch 13th Floor →</a>
     </div>
   </div>
+  <p class="center-note">
+    Want to play it rather than watch it? Players and GMs find tables on
+    <a href="{{ site.social.discord }}" target="_blank" rel="noopener">our Discord</a>.
+  </p>
 </section>
 
 <section class="section">
@@ -129,10 +137,6 @@ description: >-
     <a class="btn btn--primary" href="https://charactersheet.shadowsrpg.com/" target="_blank" rel="noopener">Launch the Character Sheet</a>
     <a class="btn btn--outline" href="https://charactersheet.shadowsrpg.com/blank-sheet.html" target="_blank" rel="noopener">Download a Blank Sheet</a>
   </div>
-  <p class="center-note">
-    Need a table? Players and GMs hang out on
-    <a href="{{ site.social.discord }}" target="_blank" rel="noopener">our Discord</a>.
-  </p>
 </section>
 
 <section class="section">

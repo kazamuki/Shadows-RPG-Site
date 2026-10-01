@@ -10,7 +10,7 @@
   {%- endfor -%}
 {%- endfor -%}
 {%- if found -%}
-<a class="term" href="{{ '/world/glossary/' | relative_url }}#{{ found.id }}" title="{{ found.short | escape }}">{{ include.text | default: found.name }}</a>
+<a class="term" href="{{ '/world/glossary/' | relative_url }}#{{ found.id }}" title="{{ found.short | escape }}" data-short="{{ found.short | escape }}">{{ include.text | default: found.name }}</a>
 {%- else -%}
 {{ include.text | default: include.id }}
 {%- endif -%}
