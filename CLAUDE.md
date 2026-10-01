@@ -790,6 +790,26 @@ being copy-pasted across every page.
   would notice). Verified via `jekyll serve` on port 4050: no overflow, no console errors.
   Screenshots were unavailable (the pane's capture failed), so checks were computed styles.
 
+- **Home imagery (2026-09-30, `/impeccable bolder`, wishlist P1).** Home below the hero was
+  text on navy. The pitch now has a `.pitch-pair`: two painted panels ("The surface" /
+  "Underneath", Shutterstock 1246321000 and 626543207) that break out of the reading column
+  (copy and ledger untouched). The roster rows gained a painted thumbnail each; the image
+  filename lives in `_data/archetypes.yml` (`image:`), files in `assets/img/home/` (pitch 720px,
+  thumbs 240px, 5-80KB). Thumbs are slightly muted until hover/focus. At 375px the thumb
+  sits left of name/group and the magenta name rule is hidden to make room. Vampire's image
+  (umbrella figure, red eyes, tendrils) is the loosest fit in the catalog; swap it if a
+  better one turns up. Changelog entry added; catalog "Already in use" updated.
+  Verified via `jekyll serve`: no overflow at 1024 or 375, all images load. Not checked: light
+  mode.
+
+- **Header character-sheet link (2026-09-30, `/impeccable onboard`, wishlist P1).** `nav.html`
+  gained a `.header-cta` outline button ("Character Sheet", "Sheet" under 480px) at the start
+  of `.header-actions`, linking to the live sheet in a new tab. Outline, not fill, so the hero's
+  primary button (The World, Ken's decision) stays the loudest thing on Home; theme-tracked
+  cyan. On phones the title shrinks to 1.05rem and gaps tighten so brand + actions stay on one
+  row (header 95px, was 88). Changelog entry added. Verified via `jekyll serve` at 375px and
+  1024px: no overflow. Not checked: light mode.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
