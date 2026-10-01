@@ -17,6 +17,7 @@ description: Dev notes, playtest calls, and Core Rulebook progress for Shadows, 
   <div class="section-intro">
     <h2>Latest from the studio</h2>
   </div>
+  <p class="center-note" id="gd-blog-embed-status" role="status">Loading the latest posts&hellip;</p>
   <div class="news-list" id="gd-blog-embed-list"></div>
 </section>
 
@@ -24,7 +25,7 @@ description: Dev notes, playtest calls, and Core Rulebook progress for Shadows, 
   <p class="center-note">
     For the full history (dev notes, playtest findings, and everything else Get Dangerous Games
     is up to), visit the
-    <a href="https://getdangerous.net/blog/?tag=Shadows" target="_blank" rel="noopener">studio blog, filtered to Shadows</a>.
+    <a href="https://getdangerous.net/blog/?tag=Shadows" target="_blank" rel="noopener">studio blog, filtered to Shadows<span class="visually-hidden"> (opens in a new tab)</span></a>.
   </p>
 
   {% include next-step.html variant="news" %}
@@ -39,7 +40,17 @@ description: Dev notes, playtest calls, and Core Rulebook progress for Shadows, 
   (function () {
     var section = document.getElementById('gd-blog-embed');
     var list = document.getElementById('gd-blog-embed-list');
-    if (!section || !list) return;
+    var status = document.getElementById('gd-blog-embed-status');
+    if (!section || !list || !status) return;
+
+    // No loading text without JS: the section stays hidden until this script owns it.
+    section.hidden = false;
+
+    function giveUp() {
+      // Nothing to show (fetch failed or no posts), so drop the section. The studio-blog
+      // link-out below covers it.
+      section.hidden = true;
+    }
 
     fetch('https://getdangerous.net/blog/?tag=Shadows')
       .then(function (res) { return res.ok ? res.text() : Promise.reject(new Error('bad status')); })
@@ -64,7 +75,7 @@ description: Dev notes, playtest calls, and Core Rulebook progress for Shadows, 
           });
         });
 
-        if (!posts.length) return;
+        if (!posts.length) { giveUp(); return; }
 
         posts.slice(0, 3).forEach(function (post) {
           var article = document.createElement('article');
@@ -91,11 +102,8 @@ description: Dev notes, playtest calls, and Core Rulebook progress for Shadows, 
           list.appendChild(article);
         });
 
-        section.hidden = false;
+        status.remove();
       })
-      .catch(function () {
-        // Fetch failed (offline, CORS regression, etc.) — the "See everything" link-out
-        // above still covers this case, so there's nothing else to do here.
-      });
+      .catch(giveUp);
   })();
 </script>

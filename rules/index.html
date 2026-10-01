@@ -19,7 +19,8 @@ description: A look inside the Shadows Core Rulebook — Archetypes, Power Level
     <ul class="status-legend">
       <li>{% include status-tag.html status="draft" %}early, expect it to change</li>
       <li>{% include status-tag.html status="in-progress" %}solid, not fully locked</li>
-      <li>{% include status-tag.html status="final" %}locked for print</li>
+      {% assign finals = site.data.rules | where: "status", "final" %}
+      {% if finals.size > 0 %}<li>{% include status-tag.html status="final" %}locked for print</li>{% endif %}
     </ul>
   </div>
 

@@ -740,6 +740,44 @@ being copy-pasted across every page.
   pages, lightbox open/close, tooltip, Home roster at 375px, no overflow, no console errors.
   Not checked: light mode, and the term bubble on a real touch device.
 
+- **Clarify pass + wishlist P3 (2026-09-30, `/impeccable clarify`).** Copy and labels only.
+  Every `target="_blank"` text link and button now carries a visually-hidden "(opens in a new
+  tab)" (the `sheet` bar already did; **add it to any new external link**). "Download a Blank
+  Sheet" became **"Print a Blank Sheet"** on Home and Character Creation (it opens a printable
+  page, not a file). "CRB" is spelled out as Core Rulebook in About and the Human spread's alt
+  text; the glossary still defines CRB. Closed the five P3 items: Home's mid-paragraph Patreon
+  link is gone (the follow strip below covers it), the footer says "Get Dangerous Games", About's
+  callout uses `.next-step` instead of an inline margin, the Rules hub legend only lists
+  "Final" once some `_data/rules.yml` entry has `status: final`, and News shows "Loading the
+  latest posts..." (a `role="status"` line) until the blog embed resolves, then hides the whole
+  section on failure or no posts. Changelog entry added. Verified via `jekyll serve` (port
+  4000): News embed renders 3 posts and removes the status line, About spacing unchanged,
+  legend shows two items, no console errors. The failure path was not exercised.
+
+- **Ledger motif + "rulebook on paper" light mode (2026-09-30, answers the 2026-09-29
+  critique's three open questions).** Ken decided: (1) **keep The World as the hero's primary
+  button** (he likes the "city keeps score" line); (2) light mode gets a light-touch paper
+  character; (3) "the city keeps score" becomes a visible motif.
+  - **`.ledger`** (theme.css, after `.play-scene`): a mono readout of what the city wrote
+    down, `<div class="ledger" role="group" aria-label="...">` with an `aria-hidden`
+    `.ledger-title` ("Ledger · ...", magenta lead rule like `.play-scene-label`) and a `<dl>` of
+    account / entry rows joined by a dotted leader; stacks under 480px. **Flavor only: no
+    numbers, no mechanics** (keeps the "not a copyable ruleset" rule). Used on Home's pitch
+    ("one bad night", which replaced the "Fixers remember. Gangs retaliate..." sentences),
+    just before the truth line of all three "In play" scenes (Stats & Skills, Advantages &
+    Disadvantages) and twice in Power Levels (one per scale). Add one to a new scene the same way.
+  - **Paper light mode:** a site-specific `:root[data-theme="light"]` block in theme.css (after
+    the shared tokens, so the three-repo sync block is untouched) warms the page to `#F3EFE6`,
+    cards to `#FBF8F1`, text to ink `#1A1714`; adds a faint fixed SVG-noise grain on `body`, a
+    soft offset `--paper-shadow` on cards/scenes/roster rows, and a `3px double` rule under the
+    header. Fixed-dark surfaces are unchanged. DESIGN.md and its sidecar were refreshed for this
+    the same day (`/impeccable document`): new light tokens, the paper shadow, the Ledger
+    component, and two reconciled rules (dark stays flat; "no parchment" now allows only the
+    clean 5% grain).
+  Verified via `jekyll serve` (port 4000): ledger at 800px light and 375px (no overflow), dd
+  contrast and shadows read from computed styles, no console errors. Not checked: dark-mode
+  screenshots of the ledger, or the grain on a high-DPI display.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
