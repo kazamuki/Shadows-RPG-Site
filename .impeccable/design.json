@@ -292,7 +292,7 @@
       "refersTo": "button-ghost",
       "description": "Secondary action on fixed-dark surfaces only (hero, callout strip). Shown here on a Midnight panel.",
       "html": "<div class=\"ds-darkbg\"><a class=\"ds-btn-ghost\" href=\"#\">Explore the Rules</a></div>",
-      "css": ".ds-darkbg{background:#0D1731;padding:1.5rem;border-radius:10px;display:inline-block}.ds-btn-ghost{display:inline-block;padding:0.8em 1.6em;border-radius:4px;font-family:var(--font-body,Inter,system-ui,sans-serif);font-weight:700;text-decoration:none;background:transparent;color:rgba(255,255,255,0.8);border:1px solid #203F7B;transition:color .15s,border-color .15s}.ds-btn-ghost:hover{border-color:#1BBBC4;color:#1BBBC4}.ds-btn-ghost:focus-visible{outline:2px solid #1BBBC4;outline-offset:3px}"
+      "css": ".ds-darkbg{background:#0D1731;padding:1.5rem;border-radius:10px;display:inline-block}.ds-btn-ghost{display:inline-block;padding:0.8em 1.6em;border-radius:4px;font-family:var(--font-body,Inter,system-ui,sans-serif);font-weight:700;text-decoration:none;background:transparent;color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.55);transition:color .15s,border-color .15s}.ds-btn-ghost:hover{border-color:#1BBBC4;color:#1BBBC4}.ds-btn-ghost:focus-visible{outline:2px solid #1BBBC4;outline-offset:3px}"
     },
     {
       "name": "Outline Button",

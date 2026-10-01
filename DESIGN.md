@@ -174,8 +174,7 @@ like indicator lights on a dark console.
   mode it takes over the gold and magenta accent roles, so headlines and "Draft" tags stay
   legible.
 - **Deep Circuit** (`deep-circuit`): tech blue, machine architecture. Fills the callout strip
-  and the step-number badges, borders cards (at 45% in dark, 22% in light), and outlines the
-  ghost button. In light mode it takes over the cyan and green accent roles.
+  and the step-number badges, and borders cards (at 45% in dark, 22% in light). In light mode it takes over the cyan and green accent roles.
 
 ### Secondary
 - **Neon Veil** (`neon-veil`): sharp nightclub magenta. The primary button's hover fill, the
@@ -317,7 +316,8 @@ Blunt and confident: bold Inter, a small 4px radius, no icons, no shadow.
 - **Shape:** slightly rounded (4px), padded `0.8em 1.6em`, Inter 700.
 - **Primary:** Aether Pulse fill with white text, and a Neon Veil fill on hover. Fixed colors
   in both themes. Reserved for the single main action in a group.
-- **Ghost:** transparent, with fixed 80% white text and a Deep Circuit border. On hover the
+- **Ghost:** transparent, with fixed 80% white text and a fixed 55% white border (a Deep
+  Circuit border disappeared on the callout strip's Deep Circuit fill). On hover the
   border and text turn Static Cyan. **Only on fixed-dark surfaces** (hero, callout strip).
 - **Outline:** the theme-tracked sibling of Ghost for the page background: primary text color
   and a card-hover border, turning to `--accent-cyan` on hover.

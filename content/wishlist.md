@@ -111,7 +111,6 @@ same-looking pages. Suggested command in brackets.
   - The footer says "Get Dangerous", not "Get Dangerous Games".
   - Leftover inline `style` margin on `about/index.html:73` (Home's and Character Creation's
     went 2026-09-30).
-  - "Explore the Rules" ghost border is about 1.7:1 on the hero.
   - The Rules hub legend explains "Final", which no page has yet.
   - News has no loading state.
 - **Open questions from the critique:**

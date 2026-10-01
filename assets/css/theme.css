@@ -371,11 +371,14 @@ main { display: block; }
 
 /* Every current use of .btn--ghost sits on a fixed-dark surface (.hero's
    photo band or .callout-strip's solid fill), never the page background —
-   so its colors stay fixed regardless of site theme, not theme-tracked. */
+   so its colors stay fixed regardless of site theme, not theme-tracked.
+   The border is 55% white, not Deep Circuit: a Deep Circuit border vanished
+   on the strip's own Deep Circuit fill. 55% white is 4.3:1 there and 6:1 on
+   Midnight, above the 3:1 a button edge needs. */
 .btn--ghost {
   background: transparent;
   color: rgba(255, 255, 255, 0.8);
-  border: 1px solid var(--deep-circuit);
+  border: 1px solid rgba(255, 255, 255, 0.55);
 }
 .btn--ghost:hover { border-color: var(--static-cyan); color: var(--static-cyan); }
 

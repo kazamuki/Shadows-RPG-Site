@@ -695,6 +695,10 @@ being copy-pasted across every page.
   (yes). Also fixed Power Levels' "Same job, two scales" scene, which said "NET" instead of
   "LINK" (plus the matching line in `content/drafts/show-dont-tell.md`). No other "NET" is
   left in site HTML or data.
+  **Ghost button border fixed:** `.btn--ghost` had a Deep Circuit border, which vanished on
+  the callout strip's Deep Circuit fill and was ~1.7:1 on the hero. Now a fixed
+  `rgba(255,255,255,0.55)` (4.3:1 on the strip, 6:1 on Midnight); hover still turns cyan.
+  Fixed-dark, so it's the same in both themes. DESIGN.md and the sidecar updated.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
