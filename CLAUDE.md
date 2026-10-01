@@ -810,6 +810,15 @@ being copy-pasted across every page.
   row (header 95px, was 88). Changelog entry added. Verified via `jekyll serve` at 375px and
   1024px: no overflow. Not checked: light mode.
 
+- **Stat icons on Stats & Skills (2026-09-30, wishlist quick win).** The eight Stat cards and
+  the three Attributes (Tolerance, Will, Sanity, now a `.stat-attrs` list) carry the brand stat
+  icons from `Shadows-Character-Sheet/src/data/shadows-icons.js` (`stats` set, commit
+  `92017c1`). Ken confirmed they're GD's own art, cleared for this site. Each is an inline SVG
+  in `_includes/stat-icons/<id>.svg` (`fill="currentColor"`, `aria-hidden`), so `.stat-icon`
+  colors them (`--accent-magenta`). **If the sheet's icons change, re-copy them**; nothing syncs
+  automatically. Changelog entry added. Verified via `jekyll serve` (port 4061, uncommitted
+  `launch.json` change): 11 icons render, dark and light, no overflow at 375px, no console errors.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
