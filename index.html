@@ -27,6 +27,16 @@ description: >-
     Werewolves clock in for security work and call out on certain nights. The Fae negotiate
     contracts with finer print than any corporation. (They also own K-pop.)
   </p>
+  <div class="pitch-pair">
+    <figure>
+      <img src="{{ '/assets/img/home/pitch-surface.jpg' | relative_url }}" width="720" height="540" loading="lazy" alt="A crowd crossing a street in NYTE City, each person wrapped in glowing data readouts.">
+      <figcaption>The surface</figcaption>
+    </figure>
+    <figure>
+      <img src="{{ '/assets/img/home/pitch-underneath.jpg' | relative_url }}" width="720" height="540" loading="lazy" alt="A spectral cyan figure bursting through a dark back alley.">
+      <figcaption>Underneath</figcaption>
+    </figure>
+  </div>
   <p>
     And the city is paying attention. Steal a car, burn down a corporate front, leave a body in
     the wrong alley. NYTE City won't stop you, but it will answer.
@@ -62,6 +72,7 @@ description: >-
       {% assign a = pair[1] %}
       <li data-group="{{ a.group }}">
         <a href="{{ '/rules/archetypes/' | relative_url }}#{{ pair[0] }}">
+          <img class="archetype-roster-art" src="{{ '/assets/img/home/' | append: a.image | relative_url }}" width="240" height="200" loading="lazy" alt="">
           <span class="archetype-roster-name">{{ a.name }}</span>
           <span class="archetype-roster-group">{{ a.group }}</span>
           <span class="archetype-roster-hook">{{ a.hook }}</span>

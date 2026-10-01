@@ -80,10 +80,6 @@ settle all three open decisions, and take on everything. Ordered by priority; su
 in brackets. The three trust decisions are already under "Needs a decision first" above, so they
 aren't repeated here.
 
-- **P1: Home below the hero is text on navy.** After the neon hero there's no art until the
-  playlist cards, so nothing visual backs up "vampires own the nightclubs". Put one or two
-  images from `brand/shutterstock-catalog.md` in the pitch section and give the roster rows an
-  image or edge treatment. Keep the ledger and copy as is. **S-M** [`/impeccable bolder`]
 - **P1: The header has no action.** Patreon, Discord and the character sheet sit three or more
   screens down on Home and nowhere in the nav. Add a quiet persistent "Character sheet" link
   or button to the header; the hero's primary button stays on The World (Ken's 2026-09-30
