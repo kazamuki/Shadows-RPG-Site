@@ -33,9 +33,6 @@ These came up during the design pass and block or shape other work.
 
 ## Quick wins
 
-- **Stat icons on Stats & Skills.** The CRB spread has a distinct icon per Stat (BOD, REF,
-  MOB…). If those are in `Art Assets/Icons` and cleared per `brand/asset-licensing.md`,
-  putting them on the eight Stat cards would make that page read like the book. **S**
 - **Real art for the Power Levels and Equipment cards.** The new glyph panels ("IV", "Ç") are
   a good stand-in. A matching image from `brand/shutterstock-catalog.md` would be better. **S**
 
