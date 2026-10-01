@@ -1098,6 +1098,25 @@ main { display: block; }
    at reading width and centered rather than stretched across 72rem. */
 .feature-card--solo { max-width: 48rem; margin: 2rem auto 0; }
 
+/* --- Stat icons (Stats & Skills) --- */
+/* The brand stat set from the Shadows Character Sheet (_includes/stat-icons/,
+   inline SVG on currentColor), so the page reads like the sheet and the book. */
+
+.stat-icon {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--accent-magenta);
+  flex: none;
+}
+.stat-icon svg { display: block; width: 100%; height: 100%; }
+.stat-card .stat-icon { margin-bottom: 0.85rem; }
+
+.stat-attrs { list-style: none; padding: 0; margin: 1.25rem 0 0; display: grid; gap: 1rem; }
+.stat-attrs li { display: flex; align-items: flex-start; gap: 1rem; }
+.stat-attrs .stat-icon { width: 2rem; height: 2rem; margin-top: 0.1rem; }
+.stat-attrs p { margin: 0; }
+
 .gd-family-link { display: inline-flex; align-items: center; gap: 0.6em; }
 
 /* --- Crew avatars (About) --- */
