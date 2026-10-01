@@ -722,6 +722,24 @@ being copy-pasted across every page.
   48rem; only prose narrowed. DESIGN.md and its sidecar updated. Verified at 375px: no
   overflow, header 88px, nav still one row, no console errors.
 
+- **Give content its shape + accessibility (2026-09-30, `/impeccable bolder` + clarify, wishlist
+  P2).** **Power Levels** is a `.power-ladder` `<ol>` (rungs widen 64 to 100% and gain magenta
+  edge per `--rung`; full width under 640px) with a mono `.power-scope` readout. The "Expect
+  ... scope" sentences moved into the readouts. **Home playlists** have unique link text
+  ("Watch Shadows 2.0 →") and a mono `.feature-meta` line (episode counts are only the ones
+  the old copy already stated); the **Discord line moved from Try it now to under the
+  playlists** so Home still links it twice. **Roster signature:** a magenta rule before each
+  name that runs out on hover/focus; supernatural rows' group label is magenta
+  (`li[data-group]`). **Cyborg's CRB spread** is a `.spread-zoom` button that opens the 800px
+  image in a native `<dialog>` (`assets/js/spread-lightbox.js`; Human's stays plain). **Glossary
+  terms:** `assets/js/term-tips.js` shows `data-short` in a bubble on hover/focus, and on the
+  first tap on touch (second tap follows the link); `title` stays as the no-JS fallback.
+  **Headings:** visually-hidden h2s fix the h1 to h3 skips on 404, About, Rules hub and Power
+  Levels. Arcanist's production-talk tag is now the shared Draft pill, and the 404 uses its own
+  `.error-code` readout. Verified via `jekyll serve` (port 4041): heading levels on all six
+  pages, lightbox open/close, tooltip, Home roster at 375px, no overflow, no console errors.
+  Not checked: light mode, and the term bubble on a real touch device.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited

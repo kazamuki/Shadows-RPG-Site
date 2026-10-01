@@ -73,21 +73,6 @@ Whole-site critique: a design review plus the `impeccable detect` scan of `_site
 steer: **conversion paths first**, and "targeted shape" (not a full codex push) for the
 same-looking pages. Suggested command in brackets.
 
-- **P2 · Give content its shape.**
-  - Power Levels as a widening ladder with a mono "scope" readout.
-  - Playlists with unique link text (four "Watch the playlist →" links fail WCAG 2.4.4) and
-    mono metadata, with Discord placed next to them.
-  - A signature detail on Home's archetype roster.
-  - One cleared CRB spread (Human or Cyborg, never Stats) shown readable, click to expand.
-
-  [`bolder`] **M**
-- **P2 · Accessibility and copy.**
-  - H1 → H3 heading skips on the 404, About, the Rules hub and Power Levels.
-  - Glossary definitions are hover-only; show them on tap.
-  - Arcanist's "Under construction in the manuscript" tag narrates production.
-  - The 404 borrows the Draft tag style for its badge.
-
-  [`audit`, `clarify`] **S**
 - **P3 · Minor.**
   - Mid-paragraph Patreon link in Home's "How it plays" (`index.html:105`).
   - The footer says "Get Dangerous", not "Get Dangerous Games".

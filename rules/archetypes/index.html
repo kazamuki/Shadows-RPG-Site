@@ -60,7 +60,10 @@ description: Everyone starts human. Professional, Cyborg, Arcanist, Vampire, Wer
   </div>
 
   <div class="archetype-block" id="cyborg">
-    <img src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="Cyborg archetype spread from the Shadows CRB">
+    <button type="button" class="spread-zoom" data-spread-src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" data-spread-alt="The Cyborg chapter spread from the Shadows Core Rulebook, pages 64 and 65: Overview, Physical Characteristics and Playing a Cyborg.">
+      <img src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="">
+      <span class="spread-zoom-hint">Read the book page</span>
+    </button>
     <div>
       <h3>Cyborg</h3>
       <p class="archetype-hook">{{ site.data.archetypes.cyborg.hook }}</p>
@@ -76,7 +79,7 @@ description: Everyone starts human. Professional, Cyborg, Arcanist, Vampire, Wer
 
   <div class="archetype-block no-img" id="arcanist">
     <div>
-      <span class="status-tag status-tag--draft archetype-flag">Under construction in the manuscript</span>
+      {% include status-tag.html status="draft" %}
       <h3>Arcanist</h3>
       <p class="archetype-hook">{{ site.data.archetypes.arcanist.hook }}</p>
       <p>
