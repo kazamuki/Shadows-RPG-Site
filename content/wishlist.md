@@ -72,14 +72,6 @@ Whole-site critique: a design review plus the `impeccable detect` scan of `_site
 steer: **conversion paths first**, and "targeted shape" (not a full codex push) for the
 same-looking pages. Suggested command in brackets.
 
-- **P1 · Next-step actions on reading pages.** Only Home, About and Character Creation offer
-  Patreon, Discord or the sheet. Add a shared `_includes/next-step.html`:
-  - **The World:** Archetypes primary, sheet secondary.
-  - **Rules pages:** a slim "Build one now →" by the pager.
-  - **News:** "Follow on Patreon" for updates.
-  - **404 and Credits:** Patreon + Discord.
-
-  On mobile, Home's first success button is about 5.6 screens down. [`onboard`] **M**
 - **P1 · The World's pacing.** This is the hero button's destination, but it opens on generic
   lines under Home's reused banner. The best lines ("not a backdrop…", TAG) are about 1,500px
   down, and it ends on two small text links (`world/index.html:128`). Keep the text verbatim
@@ -87,7 +79,8 @@ same-looking pages. Suggested command in brackets.
   - a lead pull-line near the top;
   - in-world subheads to break up the 6- and 10-paragraph runs;
   - a distinct banner crop or tint;
-  - a real closing callout.
+  - a real closing callout (done 2026-09-30: `next-step.html`'s "world" variant; the
+    other three still open).
 
   [`layout`, `typeset`] **M**
 - **P2 · Reading measure and type ramp.**
@@ -107,8 +100,6 @@ same-looking pages. Suggested command in brackets.
 
   [`bolder`] **M**
 - **P2 · Accessibility and copy.**
-  - Neon Veil text on card navy is 3.1:1, below AA: the "In play" label (`theme.css:726`) and
-    About's "Site & Systems". Needs a lighter dark-mode magenta.
   - H1 → H3 heading skips on the 404, About, the Rules hub and Power Levels.
   - Glossary definitions are hover-only; show them on tap.
   - Arcanist's "Under construction in the manuscript" tag narrates production.
@@ -117,9 +108,9 @@ same-looking pages. Suggested command in brackets.
   [`audit`, `clarify`] **S**
 - **P3 · Minor.**
   - Mid-paragraph Patreon link in Home's "How it plays" (`index.html:105`).
-  - `.play-scene-label` isn't mono.
   - The footer says "Get Dangerous", not "Get Dangerous Games".
-  - Leftover inline `style` margins (`index.html:144`, Character Creation, `about/index.html:73`).
+  - Leftover inline `style` margin on `about/index.html:73` (Home's and Character Creation's
+    went 2026-09-30).
   - "Explore the Rules" ghost border is about 1.7:1 on the hero.
   - The Rules hub legend explains "Final", which no page has yet.
   - News has no loading state.

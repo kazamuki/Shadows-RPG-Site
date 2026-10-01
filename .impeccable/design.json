@@ -346,9 +346,9 @@
       "name": "In Play Scene",
       "kind": "custom",
       "refersTo": "card",
-      "description": "Site-written in-world example of play: magenta left edge and an 'In play' label, kept distinct from manuscript excerpts.",
+      "description": "Site-written in-world example of play: a plain card headed by a mono 'In play' label led by a short magenta rule, kept distinct from manuscript excerpts.",
       "html": "<aside class=\"ds-scene\"><p class=\"ds-scene-label\">In play</p><h2>The fence</h2><p>The fence names a price. Your Face reads the room and knows it is a lie.</p></aside>",
-      "css": ".ds-scene{padding:1.5rem 1.75rem;background:var(--card-bg,#16294F);border:1px solid var(--card-border,rgba(32,63,123,0.45));border-left:3px solid var(--accent-magenta,#BC489A);border-radius:8px;font-family:var(--font-body,Inter,sans-serif);color:var(--text-secondary,rgba(255,255,255,0.8))}.ds-scene-label{font-size:0.75rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent-magenta,#BC489A);margin:0 0 0.25rem}.ds-scene h2{font-family:var(--font-display,Audiowide,Inter,sans-serif);font-weight:400;color:var(--accent-gold,#F2C94C);font-size:1.6rem;margin:0 0 0.75rem}.ds-scene p:last-child{margin:0}"
+      "css": ".ds-scene{padding:1.5rem 1.75rem;background:var(--card-bg,#16294F);border:1px solid var(--card-border,rgba(32,63,123,0.45));border-radius:8px;font-family:var(--font-body,Inter,sans-serif);color:var(--text-secondary,rgba(255,255,255,0.8))}.ds-scene-label{display:flex;align-items:center;gap:0.6em;font-family:var(--font-mono,'Roboto Mono',monospace);font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-secondary,rgba(255,255,255,0.8));margin:0 0 0.5rem}.ds-scene-label::before{content:'';width:1.5rem;height:2px;background:var(--accent-magenta,#BC489A)}.ds-scene h2{font-family:var(--font-display,Audiowide,Inter,sans-serif);font-weight:400;color:var(--accent-gold,#F2C94C);font-size:1.6rem;margin:0 0 0.75rem}.ds-scene p:last-child{margin:0}"
     }
   ],
   "narrative": {
@@ -399,7 +399,7 @@
       "Do use fixed colors (`--text-light`, the raw `--static-cyan` / `--signal-gold`, literal white rgba) on anything that stays dark in both themes: photo bands, the callout strip, glyph panels, the modal.",
       "Do keep prose inside the 48rem reading column, and fix grid counts so a known number of cards never leaves one orphaned.",
       "Do reserve glow for display type, glyphs and brand marks, in magenta, violet or cyan.",
-      "Do mark voice changes with the existing left-rule treatments (violet for excerpts, magenta for pull-lines and \"In play\").",
+      "Do mark voice changes with the existing treatments: a violet left rule for excerpts, a magenta left rule for pull-lines, and the mono \"In play\" label for scenes.",
       "Do check every new component in both themes, and keep tap targets at 24px or more (footer social icons sit in 36px boxes)."
     ],
     "donts": [

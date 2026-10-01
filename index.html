@@ -59,6 +59,7 @@ description: >-
       </li>
     {% endfor %}
   </ul>
+  {% include next-step.html variant="sheet" %}
 </section>
 
 <section class="section">
@@ -135,15 +136,5 @@ description: >-
 </section>
 
 <section class="section">
-  <div class="callout-strip">
-    <h2>Follow along</h2>
-    <p>
-      Follow on Patreon for development updates and deeper previews as chapters are written, free
-      or otherwise, or drop into Discord to talk Shadows with us directly.
-    </p>
-    <div class="button-row" style="margin-top: 1.25rem;">
-      <a class="btn btn--primary" href="{{ site.social.patreon }}" target="_blank" rel="noopener">Follow on Patreon</a>
-      <a class="btn btn--ghost" href="{{ site.social.discord }}" target="_blank" rel="noopener">Join the Discord</a>
-    </div>
-  </div>
+  {% include next-step.html variant="follow" %}
 </section>
