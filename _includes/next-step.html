@@ -1,0 +1,64 @@
+{% comment %}
+  The "where do I go from here" block, so no reading page ends in a dead end. One copy of
+  each variant lives here instead of drifting across pages:
+
+    variant="sheet"   slim bar that opens the live character sheet (Rules pages, Home roster)
+    variant="world"   closing callout for The World: Archetypes first, sheet second
+    variant="news"    closing callout for News: follow on Patreon for the next post
+    variant="follow"  generic Patreon + Discord callout (Home, 404, Credits)
+
+  The callouts are .callout-strip (fixed-dark), so their buttons are .btn--ghost, not
+  .btn--outline. The slim bar sits on the page background and uses theme tokens.
+{% endcomment %}
+{% assign sheet_url = "https://charactersheet.shadowsrpg.com/" %}
+{% case include.variant %}
+
+{% when "sheet" %}
+<a class="next-step-slim" href="{{ sheet_url }}" target="_blank" rel="noopener">
+  <span class="next-step-slim-text">
+    <span class="next-step-slim-status">Character sheet &middot; live</span>
+    <span>Roll your Stats, pick an Archetype, and walk out ready for the table.</span>
+  </span>
+  <span class="next-step-slim-action">Build one now <span aria-hidden="true">→</span><span class="visually-hidden"> (opens in a new tab)</span></span>
+</a>
+
+{% when "world" %}
+<div class="callout-strip next-step">
+  <h2>Choose who walks in</h2>
+  <p>
+    Everyone here started out human. Not everyone stayed that way. Five Archetypes decide
+    which way you go, and the character sheet is ready when you are.
+  </p>
+  <div class="button-row">
+    <a class="btn btn--primary" href="{{ '/rules/archetypes/' | relative_url }}">Meet the Archetypes</a>
+    <a class="btn btn--ghost" href="{{ sheet_url }}" target="_blank" rel="noopener">Launch the Character Sheet</a>
+  </div>
+</div>
+
+{% when "news" %}
+<div class="callout-strip next-step">
+  <h2>Don't miss the next one</h2>
+  <p>
+    Follow on Patreon for development updates and deeper previews as chapters are written.
+    Following is free.
+  </p>
+  <div class="button-row">
+    <a class="btn btn--primary" href="{{ site.social.patreon }}" target="_blank" rel="noopener">Follow on Patreon</a>
+    <a class="btn btn--ghost" href="{{ site.social.discord }}" target="_blank" rel="noopener">Join the Discord</a>
+  </div>
+</div>
+
+{% else %}
+<div class="callout-strip next-step">
+  <h2>Follow along</h2>
+  <p>
+    Follow on Patreon for development updates and deeper previews as chapters are written, free
+    or otherwise, or drop into Discord to talk Shadows with us directly.
+  </p>
+  <div class="button-row">
+    <a class="btn btn--primary" href="{{ site.social.patreon }}" target="_blank" rel="noopener">Follow on Patreon</a>
+    <a class="btn btn--ghost" href="{{ site.social.discord }}" target="_blank" rel="noopener">Join the Discord</a>
+  </div>
+</div>
+
+{% endcase %}

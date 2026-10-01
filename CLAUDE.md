@@ -658,6 +658,48 @@ being copy-pasted across every page.
   returns 200, glossary is in `sitemap.xml`, no overflow at 375px, no console errors, light and
   dark mode.
 
+- **Next-step actions on reading pages (2026-09-30, `/impeccable onboard`, wishlist P1).** New
+  `_includes/next-step.html` holds every "where next" block in one place, picked by
+  `variant=`: **`sheet`** (a slim card-style link to the live character sheet, with a mono
+  "Character sheet · live" readout and a green indicator dot) sits above the pager on the five
+  Rules pages before Character Creation, and under Home's archetype roster (on a 375px phone,
+  Home's first success action moved from ~5.6 screens down to ~2.9); **`world`** closes The
+  World ("Choose who walks in": Meet the Archetypes primary, character sheet ghost, replacing
+  the old Archetypes one-liner; the glossary note now sits above it); **`news`** closes News
+  (Patreon primary, Discord ghost; the old "See everything" strip became a plain note above
+  it, still the fallback when the blog embed fails); **`follow`** (Patreon + Discord, Home's
+  old "Follow along" copy) now closes Home, the 404 and Credits. **Edit that copy in the
+  include**, not on the pages. Character Creation keeps its own "Build one right now" callout
+  (it's the finale); it and the callouts share a `.next-step` class, which replaced two inline
+  `style` margins. Also added a `.visually-hidden` utility (used for "opens in a new tab").
+  About's callout is unchanged (its copy is page-specific). Changelog entry added.
+  Verified via `jekyll serve` (port 4000; `127.0.0.1`, not `localhost`): all 11 affected pages
+  render the right block, 1280px and 375px, light and dark, no overflow, no console errors.
+  **Same session, side-stripe triage:** the Impeccable design hook flags thick left borders.
+  Ken chose to split them. **"In play" scenes lost their 3px magenta card edge**: the card is
+  now a plain 1px border, and `.play-scene-label` is a mono label in `--text-secondary`, led
+  by a short 2px magenta rule (`::before`). That also fixes the label's 3.1:1 contrast and the
+  wishlist's "not mono" item. **Manuscript excerpts and pull-lines keep their 3px rule** (a
+  quote rule beside bare text, not a card edge), waived with inline
+  `impeccable-disable-next-line side-tab` comments in `theme.css`. These are per-line rather
+  than a file-wide config ignore, so a new card stripe would still get flagged. DESIGN.md and
+  `.impeccable/design.json` were updated to match.
+  **Also same session:** About's "Site & Systems" role label (Neon Veil, 3.1:1 on Card Navy)
+  now uses a new site-specific token, `--accent-magenta-text` (`#DB7DBE`, 5.25:1 in dark;
+  Aether Pulse in light). It's defined in `theme.css`'s site-specific block, not the shared
+  token set, so the three-repo theme sync is unaffected. Use it for any small magenta text on
+  a card; plain `--accent-magenta` stays for rules, borders and glows.
+  **Decided by Ken:** the `sheet` bar's "Build one now" opens the live character sheet
+  directly, not Character Creation, because the sheet walks a new player through the process
+  itself. This answers the critique's open question "Should every Rules page link the sheet?"
+  (yes). Also fixed Power Levels' "Same job, two scales" scene, which said "NET" instead of
+  "LINK" (plus the matching line in `content/drafts/show-dont-tell.md`). No other "NET" is
+  left in site HTML or data.
+  **Ghost button border fixed:** `.btn--ghost` had a Deep Circuit border, which vanished on
+  the callout strip's Deep Circuit fill and was ~1.7:1 on the hero. Now a fixed
+  `rgba(255,255,255,0.55)` (4.3:1 on the strip, 6:1 on Midnight); hover still turns cyan.
+  Fixed-dark, so it's the same in both themes. DESIGN.md and the sidecar updated.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited

@@ -174,13 +174,14 @@ like indicator lights on a dark console.
   mode it takes over the gold and magenta accent roles, so headlines and "Draft" tags stay
   legible.
 - **Deep Circuit** (`deep-circuit`): tech blue, machine architecture. Fills the callout strip
-  and the step-number badges, borders cards (at 45% in dark, 22% in light), and outlines the
-  ghost button. In light mode it takes over the cyan and green accent roles.
+  and the step-number badges, and borders cards (at 45% in dark, 22% in light). In light mode it takes over the cyan and green accent roles.
 
 ### Secondary
 - **Neon Veil** (`neon-veil`): sharp nightclub magenta. The primary button's hover fill, the
-  pull-line rule, the "In play" scene edge and label, and the magenta half of every display
-  glow.
+  pull-line rule, the short rule before the "In play" label, and the magenta half of every display
+  glow. It is only 3.1:1 on Card Navy, so small magenta **text** on cards uses
+  `--accent-magenta-text` instead: a lighter tint (`#DB7DBE`, 5.25:1) in dark mode, Aether
+  Pulse in light. About's "Site & Systems" role label is the current user.
 - **Signal Gold** (`signal-gold`): warm, aether-touched gold. Every H2 in dark mode, the
   hover color for nav, footer and chip links, archetype hook lines, the "In Progress" tag,
   and the skip link's fill.
@@ -304,8 +305,8 @@ Corners are gently rounded and consistent. Buttons use 4px (`rounded.sm`). Cards
 play scenes and archetype blocks use 8px (`rounded.lg`), with 6px on images inside cards. The
 callout strip uses 10px. Chips and status tags are full pills (`rounded.pill`), and avatars,
 step badges and the theme toggle are circles. Borders are 1px hairlines everywhere, except where
-a 3px left rule marks a voice: Aether Pulse for manuscript excerpts, and Neon Veil / magenta for
-pull-lines and "In play" scenes. Card images crop with `object-fit: cover` from the top, so book
+a 3px left rule marks a voice beside bare text (never on a card): Aether Pulse for manuscript
+excerpts and Neon Veil for pull-lines. Card images crop with `object-fit: cover` from the top, so book
 spreads show their headline art.
 
 ## Components
@@ -315,7 +316,8 @@ Blunt and confident: bold Inter, a small 4px radius, no icons, no shadow.
 - **Shape:** slightly rounded (4px), padded `0.8em 1.6em`, Inter 700.
 - **Primary:** Aether Pulse fill with white text, and a Neon Veil fill on hover. Fixed colors
   in both themes. Reserved for the single main action in a group.
-- **Ghost:** transparent, with fixed 80% white text and a Deep Circuit border. On hover the
+- **Ghost:** transparent, with fixed 80% white text and a fixed 55% white border (a Deep
+  Circuit border disappeared on the callout strip's Deep Circuit fill). On hover the
   border and text turn Static Cyan. **Only on fixed-dark surfaces** (hero, callout strip).
 - **Outline:** the theme-tracked sibling of Ghost for the page background: primary text color
   and a card-hover border, turning to `--accent-cyan` on hover.
@@ -360,8 +362,10 @@ Three treatments mark whose voice a passage is in:
   text.
 - **Pull-line:** a 3px Neon Veil left rule, Inter 600 at 1.3rem. The manuscript's standalone
   one-line beats.
-- **"In play" scene:** a full card with a 3px magenta left edge and a small uppercase magenta
-  "In play" label. Site-written example-of-play scenes in the in-world voice, kept visibly
+- **"In play" scene:** a plain card (1px border all round, no colored edge) headed by an
+  "In play" label in the HUD voice: uppercase Roboto Mono in secondary text, led by a short
+  2px magenta rule. The magenta stays on the rule because Neon Veil text on Card Navy is only
+  3.1:1. Site-written example-of-play scenes in the in-world voice, kept visibly
   separate from quoted book text.
 
 ### Archetype Roster and Glossary Rows
@@ -382,8 +386,10 @@ cyan underline.
 - **Do** keep prose inside the 48rem reading column, and fix grid counts so a known number of
   cards never leaves one orphaned.
 - **Do** reserve glow for display type, glyphs and brand marks, in magenta, violet or cyan.
-- **Do** mark voice changes with the existing left-rule treatments (violet for excerpts,
-  magenta for pull-lines and "In play").
+- **Do** mark voice changes with the existing treatments: a violet left rule for excerpts, a
+  magenta left rule for pull-lines, and the mono "In play" label for scenes.
+- **Don't** put a thick colored edge on a card. Left rules belong beside bare quoted text only
+  (2026-09-30).
 - **Do** check every new component in both themes, and keep tap targets at 24px or more
   (footer social icons sit in 36px boxes).
 

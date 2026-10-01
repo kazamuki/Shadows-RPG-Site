@@ -13,3 +13,6 @@
 .jekyll-cache/
 .jekyll-metadata
 
+
+# Impeccable design hook: local dedup cache, rewritten on every edit
+.impeccable/hook.cache.json
