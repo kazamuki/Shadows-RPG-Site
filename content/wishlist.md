@@ -4,7 +4,8 @@ A running list of ideas to add or improve, written 2026-09-22 after the full-sit
 (see CLAUDE.md's Build status). Nothing here is approved or scheduled. It's a menu to pick from.
 
 **How to use this file:** when an item ships, delete it from here and log it in CLAUDE.md's
-Build status (plus the News changelog if visitors would notice). When Ken rules an idea out,
+Build status (plus the News changelog if visitors would notice), tagging the Build status
+entry with the wishlist item it closed, e.g. "(wishlist P1)". When Ken rules an idea out,
 move it to "Decided against" with a one-line reason, so it doesn't get re-proposed.
 
 Effort key: **S** = an hour or two · **M** = a session · **L** = several sessions or needs new content
@@ -72,17 +73,6 @@ Whole-site critique: a design review plus the `impeccable detect` scan of `_site
 steer: **conversion paths first**, and "targeted shape" (not a full codex push) for the
 same-looking pages. Suggested command in brackets.
 
-- **P1 · The World's pacing.** This is the hero button's destination, but it opens on generic
-  lines under Home's reused banner. The best lines ("not a backdrop…", TAG) are about 1,500px
-  down, and it ends on two small text links (`world/index.html:128`). Keep the text verbatim
-  and change the pacing:
-  - a lead pull-line near the top;
-  - in-world subheads to break up the 6- and 10-paragraph runs;
-  - a distinct banner crop or tint;
-  - a real closing callout (done 2026-09-30: `next-step.html`'s "world" variant; the
-    other three still open).
-
-  [`layout`, `typeset`] **M**
 - **P2 · Reading measure and type ramp.**
   - `.section--reading` (48rem) gives about 95–104 characters per line, against a target
     under 80. Try 40–42rem.
