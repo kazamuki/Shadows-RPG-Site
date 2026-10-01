@@ -120,6 +120,39 @@
   --accent-magenta-text: var(--aether-pulse);
 }
 
+/* "Rulebook on paper" (light mode, site-specific). The shared light tokens above are a
+   neutral grey-white; here they warm to a printed page with ink-black text, so light mode
+   reads as the book rather than as dark mode with the colors flipped. Only tokens and
+   two surface details change; every component keeps using the same semantic tokens. The
+   fixed-dark surfaces (hero, banners, callout strips) are untouched. */
+:root[data-theme="light"] {
+  --bg-page: #F3EFE6;
+  --bg-header: rgba(243, 239, 230, 0.9);
+  --card-bg: #FBF8F1;
+  --card-border: rgba(32, 63, 123, 0.2);
+  --border-subtle: rgba(26, 23, 20, 0.13);
+  --border-visible: rgba(26, 23, 20, 0.24);
+  --text-primary: #1A1714;
+  --text-secondary: rgba(26, 23, 20, 0.8);
+  --text-tertiary: rgba(26, 23, 20, 0.6);
+  --text-faint: rgba(26, 23, 20, 0.34);
+  --paper-shadow: 0 1px 2px rgba(26, 23, 20, 0.08), 0 6px 16px -8px rgba(26, 23, 20, 0.18);
+}
+/* A fine paper grain, fixed behind everything so it doesn't scroll or repaint. */
+:root[data-theme="light"] body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+/* Cards sit on the page like sheets: a soft, offset shadow instead of the dark theme's
+   flat edge. A double rule under the header, like a ruled book page. */
+:root[data-theme="light"] .feature-card,
+:root[data-theme="light"] .rules-card,
+:root[data-theme="light"] .play-scene,
+:root[data-theme="light"] .archetype-roster li { box-shadow: var(--paper-shadow); }
+:root[data-theme="light"] .site-header {
+  border-bottom: 3px double var(--border-visible);
+}
+
 /* Light/dark toggle button */
 .theme-toggle {
   width: clamp(30px, calc(30px + 4 * (100vw - 640px) / 560), 36px);
@@ -874,6 +907,57 @@ main { display: block; }
 @media (max-width: 720px) {
   .play-scene { padding: 1.25rem; }
 }
+
+/* The city's ledger: the "city keeps score" motif. A mono readout of what a scene (or a
+   bad night) left on the books, one account and one entry per row, joined by a dotted
+   leader. Flavor only: no numbers, no mechanics. */
+.ledger { margin: 1.25rem 0; }
+.ledger-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin: 0 0 0.4rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.ledger-title::before {
+  content: "";
+  width: 1.5rem;
+  height: 2px;
+  background: var(--accent-magenta);
+}
+.ledger dl { margin: 0; border-top: 1px solid var(--border-visible); }
+.ledger dl > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+.ledger dt {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: baseline;
+  color: var(--text-secondary);
+}
+.ledger dt::after {
+  content: "";
+  flex: 1 1 1rem;
+  margin: 0 0 0.25em 0.75rem;
+  border-bottom: 1px dotted var(--text-faint);
+}
+.ledger dd { margin: 0; flex: 0 1 auto; text-align: right; color: var(--text-primary); }
+@media (max-width: 480px) {
+  .ledger dl > div { flex-direction: column; gap: 0.1rem; }
+  .ledger dt::after { display: none; }
+  .ledger dd { text-align: left; }
+}
+.home-pitch .ledger { margin: 1.5rem 0; }
 
 .archetype-block .status-tag { margin-bottom: 0.5rem; }
 
