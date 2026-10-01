@@ -74,7 +74,7 @@ spacing:
   section-phone: "2.5rem"
   section: "3.5rem"
   content-max: "72rem"
-  reading-max: "48rem"
+  reading-max: "40rem"
 components:
   button-primary:
     backgroundColor: "{colors.aether-pulse}"
@@ -141,7 +141,7 @@ in for the unlicensed Cerulean Nights, is the city's signage: titles, section he
 terms, archetype names. **Inter** is the page, used for everything read at length.
 **Roboto Mono** is the HUD: status tags, breadcrumbs, dates, pager labels, group labels, and
 tables. Mono text is small, uppercase and tracked, the way a readout reads. Density is
-moderate. Wide sections hold grids of cards, and prose pages narrow to a 48rem reading column.
+moderate. Wide sections hold grids of cards, and prose pages narrow to a 40rem reading column.
 
 Surfaces are flat and bordered: navy cards with 1px Deep Circuit edges that brighten to cyan
 on hover. There are two fixed-dark exceptions that ignore the theme toggle: photo bands (the
@@ -161,7 +161,7 @@ light, not medieval props.
 - Flat, bordered surfaces. Glow lives on type and marks, never under cards.
 - Gold for headlines, cyan for sub-heads and links, magenta and violet for action and emphasis.
 - Fixed-dark photo bands and brand fills that don't change with the theme.
-- A 48rem reading column for prose, 72rem for grids.
+- A 40rem reading column for prose, 72rem for grids.
 
 ## Colors
 
@@ -241,14 +241,15 @@ character between Audiowide and Inter carries the hierarchy, more than size does
   (`--accent-gold`). Inside Rules Preview they get a subtle bottom rule.
 - **Subtitle** (Audiowide, 1.3rem): H3s, in cyan (`--accent-cyan`). On cards and archetype
   blocks they switch to the primary text color.
-- **Body** (Inter 400, 1rem, 1.6): all reading text. The Home pitch runs at 1.075rem, and
-  pull-lines at 1.3rem / 600 / 1.4. Prose measures 48rem.
-- **Label** (Roboto Mono, 0.7–0.8rem, 0.05em tracking, uppercase): status tags, breadcrumbs,
+- **Body** (Inter 400, 1rem, 1.6): all reading text. The Home pitch, hero lead and archetype roster names use the Lead step (`--fs-lead`, 1.125rem), and
+  pull-lines at 1.3rem / 600 / 1.4. Prose measures 40rem (about 70 characters).
+- **Small** (Inter, `--fs-small`, 0.95rem): nav links, card blurbs, table text, footer links.
+- **Label** (Roboto Mono, `--fs-label`, 0.75rem, 0.05em tracking, uppercase): status tags, breadcrumbs,
   pager labels, archetype group labels, crew roles, news dates, and the voice note.
 
-Audiowide ships in a single weight (400). The heading CSS asks for 700, so browsers
-synthesize a faux bold. Treat 400 as the real weight, and set it explicitly when that rule
-is next touched.
+Audiowide ships in a single weight (400), and headings are set to 400 so browsers never
+synthesize a faux bold. The only sizes off this ramp are decorative: the 3.4rem and 2.6rem
+glyphs on image-less cards, the 1.8rem modal close, and the fluid lead pull-line.
 
 ### Named Rules
 **The Mixed-Case Signage Rule.** Display type is never set in all caps. The brand guide
@@ -262,8 +263,8 @@ state. Don't set body copy in Audiowide or headings in mono.
 
 The layout uses one centered column system. Wide sections cap at 72rem (`content-max`) with
 1.5rem side gutters, or 1rem under 640px. Prose-heavy pages (The World, every Rules Preview
-sub-page, News, and About's solo card) narrow to a 48rem reading column (`.section--reading`),
-which keeps lines around 80–90 characters. Section intros center at 42rem. Vertical rhythm is
+sub-page, News, and About's solo card) narrow to a 40rem reading column (`.section--reading`),
+which keeps lines near 70 characters. Section intros center at 42rem. Vertical rhythm is
 section-based: 3.5rem of section padding (2.5rem on phones), about 2.5rem between Rules
 subsections, and 1.25–2rem grid gaps.
 
@@ -383,7 +384,7 @@ cyan underline.
 - **Do** use fixed colors (`--text-light`, the raw `--static-cyan` / `--signal-gold`, literal
   white rgba) on anything that stays dark in both themes: photo bands, the callout strip,
   glyph panels, the modal.
-- **Do** keep prose inside the 48rem reading column, and fix grid counts so a known number of
+- **Do** keep prose inside the 40rem reading column, and fix grid counts so a known number of
   cards never leaves one orphaned.
 - **Do** reserve glow for display type, glyphs and brand marks, in magenta, violet or cyan.
 - **Do** mark voice changes with the existing treatments: a violet left rule for excerpts, a

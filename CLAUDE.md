@@ -714,6 +714,14 @@ being copy-pasted across every page.
   screenshots were flaky, so the visual check was partial (lead line and h2/h3 rhythm seen at
   desktop). Worth a human look at the banner crop in both themes.
 
+- **Type ramp and measure (2026-09-30, `/impeccable typeset`, wishlist P2).** Headings are
+  `font-weight: 400` (Audiowide only ships 400, so 700 was a faux bold). `.section--reading`
+  is now **40rem** (~70 characters, was 48rem at 95-104). Three tokens in `theme.css`'s
+  `:root` replace ~20 off-ramp sizes: `--fs-label` 0.75rem (mono labels), `--fs-small`
+  0.95rem, `--fs-lead` 1.125rem. Card-style max-widths (roster, news list, solo card) stay
+  48rem; only prose narrowed. DESIGN.md and its sidecar updated. Verified at 375px: no
+  overflow, header 88px, nav still one row, no console errors.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited

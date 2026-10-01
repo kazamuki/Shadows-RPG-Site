@@ -73,14 +73,6 @@ Whole-site critique: a design review plus the `impeccable detect` scan of `_site
 steer: **conversion paths first**, and "targeted shape" (not a full codex push) for the
 same-looking pages. Suggested command in brackets.
 
-- **P2 · Reading measure and type ramp.**
-  - `.section--reading` (48rem) gives about 95–104 characters per line, against a target
-    under 80. Try 40–42rem.
-  - 20 font sizes in `theme.css` sit off DESIGN.md's ramp.
-  - h1–h4 are set to `font-weight: 700` (`theme.css:159`), but only Audiowide 400 is
-    loaded, so every heading is faux-bold. Set them to 400.
-
-  [`typeset`] **S**
 - **P2 · Give content its shape.**
   - Power Levels as a widening ladder with a mono "scope" readout.
   - Playlists with unique link text (four "Watch the playlist →" links fail WCAG 2.4.4) and
