@@ -73,6 +73,33 @@ Whole-site critique: a design review plus the `impeccable detect` scan of `_site
 steer: **conversion paths first**, and "targeted shape" (not a full codex push) for the
 same-looking pages. Suggested command in brackets.
 
+## From the 2026-10-01 Impeccable critique (27/36, "Good")
+
+Whole-site critique after the 2026-09-30 polish pass. Ken's answers: imagery on Home first,
+settle all three open decisions, and take on everything. Ordered by priority; suggested command
+in brackets. The three trust decisions are already under "Needs a decision first" above, so they
+aren't repeated here.
+
+- **P1: Home below the hero is text on navy.** After the neon hero there's no art until the
+  playlist cards, so nothing visual backs up "vampires own the nightclubs". Put one or two
+  images from `brand/shutterstock-catalog.md` in the pitch section and give the roster rows an
+  image or edge treatment. Keep the ledger and copy as is. **S-M** [`/impeccable bolder`]
+- **P1: The header has no action.** Patreon, Discord and the character sheet sit three or more
+  screens down on Home and nowhere in the nav. Add a quiet persistent "Character sheet" link
+  or button to the header; the hero's primary button stays on The World (Ken's 2026-09-30
+  decision). **S** [`/impeccable onboard`]
+- **P2: Rules sub-pages share one rhythm.** Stats & Skills, Advantages & Disadvantages and
+  Equipment are all a stack of navy cards under a gold heading. Give each a signature element,
+  like the Power Levels ladder. **M** [`/impeccable layout`]
+- **P3: Glyph-panel glows.** The hero glow is the Neon Codex look, but the Rules card glyph
+  panels ("IV", "Ç") push one step past it. **S** [`/impeccable quieter`]
+- **P3: Em-dash density on Stats & Skills** (17 in body text). **S** [`/impeccable clarify`]
+- **P3: DESIGN.md is missing `--accent-magenta-text`** (`#DB7DBE`), which the detector flags as
+  an undocumented color. **S** [`/impeccable document`]
+- **P3: First-time-player gaps.** "Synergy System", "Archetype" and "Aether" reach a newcomer on
+  Home before they're explained, and there's no "new to tabletop?" path (see "Start here" under
+  Bigger features). **S-M**
+
 ## Design polish
 
 - **Cerulean Nights.** Swap in the real display font once the Chequered Ink license is sorted

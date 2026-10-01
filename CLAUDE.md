@@ -777,6 +777,18 @@ being copy-pasted across every page.
   Verified via `jekyll serve` (port 4000): ledger at 800px light and 375px (no overflow), dd
   contrast and shadows read from computed styles, no console errors. Not checked: dark-mode
   screenshots of the ledger, or the grain on a high-DPI display.
+- **Whole-site polish pass (2026-09-30, `/impeccable polish`).** The site was already in good
+  shape, so this was a small, evidence-led pass: a scripted sweep of all 15 pages at 375 and
+  1280px (overflow, alt text, heading order, tap targets) plus the detector. Fixed in
+  `theme.css`: the **skip link turned green-on-gold (1.3:1) on hover**; **Rules breadcrumb
+  links were 19px tall** (now 32px); the footer **egg trigger was 22px** (now 24px, still
+  unsignposted); the roster's magenta rule **animated `width`** (now `transform: scaleX`, so
+  the name no longer shifts on hover). Detector findings left on purpose: the Neon Veil
+  text-glow on the hero/banner (the Neon Codex look), Inter (the agreed body face), the 404's
+  "Error 404" label, and the night-shift game file. The spread dialog's `<img>` has no `src`
+  until opened, which the sweep flags as broken; it isn't. No changelog entry (nothing visitors
+  would notice). Verified via `jekyll serve` on port 4050: no overflow, no console errors.
+  Screenshots were unavailable (the pane's capture failed), so checks were computed styles.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
