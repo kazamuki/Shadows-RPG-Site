@@ -700,6 +700,20 @@ being copy-pasted across every page.
   `rgba(255,255,255,0.55)` (4.3:1 on the strip, 6:1 on Midnight); hover still turns cyan.
   Fixed-dark, so it's the same in both themes. DESIGN.md and the sidecar updated.
 
+- **The World's pacing (2026-09-30, `/impeccable layout` + `typeset`, wishlist P1).** Text is
+  verbatim; only structure changed. "In Shadows, NYTE City is not a backdrop…" moved from
+  section 2 to a `.pull-line--lead` above the first section (thesis in the first screen).
+  Section 1 gained an `<h2>` ("Welcome to NYTE City", avoids an h1→h3 skip) and in-world
+  `<h3>` subheads break the long runs: Street Level, From the Air, Under the Surface, Who's
+  Watching, The Others, Not a Heroic World (new site-written headings, in-world voice; edit
+  freely). New `.page-banner--world`: taller, higher crop (`center 12%`) and a Void Violet
+  wash so it differs from Home's hero; the image arrives via the `--banner-image` custom
+  property set inline. Subhead spacing lives in `.rules-section p + h3`. The closing callout
+  was already done (`next-step.html` "world"). Faux-bold headings (wishlist P2) not touched.
+  Verified via `jekyll serve` (port 4031): no overflow at 375px, no console errors; the pane's
+  screenshots were flaky, so the visual check was partial (lead line and h2/h3 rhythm seen at
+  desktop). Worth a human look at the banner crop in both themes.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
