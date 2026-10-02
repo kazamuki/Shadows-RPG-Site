@@ -39,6 +39,10 @@ stand alone technically but must read as one brand visually and tonally.
   marketing/prose review: rework Home around the game's hook, reorder Rules Preview for
   newcomers, and strip internal production talk from visitor-facing copy. Check which sessions
   are ticked off before starting related work, and resolve its listed decisions first.
+- `content/critique-plan.md` — update plan (written 2026-10-02) from two whole-site critiques:
+  session picture on Home, Rules hub Draft-pill note, The World's imagery/ledger, polish, plus a
+  parked list (Archetype art, About copy). Check which items are ticked before starting
+  related work; the full reports are in `.impeccable/critique/`.
 - `PRODUCT.md` — Impeccable product record (written 2026-09-28): primary user (cold
   newcomers), success goals (Patreon follow, Discord join, character sheet), positioning,
   constraints, and evidence that must not be invented. Read by `/impeccable` commands;
@@ -850,6 +854,50 @@ being copy-pasted across every page.
   regenerated to match: new color meta, motion and breakpoint entries, four new components
   (Header Button, Next-step Bar, Stat Block, Balance Sheet), and its narrative re-synced
   verbatim from DESIGN.md (it had drifted). Docs only; no site changes.
+
+- **Home distill (2026-10-02, `/impeccable distill`, from the whole-site critique).** Home went
+  from 7 sections to 6 and from ~8.7 to ~7.3 phone screens (5,310 to ~4,900px at 1280). **Watch
+  it played** is now one `.playlist-feature` card (Shadows 2.0) plus a ruled `.playlist-list` of
+  the other three (links 37-38px tall, not 20). **How it plays** lost its six-card Rules grid
+  and is a reading-width paragraph with two text links (`.home-links`: Rules Preview, Print a
+  blank sheet). **"Try it now" is gone**: the `sheet` bar under the roster already carries the
+  live-sheet CTA. Dead CSS removed (`.rules-grid--home`, `.feature-grid--four`; the `compact`
+  option in `rules-card.html` is now unused). Playlist blurbs for Old Regime and 13th Floor
+  were tightened slightly; facts unchanged. Changelog entry added. Remaining critique items
+  (Human roster row, hero, close, pill contrast, nav tap targets) are not done yet; the critique
+  is in `.impeccable/critique/`. Verified via `jekyll serve` at 1280 and 375: no overflow, no
+  console errors. Not checked: dark mode.
+  **Same day, `/impeccable layout` (critique item 2):** Home's roster gained a `.roster-start`
+  lead-in ("Where you start": a ruled row, no image, linking to `/rules/archetypes/#human`) so
+  "everyone starts human" has a visible root; the intro sentence no longer repeats it. **Left
+  alone on purpose:** the hero tagline (Ken's D5 line, not replaced without asking) and the
+  light-mode header (the critique's low-contrast finding was a measurement artifact: computed
+  nav text is `rgba(26,23,20,.8)` on cream, the CTA navy on cream). Verified at 1280 and 375 in
+  light mode, no overflow.
+  **Same day, `/impeccable clarify` + `delight` (critique item 3):** Home's close is a new
+  `next-step.html` variant, **`close`** ("The city is already keeping score"): the existing copy
+  line, a two-row `.ledger` (free Patreon follow / Discord seat, flavor only), one primary
+  Patreon button, Discord demoted to a text link. The ledger on the fixed-dark strip uses fixed
+  white colors via `.next-step--close .ledger*` overrides (theme tokens flip to ink in light
+  mode). **`follow` is unchanged and still used by 404 and Credits.** Verified at 1280 and 375
+  in light mode, no overflow.
+  **Same day, `/impeccable adapt` (critique item 4):** the Draft pill now uses
+  `--accent-magenta-text` (6.5:1 dark, 7.5:1 light; was 3.1:1); In Progress already measured
+  11:1 dark, so the critique's 3.8:1 reading was a bad background guess. Header nav links and
+  footer links got vertical padding (about 42px and 37px tall; the phone header grew from ~95
+  to ~101px). The Rules hub's `.status-legend` only uses its `-2rem` side margin from 900px up,
+  which fixes the 1px overflow at 375px. Playlist links were already fixed by the distill. No
+  changelog entry (nothing visitors would notice). Verified at 375 and 1280, no overflow.
+  **Same day, `/impeccable polish` (closes the whole-site critique):** added a site-specific
+  `--scrim` token (the game modal's backdrop; the spread lightbox's `::backdrop` keeps its
+  literal because `::backdrop` may not see custom properties in older browsers); the pitch
+  figcaption glow now derives from `--neon-veil` instead of a stray `#CC3399`; the Rules
+  breadcrumb link moved from `--text-tertiary` to `--text-secondary` (4.46:1 in light mode).
+  **Left on purpose:** the other detector hits are intentional one-offs (the 1px income-bar
+  radius, the game iframe's `#000`, the phone title's 1.05rem, the game close button's 1.8rem)
+  and the 23 "text color rgb(0,0,0)" template hits are detector noise from unrendered Liquid.
+  The critique's "6 links at 1.00:1" on Archetypes was a measurement artifact (all links pass in
+  both themes). Hero tagline and light-mode header unchanged, as noted above.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
