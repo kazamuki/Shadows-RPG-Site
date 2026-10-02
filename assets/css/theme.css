@@ -89,6 +89,9 @@
      for magenta text on cards. Site-specific, so it lives here rather than
      in the shared token set above. */
   --accent-magenta-text: #DB7DBE;
+
+  /* Fixed black scrim behind the game modal (the lightbox backdrop repeats the literal). Same in both themes. */
+  --scrim: rgba(0, 0, 0, 0.85);
 }
 
 :root[data-theme="light"] {
@@ -337,7 +340,7 @@ html { scroll-padding-top: 5rem; }
   text-decoration: none;
   font-size: var(--fs-small);
   font-weight: 600;
-  padding: 0.35rem 0;
+  padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
   transition: color 0.15s, border-color 0.15s;
@@ -511,21 +514,6 @@ main { display: block; }
 }
 .rules-card:hover .rules-card-art span { text-shadow: 0 0 12px rgba(188,72,154,1), 0 0 34px rgba(27,187,196,0.7); }
 
-/* Compact variant: Home's shortcut grid into Rules Preview (image + title, no
-   body copy). Fixed 3-up on desktop so the six cards land as a clean 3x2
-   block instead of five-and-an-orphan. */
-.rules-grid--home {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-@media (max-width: 860px) { .rules-grid--home { grid-template-columns: repeat(2, 1fr); } }
-.rules-grid--home .rules-card-art { height: 120px; }
-.rules-grid--home .rules-card-art span { font-size: 2.6rem; }
-.rules-grid--home .rules-card img { height: 120px; }
-.rules-grid--home .rules-card-body { padding: 1rem 1.1rem 1.1rem; text-align: center; }
-.rules-grid--home .rules-card-body--noimg { padding-top: 1.1rem; }
-.rules-grid--home .rules-card h3 { margin: 0; font-size: 1rem; }
-
 /* --- Rules Preview sub-pages --- */
 
 /* Reading-width section for prose-heavy pages (The World, every Rules
@@ -568,7 +556,7 @@ main { display: block; }
   font-size: var(--fs-lead);
   color: #fff;
 }
-.pitch-pair figure:last-child figcaption { color: #fff; text-shadow: 0 0 14px rgba(204, 51, 153, 0.7); }
+.pitch-pair figure:last-child figcaption { color: #fff; text-shadow: 0 0 14px color-mix(in srgb, var(--neon-veil) 70%, transparent); }
 @media (max-width: 560px) {
   .pitch-pair { grid-template-columns: 1fr; }
   .pitch-pair img { aspect-ratio: 16 / 9; }
@@ -673,7 +661,7 @@ main { display: block; }
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-.rules-crumb a { display: inline-block; padding: 0.4rem 0; color: var(--text-tertiary); text-decoration: none; }  /* 24px+ tap target */
+.rules-crumb a { display: inline-block; padding: 0.4rem 0; color: var(--text-secondary); text-decoration: none; }  /* 24px+ tap target */
 .rules-crumb a::before { content: "← "; }
 .rules-crumb a:hover { color: var(--accent-gold); }
 
@@ -737,10 +725,11 @@ main { display: block; }
   gap: 0.5rem 1.1rem;
   list-style: none;
   padding: 0;
-  margin: 0 -2rem;
+  margin: 0;
   font-size: var(--fs-small);
   color: var(--text-secondary);
 }
+@media (min-width: 900px) { .status-legend { margin: 0 -2rem; } }
 .status-legend .status-tag { margin-right: 0.4rem; }
 
 /* In-page jump links (Archetypes) */
@@ -897,7 +886,7 @@ main { display: block; }
   background: var(--midnight);
   overflow: auto;
 }
-.spread-dialog::backdrop { background: rgba(0, 0, 0, 0.85); }
+.spread-dialog::backdrop { background: rgba(0, 0, 0, 0.85); } /* literal: ::backdrop may not see custom properties in older browsers */
 .spread-dialog img { display: block; width: 100%; height: auto; }
 .spread-dialog-close {
   position: sticky;
@@ -1314,7 +1303,7 @@ main { display: block; }
   border-radius: 999px;
   border: 1px solid currentColor;
 }
-.status-tag--draft { color: var(--accent-magenta); }
+.status-tag--draft { color: var(--accent-magenta-text); }
 .status-tag--in-progress { color: var(--accent-gold); }
 .status-tag--final { color: var(--accent-green); }
 
@@ -1466,6 +1455,8 @@ main { display: block; }
   color: var(--text-secondary);
   text-decoration: none;
   font-size: var(--fs-small);
+  display: inline-block;
+  padding: 0.4rem 0;
 }
 .footer-nav a:hover { color: var(--accent-gold); }
 
@@ -1566,7 +1557,7 @@ main { display: block; }
 .game-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--scrim);
 }
 .game-modal-frame {
   position: relative;
@@ -1610,8 +1601,6 @@ main { display: block; }
 /* Utility for the handful of centered one-line notes under a section */
 .center-note { text-align: center; max-width: 42rem; margin: 1.5rem auto 0; }
 
-/* Four-card grid (Home's actual-play playlists): 4-up, then 2x2, then
-   stacked — never the 3-plus-an-orphan that auto-fit lands on. */
 .feature-meta {
   margin: -0.35rem 0 0.75rem;
   font-family: var(--font-mono);
@@ -1620,10 +1609,6 @@ main { display: block; }
   text-transform: uppercase;
   color: var(--text-secondary);
 }
-.feature-grid--four { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-@media (max-width: 1000px) { .feature-grid--four { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .feature-grid--four { grid-template-columns: 1fr; } }
-
 /* Glossary (/world/glossary/) — definitions list driven by _data/glossary.yml */
 .glossary { margin: 0; }
 .glossary-entry { padding: 0.9rem 0; border-bottom: 1px solid var(--border-subtle); }
@@ -1681,3 +1666,82 @@ a.term:hover { color: var(--accent-cyan); }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Home's actual-play playlists: one featured campaign, the rest as a quiet ruled list. */
+.playlist-feature {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+}
+.playlist-feature h3 { font-size: 1.6rem; margin: 0 0 0.75rem; }
+.playlist-feature .feature-meta { margin: 0 0 0.5rem; }
+.playlist-feature .btn { margin-top: 0.5rem; }
+.playlist-list {
+  list-style: none;
+  max-width: 48rem;
+  margin: 1.5rem auto 0;
+  padding: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+.playlist-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.playlist-list h3 { font-size: 1.05rem; margin: 0 0 0.25rem; }
+.playlist-list .feature-meta { margin: 0 0 0.35rem; }
+.playlist-list p:last-child { margin: 0; font-size: var(--fs-small); }
+.playlist-list a { display: inline-block; padding: 0.4rem 0; white-space: nowrap; }
+@media (max-width: 560px) {
+  .playlist-list li { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+
+/* Two plain text links closing a section */
+.home-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; }
+.home-links a { display: inline-block; padding: 0.35rem 0; }
+
+/* Home roster lead-in: the starting line every Archetype branches from. A ruled row, no
+   image, so it reads as the root of the list rather than a sixth Archetype. */
+.roster-start {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem 0;
+  border-top: 3px double var(--border-visible);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.roster-start-label,
+.roster-start-action {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.roster-start-label { color: var(--text-secondary); }
+.roster-start-action { color: var(--accent-cyan); white-space: nowrap; }
+.roster-start:hover .roster-start-action,
+.roster-start:focus-visible .roster-start-action { color: var(--accent-gold); }
+@media (max-width: 640px) {
+  .roster-start { grid-template-columns: 1fr; }
+}
+
+/* Home's closing strip: the ledger on a fixed-dark surface needs fixed colors, since the
+   theme tokens flip to ink in light mode. Left-aligned inside the centered strip. */
+.next-step--close .ledger { max-width: 34rem; margin: 1.5rem auto 0; text-align: left; }
+.next-step--close .ledger-title { color: rgba(255, 255, 255, 0.75); }
+.next-step--close .ledger dl { border-top-color: rgba(255, 255, 255, 0.3); }
+.next-step--close .ledger dl > div { border-bottom-color: rgba(255, 255, 255, 0.16); }
+.next-step--close .ledger dt { color: rgba(255, 255, 255, 0.8); }
+.next-step--close .ledger dt::after { border-bottom-color: rgba(255, 255, 255, 0.35); }
+.next-step--close .ledger dd { color: var(--text-light); }
+.next-step-or { margin: 1rem 0 0; font-size: var(--fs-small); }

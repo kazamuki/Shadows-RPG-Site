@@ -5,7 +5,9 @@
     variant="sheet"   slim bar that opens the live character sheet (Rules pages, Home roster)
     variant="world"   closing callout for The World: Archetypes first, sheet second
     variant="news"    closing callout for News: follow on Patreon for the next post
-    variant="follow"  generic Patreon + Discord callout (Home, 404, Credits)
+    variant="close"   Home's closing callout: a ledger of what following puts on the books,
+                      one primary action (Patreon), Discord as a text link
+    variant="follow"  generic Patreon + Discord callout (404, Credits)
 
   The callouts are .callout-strip (fixed-dark), so their buttons are .btn--ghost, not
   .btn--outline. The slim bar sits on the page background and uses theme tokens.
@@ -46,6 +48,28 @@
     <a class="btn btn--primary" href="{{ site.social.patreon }}" target="_blank" rel="noopener">Follow on Patreon<span class="visually-hidden"> (opens in a new tab)</span></a>
     <a class="btn btn--ghost" href="{{ site.social.discord }}" target="_blank" rel="noopener">Join the Discord<span class="visually-hidden"> (opens in a new tab)</span></a>
   </div>
+</div>
+
+{% when "close" %}
+<div class="callout-strip next-step next-step--close">
+  <h2>The city is already keeping score</h2>
+  <p>
+    Follow on Patreon for development updates and deeper previews as chapters are written.
+    Following is free.
+  </p>
+  <div class="ledger" role="group" aria-label="What following puts on the books">
+    <p class="ledger-title" aria-hidden="true">Ledger &middot; your first entries</p>
+    <dl>
+      <div><dt>A free follow on Patreon</dt><dd>the next preview finds you</dd></div>
+      <div><dt>A seat in the Discord</dt><dd>a table finds you</dd></div>
+    </dl>
+  </div>
+  <div class="button-row">
+    <a class="btn btn--primary" href="{{ site.social.patreon }}" target="_blank" rel="noopener">Follow on Patreon<span class="visually-hidden"> (opens in a new tab)</span></a>
+  </div>
+  <p class="next-step-or">
+    Or <a href="{{ site.social.discord }}" target="_blank" rel="noopener">join the Discord<span class="visually-hidden"> (opens in a new tab)</span></a> and find a table.
+  </p>
 </div>
 
 {% else %}

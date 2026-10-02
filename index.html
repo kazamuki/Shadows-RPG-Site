@@ -63,10 +63,15 @@ description: >-
   <div class="section-intro">
     <h2>Who you can be</h2>
     <p>
-      Everyone starts human. What happens next is up to you: three ways to stay human and close
-      the gap, and two ways to leave humanity behind.
+      What happens next is up to you: three ways to stay human and close the gap, and two ways
+      to leave humanity behind.
     </p>
   </div>
+  <a class="roster-start" href="{{ '/rules/archetypes/' | relative_url }}#human">
+    <span class="roster-start-label">Where you start</span>
+    <span class="roster-start-text">Everyone begins as an ordinary human. The five paths below are how a person stops being one.</span>
+    <span class="roster-start-action">Meet the Human <span aria-hidden="true">→</span></span>
+  </a>
   <ul class="archetype-roster">
     {% for pair in site.data.archetypes %}
       {% assign a = pair[1] %}
@@ -92,73 +97,58 @@ description: >-
       campaigns, start to finish.
     </p>
   </div>
-  <div class="feature-grid feature-grid--four">
-    <div class="feature-card">
-      <h3>Shadows 2.0</h3>
-      <p class="feature-meta">60+ episodes</p>
-      <p>Our longest-running campaign — 60-plus episodes following the Cult of Personality storyline that shaped NYTE City from the ground up.</p>
-      <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aHNp24EYlbXnxCNVyn9cODd" target="_blank" rel="noopener">Watch Shadows 2.0 →<span class="visually-hidden"> (opens in a new tab)</span></a>
-    </div>
-    <div class="feature-card">
-      <h3>Shadows: World's Apart</h3>
-      <p class="feature-meta">A new crew</p>
-      <p>A new crew steps into NYTE City once the dust from the first great campaign finally settles.</p>
+  <article class="playlist-feature">
+    <p class="feature-meta">60+ episodes</p>
+    <h3>Shadows 2.0</h3>
+    <p>Our longest-running campaign, 60-plus episodes following the Cult of Personality storyline that shaped NYTE City from the ground up.</p>
+    <a class="btn btn--primary" href="https://youtube.com/playlist?list=PLWXG_a-sQ0aHNp24EYlbXnxCNVyn9cODd" target="_blank" rel="noopener">Watch Shadows 2.0 →<span class="visually-hidden"> (opens in a new tab)</span></a>
+  </article>
+  <ul class="playlist-list">
+    <li>
+      <div>
+        <h3>Shadows: World's Apart</h3>
+        <p class="feature-meta">A new crew</p>
+        <p>A new crew steps into NYTE City once the dust from the first great campaign finally settles.</p>
+      </div>
       <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aHPgd-lxZQ1fYZKdZ7s8rRD" target="_blank" rel="noopener">Watch World's Apart →<span class="visually-hidden"> (opens in a new tab)</span></a>
-    </div>
-    <div class="feature-card">
-      <h3>Shadows: The Old Regime</h3>
-      <p class="feature-meta">Extra-long sessions</p>
-      <p>Extra-long sessions following Arad's journey through a city on the edge — fewer episodes, a lot more table time in each one.</p>
+    </li>
+    <li>
+      <div>
+        <h3>Shadows: The Old Regime</h3>
+        <p class="feature-meta">Extra-long sessions</p>
+        <p>Arad's journey through a city on the edge: fewer episodes, a lot more table time in each one.</p>
+      </div>
       <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aH17eBKUAbGRgPzB_uPUHzr" target="_blank" rel="noopener">Watch The Old Regime →<span class="visually-hidden"> (opens in a new tab)</span></a>
-    </div>
-    <div class="feature-card">
-      <h3>Shadows: 13th Floor</h3>
-      <p class="feature-meta">Two-part side story</p>
-      <p>A tight two-part side story — a missing persons case that spirals into something much stranger.</p>
+    </li>
+    <li>
+      <div>
+        <h3>Shadows: 13th Floor</h3>
+        <p class="feature-meta">Two-part side story</p>
+        <p>A missing persons case that spirals into something much stranger.</p>
+      </div>
       <a href="https://youtube.com/playlist?list=PLWXG_a-sQ0aH8bAdhppGoeE7lT11wuE1j" target="_blank" rel="noopener">Watch 13th Floor →<span class="visually-hidden"> (opens in a new tab)</span></a>
-    </div>
-  </div>
+    </li>
+  </ul>
   <p class="center-note">
     Want to play it rather than watch it? Players and GMs find tables on
     <a href="{{ site.social.discord }}" target="_blank" rel="noopener">our Discord<span class="visually-hidden"> (opens in a new tab)</span></a>.
   </p>
 </section>
 
-<section class="section">
-  <div class="section-intro">
-    <h2>How it plays</h2>
-    <p>
-      Shadows runs on the Synergy System, our own d10 system. One die resolves almost anything a
-      scene throws at you: hacking the LINK, dropping a threat, casting a spell, or talking your
-      way out of a holding cell. The rulebook is still being written, so each page below is a
-      preview of a chapter in progress.
-    </p>
-  </div>
-  <div class="rules-grid rules-grid--home">
-    {% for rule in site.data.rules %}
-      {% include rules-card.html rule=rule compact=true %}
-    {% endfor %}
-  </div>
-  <p class="center-note">
-    <a href="{{ '/rules/' | relative_url }}">Browse the full Rules Preview →</a>
+<section class="section section--reading">
+  <h2>How it plays</h2>
+  <p>
+    Shadows runs on the Synergy System, our own d10 system. One die resolves almost anything a
+    scene throws at you: hacking the {% include term.html id="link" text="LINK" %}, dropping a threat, casting a spell, or talking your way out of a
+    holding cell. The rulebook is still being written, so each Rules Preview page covers a
+    chapter in progress.
+  </p>
+  <p class="home-links">
+    <a href="{{ '/rules/' | relative_url }}">Browse the Rules Preview →</a>
+    <a href="https://charactersheet.shadowsrpg.com/blank-sheet.html" target="_blank" rel="noopener">Print a blank sheet →<span class="visually-hidden"> (opens in a new tab)</span></a>
   </p>
 </section>
 
 <section class="section">
-  <div class="section-intro">
-    <h2>Try it now</h2>
-    <p>
-      The book isn't finished, but the game is playable. The character sheet runs live in your
-      browser: roll your Stats, pick an Archetype, and walk out with someone ready for the table.
-      Prefer paper? Print a blank sheet instead.
-    </p>
-  </div>
-  <div class="button-row">
-    <a class="btn btn--primary" href="https://charactersheet.shadowsrpg.com/" target="_blank" rel="noopener">Launch the Character Sheet<span class="visually-hidden"> (opens in a new tab)</span></a>
-    <a class="btn btn--outline" href="https://charactersheet.shadowsrpg.com/blank-sheet.html" target="_blank" rel="noopener">Print a Blank Sheet<span class="visually-hidden"> (opens in a new tab)</span></a>
-  </div>
-</section>
-
-<section class="section">
-  {% include next-step.html variant="follow" %}
+  {% include next-step.html variant="close" %}
 </section>
