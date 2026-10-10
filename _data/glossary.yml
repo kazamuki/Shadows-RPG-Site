@@ -25,6 +25,22 @@
         street level, and something older moves underneath it all. The city is not a backdrop:
         it notices what you do, and it responds.
       see: { text: "The World", url: /world/ }
+    - id: territory
+      name: Territory
+      short: One of the six regions NYTE City is divided into.
+      def: >-
+        One of the six regions NYTE City is divided into, and the largest division that
+        matters. Each has its own industries, and its own corporations, paramilitaries, hacker
+        enclaves and criminal underworlds to go with them.
+      see: { text: "The Shape of the City", url: /world/territories/ }
+    - id: zone
+      name: Zone
+      short: The division inside a Territory, usually one metro or stretch of country.
+      def: >-
+        The division inside a Territory, usually one metro or stretch of country: Metro Core,
+        Liberty Yards, Magic City. Zones break down into Districts, and Districts into
+        Neighborhoods.
+      see: { text: "Naming the city", url: /world/territories/ }
     - id: link
       name: The LINK
       short: NYTE City's network. Payments, messages, records, and reputations all run through it.
@@ -112,7 +128,29 @@
         The force that infuses the universe, and what magic is made of. Arcanists don't command
         it from a distance; they channel it through their own bodies, and it resists being
         shaped. Every spell is strain, focus, and risk.
-      see: { text: "Arcanist", url: /rules/archetypes/#arcanist }
+      see: { text: "Magic", url: /rules/magic/ }
+    - id: glyph
+      name: Glyph
+      short: A shaped expression of Aether. Every spell is built from one or more.
+      def: >-
+        The building block of a spell: a shaped expression of Aether that stands for one idea,
+        like Fire, Gravity or Memory. Glyphs fall into five Domains, and every Glyph added to a
+        spell makes it do more and makes it harder to hold.
+      see: { text: "Magic", url: /rules/magic/ }
+    - id: grimoire
+      name: Grimoire
+      short: An Arcanist's hand-written record of the spells they know.
+      def: >-
+        An Arcanist's working journal of the spells they've made their own. It has to be
+        written by hand, because a Glyph doesn't survive being photographed or scanned. Lose it
+        and the spells stay in your head; you just can't teach them until you write it again.
+    - id: resonance
+      name: Resonance
+      short: The trace a spell leaves on its caster and on the place it was cast.
+      def: >-
+        What magic leaves behind. Aether forced through a body doesn't vanish when the spell
+        ends: it lingers on the caster and in the place it was spent, as scorch marks and a
+        thread in the air that anyone who knows how to look can read.
     - id: nci
       name: NCI
       short: Neurocybernetic Interpreter, the implant that links flesh and machine.
@@ -130,6 +168,7 @@
         matter carries when three agree. The Court has never wanted to rule the city. It wants
         to stay unseen, govern its own, and keep collecting what the city pays it without
         noticing. Arcanists have no seat and have never been offered one.
+      see: { text: "Who Runs It", url: /world/powers/#unseen-court }
     - id: houses
       name: The four houses
       short: The four kinds of old power seated on the Unseen Court.
@@ -138,12 +177,30 @@
         own people entirely, and the Court only decides what happens between them, and between
         any of them and the city. Vampires split further into bloodlines.
       see: { text: "Vampire", url: /rules/archetypes/#vampire }
+    - id: deadmen
+      name: Deadmen
+      short: The dead who didn't finish. The oldest house on the Unseen Court.
+      def: >-
+        The dead who didn't finish, and the oldest of the four houses on the Unseen Court. They
+        were here first, by a margin nobody argues with: slowed and quiet, but aware, and
+        entirely capable of holding a grudge.
+      see: { text: "Who Runs It", url: /world/powers/#unseen-court }
+    - id: goblin-market
+      name: Goblin Market
+      short: A market in a pocket dimension, and the only neutral ground in the city.
+      def: >-
+        A market in a pocket dimension attached to NYTE City, reached through access points
+        across the Territories and findable only by people who already know it's there. It sells
+        what can't be sold anywhere else, and it stays neutral because its Laws aren't negotiable.
+      see: { text: "Who Runs It", url: /world/powers/#goblin-market }
     - id: fae
       name: Fae courts
       short: The Fae, who negotiate contracts with finer print than any corporation.
       def: >-
         The Fae negotiate contracts with finer print than any corporation, and they never miss a
-        clause. They also own K-pop.
+        clause. They also own K-pop. Their single seat on the Unseen Court rotates between Winter
+        and Summer, so the Fae position on anything depends on when you ask.
+      see: { text: "Who Runs It", url: /world/powers/#unseen-court }
 
 - group: At the table
   id: at-the-table

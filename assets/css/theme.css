@@ -514,6 +514,18 @@ main { display: block; }
 }
 .rules-card:hover .rules-card-art span { text-shadow: 0 0 12px rgba(188,72,154,1), 0 0 34px rgba(27,187,196,0.7); }
 
+/* The finale (Character Creation, last in _data/rules.yml) spans the whole row as a
+   wide card, so an odd card count never leaves it stranded alone in a corner. */
+@media (min-width: 640px) {
+  .rules-grid > .rules-card:last-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+  .rules-grid > .rules-card:last-child img { height: 100%; min-height: 180px; }
+  .rules-grid > .rules-card:last-child .rules-card-body { align-self: center; }
+}
+
 /* --- Rules Preview sub-pages --- */
 
 /* Reading-width section for prose-heavy pages (The World, every Rules
@@ -1175,10 +1187,85 @@ main { display: block; }
   .gear-includes li:not(:last-child)::after { content: "·"; margin: 0 0.6em; }
 }
 
-/* Stats & Skills: the four kinds of risk, as ruled rows like the gear manifest. */
-.risk-list { list-style: none; margin: 1rem 0 0; padding: 0; border-bottom: 1px solid var(--border-subtle); }
-.risk-list li { padding: 1rem 0; border-top: 1px solid var(--border-subtle); }
-.risk-list strong { display: block; margin-bottom: 0.25rem; color: var(--text-primary); }
+/* Ruled rows with a bold lead-in, like the gear manifest but one column: Stats & Skills'
+   kinds of risk, Who Runs It's "Other Guys". */
+.ruled-list { list-style: none; margin: 1rem 0 0; padding: 0; border-bottom: 1px solid var(--border-subtle); }
+.ruled-list li { padding: 1rem 0; border-top: 1px solid var(--border-subtle); }
+.ruled-list strong { display: block; margin-bottom: 0.25rem; color: var(--text-primary); }
+
+/* The Shape of the City: the six Territories north to south, strung along a coastline
+   (a cyan-to-magenta line down the left edge, with N and S at its ends and a dot per row). */
+.coast { position: relative; margin-top: 1.5rem; padding-left: 1.75rem; }
+.coast::before,
+.coast::after {
+  position: absolute;
+  left: 0;
+  width: 1.1rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--text-secondary);
+}
+.coast::before { content: "N"; top: 0; }
+.coast::after { content: "S"; bottom: 0; }
+.coast-strip {
+  list-style: none;
+  margin: 0;
+  padding: 1.5rem 0;
+  border-left: 0;
+  position: relative;
+}
+.coast-strip::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.75rem + 0.55rem - 1px);
+  top: 1.5rem;
+  bottom: 1.5rem;
+  width: 2px;
+  background: linear-gradient(var(--accent-cyan), var(--accent-magenta));
+}
+.coast-strip > li { position: relative; padding: 1.25rem 0; border-top: 1px solid var(--border-subtle); }
+.coast-strip > li:last-child { border-bottom: 1px solid var(--border-subtle); }
+.coast-strip > li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.75rem + 0.55rem - 4px);
+  top: 1.75rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-magenta);
+}
+.coast-strip h3 { margin: 0 0 0.25rem; }
+.coast-strip .power-scope { margin-bottom: 0.6rem; }
+.coast-strip p { margin: 0 0 0.6rem; }
+.coast-zones {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+}
+
+/* Who Runs It: the Unseen Court as four equal seats, hairline-split like the stat block.
+   Equal cells on purpose: no house sits above another. */
+.court-seats {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border-visible);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.court-seats > li { background: var(--card-bg); padding: 1.25rem 1.25rem 1.1rem; }
+.rules-section .court-seats h3 { margin: 0.35rem 0 0.4rem; } /* beats `.rules-section p + h3` */
+.court-seats p { margin: 0; font-size: var(--fs-small); color: var(--text-secondary); }
+@media (max-width: 640px) {
+  .court-seats { grid-template-columns: 1fr; }
+}
 
 .gd-family-link { display: inline-flex; align-items: center; gap: 0.6em; }
 
