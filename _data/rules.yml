@@ -1,11 +1,12 @@
-# Single source of truth for the six Rules Preview pages, in reading order.
+# Single source of truth for the Rules Preview pages, in reading order.
 # Drives the Rules Preview hub grid, Home's Core Rulebook shortcut grid, each
 # sub-page's status tag, and the prev/next pager at the bottom of each sub-page.
 # Change a page's status here and every place it shows up updates together.
 #
 # Order is for a newcomer, not the book's chapter order: Archetypes first (the
-# exciting part), Character Creation last (it uses every term the earlier pages
-# introduce, and ends on the live character sheet).
+# exciting part), then Magic (it follows on from the Arcanist), Character Creation
+# last (it uses every term the earlier pages introduce, and ends on the live
+# character sheet).
 #
 # status: draft | in-progress | final   (label is derived, see _includes/status-tag.html)
 # image:  a CRB spread screenshot or a Shutterstock catalog image, OR leave it out and set `art:` instead — a short
@@ -19,6 +20,12 @@
   status: draft
   image: /assets/img/archetypes-card.jpg
   blurb: Everyone starts human. Professional, Arcanist, Vampire, Werewolf, or one you build yourself are the ways out.
+
+- title: Magic
+  url: /rules/magic/
+  status: in-progress
+  image: /assets/img/magic-card.jpg
+  blurb: The Aether, the three ways to shape it, and the bill that comes with every spell.
 
 - title: Power Levels
   url: /rules/power-levels/

@@ -112,7 +112,29 @@
         The force that infuses the universe, and what magic is made of. Arcanists don't command
         it from a distance; they channel it through their own bodies, and it resists being
         shaped. Every spell is strain, focus, and risk.
-      see: { text: "Arcanist", url: /rules/archetypes/#arcanist }
+      see: { text: "Magic", url: /rules/magic/ }
+    - id: glyph
+      name: Glyph
+      short: A shaped expression of Aether. Every spell is built from one or more.
+      def: >-
+        The building block of a spell: a shaped expression of Aether that stands for one idea,
+        like Fire, Gravity or Memory. Glyphs fall into five Domains, and every Glyph added to a
+        spell makes it do more and makes it harder to hold.
+      see: { text: "Magic", url: /rules/magic/ }
+    - id: grimoire
+      name: Grimoire
+      short: An Arcanist's hand-written record of the spells they know.
+      def: >-
+        An Arcanist's working journal of the spells they've made their own. It has to be
+        written by hand, because a Glyph doesn't survive being photographed or scanned. Lose it
+        and the spells stay in your head; you just can't teach them until you write it again.
+    - id: resonance
+      name: Resonance
+      short: The trace a spell leaves on its caster and on the place it was cast.
+      def: >-
+        What magic leaves behind. Aether forced through a body doesn't vanish when the spell
+        ends: it lingers on the caster and in the place it was spent, as scorch marks and a
+        thread in the air that anyone who knows how to look can read.
     - id: nci
       name: NCI
       short: Neurocybernetic Interpreter, the implant that links flesh and machine.

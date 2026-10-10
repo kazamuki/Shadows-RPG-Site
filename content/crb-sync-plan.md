@@ -136,7 +136,7 @@ manifest and a Black TAG line. Retire the stats spread image (closes the wishlis
 risk section lists all four of the book's kinds (contested rolls too), and the Stats card is now
 a \"d10\" glyph panel.*
 
-**S3. New Rules page: Magic.** Three disciplines, what Aether is, what it costs, plus a short
+**✅ S3. New Rules page: Magic (shipped 2026-10-10; copy in `content/drafts/magic-page.md`, M1-M5 approved as recommended).** Three disciplines, what Aether is, what it costs, plus a short
 "In play" scene and a ledger. Slot it into `_data/rules.yml` after Archetypes. Draft copy in
 `content/drafts/` first.
 
