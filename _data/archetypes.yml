@@ -1,20 +1,17 @@
-# The five Archetypes, in the order the Archetypes page lists them.
+# The Archetypes, in the order the Archetypes page lists them: the four from
+# the CRB (0410_Archetypes) plus Custom. Cyborg was cut from the book on
+# 2026-10-01; cybernetics are now open to Professionals only.
 # Keyed by the page's #anchor id. `hook` is the one-liner shown both on the
 # Archetypes page and in Home's "Who you can be" roster, so edit it here,
-# not in either page. `image` is a card thumbnail in assets/img/home/. `group` is mortal or supernatural (see D3 in
-# content/messaging-plan.md: everyone starts human).
+# not in either page. `image` is a card thumbnail in assets/img/home/. `group` is mortal,
+# supernatural or custom (see D3 in content/messaging-plan.md: everyone starts human).
+# `label` overrides the group text shown on the roster.
 
 professional:
   image: roster-professional.jpg
   name: Professional
   group: mortal
-  hook: "No bloodline. No implants. No covenant with forces older than language. Just a person who decided that wasn't going to be enough of a reason to lose."
-
-cyborg:
-  image: roster-cyborg.jpg
-  name: Cyborg
-  group: mortal
-  hook: "Chrome. Tech. Art. The Cyborg is all three — and chooses to be."
+  hook: "No bloodline. No implants rewriting their nervous system. No covenant with forces older than language. Just a person who decided that wasn't going to be enough of a reason to lose."
 
 arcanist:
   image: roster-arcanist.jpg
@@ -33,3 +30,10 @@ werewolf:
   name: Werewolf
   group: supernatural
   hook: "Predators not of malice, but of duty."
+
+custom:
+  image: roster-custom.jpg
+  name: Custom
+  group: custom
+  label: you decide
+  hook: "Something the city never catalogued. You and your GM write it."

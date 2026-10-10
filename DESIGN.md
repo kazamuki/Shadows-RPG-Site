@@ -318,7 +318,7 @@ above the Midnight ground) and a 1px border that brightens from Deep Circuit to 
 Light mode is the same structure with one addition: cards, play scenes, the stat block and roster rows rest on
 the paper with a soft offset shadow, because a sheet on a desk casts one. The only other
 layered surfaces are the translucent sticky header (88-90% opacity, 8px backdrop blur), the
-85% black backdrop behind the game modal and the spread lightbox, and the glossary tooltip.
+85% black backdrop behind the game modal, and the glossary tooltip.
 
 ### Shadow Vocabulary
 - **Paper shadow** (`box-shadow: 0 1px 2px rgba(26,23,20,0.08), 0 6px 16px -8px rgba(26,23,20,0.18)`):
@@ -438,11 +438,8 @@ indicator light. The **pager** sits 1.5rem under it: previous and next as 8px ca
 direction label in tertiary text over an Inter 600 title), with a centered cyan hub link and a
 mono "n of 6" count between them. Under 560px the hub drops to its own row.
 
-### Spread Lightbox and Glossary Tooltip
-- **Spread lightbox:** a CRB spread inside a button with a fixed-dark mono pill ("Read the book
-  page") in its lower-left corner, Aether Pulse on hover. It opens a native `<dialog>` on
-  Midnight with a cyan-hover border and an 85% black backdrop; the close button is
-  fixed-dark like a ghost button.
+### Glossary Tooltip
+(The spread lightbox was removed on 2026-10-10 along with the Cyborg spread, its only user.)
 - **Glossary tooltip:** a small bubble (max 18rem, 6px corners, a 1px cyan-hover border) on the
   page background color, showing a term's short definition over a mono cyan "Glossary entry →"
   line. Hover or focus opens it; on touch, the first tap does. It has no shadow, even in light mode.

@@ -63,8 +63,8 @@ description: >-
   <div class="section-intro">
     <h2>Who you can be</h2>
     <p>
-      What happens next is up to you: three ways to stay human and close the gap, and two ways
-      to leave humanity behind.
+      What happens next is up to you: two ways to stay human and close the gap, two ways to
+      leave humanity behind, and one you build yourself.
     </p>
   </div>
   <a class="roster-start" href="{{ '/rules/archetypes/' | relative_url }}#human">
@@ -79,7 +79,7 @@ description: >-
         <a href="{{ '/rules/archetypes/' | relative_url }}#{{ pair[0] }}">
           <img class="archetype-roster-art" src="{{ '/assets/img/home/' | append: a.image | relative_url }}" width="240" height="200" loading="lazy" alt="">
           <span class="archetype-roster-name">{{ a.name }}</span>
-          <span class="archetype-roster-group">{{ a.group }}</span>
+          <span class="archetype-roster-group">{{ a.label | default: a.group }}</span>
           <span class="archetype-roster-hook">{{ a.hook }}</span>
         </a>
       </li>

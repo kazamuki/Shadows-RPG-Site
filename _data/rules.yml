@@ -8,7 +8,7 @@
 # introduce, and ends on the live character sheet).
 #
 # status: draft | in-progress | final   (label is derived, see _includes/status-tag.html)
-# image:  a CRB spread screenshot, OR leave it out and set `art:` instead — a short
+# image:  a CRB spread screenshot or a Shutterstock catalog image, OR leave it out and set `art:` instead — a short
 #         glyph rendered on a designed panel. Don't reuse the same image on two cards;
 #         it reads as a copy-paste mistake rather than a choice.
 # share:  false keeps a card image out of that page's link preview (Discord/social
@@ -17,8 +17,8 @@
 - title: Archetypes
   url: /rules/archetypes/
   status: draft
-  image: /assets/img/crb-spreads/cyborg-archetype.jpg
-  blurb: Everyone starts human. Professional, Cyborg, Arcanist, Vampire, and Werewolf are the ways out.
+  image: /assets/img/archetypes-card.jpg
+  blurb: Everyone starts human. Professional, Arcanist, Vampire, Werewolf, or one you build yourself are the ways out.
 
 - title: Power Levels
   url: /rules/power-levels/
