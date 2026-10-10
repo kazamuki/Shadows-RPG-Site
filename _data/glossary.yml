@@ -41,6 +41,14 @@
         Liberty Yards, Magic City. Zones break down into Districts, and Districts into
         Neighborhoods.
       see: { text: "Naming the city", url: /world/territories/ }
+    - id: combat-zone
+      name: Combat Zone
+      short: Ground the city stopped paying to fix. No response, no record, no consequence.
+      def: >-
+        Ground the city stopped paying to fix: districts where rebuilding stopped making sense
+        and the line item moved to containment. People live there. Nothing else works: no
+        response, no record, no consequence.
+      see: { text: "What's in the Dark", url: /world/threats/#combat-zones }
     - id: link
       name: The LINK
       short: NYTE City's network. Payments, messages, records, and reputations all run through it.
@@ -177,6 +185,13 @@
         own people entirely, and the Court only decides what happens between them, and between
         any of them and the city. Vampires split further into bloodlines.
       see: { text: "Vampire", url: /rules/archetypes/#vampire }
+    - id: thin-place
+      name: Thin Place
+      short: Somewhere the separation between here and elsewhere has worn through.
+      def: >-
+        Somewhere the separation between here and elsewhere has worn through. Distances don't
+        resolve and time runs uneven. Passing through is usually fine; staying isn't.
+      see: { text: "What's in the Dark", url: /world/threats/#thin-places }
     - id: deadmen
       name: Deadmen
       short: The dead who didn't finish. The oldest house on the Unseen Court.

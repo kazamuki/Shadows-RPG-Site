@@ -145,7 +145,7 @@ the naming callout) and a "Who runs it" section (five corporations, the Unseen C
 others), as sub-pages under `/world/` if they run long. Add the new names to the glossary.
 This also covers the wishlist's "Districts / map page".
 
-**S5. "What's in the dark".** A flavor-only Threats teaser: the three families and their kinds,
+**✅ S5. "What's in the dark" (shipped 2026-10-10 as `/world/threats/`; copy in `content/drafts/threats-page.md`, T1-T5 approved as recommended). All five sessions are now shipped.** A flavor-only Threats teaser: the three families and their kinds,
 one line each, no stats and nothing from the Codex.
 
 ## Getting people to try the game or join the Discord

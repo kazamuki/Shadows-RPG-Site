@@ -469,6 +469,9 @@ Each long Rules page has one shape of its own, so they don't read as the same st
   the stat block, two across and one under 640px. Equal on purpose: no house sits above another.
   The corporations reuse the gear manifest with an "HQ" readout; the Other Guys use `.ruled-list`
   (one-column ruled rows with a bold lead-in, also Stats & Skills' kinds of risk).
+- **What's in the Dark:** the nineteen kinds of threat in `.ruled-list` rows, each ending on a
+  **"The line" readout** (`.power-scope.threat-line`): the mono readout in `--accent-magenta-text`
+  instead of cyan, because it's a warning (what sets that threat off), not information.
 - **Rules hub finale:** the last card in the grid (Character Creation) spans the whole row from
   640px up, image left and text right, so an odd card count never strands it alone.
 

@@ -1004,6 +1004,26 @@ being copy-pasted across every page.
   exist, screenshots of the coastline strip and the seats, no console errors. Not checked: light
   mode.
 
+- **CRB sync, S5: What's in the Dark (2026-10-10, `content/crb-sync-plan.md`).** Branched from
+  `main` after #38 merged (S1-S4 are all live). Copy drafted first in
+  `content/drafts/threats-page.md` and approved by Ken with T1-T5 as recommended. New
+  **`/world/threats/`**, the third World sub-page, condensed in-world from the player-facing
+  `1300_Threats` chapter (flavor only: **nothing from the Threat Codex**, Site Profiles or the
+  Orders proposal, no stats, no named NPCs or venues). The book's three families as "The people"
+  (7 Mortal kinds), "The old things" (7 Supernatural) and "The ground" (5 Environmental), with a
+  jump nav. **Signature:** every entry ends on a mono **"The line"** readout naming what sets that
+  kind off (`.power-scope.threat-line`, magenta text), drawn from each entry's own text and
+  paying off the book's closing line, used as the pull-line: "Most of the people hurt in NYTE
+  City were standing on the wrong side of a line they could have read." No "In play" scene (T5).
+  The World's "Go deeper" block and both sibling pages' closing links now include it. Glossary:
+  **Combat Zone** and **Thin Place**. **Note on the earlier stacked PRs:** #37 (S3) was merged
+  into the S2 branch after S2 had already reached `main`, so S3 shipped to `main` via #38
+  alongside S4. Avoid stacking PRs when they may be merged quickly; branch each session from
+  `main` once the previous one has landed. Changelog entry added. Verified via `jekyll serve` at
+  375 and 1280: no overflow, heading order clean, all 19 readouts and jump links render, new
+  glossary anchors exist, a screenshot of "The people", no console errors. Not checked: light
+  mode.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
