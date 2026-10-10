@@ -1,6 +1,6 @@
 ---
 title: Archetypes
-description: Everyone starts human. Professional, Cyborg, Arcanist, Vampire, Werewolf — the five paths out of it in NYTE City.
+description: Everyone starts human. Professional, Arcanist, Vampire, Werewolf, or a Custom Archetype you build yourself: the paths out of it in NYTE City.
 ---
 
 <section class="section section--reading">
@@ -16,22 +16,22 @@ description: Everyone starts human. Professional, Cyborg, Arcanist, Vampire, Wer
   <ul class="jump-nav" aria-label="Jump to an Archetype">
     <li><a href="#human">Where everyone starts</a></li>
     <li><a href="#professional">Professional</a></li>
-    <li><a href="#cyborg">Cyborg</a></li>
     <li><a href="#arcanist">Arcanist</a></li>
     <li><a href="#vampire">Vampire</a></li>
     <li><a href="#werewolf">Werewolf</a></li>
+    <li><a href="#custom">Custom</a></li>
   </ul>
 
   <div class="archetype-block" id="human">
-    <img src="{{ '/assets/img/crb-spreads/human-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="Human spread from the Shadows Core Rulebook">
+    <img src="{{ '/assets/img/archetypes-card.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="Silhouetted people climb rain-soaked steps toward a glowing doorway in a dark neon city.">
     <div>
       <h2>Where everyone starts: human</h2>
-      <p class="archetype-hook">Most humans don't know vampires, werewolves, nephilim, and demons walk among them.</p>
+      <p class="archetype-hook">Nobody survives NYTE City the same way twice.</p>
       <p>
-        Humans are the most common sentient beings in NYTE City, in every profession at every
-        level. Every character begins as one. The five Archetypes below are the ways a person
-        stops being ordinary: three of them stay human and close the gap on their own terms, and
-        two left humanity behind before your story begins.
+        Every character begins as a person. The Stats you set are who you were before power
+        found you, and the Archetype you choose is how you got here. Two of them stay human and
+        close the gap on their own terms, two left humanity behind before your story begins, and
+        the last is whatever the city doesn't have a word for yet.
       </p>
     </div>
   </div>
@@ -51,29 +51,15 @@ description: Everyone starts human. Professional, Cyborg, Arcanist, Vampire, Wer
       <p>
         Humans who trained until they can compete with supernatural beings. They bring skills,
         techniques, and Tweaks into situations that expect a mundane human, and teach those
-        situations otherwise. Where others rely on supernatural gifts or tech, a Professional
-        relies on preparation and precision. They are not the most powerful thing in any room.
-        They are frequently the most dangerous.
+        situations otherwise. Where others rely on supernatural gifts, a Professional relies on
+        preparation and precision. They are not the most powerful thing in any room. They are
+        frequently the most dangerous.
+      </p>
+      <p>
+        They're also the only ones who go under the knife. When someone in NYTE City buys chrome
+        to keep up, it's a Professional.
       </p>
       <p class="archetype-paths">Professions: Cleaner, Enforcer, Fence, Jack of All Trades, Mercenary, Slayer, True Warrior, Wheelman</p>
-    </div>
-  </div>
-
-  <div class="archetype-block" id="cyborg">
-    <button type="button" class="spread-zoom" data-spread-src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" data-spread-alt="The Cyborg chapter spread from the Shadows Core Rulebook, pages 64 and 65: Overview, Physical Characteristics and Playing a Cyborg.">
-      <img src="{{ '/assets/img/crb-spreads/cyborg-archetype.jpg' | relative_url }}" width="800" height="518" loading="lazy" alt="">
-      <span class="spread-zoom-hint">Read the book page</span>
-    </button>
-    <div>
-      <h3>Cyborg</h3>
-      <p class="archetype-hook">{{ site.data.archetypes.cyborg.hook }}</p>
-      <p>
-        Some people love technology; others become it. Cyborgs are humans who went all in: a
-        {% include term.html id="nci" text="Neurocybernetic Interpreter" %}, cyber-limbs, nanobots, and more. They pay for it in Çredits
-        and in {% include term.html id="humanity" %}, closing the gap between human and supernatural one install at a time.
-        Every enhancement is a decision you don't get to walk back, and the city keeps adding to
-        the bill.
-      </p>
     </div>
   </div>
 
@@ -106,12 +92,13 @@ description: Everyone starts human. Professional, Cyborg, Arcanist, Vampire, Wer
       <h3>Vampire</h3>
       <p class="archetype-hook">{{ site.data.archetypes.vampire.hook }}</p>
       <p>
-        Centuries to accumulate power, influence, and everything that comes with both. Vampires
-        belong to {% include term.html id="houses" %}, each with their own strengths, resources, allies, and enemies, and a
-        secretive {% include term.html id="unseen-court" text="Unseen Court" %} keeps their kind out of sight while it leans on corporations,
-        syndicates, and politicians. You navigate hunger, power, and eternity in equal measure.
-        Feeding is not optional.
+        Centuries to accumulate power, influence, and everything that comes with both. Every
+        Vampire comes from a bloodline and a sire, with allies, rivals, and reluctant kin to
+        match, and their kind holds one of the four seats on the {% include term.html id="unseen-court" text="Unseen Court" %}, which keeps
+        the old powers out of the headlines and inside every room that matters. You navigate
+        hunger, power, and eternity in equal measure. Feeding is not optional.
       </p>
+      <p class="archetype-paths">Bloodlines: Strigoi (deception and intellect), Upyr (raw savagery), Draugur (discipline and war)</p>
     </div>
   </div>
 
@@ -126,7 +113,27 @@ description: Everyone starts human. Professional, Cyborg, Arcanist, Vampire, Wer
         The beast is not a weapon you draw cleanly; it has its own opinions about how things
         should be resolved.
       </p>
-      <p class="archetype-paths">Origins: Trueborn, Unblooded, Forge Fangs</p>
+      <p class="archetype-paths">Origins: Trueborn (the gift), Wildblood (the curse), Forge Fang (the transaction)</p>
+    </div>
+  </div>
+
+  <div class="archetype-group">
+    <h2>Something else</h2>
+    <p>
+      For the character that doesn't fit any box the city has defined.
+    </p>
+  </div>
+
+  <div class="archetype-block no-img" id="custom">
+    <div>
+      <h3>Custom</h3>
+      <p class="archetype-hook">{{ site.data.archetypes.custom.hook }}</p>
+      <p>
+        When what you have in mind doesn't fit, you work with your GM to define it. A Custom
+        Archetype names its own nature, whether that's mortal, supernatural, or something the
+        city has no word for yet, and its own power, borrowed from the other Archetypes or built
+        from scratch. The character sheet has room for one.
+      </p>
     </div>
   </div>
 

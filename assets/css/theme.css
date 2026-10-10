@@ -90,7 +90,7 @@
      in the shared token set above. */
   --accent-magenta-text: #DB7DBE;
 
-  /* Fixed black scrim behind the game modal (the lightbox backdrop repeats the literal). Same in both themes. */
+  /* Fixed black scrim behind the game modal. Same in both themes. */
   --scrim: rgba(0, 0, 0, 0.85);
 }
 
@@ -849,60 +849,6 @@ main { display: block; }
   min-height: 140px;
   object-fit: cover;
   border-radius: 6px;
-}
-/* Cyborg's book spread opens full size in a dialog (assets/js/spread-lightbox.js) */
-.spread-zoom {
-  position: relative;
-  display: block;
-  padding: 0;
-  border: 0;
-  background: none;
-  border-radius: 6px;
-  overflow: hidden;
-  cursor: zoom-in;
-  font: inherit;
-}
-/* Over a photo, so fixed-dark in both themes */
-.spread-zoom-hint {
-  position: absolute;
-  left: 0.5rem;
-  bottom: 0.5rem;
-  padding: 0.3em 0.7em;
-  border-radius: 999px;
-  background: rgba(13, 23, 49, 0.88);
-  color: var(--text-light);
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.spread-zoom:hover .spread-zoom-hint { background: var(--aether-pulse); }
-.spread-dialog {
-  max-width: min(95vw, 800px);
-  max-height: 95vh;
-  padding: 0;
-  border: 1px solid var(--card-border-hover);
-  border-radius: 8px;
-  background: var(--midnight);
-  overflow: auto;
-}
-.spread-dialog::backdrop { background: rgba(0, 0, 0, 0.85); } /* literal: ::backdrop may not see custom properties in older browsers */
-.spread-dialog img { display: block; width: 100%; height: auto; }
-.spread-dialog-close {
-  position: sticky;
-  top: 0;
-  float: right;
-  margin: 0.5rem;
-  padding: 0.4em 0.9em;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 4px;
-  background: rgba(13, 23, 49, 0.92);
-  color: var(--text-light);
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
 }
 .archetype-block h2,
 .archetype-block h3 { margin-top: 0; color: var(--text-primary); }

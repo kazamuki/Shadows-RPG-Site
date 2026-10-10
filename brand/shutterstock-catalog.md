@@ -19,7 +19,8 @@ hero scale — better reserved for smaller spots (Podcasts/YouTube thumbnails).
 | `March 2023/shutterstock_2216124455.jpg` | Home hero background |
 | `October 2022/shutterstock_1621160803.jpg` | Shadows RPG feature band background |
 | `October 2022/shutterstock_1246321000.jpg`, `November 2022/shutterstock_626543207.jpg` | Shadowsrpg.com Home pitch pair ("The surface" / "Underneath") |
-| `450347140`, `432001924`, `1295291155` (Nov 2022 / Nov 2022 / Oct 2022), `February 2023/1074377570`, `February 2023/2218612343` | Shadowsrpg.com Home roster thumbnails: Professional, Cyborg, Arcanist, Vampire, Werewolf |
+| `450347140`, `1295291155` (Nov 2022 / Oct 2022), `February 2023/1074377570`, `February 2023/2218612343`, `March 2023/1726923523` | Shadowsrpg.com Home roster thumbnails: Professional, Arcanist, Vampire, Werewolf, Custom (`432001924` was the Cyborg thumbnail until 2026-10-10) |
+| `November 2022/shutterstock_772547365.jpg` | Shadowsrpg.com Archetypes card, link preview and the Archetypes page's "Where everyone starts" image |
 
 ## February 2023
 

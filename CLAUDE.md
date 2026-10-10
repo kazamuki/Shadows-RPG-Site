@@ -43,6 +43,12 @@ stand alone technically but must read as one brand visually and tonally.
   session picture on Home, Rules hub Draft-pill note, The World's imagery/ledger, polish, plus a
   parked list (Archetype art, About copy). Check which items are ticked before starting
   related work; the full reports are in `.impeccable/critique/`.
+- `content/crb-sync-plan.md` — audit of the site against the **private CRB mirror** and the
+  plan to catch up (written 2026-10-10; Cyborg cut, point-buy stats, World of Shadows). The
+  mirror is `kazamuki/Shadows-Private`, cloned locally at `C:\Users\kazam\Github\Shadows-Private`
+  (chapters in `crb/`) and now the source to read instead of extracting `.docx` files. **Never
+  add it here as a submodule**: GitHub Pages only builds public submodules, so the live build
+  would break. The plan records the mirror commit it was audited against.
 - `PRODUCT.md` — Impeccable product record (written 2026-09-28): primary user (cold
   newcomers), success goals (Patreon follow, Discord join, character sheet), positioning,
   constraints, and evidence that must not be invented. Read by `/impeccable` commands;
@@ -898,6 +904,39 @@ being copy-pasted across every page.
   and the 23 "text color rgb(0,0,0)" template hits are detector noise from unrendered Liquid.
   The critique's "6 links at 1.00:1" on Archetypes was a measurement artifact (all links pass in
   both themes). Hero tagline and light-mode header unchanged, as noted above.
+
+- **CRB sync, S1: correctness pass (2026-10-10, `content/crb-sync-plan.md`).** First session
+  against the private CRB mirror (`Shadows-Private` at `cea99a8`). Ken took every recommendation
+  (D1-D5). **Cyborg is gone** (cut from the book 2026-10-01; cybernetics are now Professional-only):
+  removed from `_data/archetypes.yml`, the Archetypes page, Home's roster, `_data/rules.yml` and
+  the glossary. **Custom** replaces it as the fifth roster row and a "Something else" section
+  (roster group `custom`; a new optional `label:` field in `archetypes.yml` sets the roster's group
+  text, here "you decide"). Professional gained a line saying they're the only ones who take
+  chrome, and its hook was restored to the book's "No implants rewriting their nervous system"
+  (the trimmed "No implants" contradicted that). Werewolf Origins: **Wildblood** (was Unblooded).
+  Vampire gained a Bloodlines line (Strigoi, Upyr, Draugur) and now says its kind holds a seat on
+  the Unseen Court. Human's hook is now 0410's "Nobody survives NYTE City the same way twice",
+  with new body copy (the old "nephilim and demons" line came from a Human chapter the book no
+  longer has). **Glossary:** Unseen Court is the four-seat council (Vampire, Werewolf, Deadmen,
+  Fae); `houses` is now "The four houses"; NCI lost its Cyborg payoff and links to Professional;
+  **Humanity was removed** (the book dropped it). Stats are **spent, not rolled**: Character
+  Creation step 3, its callout, and the `sheet` next-step bar say "Set your Stats" (the live sheet
+  offers both a flat and a rolled pool, so "set" is true either way). Equipment's Cybernetics
+  paragraph now says it's Professional-only and still being designed.
+  **Images:** new `assets/img/archetypes-card.jpg` (Shutterstock 772547365, a doorway in a rainy
+  city) is the Archetypes card, its link preview, and the Human block's image; new
+  `assets/img/home/roster-custom.jpg` (1726923523). Removed `crb-spreads/cyborg-archetype.jpg`,
+  `crb-spreads/human-archetype.jpg` (both showed chapters the book no longer has) and
+  `home/roster-cyborg.jpg`. With the Cyborg spread gone, **the spread lightbox was removed**
+  (`assets/js/spread-lightbox.js`, its CSS and the layout's script tag); DESIGN.md updated. The
+  catalog's "Already in use" table was updated here; **GD's original copy of the catalog still
+  needs the same edit**. **Left alone:** the hidden Night Shift game still has a playable Cyborg
+  (Scott's game, not the rulebook). Changelog entry added.
+  Verified via `jekyll serve` (port 4000, browse via `localhost`): every jump link and glossary
+  term link resolves, no horizontal overflow or broken images at 375px on the seven affected
+  pages, the Archetypes `og:image` is the new card, no console errors. Screenshots timed out in
+  the pane, so the visual check was the two new images inspected directly. Not checked: light
+  mode.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
