@@ -129,10 +129,12 @@ point at real entries. *Done; see CLAUDE.md's Build status. The Human
 spread was retired too (it showed a chapter the book no longer has), and the Cyborg spread
 lightbox went with it.*
 
-**S2. Rules Preview catches up.** Stats & Skills: replace "How a check resolves" with a
+**✅ S2. Rules Preview catches up (shipped 2026-10-10).** Stats & Skills: replace "How a check resolves" with a
 plain-English "Three kinds of risk" (no numbers). Character Creation: one paragraph on the point
 buy and one on growth (IP and Milestones). Equipment: add Powered Armor and Mechs to the
-manifest and a Black TAG line. Retire the stats spread image (closes the wishlist item).
+manifest and a Black TAG line. Retire the stats spread image (closes the wishlist item). *Done: the
+risk section lists all four of the book's kinds (contested rolls too), and the Stats card is now
+a \"d10\" glyph panel.*
 
 **S3. New Rules page: Magic.** Three disciplines, what Aether is, what it costs, plus a short
 "In play" scene and a ledger. Slot it into `_data/rules.yml` after Archetypes. Draft copy in

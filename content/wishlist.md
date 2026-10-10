@@ -16,10 +16,6 @@ Effort key: **S** = an hour or two · **M** = a session · **L** = several sessi
 
 These came up during the design pass and block or shape other work.
 
-- **Stats spread image leaks the ruleset.** `assets/img/crb-spreads/stats-and-attributes.jpg`
-  is legible and shows the stat-bonus table + point-buy math that the 2026-09-06 steer pulled
-  from page text. Options: swap it for a different spread, crop to the art only, or blur the
-  table area. **S** once decided.
 - **Analytics consent.** GA4 runs with no consent banner. For EU/UK visitors that's a GDPR
   gap. Options: add a minimal consent banner, or switch to a cookieless tool (Plausible,
   GoatCounter, Cloudflare Web Analytics) that doesn't need one. GD's site has the same setup,

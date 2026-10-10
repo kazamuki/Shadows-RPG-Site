@@ -938,6 +938,25 @@ being copy-pasted across every page.
   the pane, so the visual check was the two new images inspected directly. Not checked: light
   mode.
 
+- **CRB sync, S2: Rules Preview catches up (2026-10-10, `content/crb-sync-plan.md`).** Stacked
+  on S1's branch. **Stats & Skills:** "How a check resolves" became **"How risk resolves"**, a
+  `.risk-list` (ruled rows, like `.gear-manifest`) of the four kinds of risk in `0300`: Skill
+  Check, Essence Check, Breaker Check and contested rolls, all flavor-level with no numbers
+  (the old Skill Check paragraph survives as the first row). **Character Creation:** new "Where
+  the points go" (the Stat Point pool as a gist: same pool for everyone, sized by Power Level,
+  costs rise past average, going below average is a deliberate choice) and "How characters
+  grow" (a verbatim `0450_Advancement` line plus Improvement Points and Milestones in site
+  voice). **Equipment:** a Black TAG sentence in the economy section and a "Powered Armor &
+  Mech Suits" row in the gear manifest (the book's Iron Man / D.VA comparisons were left out
+  on purpose: other companies' characters). Equipment's blurb and description mention Mechs.
+  **Stats spread retired:** `crb-spreads/stats-and-attributes.jpg` is deleted and the Stats &
+  Skills card is a `"d10"` glyph panel (`art:` in `_data/rules.yml`), so its link preview falls
+  back to the hero shot; the wishlist item "Stats spread image leaks the ruleset" is closed.
+  Changelog entry added. Verified via `jekyll serve` (port 4000, `localhost`): no overflow or
+  broken images at 375 and 1280 on the hub and the three pages, the glyph fits its panel,
+  screenshots of the hub grid and the risk list (dark mode), no console errors. Not checked:
+  light mode.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
