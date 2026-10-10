@@ -445,7 +445,7 @@ mono "n of 6" count between them. Under 560px the hub drops to its own row.
   line. Hover or focus opens it; on touch, the first tap does. It has no shadow, even in light mode.
 
 ### Rules page signatures
-Each long Rules page has one shape of its own, so the six don't read as the same stack of cards:
+Each long Rules page has one shape of its own, so they don't read as the same stack of cards:
 - **Power Levels:** the widening ladder (`.power-ladder`).
 - **Stats & Skills:** a **stat block** (`.stat-block`), one bordered panel split by 1px
   `--border-visible` hairlines into cells, like the character sheet. Each cell has the stat icon,
@@ -457,6 +457,12 @@ Each long Rules page has one shape of its own, so the six don't read as the same
 - **Equipment:** the pay table's income cells carry a magenta bar at their share of the top
   bracket (`td.income`, `--share`), and the gear is a ruled **manifest** (`.gear-manifest`):
   name and a mono list of what it includes on the left, the description on the right.
+- **Magic** borrows rather than adds: the three disciplines use the widening ladder (three rungs,
+  starting at `--rung: 2`, with a mono "When" readout) because the book frames them as steps
+  taken in order, and the five Domains use the gear manifest's ruled rows with each Domain's
+  Glyphs as the mono list.
+- **Rules hub finale:** the last card in the grid (Character Creation) spans the whole row from
+  640px up, image left and text right, so an odd card count never strands it alone.
 
 ### Archetype Roster and Glossary Rows
 Ruled lists, not cards. Roster rows are a three-column grid: a painted thumbnail (8rem, 1px

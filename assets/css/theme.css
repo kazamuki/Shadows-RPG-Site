@@ -514,6 +514,18 @@ main { display: block; }
 }
 .rules-card:hover .rules-card-art span { text-shadow: 0 0 12px rgba(188,72,154,1), 0 0 34px rgba(27,187,196,0.7); }
 
+/* The finale (Character Creation, last in _data/rules.yml) spans the whole row as a
+   wide card, so an odd card count never leaves it stranded alone in a corner. */
+@media (min-width: 640px) {
+  .rules-grid > .rules-card:last-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+  .rules-grid > .rules-card:last-child img { height: 100%; min-height: 180px; }
+  .rules-grid > .rules-card:last-child .rules-card-body { align-self: center; }
+}
+
 /* --- Rules Preview sub-pages --- */
 
 /* Reading-width section for prose-heavy pages (The World, every Rules
