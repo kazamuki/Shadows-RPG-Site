@@ -30,9 +30,9 @@
 - title: Stats & Skills
   url: /rules/stats-and-skills/
   status: draft
-  image: /assets/img/crb-spreads/stats-and-attributes.jpg
-  share: false   # legible stat table; see wishlist "Stats spread image leaks the ruleset"
-  blurb: Stats, Attributes, and a feel for how the Synergy System's d10 skill check resolves.
+  art: "d10"
+  art_label: The Synergy System's die
+  blurb: Stats, Attributes, and how the Synergy System decides what a risk costs you.
 
 - title: Advantages & Disadvantages
   url: /rules/advantages-disadvantages/
@@ -45,7 +45,7 @@
   status: in-progress
   art: "Ç"
   art_label: Çredits, the city's currency
-  blurb: Weapons, Armor, Cybernetics, Vehicles, and the Çredits/Skrip economy that pays for all of it.
+  blurb: Weapons, Armor, Vehicles, Mechs, Cybernetics, and the Çredits/Skrip economy that pays for all of it.
 
 - title: Character Creation
   url: /rules/character-creation/
