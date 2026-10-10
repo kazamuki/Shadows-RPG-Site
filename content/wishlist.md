@@ -50,8 +50,9 @@ These came up during the design pass and block or shape other work.
 - **In-world flavor layer.** Small doses of NYTE City speaking as itself: a rotating "NYTE Net"
   headline ticker on Home, or classified-ad-style blurbs for factions and districts. Uses the
   in-world voice from `brand/GUIDE_Shadows_Voice.md`. **M**, needs content.
-- **Districts / map page.** A sketch of NYTE City's boroughs and sectors, if the manuscript has
-  or will have that material. Probably the most-requested thing a setting site can have. **L**
+- **Drawn map of NYTE City.** The text side shipped 2026-10-10 as `/world/territories/` (six
+  Territories north to south, with their Zones). What's still missing is an actual map, which
+  needs art. Probably the most-requested thing a setting site can have. **L**
 - **Press & creator kit.** Logos, a one-paragraph pitch, key art and contact, for streamers,
   reviewers and con organizers. Mostly assembly of existing assets. **M**
 - **FAQ.** "When's the book out?", "Can I play now?", "What dice do I need?", "Is it 5e-based?"

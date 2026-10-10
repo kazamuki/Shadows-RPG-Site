@@ -980,6 +980,30 @@ being copy-pasted across every page.
   anchors exist, heading order clean, screenshots of the ladder and the hub finale, no console
   errors. Not checked: light mode.
 
+- **CRB sync, S4: The World grows (2026-10-10, `content/crb-sync-plan.md`).** Stacked on S3.
+  Copy drafted first in `content/drafts/world-expansion.md` and approved by Ken with W1-W6 as
+  recommended. Two new in-world pages under The World, condensed from `1000`, `1100_Places` and
+  `1200_Powers` (names and one-line identities only, per D4): **`/world/territories/`** ("The
+  Shape of the City": the `1000` population excerpt, the Territory → Zone → District →
+  Neighborhood naming, the six Territories north to south as a `.coast-strip` with "Covers"
+  readouts and Zone lists, and "Beyond NYTE City" as one verbatim line plus eleven names) and
+  **`/world/powers/`** ("Who Runs It": the five corporations with "HQ" readouts in a
+  `.gear-manifest`, the Unseen Court as four equal `.court-seats`, and the book's "Other Guys" in
+  a `.ruled-list`). **W2:** street-level rumors kept (Hellcrest, Hyde Dynomat's "unusually
+  thorough" debunking, QUORUM running Queen City's money); GM reveals cut (the Seraphim entry
+  stops at "The care is real."; no Technomancer backdoor, no "what they want"). **W3:** no named
+  characters, so no Vasile of Sparta. Every row has an `id` for deep links. The World gained a
+  "Go deeper" block before the glossary note. **`.risk-list` was renamed `.ruled-list`** (now
+  shared with Stats & Skills and The World). `.rules-section .court-seats h3` is deliberately
+  more specific than The World's `.rules-section p + h3` subhead spacing. Glossary: **Territory**,
+  **Zone**, **Deadmen**, **Goblin Market** added; Fae courts gained its rotating Winter/Summer
+  seat; Unseen Court and Fae now link to `/world/powers/#unseen-court`. The wishlist's map item
+  is now "Drawn map of NYTE City" (the text side shipped). DESIGN.md signatures updated.
+  Changelog entry added. Verified via `jekyll serve` at 375 and 1280: no overflow, heading order
+  clean, nav highlights The World on both pages, all new glossary anchors and deep-link targets
+  exist, screenshots of the coastline strip and the seats, no console errors. Not checked: light
+  mode.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited

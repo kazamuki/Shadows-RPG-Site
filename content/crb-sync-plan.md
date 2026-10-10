@@ -140,7 +140,7 @@ a \"d10\" glyph panel.*
 "In play" scene and a ledger. Slot it into `_data/rules.yml` after Archetypes. Draft copy in
 `content/drafts/` first.
 
-**S4. The World grows.** Following D4: a "Shape of the city" section (six Territories, with
+**✅ S4. The World grows (shipped 2026-10-10; copy in `content/drafts/world-expansion.md`, W1-W6 approved as recommended).** Following D4: a "Shape of the city" section (six Territories, with
 the naming callout) and a "Who runs it" section (five corporations, the Unseen Court, the
 others), as sub-pages under `/world/` if they run long. Add the new names to the glossary.
 This also covers the wishlist's "Districts / map page".

@@ -461,6 +461,14 @@ Each long Rules page has one shape of its own, so they don't read as the same st
   starting at `--rung: 2`, with a mono "When" readout) because the book frames them as steps
   taken in order, and the five Domains use the gear manifest's ruled rows with each Domain's
   Glyphs as the mono list.
+- **The Shape of the City:** a **coastline strip** (`.coast` + `.coast-strip`): the six
+  Territories as ruled rows strung along a 2px cyan-to-magenta line down the left edge, a
+  magenta dot per row and mono "N" / "S" at the ends. Each row has a mono "Covers" readout
+  (reusing `.power-scope`) and its Zones as a mono line (`.coast-zones`).
+- **Who Runs It:** the Unseen Court as **four equal seats** (`.court-seats`), hairline-split like
+  the stat block, two across and one under 640px. Equal on purpose: no house sits above another.
+  The corporations reuse the gear manifest with an "HQ" readout; the Other Guys use `.ruled-list`
+  (one-column ruled rows with a bold lead-in, also Stats & Skills' kinds of risk).
 - **Rules hub finale:** the last card in the grid (Character Creation) spans the whole row from
   640px up, image left and text right, so an odd card count never strands it alone.
 
