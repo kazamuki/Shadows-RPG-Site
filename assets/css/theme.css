@@ -1192,6 +1192,8 @@ main { display: block; }
 .ruled-list { list-style: none; margin: 1rem 0 0; padding: 0; border-bottom: 1px solid var(--border-subtle); }
 .ruled-list li { padding: 1rem 0; border-top: 1px solid var(--border-subtle); }
 .ruled-list strong { display: block; margin-bottom: 0.25rem; color: var(--text-primary); }
+/* What's in the Dark: each threat's "The line" readout, magenta because it's a warning. */
+.ruled-list .threat-line { margin-top: 0.5rem; color: var(--accent-magenta-text); }
 
 /* The Shape of the City: the six Territories north to south, strung along a coastline
    (a cyan-to-magenta line down the left edge, with N and S at its ends and a dot per row). */
