@@ -165,7 +165,8 @@
       def: >-
         Neurocybernetic Interpreter: the implant that links flesh and machine, with a pseudo-AI
         managing the systems and the user's intent. Without one, you own good parts and use them
-        one at a time. With one, you run a loadout.
+        one at a time. With one, you run a loadout. Every Enforcer carries one, and almost none
+        of them paid for it.
       see: { text: "Professional", url: /rules/archetypes/#professional }
     - id: unseen-court
       name: The Unseen Court

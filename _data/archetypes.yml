@@ -1,6 +1,9 @@
 # The Archetypes, in the order the Archetypes page lists them: the four from
 # the CRB (0410_Archetypes) plus Custom. Cyborg was cut from the book on
-# 2026-10-01; cybernetics are now open to Professionals only.
+# 2026-10-01; cybernetics are now open to Professionals only (Decision 277),
+# and the Enforcer is the cybernetics Professional (approved 2026-10-16).
+# Forge Fang werewolves run lab chrome as powers; the team hasn't settled
+# how that squares with the rule, so the site says only Professionals *buy* it.
 # Keyed by the page's #anchor id. `hook` is the one-liner shown both on the
 # Archetypes page and in Home's "Who you can be" roster, so edit it here,
 # not in either page. `image` is a card thumbnail in assets/img/home/. `group` is mortal,

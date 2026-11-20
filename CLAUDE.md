@@ -1024,6 +1024,27 @@ being copy-pasted across every page.
   glossary anchors exist, a screenshot of "The people", no console errors. Not checked: light
   mode.
 
+- **CRB sync, second audit + S6 (2026-11-19, `content/crb-sync-plan.md`).** Re-audited against
+  `Shadows-Private` at `c99bb58` (pulled 2026-11-15, 52 files changed since `cea99a8`). Most of
+  the change was GM-only or numbers the site never shows; every quoted excerpt still matched. The
+  audit is at the top of the plan, above the first one. Ken took every recommendation (E1-E4).
+  **Character Creation** has the book's eight steps (step 7 reworded, step 8 rolls starting
+  Çredits), a Character Point paragraph in "Where the points go" (a small pool by Power Level,
+  Disadvantages to grow it, a cap per boost: gist only), a verbatim `0434` recap excerpt and the
+  pull-line "Character creation gets faster with every build. The concept never does."
+  **Advantages & Disadvantages:** the excerpt is the new `0430_Finish_Your_Character` text, the
+  balance sheet now lists **Disadvantages first** (the book's order since 2026-11-01), and
+  **Burned** (CRANK rep) is a fifth Disadvantage. The column divider CSS moved from
+  `.balance-col--carried` to `.balance-col + .balance-col`, so either order works; `--carried` now
+  only colors the note's rule magenta. Ghost TAG and Aura Sight lines are now verbatim.
+  **Chrome:** Archetypes and Equipment say Professionals are the only ones who can *buy* chrome
+  and that Enforcers start with theirs (the Enforcer revamp, approved 2026-10-16). "Buy" is
+  deliberate: Forge Fang werewolves run lab chrome as powers, and the team hasn't said how that
+  fits Decision 277. The glossary NCI entry mentions Enforcers. **Powers:** one paragraph on the
+  Forge Fangs' bid for a fifth Court seat (a `1200` street-level line). Left out on purpose:
+  ForgeKor (one paragraph in `1100` so far) and SAN loss (approved but not in a chapter). The
+  next audit should diff from `c99bb58`. Changelog entry added.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
