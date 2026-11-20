@@ -1,5 +1,84 @@
 # CRB sync plan: the site vs. the private CRB mirror
 
+## Second audit (2026-11-19, mirror at `c99bb58`)
+
+Re-audited against `Shadows-Private` at `c99bb58` (pulled 2026-11-15; 52 files changed since
+`cea99a8`). Most of that change is GM-only (the Threat Codex split, Part VI worksheets, CRANK and
+Bank) or numbers the site never shows (Skill rank caps, grenade tables, Cantrip TNs). **Every
+quoted excerpt on the site is still word-for-word in the book**, all eight sampled Advantages and
+Disadvantages still exist with the same flavor lines, and The World, Territories, Powers and
+Threats still match (`0100`, `1000`, `1300` unchanged; `1100` and `1200` changed only in ways
+below). What's left is small.
+
+### Wrong or outdated now
+
+| # | What the site says | What the book says now | Where |
+|---|---|---|---|
+| B1 | Seven creation steps; step 7 is "Spend Character Points on Advantages, Disadvantages, and powers" | **Eight steps** (`0400`, `0434`). Step 7 is now "Choose Disadvantages to earn Character Points, then spend them on Advantages", with leftovers going to Stats, Skills, Luck or Powers. Step 8: **roll your starting Çredits**. | `rules/character-creation/` step list |
+| B2 | A&D excerpt: "Nobody in NYTE City is clean. The advantages you've earned. The disadvantages you carry. Advantages cost Character Points. Disadvantages grant them…" | The chapter was split and reordered (`0430`–`0434`), Disadvantages first. The opener is now "The Disadvantages you carry. The Advantages you've earned." The cost line became "Character Points go to Advantages. Few start in your pocket, so Disadvantages fill the pool." The excerpt is no longer verbatim. | `rules/advantages-disadvantages/` excerpt (and maybe column order) |
+| B3 | "Professionals are the only ones who go under the knife" / "the only Archetype that takes chrome" | Still the team's rule (Decision 277), but **Forge Fang werewolves now explicitly run lab chrome** (`0414`: CyberWolf Protocol, "chrome grafted onto the wolf"). Also, the **Enforcer is now the cybernetics Professional** (approved 2026-10-16): every Enforcer carries an NCI that was issued, not bought. The sheet still lists Forge Fangs and chrome as an open question. | `rules/archetypes/#professional`, `rules/equipment/` Cybernetics row, `_data/archetypes.yml` comment |
+
+### New in the book, worth a line on the site
+
+- **Finish your character** (`0430`, `0433`, `0434`): a small Character Point pool set by Power
+  Level, Disadvantages to grow it, a cap on how far points can boost any one thing, and rolled
+  starting Çredits. The recap has two strong lines: "Changing them now costs nothing. After the
+  first session, it costs Improvement Points" and "Character creation gets faster with every
+  build. The concept never does." (closing: "NYTE City is waiting. So is your crew.")
+- **CRANK reputation**: Reputation now means your CRANK track record (Competent, Skilled, Expert),
+  and the new **Burned** Disadvantage ("Bailing on a client is the one thing that follows you.")
+  sets you below zero. Burned would be a good fifth Disadvantage sample, since it ties into
+  CRANK in the glossary.
+- **Enforcer revamp**: "Plenty of people in NYTE City carry chrome. You run it." This is the
+  natural chrome line for the Professional block.
+- **The Court's open question** (`1200`, player-facing): the Forge Fangs have asked for a seat of
+  their own. A fifth seat would end the two-two split. It's a street-level rumor, so it fits
+  W2's rules for the Powers page.
+- **ForgeKor** (`1100`): a new faction, "the outlaw darling of the weapons world", selling kits
+  and schematics. Could go in Powers' "Other Guys" or Equipment, but it's one paragraph in the
+  book and the book's own gazetteer count disagrees with it, so wait for the next pull.
+- **Sanity loss and recovery** (approved, not in any chapter yet): failed checks cost Sanity and a
+  Condition, and Sanity comes back in Downtime. Leave it until it's in a chapter.
+
+### Checked, no change needed
+
+- Vampire and Werewolf lost their "under construction" tags in the book. The site never tagged
+  them. Arcanist still carries the tag, and so does the site's Draft pill.
+- Werewolf Origins (Trueborn, Wildblood, Forge Fang), Vampire bloodlines, Arcanist Origins (Book,
+  Blood, Bound) and the eight Professions all match. `1200` now says Wildblood too, so that book
+  inconsistency is fixed.
+- The Archetype hooks still come from `0410`.
+- Magic's Tolerance wording (`0480` tweaked one sentence) is still a fair gist.
+- The glossary's CRANK entry already spells out the full name that `0300` now uses.
+- The team agreed on "EM pulse", not "EMP", at the 2026-11-12 meeting (EMP means Empathy). The
+  site only uses EMP for Empathy, so nothing to change.
+- **Not site material:** the Q4 scope freeze and its end-of-2026 MVP target. That's internal
+  planning, and the site deliberately makes no timeline promises.
+
+### Decisions
+
+**All four answered 2026-11-19: Ken went with every recommendation.**
+
+- **E1. Chrome wording.** Recommended: say Professionals are the only ones who can *buy* chrome,
+  lead with the Enforcer line ("Plenty of people carry chrome. You run it."), and leave Forge
+  Fangs alone until the team settles their open question.
+- **E2. A&D page order.** Recommended: put Disadvantages first to match the book's new order and
+  update the excerpt to the new text.
+- **E3. Burned as a sample.** Recommended: yes, as a fifth Disadvantage (or swap it for Enemies).
+  *Shipped as a fifth; Enemies stays.*
+- **E4. Court rumor on Powers.** Recommended: yes, one sentence under the Unseen Court seats.
+
+### Session
+
+**✅ S6. November catch-up (shipped 2026-11-19).** B1 to B3, plus Character Creation's "Where the
+points go" paragraph extended with the Character Point pool and starting Çredits (gist, no
+numbers), the recap pull-line, and whatever E1 to E4 come back as. Update the
+`_data/archetypes.yml` comment. Changelog entry and Build status as usual.
+
+---
+
+## First audit
+
 Written 2026-10-10. Audited against `kazamuki/Shadows-Private` at `cea99a8` (mirror
 pulled 2026-10-07, every chapter renamed to the source's four-digit numbers), and against
 the character sheet's own catch-up notes (`Shadows-Character-Sheet/docs/plans/crb-catch-up.md`,
@@ -17,7 +96,7 @@ build needs the CRB: the site holds hand-curated excerpts, committed here.
 To see what changed in the book since this audit:
 
 ```bash
-git -C ../Shadows-Private log --stat cea99a8..origin/main -- crb/
+git -C ../Shadows-Private log --stat c99bb58..origin/main -- crb/   # last audited 2026-11-19; was cea99a8
 ```
 
 ## Audit
