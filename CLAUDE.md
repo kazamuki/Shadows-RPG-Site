@@ -1033,10 +1033,11 @@ being copy-pasted across every page.
   subject survives the card's 160px `object-fit: cover` strip (the alley figure sits at the
   bottom of its frame, so that crop is deliberately tight). The dice image shows a mixed set,
   not a single d10, because Gemini kept returning a d20 for "d10". Because the card image is
-  also the page's `og:image`, all three pages now unfurl with their own art. **Licensing is
-  not settled:** `brand/asset-licensing.md` only clears the Shutterstock pool and GD brand
-  marks, and says nothing about AI output; Ken still needs to confirm Gemini's commercial-use
-  terms. No `art:` panels remain in the data file (the `.rules-card-art` CSS is now unused by
+  also the page's `og:image`, all three pages now unfurl with their own art. **Licensing:** Ken
+  cleared them for the site after reading Google's Terms and Generative AI Prohibited Use
+  Policy; the reasoning and limits (no exclusivity, no copyright, no visible watermark, no
+  claiming human authorship) are in `brand/asset-licensing.md`'s "AI-generated images"
+  section. Neither policy page explicitly addresses commercial use of outputs. No `art:` panels remain in the data file (the `.rules-card-art` CSS is now unused by
   the Rules cards but is still how an entry without an `image:` renders). Changelog entry
   added. Verified via `jekyll serve` at 1024 and 375: all seven card images load, no overflow,
   `og:image` correct on all three pages, no console errors. Not checked: light mode.
