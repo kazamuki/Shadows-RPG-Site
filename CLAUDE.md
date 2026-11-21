@@ -1024,6 +1024,23 @@ being copy-pasted across every page.
   glossary anchors exist, a screenshot of "The people", no console errors. Not checked: light
   mode.
 
+- **Card art for the last three glyph panels (2026-11-20).** Power Levels, Stats & Skills and
+  Equipment moved from `art:` glyph panels to `image:` in `_data/rules.yml`
+  (`assets/img/power-levels-card.jpg`, `stats-skills-card.jpg`, `equipment-card.jpg`, 800px wide,
+  40-57KB). **These are AI-generated (Gemini), prompted by Ken** from a shared "dark cyberpunk
+  urban-fantasy, wordless, 16:9" style block: an alley figure under four bands of light, a
+  mid-roll polyhedral dice scene, and an open gear case. They are cropped to ~2.2-2.4:1 so the
+  subject survives the card's 160px `object-fit: cover` strip (the alley figure sits at the
+  bottom of its frame, so that crop is deliberately tight). The dice image shows a mixed set,
+  not a single d10, because Gemini kept returning a d20 for "d10". Because the card image is
+  also the page's `og:image`, all three pages now unfurl with their own art. **Licensing is
+  not settled:** `brand/asset-licensing.md` only clears the Shutterstock pool and GD brand
+  marks, and says nothing about AI output; Ken still needs to confirm Gemini's commercial-use
+  terms. No `art:` panels remain in the data file (the `.rules-card-art` CSS is now unused by
+  the Rules cards but is still how an entry without an `image:` renders). Changelog entry
+  added. Verified via `jekyll serve` at 1024 and 375: all seven card images load, no overflow,
+  `og:image` correct on all three pages, no console errors. Not checked: light mode.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited
