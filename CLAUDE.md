@@ -1024,6 +1024,25 @@ being copy-pasted across every page.
   glossary anchors exist, a screenshot of "The people", no console errors. Not checked: light
   mode.
 
+- **Card art for the last three glyph panels (2026-11-20).** Power Levels, Stats & Skills and
+  Equipment moved from `art:` glyph panels to `image:` in `_data/rules.yml`
+  (`assets/img/power-levels-card.jpg`, `stats-skills-card.jpg`, `equipment-card.jpg`, 800px wide,
+  40-57KB). **These are AI-generated (Gemini), prompted by Ken** from a shared "dark cyberpunk
+  urban-fantasy, wordless, 16:9" style block: an alley figure under four bands of light, a
+  mid-roll polyhedral dice scene, and an open gear case. They are cropped to ~2.2-2.4:1 so the
+  subject survives the card's 160px `object-fit: cover` strip (the alley figure sits at the
+  bottom of its frame, so that crop is deliberately tight). The dice image shows a mixed set,
+  not a single d10, because Gemini kept returning a d20 for "d10". Because the card image is
+  also the page's `og:image`, all three pages now unfurl with their own art. **Licensing:** Ken
+  cleared them for the site after reading Google's Terms and Generative AI Prohibited Use
+  Policy; the reasoning and limits (no exclusivity, no copyright, no visible watermark, no
+  claiming human authorship) are in `brand/asset-licensing.md`'s "AI-generated images"
+  section. Neither policy page explicitly addresses commercial use of outputs. No `art:` panels
+  remain in the data file (the `.rules-card-art` CSS is now unused by the Rules cards but is
+  still how an entry without an `image:` renders). Changelog entry added. Verified via
+  `jekyll serve` at 1024 and 375: all seven card images load, no overflow, `og:image` correct
+  on all three pages, no console errors. Not checked: light mode.
+
 - **CRB sync, second audit + S6 (2026-11-19, `content/crb-sync-plan.md`).** Re-audited against
   `Shadows-Private` at `c99bb58` (pulled 2026-11-15, 52 files changed since `cea99a8`). Most of
   the change was GM-only or numbers the site never shows; every quoted excerpt still matched. The

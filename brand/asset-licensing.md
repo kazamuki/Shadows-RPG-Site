@@ -38,6 +38,36 @@ skull/dice logo, stream assets). Ken's own brand marks — safe to use anywhere 
 (The GetDangerousGames-Site repo's `content/images-manifest.md` covers the *old Google Sites*
 images for that site specifically; this folder is the *current* brand asset source instead.)
 
+## AI-generated images (Gemini) — cleared for the website, with limits
+
+Added 2026-11-20. Three Rules Preview card images are Gemini output prompted by Ken:
+`power-levels-card.jpg`, `stats-skills-card.jpg`, `equipment-card.jpg` (in `assets/img/`).
+Ken's call to treat this as cleared for the site, based on Google's published policies:
+
+- **Ownership:** Google's Terms of Service say it "won't claim ownership" of content you
+  generate ([terms](https://policies.google.com/terms), effective July 30, 2026). No attribution
+  or licence is required by either policy page, but neither page addresses commercial use of
+  outputs specifically, and the Gemini-specific section of
+  [service-specific terms](https://policies.google.com/terms/service-specific) only links back
+  to the same two documents. So this rests on "nothing forbids it", not an explicit grant.
+- **Not exclusive, not copyrightable:** purely AI-generated images carry no US copyright
+  (no human authorship), and Google can produce similar images for others. Fine for
+  illustrative card art; don't treat these as protectable brand marks the way GD Assets are,
+  and don't use them as a logo or merchandise basis.
+- **No credit line required.** We still don't claim a human made them: the
+  [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy)
+  (last modified 2024-12-17) bans misrepresenting generated content as human-made in order to
+  deceive. If a Credits note is ever added, "AI-generated" is the honest wording.
+- **Watermarks:** the files we shipped carry no visible watermark (checked the originals'
+  corners). Gemini also embeds an invisible SynthID marker, which is expected and harmless.
+  Neither policy page mentions watermark removal; if a future batch downloads with a visible
+  mark, re-check before cropping it out.
+- **Before publishing any new batch:** look for accidental logos, trademarks, signage text or
+  recognizable characters (the use policy bans output that violates others' IP). These three
+  were checked and have none.
+- Re-read the two policy pages if this site starts relying on AI art for anything bigger than
+  card imagery (hero shots, product art, anything sold).
+
 ## Restricted — do not use on the website without asking first
 
 - **Dean Spencer commissioned art** (`Art Assets\DriveThruRPG\Dean Spencer Art\`, and any file
@@ -67,6 +97,7 @@ images for that site specifically; this folder is the *current* brand asset sour
 
 ## Rule of thumb
 
-If it's not in the Shutterstock folder or the GD Assets brand folder, don't put it on the public
+If it's not in the Shutterstock folder, the GD Assets brand folder or the AI-generated list
+above, don't put it on the public
 site without checking with Ken first — even if it's sitting right next to art that IS cleared, in
 the same category folder.
