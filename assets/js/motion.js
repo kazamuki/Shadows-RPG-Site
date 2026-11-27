@@ -1,4 +1,4 @@
-/* Shadows motion kit (content/motion-plan.md, Motion Lab S1).
+/* Shadows motion kit (content/archive/motion-plan.md, Motion Lab S1).
 
    Two jobs:
    1. Page transitions. theme.css opts every page into the browser's own

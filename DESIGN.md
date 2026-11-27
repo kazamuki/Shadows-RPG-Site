@@ -490,7 +490,7 @@ cyan underline.
 
 ### Motion
 Motion is a beat that answers the reader reaching something, the same way the character
-sheet's beats answer what a player did (`content/motion-plan.md`). Every beat plays once and
+sheet's beats answer what a player did (`content/archive/motion-plan.md`). Every beat plays once and
 leaves the finished page. Nothing loops, nothing waits on a timer. Most beats finish in under a
 second (a three-row ledger takes about 1.6s). Colors keep the sheet's meanings: gold for
 something the city wrote down, magenta for power and warning, cyan for a plain value, green for

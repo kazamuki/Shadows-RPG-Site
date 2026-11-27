@@ -1,6 +1,6 @@
 # Home hook — Session 3 copy draft
 
-Draft for `content/messaging-plan.md` Session 3 (2026-09-26). Needs D4 + D5 from Ken before
+Draft for `content/archive/messaging-plan.md` Session 3 (2026-09-26). Needs D4 + D5 from Ken before
 it goes into `index.html`. Site voice (THEME.md) throughout; the one quoted line is from The
 World's in-world text and is marked as a quote.
 

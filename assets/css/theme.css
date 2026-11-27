@@ -1699,7 +1699,7 @@ a.term:hover { color: var(--accent-cyan); }
 }
 
 /* ==========================================================================
-   Motion (content/motion-plan.md; assets/js/motion.js)
+   Motion (content/archive/motion-plan.md; assets/js/motion.js)
    Every beat answers the reader reaching something, plays once, and leaves the
    finished page. motion.js arms a beat (.beat-armed holds its animations on the
    first frame) and plays it on scroll (.beat-play). Without the script, or

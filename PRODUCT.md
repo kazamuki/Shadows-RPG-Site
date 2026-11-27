@@ -53,7 +53,7 @@ Other games are not named in comparisons (decision D4, 2026-09-26). The approved
 ## Operating Context
 
 - Visitors navigate Home → The World → Archetypes → through Rules Preview → Character
-  Creation, which ends on "Build one right now" (see `content/messaging-plan.md`).
+  Creation, which ends on "Build one right now" (see `content/archive/messaging-plan.md`).
 - The character sheet lives outside this repo at `charactersheet.shadowsrpg.com` (live app
   plus a printable blank sheet).
 - Shadows updates are written on the studio blog (`getdangerous.net/blog/?tag=Shadows`) and

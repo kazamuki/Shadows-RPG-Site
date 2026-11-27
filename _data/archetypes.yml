@@ -7,7 +7,7 @@
 # Keyed by the page's #anchor id. `hook` is the one-liner shown both on the
 # Archetypes page and in Home's "Who you can be" roster, so edit it here,
 # not in either page. `image` is a card thumbnail in assets/img/home/. `group` is mortal,
-# supernatural or custom (see D3 in content/messaging-plan.md: everyone starts human).
+# supernatural or custom (see D3 in content/archive/messaging-plan.md: everyone starts human).
 # `label` overrides the group text shown on the roster.
 
 professional:

@@ -35,10 +35,6 @@ stand alone technically but must read as one brand visually and tonally.
 - `content/wishlist.md` — running list of ideas to add or improve (started 2026-09-22), grouped
   by effort, with a "Needs a decision first" section at the top. Check here before proposing new
   features; when an item ships, delete it there and log it in Build status below.
-- `content/messaging-plan.md` — session-by-session plan (written 2026-09-26) from a
-  marketing/prose review: rework Home around the game's hook, reorder Rules Preview for
-  newcomers, and strip internal production talk from visitor-facing copy. Check which sessions
-  are ticked off before starting related work, and resolve its listed decisions first.
 - `content/critique-plan.md` — update plan (written 2026-10-02) from two whole-site critiques:
   session picture on Home, Rules hub Draft-pill note, The World's imagery/ledger, polish, plus a
   parked list (Archetype art, About copy). Check which items are ticked before starting
@@ -49,9 +45,14 @@ stand alone technically but must read as one brand visually and tonally.
   (chapters in `crb/`) and now the source to read instead of extracting `.docx` files. **Never
   add it here as a submodule**: GitHub Pages only builds public submodules, so the live build
   would break. The plan records the mirror commit it was audited against.
-- `content/motion-plan.md` — the motion plan (approved 2026-11-26 from Ken's Motion Lab
-  artifact): the rules every beat keeps, sessions S1-S3, and the defaults taken. S1 shipped;
-  check it before adding any animation.
+- `content/archive/` — finished plans and approved copy, kept for the record (moved here
+  2026-11-26). Nothing in it is open work. `messaging-plan.md` (2026-09-26 marketing/prose
+  review; all six sessions shipped, and its rule still stands: no internal production talk in
+  visitor-facing copy), `motion-plan.md` (S1-S3 shipped 2026-11-26; its five rules still govern
+  any new animation, see DESIGN.md → Motion) and `drafts/` (the approved copy drafts behind Home's
+  hook, the "In play" scenes, Magic, The World expansion and Threats). **New copy drafts still
+  go in `content/drafts/`** (the house process: draft, Ken approves, then HTML); archive a draft
+  once its page ships.
 - `PRODUCT.md` — Impeccable product record (written 2026-09-28): primary user (cold
   newcomers), success goals (Patreon follow, Discord join, character sheet), positioning,
   constraints, and evidence that must not be invented. Read by `/impeccable` commands;
@@ -536,7 +537,7 @@ being copy-pasted across every page.
   horizontal overflow, header height, and line length. Screenshots taken in dark + light mode.
 
 - **Messaging plan, Session 1: "stop the site talking about itself" (2026-09-26).** First
-  session of `content/messaging-plan.md` (a marketing/prose review of the whole site). Removed
+  session of `content/archive/messaging-plan.md` (a marketing/prose review of the whole site). Removed
   visitor-facing production talk: The World's banner voice note is now just "From the Shadows
   Core Rulebook."; Rules hub intro rewritten (dropped "public preview layer… not marketing
   copy… actual look at the mechanics", which also overpromised given the altitude rule);
@@ -582,7 +583,7 @@ being copy-pasted across every page.
   all six pages, both grids, 375px overflow, and no console errors.
 
 - **Messaging plan, Session 3: "Home, part 1: the hook" (2026-09-26).** Copy drafted first
-  in `content/drafts/home-hook.md` and approved by Ken before any HTML. D5 hero line: "A
+  in `content/archive/drafts/home-hook.md` and approved by Ken before any HTML. D5 hero line: "A
   tabletop RPG where cyberpunk and the supernatural share one city, and the city keeps score.
   Welcome to NYTE City, 2099." Hero buttons swapped: **Meet NYTE City** is now primary,
   Explore the Rules is ghost. The two "What is Shadows?" / "What is the Synergy System?" cards
@@ -618,7 +619,7 @@ being copy-pasted across every page.
   sessions, so this one previewed on 4014 through an uncommitted `launch.json` entry.
 
 - **Messaging plan, Session 5: "Show, don't tell" (2026-09-26).** Copy drafted first in
-  `content/drafts/show-dont-tell.md` and approved by Ken (D6) before any HTML. Three short
+  `content/archive/drafts/show-dont-tell.md` and approved by Ken (D6) before any HTML. Three short
   in-world example-of-play scenes, no numbers or procedure: **Stats & Skills** ("The fence",
   after "How a check resolves"), **Power Levels** ("Same job, two scales", before the closing
   note), and **Advantages & Disadvantages** ("Paid in full", a Pact coming due, after the
@@ -706,7 +707,7 @@ being copy-pasted across every page.
   directly, not Character Creation, because the sheet walks a new player through the process
   itself. This answers the critique's open question "Should every Rules page link the sheet?"
   (yes). Also fixed Power Levels' "Same job, two scales" scene, which said "NET" instead of
-  "LINK" (plus the matching line in `content/drafts/show-dont-tell.md`). No other "NET" is
+  "LINK" (plus the matching line in `content/archive/drafts/show-dont-tell.md`). No other "NET" is
   left in site HTML or data.
   **Ghost button border fixed:** `.btn--ghost` had a Deep Circuit border, which vanished on
   the callout strip's Deep Circuit fill and was ~1.7:1 on the hero. Now a fixed
@@ -961,7 +962,7 @@ being copy-pasted across every page.
   light mode.
 
 - **CRB sync, S3: Magic page (2026-10-10, `content/crb-sync-plan.md`).** Stacked on S2. Copy
-  drafted first in `content/drafts/magic-page.md` (checked with the shadows-voice-editor skill)
+  drafted first in `content/archive/drafts/magic-page.md` (checked with the shadows-voice-editor skill)
   and approved by Ken with decisions M1-M5 as recommended. New **`/rules/magic/`**, sourced
   from `0480_Magic` and `0411_Arcanist`: header, a two-paragraph `0480` intro excerpt, "Who
   casts" (anyone has the spark, Arcanists made it a trade; casting needs a voice), "The three
@@ -984,7 +985,7 @@ being copy-pasted across every page.
   errors. Not checked: light mode.
 
 - **CRB sync, S4: The World grows (2026-10-10, `content/crb-sync-plan.md`).** Stacked on S3.
-  Copy drafted first in `content/drafts/world-expansion.md` and approved by Ken with W1-W6 as
+  Copy drafted first in `content/archive/drafts/world-expansion.md` and approved by Ken with W1-W6 as
   recommended. Two new in-world pages under The World, condensed from `1000`, `1100_Places` and
   `1200_Powers` (names and one-line identities only, per D4): **`/world/territories/`** ("The
   Shape of the City": the `1000` population excerpt, the Territory → Zone → District →
@@ -1009,7 +1010,7 @@ being copy-pasted across every page.
 
 - **CRB sync, S5: What's in the Dark (2026-10-10, `content/crb-sync-plan.md`).** Branched from
   `main` after #38 merged (S1-S4 are all live). Copy drafted first in
-  `content/drafts/threats-page.md` and approved by Ken with T1-T5 as recommended. New
+  `content/archive/drafts/threats-page.md` and approved by Ken with T1-T5 as recommended. New
   **`/world/threats/`**, the third World sub-page, condensed in-world from the player-facing
   `1300_Threats` chapter (flavor only: **nothing from the Threat Codex**, Site Profiles or the
   Orders proposal, no stats, no named NPCs or venues). The book's three families as "The people"
@@ -1067,7 +1068,7 @@ being copy-pasted across every page.
   ForgeKor (one paragraph in `1100` so far) and SAN loss (approved but not in a chapter). The
   next audit should diff from `c99bb58`. Changelog entry added.
 
-- **Motion, S1: the kit and the motif (2026-11-26, `content/motion-plan.md`).** Ken approved a
+- **Motion, S1: the kit and the motif (2026-11-26, `content/archive/motion-plan.md`).** Ken approved a
   Motion Lab artifact of ten one-time beats (modeled on the character sheet's I1-I4 motion
   plan), grouped into S1-S3. S1 shipped: **`assets/js/motion.js`**, loaded in `<head>` without
   `defer` (its `pagereveal` listener has to exist before the new page's first frame), arms each
@@ -1096,7 +1097,7 @@ being copy-pasted across every page.
   **Ken tested the transitions after merge:** they work in Edge; Firefox doesn't support
   cross-document View Transitions and loads pages normally (the intended fallback).
 
-- **Motion, S2: the pages draw their shapes (2026-11-26, `content/motion-plan.md`).** Branched
+- **Motion, S2: the pages draw their shapes (2026-11-26, `content/archive/motion-plan.md`).** Branched
   from `main` after #42 merged. `motion.js`'s `BEATS` is now a list of `[selector, children to
   index]` pairs; the script sets `--i` on those children for the stagger. New beats, all once on
   scroll: **`.power-ladder`** rungs wipe out in turn, readouts print (Power Levels, Magic);
@@ -1123,7 +1124,7 @@ being copy-pasted across every page.
   errors. Screenshots: Magic's ladder mid-wipe, the income table mid-count in light mode, TAG
   stamped, the coastline mid-draw.
 
-- **Motion, S3: the sign catches (2026-11-26, `content/motion-plan.md`; all three sessions
+- **Motion, S3: the sign catches (2026-11-26, `content/archive/motion-plan.md`; all three sessions
   now shipped).** Branched from `main` after #43 merged. Home's hero title stutters on like a
   neon tube (`beat-ignite`, 1.15s: opacity + title-glow flicker, holding lit from 27%), then the
   tagline and button row rise (`beat-rise`). It plays on load, once per visit to the site:
