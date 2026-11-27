@@ -1123,6 +1123,23 @@ being copy-pasted across every page.
   errors. Screenshots: Magic's ladder mid-wipe, the income table mid-count in light mode, TAG
   stamped, the coastline mid-draw.
 
+- **Motion, S3: the sign catches (2026-11-26, `content/motion-plan.md`; all three sessions
+  now shipped).** Branched from `main` after #43 merged. Home's hero title stutters on like a
+  neon tube (`beat-ignite`, 1.15s: opacity + title-glow flicker, holding lit from 27%), then the
+  tagline and button row rise (`beat-rise`). It plays on load, once per visit to the site:
+  `motion.js` reads `sessionStorage` `shadows:lit` in `<head>` and, if unset (and motion is
+  allowed), adds `html.beat-ignite` before the first frame so the title starts dark instead of
+  flashing on. The flag is set only once a page with `.hero-title` (Home) has been shown, so a
+  visit that starts on another page still gets the ignition when it reaches Home. If
+  `sessionStorage` is blocked the sign just stays lit. The World's banner was deliberately
+  left still. The wishlist's "Hero atmosphere" item is deleted (shipped as this). DESIGN.md,
+  the sidecar, the plan and the changelog updated.
+  Verified with headless Edge over CDP (throttling flags as in S2): first page `/rules/` sets
+  the class without marking the visit; Home then ignites (early screenshot mid-flicker, title
+  glow off, tagline and buttons not yet risen) and finishes with no animation left running; a
+  second Home view in the visit has no class; 375px ends fully lit with no overflow; reduced
+  motion never adds the class; no console errors.
+
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
 - **Cleared for use:** images in `brand/shutterstock-catalog.md`'s pool (Shutterstock, unlimited

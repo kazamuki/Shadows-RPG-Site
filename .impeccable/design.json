@@ -314,6 +314,11 @@
         "purpose": "Landing on an anchor (load or hashchange) stamps the entry's name gold and flashes a row once."
       },
       {
+        "name": "beat-ignite",
+        "value": "title beat-ignite 1.15s linear (opacity and title-glow flicker, holds from 27%), tagline and buttons beat-rise 0.45s at 0.95s / 1.15s",
+        "purpose": "Home hero title catches like a neon sign, once per visit (sessionStorage shadows:lit). Off under prefers-reduced-motion."
+      },
+      {
         "name": "page-transition",
         "value": "cross-document View Transition: root out 0.16s ease-in, in 0.26s cubic-bezier(0.22, 1, 0.36, 1); header layer swaps instantly",
         "purpose": "Cross-fade between pages; on the Rules pager the page slides the way you paged (transition types next/prev). Off under reduced motion."

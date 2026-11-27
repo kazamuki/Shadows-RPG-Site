@@ -85,9 +85,6 @@ aren't repeated here.
 
 - **Cerulean Nights.** Swap in the real display font once the Chequered Ink license is sorted
   (open item in `brand/THEME.md`). Do it on both sites in the same sitting. **S** after licensing.
-- **Hero atmosphere.** A subtle animated rain or neon-flicker layer on Home's hero and The
-  World's banner, off under `prefers-reduced-motion`. **S–M** Now planned as S3 of
-  `content/motion-plan.md` ("The sign catches": a one-time neon ignition, not a loop).
 - **Print stylesheet for Rules Preview.** Players print rules to bring to the table. A light
   `@media print` pass (no nav or footer, black on white, no card chrome). **S**
 

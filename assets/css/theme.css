@@ -1816,6 +1816,30 @@ a.term:hover { color: var(--accent-cyan); }
 .beat-arrive:is(.glossary-entry, li) { border-radius: 4px; animation: beat-flash 1.2s ease-out; }
 .beat-arrive-name { animation: beat-stamp 0.9s ease-out; }
 
+/* --- S3: the sign catches. Home's title stutters on like a neon tube, then holds; the
+   tagline and buttons rise after it. motion.js sets html.beat-ignite in <head> on the
+   first Home view of a visit only. Fixed-dark hero, so the same in both themes. --- */
+@keyframes beat-ignite {
+  0% { opacity: 0.12; text-shadow: none; }
+  6% {
+    opacity: 0.9;
+    text-shadow: 0 0 12px rgba(188,72,154,0.8), 0 0 40px rgba(113,43,140,0.7), 0 2px 4px rgba(0,0,0,0.6);
+  }
+  9% { opacity: 0.22; text-shadow: none; }
+  16% {
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(188,72,154,0.8), 0 0 40px rgba(113,43,140,0.7), 0 2px 4px rgba(0,0,0,0.6);
+  }
+  19% { opacity: 0.45; text-shadow: none; }
+  27%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(188,72,154,0.8), 0 0 40px rgba(113,43,140,0.7), 0 2px 4px rgba(0,0,0,0.6);
+  }
+}
+.beat-ignite .hero-title { animation: beat-ignite 1.15s linear 0.15s both; }
+.beat-ignite .hero-tagline { animation: beat-rise 0.45s var(--ease-out) 0.95s both; }
+.beat-ignite .hero .button-row { animation: beat-rise 0.45s var(--ease-out) 1.15s both; }
+
 /* Moving between pages: the browser's cross-document View Transition. The header
    is its own layer and swaps instantly, so it reads as staying put; the page under
    it cross-fades, or slides the way you paged on the Rules pager (the direction is

@@ -11,10 +11,26 @@
       script, without IntersectionObserver, or under reduced motion, nothing is
       armed and the page shows its finished state. Add a component to BEATS and
       give it `:is(.beat-armed, .beat-play)` animations in theme.css.
-   3. Arrival. Landing on an anchor stamps the entry you landed on. */
+   3. Arrival. Landing on an anchor stamps the entry you landed on.
+   0. Ignition. The first time Home's hero is shown in a visit, its title catches
+      like a neon sign. */
 (function () {
   var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   function calm() { return !!(mq && mq.matches); }
+
+  /* --- 0. The sign catches (Home's hero), once per visit to the site --- */
+  /* Decided here in <head>, before the first frame, so the title starts dark instead
+     of flashing on and then flickering. The class does nothing on pages without the
+     hero; the visit is only marked once Home's hero has actually been shown. If
+     sessionStorage is blocked we can't remember the visit, so the sign stays lit. */
+  var LIT_KEY = 'shadows:lit';
+  var lit = true;
+  try { lit = sessionStorage.getItem(LIT_KEY) === '1'; } catch (err) {}
+  if (!lit && !calm()) document.documentElement.classList.add('beat-ignite');
+  function markLit() {
+    if (!document.querySelector('.hero-title')) return;
+    try { sessionStorage.setItem(LIT_KEY, '1'); } catch (err) {}
+  }
 
   /* --- 1. Which way the Rules pager went --- */
   var DIR_KEY = 'shadows:vt-dir';
@@ -106,6 +122,7 @@
   window.addEventListener('hashchange', function () { arrive(350); });
 
   function start() {
+    markLit();
     arm();
     arrive(200);
   }

@@ -1,6 +1,6 @@
 # Motion plan
 
-**Status:** approved 2026-11-26. Ken reviewed the Motion Lab
+**Status:** approved 2026-11-26; **all three sessions shipped 2026-11-26.** Ken reviewed the Motion Lab
 (<https://claude.ai/artifact/9r4VN9be63WuxNs7gH4Yoq>, private to Ken) and said "This looks
 incredible, we are ready for S1!" The lab's four questions were left unanswered, so their
 defaults apply (below). Modeled on the character sheet's motion plan
@@ -25,7 +25,7 @@ How it's built: `DESIGN.md` → Components → Motion.
 |---|---|---|
 | **S1: the kit, and the motif** | `assets/js/motion.js` + the `beat-*` CSS; **the ledger registers** (every `.ledger`); **the sheet comes online** (the `sheet` next-step bar); **moving between pages** (cross-document View Transition, cross-fade everywhere, slide on the Rules pager) | **Shipped 2026-11-26** |
 | **S2: the pages draw their shapes** | **The ladder climbs** (Power Levels, Magic); **the income gap opens** (Equipment's table: bars fill, Çredits count up); **the stat block lights up** (Stats & Skills icons in turn); **arriving on a term** (gold stamp on the anchor target: glossary, jump navs, Territory and Court deep links); **the coast draws south** (Territories); **the closing line** (optional: What's in the Dark, Character Creation) | **Shipped 2026-11-26** |
-| **S3: the front door** | **The sign catches**: Home's title stutters on like a neon tube catching, then holds; tagline and buttons follow. Closes the wishlist's "Hero atmosphere" item | Not started |
+| **S3: the front door** | **The sign catches**: Home's title stutters on like a neon tube catching, then holds; tagline and buttons follow. Closes the wishlist's "Hero atmosphere" item | **Shipped 2026-11-26** |
 
 ## Questions (defaults taken)
 
@@ -41,7 +41,8 @@ How it's built: `DESIGN.md` → Components → Motion.
 - Reuse the S1 keyframes (`beat-draw-x`, `beat-print`, `beat-fade`, `beat-stamp`, `beat-ring`)
   before adding new ones. The lab's CSS has working versions of every S2/S3 beat.
 - S2 added `beat-draw-y`, `beat-rise`, `beat-wipe`, `beat-light`, `beat-rule-down`,
-  `beat-ink` and `beat-flash`; S3's ignition is the one beat that still needs its own keyframes.
+  `beat-ink` and `beat-flash`; S3 added `beat-ignite`. **Left out on purpose:** The World's
+  banner doesn't ignite (the lab offered it as optional); Home's hero is the one front door.
 - **Browser support (Ken, 2026-11-26):** page transitions work in Edge; Firefox doesn't support
   cross-document View Transitions yet and just loads pages normally, which is the intended
   fallback. The scroll beats only need IntersectionObserver, so they run in Firefox too.
