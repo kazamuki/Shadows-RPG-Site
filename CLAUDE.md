@@ -49,6 +49,9 @@ stand alone technically but must read as one brand visually and tonally.
   (chapters in `crb/`) and now the source to read instead of extracting `.docx` files. **Never
   add it here as a submodule**: GitHub Pages only builds public submodules, so the live build
   would break. The plan records the mirror commit it was audited against.
+- `content/motion-plan.md` — the motion plan (approved 2026-11-26 from Ken's Motion Lab
+  artifact): the rules every beat keeps, sessions S1-S3, and the defaults taken. S1 shipped;
+  check it before adding any animation.
 - `PRODUCT.md` — Impeccable product record (written 2026-09-28): primary user (cold
   newcomers), success goals (Patreon follow, Discord join, character sheet), positioning,
   constraints, and evidence that must not be invented. Read by `/impeccable` commands;
@@ -1063,6 +1066,33 @@ being copy-pasted across every page.
   Forge Fangs' bid for a fifth Court seat (a `1200` street-level line). Left out on purpose:
   ForgeKor (one paragraph in `1100` so far) and SAN loss (approved but not in a chapter). The
   next audit should diff from `c99bb58`. Changelog entry added.
+
+- **Motion, S1: the kit and the motif (2026-11-26, `content/motion-plan.md`).** Ken approved a
+  Motion Lab artifact of ten one-time beats (modeled on the character sheet's I1-I4 motion
+  plan), grouped into S1-S3. S1 shipped: **`assets/js/motion.js`**, loaded in `<head>` without
+  `defer` (its `pagereveal` listener has to exist before the new page's first frame), arms each
+  beat (`.beat-armed` holds its animations paused on frame one) and plays it once on scroll
+  (`.beat-play`) via IntersectionObserver. Under reduced motion, without IO, or without the
+  script, nothing is armed. **To add a beat:** a selector in the script's `BEATS` list plus
+  `:is(.beat-armed, .beat-play)` animations in `theme.css`'s new Motion block, reusing the shared
+  `beat-*` keyframes. Beats: **every `.ledger` registers** (rule draws, rows 420ms apart, leader
+  draws, entry prints, gold stamp; `--i` is set by the script, the close strip's ledger uses fixed
+  Signal Gold via `--stamp-color`) and **the `sheet` next-step bar's dot rings on while its label
+  prints** (the label is a new `.next-step-slim-label` span in `next-step.html`). **Page
+  transitions:** `@view-transition { navigation: auto; }` with the header as its own
+  `view-transition-name` that swaps instantly; root cross-fades, and Rules pager clicks store
+  `next`/`prev` in `sessionStorage` so the new page adds that transition type and slides. Off
+  under reduced motion. DESIGN.md (new Motion section), the sidecar's motion entries and the
+  wishlist's hero item (now S3) updated. Changelog entry added.
+  Verified with headless Edge over CDP (the Browser pane was hidden, so IO never fired there):
+  both beats arm at load, play on scroll and finish at their end state (screenshots mid-register
+  and of Home's close in light mode), nothing arms under emulated reduced motion, the pager stores
+  and clears the direction, no overflow. **Not verified:** the page transition itself. Headless
+  Edge started it on the old page (`pageswap` had a transition) but never revealed one on the new
+  page, so the cross-fade and slide still need a look in a real Edge/Chrome window.
+  **Also fixed, same session:** `rules/archetypes/index.html`'s `description` had an unquoted
+  `: ` (from the S6 sync), which broke its YAML front matter, so the live page built with no
+  layout or title. Now quoted. **Quote any front-matter value that contains a colon.**
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 

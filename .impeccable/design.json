@@ -291,7 +291,22 @@
       {
         "name": "roster-draw",
         "value": "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
-        "purpose": "The magenta rule before each roster name draws out (scaleX 1.9) on hover/focus. The site's one authored motion."
+        "purpose": "The magenta rule before each roster name draws out (scaleX 1.9) on hover/focus. The site's one hover-driven motion."
+      },
+      {
+        "name": "beat-register",
+        "value": "rows 420ms apart: leader beat-draw-x 0.3s, entry beat-print 0.34s steps(16), beat-stamp 0.8s",
+        "purpose": "A .ledger registers once when it scrolls into view (assets/js/motion.js). Gold stamp = something the city wrote down. Off under prefers-reduced-motion."
+      },
+      {
+        "name": "beat-online",
+        "value": "dot beat-ring 0.7s ease-out, label beat-print 0.4s steps(22)",
+        "purpose": "The next-step bar's live dot switches on with one ring and its status prints, once, on scroll."
+      },
+      {
+        "name": "page-transition",
+        "value": "cross-document View Transition: root out 0.16s ease-in, in 0.26s cubic-bezier(0.22, 1, 0.36, 1); header layer swaps instantly",
+        "purpose": "Cross-fade between pages; on the Rules pager the page slides the way you paged (transition types next/prev). Off under reduced motion."
       },
       {
         "name": "thumb-reveal",
