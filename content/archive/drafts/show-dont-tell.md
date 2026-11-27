@@ -1,6 +1,6 @@
 # Show, don't tell: Session 5 copy draft
 
-Draft for `content/messaging-plan.md` Session 5 (2026-09-26). Needs Ken's approval (and D6)
+Draft for `content/archive/messaging-plan.md` Session 5 (2026-09-26). Needs Ken's approval (and D6)
 before anything goes into HTML.
 
 ## D6, as drafted

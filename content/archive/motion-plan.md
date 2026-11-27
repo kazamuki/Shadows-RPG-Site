@@ -1,5 +1,7 @@
 # Motion plan
 
+> **Archived 2026-11-26.** Every session here has shipped; kept as the record of what was decided.
+
 **Status:** approved 2026-11-26; **all three sessions shipped 2026-11-26.** Ken reviewed the Motion Lab
 (<https://claude.ai/artifact/9r4VN9be63WuxNs7gH4Yoq>, private to Ken) and said "This looks
 incredible, we are ready for S1!" The lab's four questions were left unanswered, so their

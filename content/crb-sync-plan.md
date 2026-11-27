@@ -215,16 +215,16 @@ manifest and a Black TAG line. Retire the stats spread image (closes the wishlis
 risk section lists all four of the book's kinds (contested rolls too), and the Stats card is now
 a \"d10\" glyph panel.*
 
-**✅ S3. New Rules page: Magic (shipped 2026-10-10; copy in `content/drafts/magic-page.md`, M1-M5 approved as recommended).** Three disciplines, what Aether is, what it costs, plus a short
+**✅ S3. New Rules page: Magic (shipped 2026-10-10; copy in `content/archive/drafts/magic-page.md`, M1-M5 approved as recommended).** Three disciplines, what Aether is, what it costs, plus a short
 "In play" scene and a ledger. Slot it into `_data/rules.yml` after Archetypes. Draft copy in
 `content/drafts/` first.
 
-**✅ S4. The World grows (shipped 2026-10-10; copy in `content/drafts/world-expansion.md`, W1-W6 approved as recommended).** Following D4: a "Shape of the city" section (six Territories, with
+**✅ S4. The World grows (shipped 2026-10-10; copy in `content/archive/drafts/world-expansion.md`, W1-W6 approved as recommended).** Following D4: a "Shape of the city" section (six Territories, with
 the naming callout) and a "Who runs it" section (five corporations, the Unseen Court, the
 others), as sub-pages under `/world/` if they run long. Add the new names to the glossary.
 This also covers the wishlist's "Districts / map page".
 
-**✅ S5. "What's in the dark" (shipped 2026-10-10 as `/world/threats/`; copy in `content/drafts/threats-page.md`, T1-T5 approved as recommended). All five sessions are now shipped.** A flavor-only Threats teaser: the three families and their kinds,
+**✅ S5. "What's in the dark" (shipped 2026-10-10 as `/world/threats/`; copy in `content/archive/drafts/threats-page.md`, T1-T5 approved as recommended). All five sessions are now shipped.** A flavor-only Threats teaser: the three families and their kinds,
 one line each, no stats and nothing from the Codex.
 
 ## Getting people to try the game or join the Discord

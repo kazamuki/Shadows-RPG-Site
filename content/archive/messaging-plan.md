@@ -1,5 +1,7 @@
 # Shadowsrpg.com — Messaging & Information Hierarchy Plan
 
+> **Archived 2026-11-26.** Every session here has shipped; kept as the record of what was decided.
+
 Written 2026-09-26 from a marketing/prose review of the whole site (Ken's brief: "does the
 site tell someone who knows nothing about Shadows what we're about and why it should interest
 them, and does each page we send them to keep that going?").
@@ -65,7 +67,7 @@ point everyone shares, with the five Archetypes as the paths out of it. Group th
 and the Human spread image need a new home (the intro is the natural spot).
 | D4 | ~~Should the site name comparison games?~~ | S3 | **Decided 2026-09-26:** unnamed version: "If you've ever wanted cyberpunk and urban fantasy at the same table, this is that game." |
 | D5 | ~~Pick a hero line.~~ | S3 | **Decided 2026-09-26:** "A tabletop RPG where cyberpunk and the supernatural share one city, and the city keeps score. Welcome to NYTE City, 2099." |
-| D6 | ~~Example-of-play scenes: in-world or site voice, and how close to mechanics can they get?~~ | S5 | **Decided 2026-09-26:** short in-world scenes, no numbers or procedure, labelled "In play" so they aren't mistaken for CRB excerpts. Ken approved the drafts in `content/drafts/show-dont-tell.md`. |
+| D6 | ~~Example-of-play scenes: in-world or site voice, and how close to mechanics can they get?~~ | S5 | **Decided 2026-09-26:** short in-world scenes, no numbers or procedure, labelled "In play" so they aren't mistaken for CRB excerpts. Ken approved the drafts in `content/archive/drafts/show-dont-tell.md`. |
 | D7 | Possible word slips in The World's verbatim manuscript text (see "Outside this repo"). | none (hand-off) | Send to Scott; mirror whatever the CRB decides. |
 
 ---
@@ -163,7 +165,7 @@ page hasn't introduced, and the last page ends on the character sheet.
 
 ## Session 3 — Home, part 1: the hook  ·  M  ·  ✅ Shipped 2026-09-26
 
-Everything below is done. Approved copy lives in `content/drafts/home-hook.md`. One small
+Everything below is done. Approved copy lives in `content/archive/drafts/home-hook.md`. One small
 pull-forward from Session 4: removing the Synergy card would have left Home without any
 mention of the system, so its content now opens the Core Rulebook section's intro. Session 4's
 "How it plays" item only needs a check that this paragraph still fits.
@@ -233,7 +235,7 @@ is linked more than twice.
 
 ## Session 5 — Show, don't tell  ·  M, needs writing  ·  ✅ Shipped 2026-09-26
 
-Everything below is done. Approved copy lives in `content/drafts/show-dont-tell.md`. All three
+Everything below is done. Approved copy lives in `content/archive/drafts/show-dont-tell.md`. All three
 scenes shipped, and all three use the CRB's own running example from the GM Workshop
 (`232_Consequences and Fallout`): the **Missing Cargo** job, with Hyde Dynomat, the Red Hands,
 and Doc Malin (Ken OK'd using those names publicly). Reading Rules Preview in order, a visitor
