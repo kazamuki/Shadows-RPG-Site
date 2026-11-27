@@ -502,11 +502,21 @@ live.
   `:is(.beat-armed, .beat-play)` animations in `theme.css`, reusing the shared `beat-*`
   keyframes (draw, print, fade, stamp, ring).
 - **Shipped beats:** the ledger registers (above); the next-step bar's green dot switches on
-  with one ring while "Character sheet · live" prints.
+  with one ring while "Character sheet · live" prints. Each Rules and World signature draws
+  its own shape once: the **power ladder** rungs wipe out to their widths in turn and their
+  readouts print (Power Levels, Magic); the **stat block** icons light up in sequence; the
+  **income table**'s bars fill to their share while motion.js counts the Çredits up from 0
+  (the real number stays in the HTML); the **coastline** draws from N to S with each Territory
+  rising as it passes; a page's **closing pull-line** (`.pull-line--close`, only on What's in
+  the Dark and Character Creation) draws its rule down, then inks in.
+- **Arriving on an anchor:** landing on a glossary entry, an Archetype, a Threat, a Territory,
+  a corporation or a Court section, by link or in-page jump, stamps its name gold; a row
+  (`.glossary-entry`, `li`) also flashes once with an inset tint that leaves its own background
+  untouched.
 - **Moving between pages:** the browser's own cross-document View Transition. The header is its
   own layer and swaps instantly, so it reads as staying put. The page under it cross-fades
   (0.16s out, 0.26s in), or slides the way you paged on the Rules pager. Off under reduced
-  motion; browsers without support load pages as before.
+  motion; browsers without support (Firefox, as of 2026-11) load pages as before.
 
 ## Do's and Don'ts
 

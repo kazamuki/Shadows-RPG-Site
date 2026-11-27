@@ -1705,9 +1705,19 @@ a.term:hover { color: var(--accent-cyan); }
    first frame) and plays it on scroll (.beat-play). Without the script, or
    under reduced motion, neither class is set and nothing moves.
    ========================================================================== */
-:root { --ease-out: cubic-bezier(0.22, 1, 0.36, 1); }
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --stamp-color: var(--accent-gold);
+  --stamp-glow: rgba(242, 201, 76, 0.7);
+  --flash: rgba(242, 201, 76, 0.1);
+}
+:root[data-theme="light"] {
+  --stamp-glow: rgba(113, 43, 140, 0.22);
+  --flash: rgba(113, 43, 140, 0.07);
+}
 
-.beat-armed, .beat-armed *, .beat-armed *::before, .beat-armed *::after {
+.beat-armed, .beat-armed::before, .beat-armed::after,
+.beat-armed *, .beat-armed *::before, .beat-armed *::after {
   animation-play-state: paused !important;
 }
 @keyframes beat-draw-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -1722,8 +1732,6 @@ a.term:hover { color: var(--accent-cyan); }
 
 /* The ledger registers: each row's account appears, its leader runs across,
    the entry prints and takes a gold stamp. Rows 420ms apart (--i set by motion.js). */
-.ledger { --stamp-color: var(--accent-gold); --stamp-glow: rgba(242, 201, 76, 0.7); }
-:root[data-theme="light"] .ledger { --stamp-glow: rgba(113, 43, 140, 0.22); }
 :root .next-step--close .ledger { --stamp-color: var(--signal-gold); --stamp-glow: rgba(242, 201, 76, 0.7); }
 .ledger dl > div { --beat-d: calc(var(--i, 0) * 420ms + 150ms); }
 .ledger:is(.beat-armed, .beat-play) .ledger-title::before {
@@ -1749,6 +1757,64 @@ a.term:hover { color: var(--accent-cyan); }
 .next-step-slim:is(.beat-armed, .beat-play) .next-step-slim-label {
   animation: beat-print 0.4s steps(22, end) 0.45s both;
 }
+
+/* --- S2: the pages draw their shapes. --i is the child's index, set by motion.js. --- */
+@keyframes beat-draw-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes beat-rise { from { opacity: 0; transform: translateY(6px); } }
+@keyframes beat-wipe { from { clip-path: inset(0 100% 0 0 round 8px); } to { clip-path: inset(0 0 0 0 round 8px); } }
+@keyframes beat-light {
+  0% { opacity: 0.2; transform: scale(0.9); }
+  45% { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 6px var(--neon-veil)); }
+  100% { opacity: 1; transform: none; filter: none; }
+}
+
+/* The ladder climbs: each rung wipes out to its width, then its readout prints.
+   Power Levels and Magic. */
+.power-ladder:is(.beat-armed, .beat-play) .power-rung {
+  animation: beat-wipe 0.45s var(--ease-out) calc(var(--i, 0) * 150ms + 100ms) both;
+}
+.power-ladder:is(.beat-armed, .beat-play) .power-scope {
+  animation: beat-print 0.36s steps(20, end) calc(var(--i, 0) * 150ms + 480ms) both;
+}
+
+/* The stat block lights up: the icons switch on in turn, like the sheet's pips. */
+.stat-block:is(.beat-armed, .beat-play) .stat-icon {
+  animation: beat-light 0.5s ease-out calc(var(--i, 0) * 75ms + 100ms) both;
+}
+
+/* The income gap opens: each bar fills to its share while motion.js counts the Çredits up. */
+.income-table td.income::after { transform-origin: left; }
+.income-table:is(.beat-armed, .beat-play) td.income::after {
+  animation: beat-draw-x 0.7s var(--ease-out) calc(var(--i, 0) * 90ms + 150ms) both;
+}
+
+/* The coast draws south: the line runs from N to S, each Territory rising as it passes. */
+.coast-strip::before { transform-origin: top; }
+.coast-strip:is(.beat-armed, .beat-play)::before { animation: beat-draw-y 1.25s cubic-bezier(0.4, 0, 0.6, 1) both; }
+.coast-strip:is(.beat-armed, .beat-play) > li {
+  animation: beat-rise 0.35s var(--ease-out) calc(var(--i, 0) * 190ms + 120ms) both;
+}
+
+/* The closing line: the quote rule draws down, then the words come in. Only on a
+   page's last pull-line (.pull-line--close), never on every quote. */
+@keyframes beat-rule-down {
+  0% { clip-path: inset(0 calc(100% - 3px) 100% 0); }
+  99.9% { clip-path: inset(0 calc(100% - 3px) 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+@keyframes beat-ink { from { color: transparent; } }
+.pull-line--close:is(.beat-armed, .beat-play) {
+  animation: beat-rule-down 0.35s var(--ease-out) both, beat-ink 0.7s ease-out 0.3s both;
+}
+
+/* Arriving on an anchor: the name takes the gold stamp; a row also flashes. No fill
+   mode, so the entry's own background and shadow come straight back. */
+@keyframes beat-flash {
+  0% { box-shadow: 0 0 0 0.5rem var(--flash), inset 0 0 0 100vmax var(--flash); }
+  100% { box-shadow: 0 0 0 0.5rem transparent, inset 0 0 0 100vmax transparent; }
+}
+.beat-arrive:is(.glossary-entry, li) { border-radius: 4px; animation: beat-flash 1.2s ease-out; }
+.beat-arrive-name { animation: beat-stamp 0.9s ease-out; }
 
 /* Moving between pages: the browser's cross-document View Transition. The header
    is its own layer and swaps instantly, so it reads as staying put; the page under
