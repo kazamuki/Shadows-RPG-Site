@@ -509,6 +509,11 @@ live.
   (the real number stays in the HTML); the **coastline** draws from N to S with each Territory
   rising as it passes; a page's **closing pull-line** (`.pull-line--close`, only on What's in
   the Dark and Character Creation) draws its rule down, then inks in.
+- **The sign catches:** the first time Home's hero is shown in a visit, the title stutters on
+  like a neon tube catching (1.15s), then holds its title glow; the tagline and buttons rise
+  after it. `motion.js` decides in `<head>` (a `beat-ignite` class on `html`) so the title
+  starts dark rather than flashing on, and remembers the visit in `sessionStorage`. The only
+  beat that plays on load rather than on scroll.
 - **Arriving on an anchor:** landing on a glossary entry, an Archetype, a Threat, a Territory,
   a corporation or a Court section, by link or in-page jump, stamps its name gold; a row
   (`.glossary-entry`, `li`) also flashes once with an inset tint that leaves its own background
