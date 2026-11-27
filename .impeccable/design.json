@@ -304,6 +304,16 @@
         "purpose": "The next-step bar's live dot switches on with one ring and its status prints, once, on scroll."
       },
       {
+        "name": "beat-shapes",
+        "value": "ladder beat-wipe 0.45s (150ms apart), stat icons beat-light 0.5s (75ms apart), income bars beat-draw-x 0.7s + JS count 0.75s, coastline beat-draw-y 1.25s + beat-rise 0.35s (190ms apart), closing pull-line beat-rule-down 0.35s + beat-ink 0.7s",
+        "purpose": "Each Rules/World signature draws its shape once on scroll (S2). Off under prefers-reduced-motion."
+      },
+      {
+        "name": "beat-arrive",
+        "value": "name beat-stamp 0.9s; row beat-flash 1.2s inset tint, no fill",
+        "purpose": "Landing on an anchor (load or hashchange) stamps the entry's name gold and flashes a row once."
+      },
+      {
         "name": "page-transition",
         "value": "cross-document View Transition: root out 0.16s ease-in, in 0.26s cubic-bezier(0.22, 1, 0.36, 1); header layer swaps instantly",
         "purpose": "Cross-fade between pages; on the Rules pager the page slides the way you paged (transition types next/prev). Off under reduced motion."

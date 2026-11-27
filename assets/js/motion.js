@@ -10,7 +10,8 @@
       first frame) and plays once when it scrolls into view. Without this
       script, without IntersectionObserver, or under reduced motion, nothing is
       armed and the page shows its finished state. Add a component to BEATS and
-      give it `:is(.beat-armed, .beat-play)` animations in theme.css. */
+      give it `:is(.beat-armed, .beat-play)` animations in theme.css.
+   3. Arrival. Landing on an anchor stamps the entry you landed on. */
 (function () {
   var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   function calm() { return !!(mq && mq.matches); }
@@ -30,28 +31,84 @@
   });
 
   /* --- 2. Beats --- */
-  var BEATS = '.ledger, .next-step-slim';
+  /* [beat selector, the children that get a stagger index --i (or null)] */
+  var BEATS = [
+    ['.ledger', 'dl > div'],
+    ['.next-step-slim', null],
+    ['.power-ladder', ':scope > li'],
+    ['.stat-block', ':scope > li'],
+    ['.income-table', 'tbody > tr'],
+    ['.coast-strip', ':scope > li'],
+    ['.pull-line--close', null]
+  ];
+
+  /* A count: the right number is in the HTML; playing rewinds it to 0 and counts
+     forward, ending on the exact number whatever the frame rate. */
+  function countUp(el) {
+    var to = +el.getAttribute('data-count'), start = null, dur = 750;
+    function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+    el.textContent = '0';
+    function step(t) {
+      if (start === null) start = t;
+      var p = Math.min((t - start) / dur, 1);
+      el.textContent = fmt(to * (1 - Math.pow(1 - p, 4)));
+      if (p < 1) requestAnimationFrame(step); else el.textContent = fmt(to);
+    }
+    requestAnimationFrame(step);
+  }
 
   function arm() {
     if (calm() || !('IntersectionObserver' in window)) return;
+    /* Plays once the beat's top edge is inside the upper 80% of the screen, so a
+       beat taller than the screen (the coastline on a phone) still plays. */
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
-        io.unobserve(en.target);
-        en.target.classList.remove('beat-armed');
-        en.target.classList.add('beat-play');
+        var el = en.target;
+        io.unobserve(el);
+        el.classList.remove('beat-armed');
+        el.classList.add('beat-play');
+        el.querySelectorAll('[data-count]').forEach(countUp);
       });
-    }, { threshold: 0.35, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -20% 0px' });
 
-    document.querySelectorAll(BEATS).forEach(function (el) {
-      if (el.matches('.ledger')) {
-        el.querySelectorAll('dl > div').forEach(function (row, i) { row.style.setProperty('--i', i); });
-      }
-      el.classList.add('beat-armed');
-      io.observe(el);
+    BEATS.forEach(function (beat) {
+      document.querySelectorAll(beat[0]).forEach(function (el) {
+        if (beat[1]) {
+          el.querySelectorAll(beat[1]).forEach(function (child, i) { child.style.setProperty('--i', i); });
+        }
+        el.classList.add('beat-armed');
+        io.observe(el);
+      });
     });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arm);
-  else arm();
+  /* --- 3. Arriving on an anchor --- */
+  /* A link that lands on an entry (a glossary term, a jump-nav target, a Territory
+     or Court seat) stamps its name gold, and flashes the entry if it's a row. */
+  var NAME = 'dt, h2, h3, strong';
+  function arrive(delay) {
+    if (calm()) return;
+    var id = '';
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (err) { return; }
+    var target = id && document.getElementById(id);
+    if (!target || target.id === 'main') return;
+    setTimeout(function () {
+      document.querySelectorAll('.beat-arrive, .beat-arrive-name').forEach(function (el) {
+        el.classList.remove('beat-arrive', 'beat-arrive-name');
+      });
+      var name = target.querySelector(NAME);
+      void target.offsetWidth;
+      target.classList.add('beat-arrive');
+      if (name) name.classList.add('beat-arrive-name');
+    }, delay);
+  }
+  window.addEventListener('hashchange', function () { arrive(350); });
+
+  function start() {
+    arm();
+    arrive(200);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
 })();

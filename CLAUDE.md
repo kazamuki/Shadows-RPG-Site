@@ -1093,6 +1093,35 @@ being copy-pasted across every page.
   **Also fixed, same session:** `rules/archetypes/index.html`'s `description` had an unquoted
   `: ` (from the S6 sync), which broke its YAML front matter, so the live page built with no
   layout or title. Now quoted. **Quote any front-matter value that contains a colon.**
+  **Ken tested the transitions after merge:** they work in Edge; Firefox doesn't support
+  cross-document View Transitions and loads pages normally (the intended fallback).
+
+- **Motion, S2: the pages draw their shapes (2026-11-26, `content/motion-plan.md`).** Branched
+  from `main` after #42 merged. `motion.js`'s `BEATS` is now a list of `[selector, children to
+  index]` pairs; the script sets `--i` on those children for the stagger. New beats, all once on
+  scroll: **`.power-ladder`** rungs wipe out in turn, readouts print (Power Levels, Magic);
+  **`.stat-block`** icons light in sequence (both blocks on Stats & Skills); **`.income-table`**
+  (new class on Equipment's table) bars fill while **`[data-count]`** spans count up from 0
+  (Equipment's income numbers are now wrapped in `<span data-count="625">625</span>`, so **edit
+  both the attribute and the text if incomes change**, plus `--share`); **`.coast-strip`** line
+  draws N→S and each Territory rises; **`.pull-line--close`** (new modifier, only on What's in
+  the Dark and Character Creation) draws its rule then inks in. **Arrival:** on load and
+  `hashchange`, the `#id` target gets `.beat-arrive` and its first `dt, h2, h3, strong` gets
+  `.beat-arrive-name` (gold stamp); `.glossary-entry` and `li` targets also flash with an inset
+  box-shadow tint (no fill mode, so card backgrounds come back). The scroll trigger changed from
+  `threshold 0.35` to `threshold 0` with a `-20%` bottom margin, because a beat taller than ~3
+  screens (the coastline on a phone) could never reach 35% visible and would have stayed armed.
+  The `.beat-armed` pause rule now also covers the beat element's own `::before/::after`.
+  Stamp tokens (`--stamp-color`, `--stamp-glow`, `--flash`) moved to `:root`. DESIGN.md, the
+  sidecar and the plan updated; changelog entry added.
+  Verified with headless Edge over CDP (launch it with `--disable-renderer-backgrounding
+  --disable-background-timer-throttling --disable-backgrounding-occluded-windows`, or
+  animations and `requestAnimationFrame` stall and beats look stuck): all seven beats arm, play
+  and finish with nothing left running; counts end on 625 / 2,500 / 5,000 / 12,500 / 25,000;
+  the coastline plays at 375px; arrival stamps glossary entries, sections and Archetypes on load
+  and on in-page jumps; nothing arms or stamps under reduced motion; no overflow, no console
+  errors. Screenshots: Magic's ladder mid-wipe, the income table mid-count in light mode, TAG
+  stamped, the coastline mid-draw.
 
 ## Brand/asset ground rules (see `brand/asset-licensing.md` for full detail)
 
