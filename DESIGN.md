@@ -428,7 +428,9 @@ rule as the "In play" label) over a `<dl>` between 1px hairlines. Each row is an
 Mono, secondary text) and an entry (primary text, right-aligned) joined by a dotted leader. Under
 480px each row stacks. It sits in prose, never in a card of its own, and states consequences in
 words only: **no numbers, no mechanics**, so it can't read as a ruleset. Used on Home's pitch
-and closing each "In play" scene.
+and closing each "In play" scene. The first time a ledger scrolls into view it **registers**:
+the title rule draws, then row by row the account appears, the leader runs across, the entry
+prints and takes a brief gold stamp (see Motion).
 
 ### Next-step Bar and Rules Pager
 The closing block of every Rules page. The **next-step bar** is one wide link on a card surface
@@ -480,11 +482,31 @@ Ruled lists, not cards. Roster rows are a three-column grid: a painted thumbnail
 card border, slightly desaturated until the row is hovered or focused), the Audiowide name over
 a mono group label, then the italic gold hook. A 1rem magenta rule leads each name and draws
 out to nearly double on hover (`transform: scaleX`, 0.25s, an exponential ease-out), the
-only authored motion on the site. Supernatural rows color their group label with Neon Veil Text.
+site's one hover-driven motion. Supernatural rows color their group label with Neon Veil Text.
 Rows fill with the card color on hover, and the name turns cyan. Under 560px the thumbnail
 shrinks to 4.5rem and the hook moves under the name. Glossary terms are Audiowide in cyan over secondary-text definitions, and the targeted
 entry turns gold. First-use glossary links read as prose, with inherited color and a dotted
 cyan underline.
+
+### Motion
+Motion is a beat that answers the reader reaching something, the same way the character
+sheet's beats answer what a player did (`content/motion-plan.md`). Every beat plays once and
+leaves the finished page. Nothing loops, nothing waits on a timer. Most beats finish in under a
+second (a three-row ledger takes about 1.6s). Colors keep the sheet's meanings: gold for
+something the city wrote down, magenta for power and warning, cyan for a plain value, green for
+live.
+- **The kit:** `assets/js/motion.js` arms each beat (`.beat-armed` holds its animations on the
+  first frame) and plays it when it scrolls into view (`.beat-play`). Without the script, without
+  IntersectionObserver, or under `prefers-reduced-motion`, nothing is armed and the page is
+  already finished. A new beat is one selector in the script's `BEATS` list plus
+  `:is(.beat-armed, .beat-play)` animations in `theme.css`, reusing the shared `beat-*`
+  keyframes (draw, print, fade, stamp, ring).
+- **Shipped beats:** the ledger registers (above); the next-step bar's green dot switches on
+  with one ring while "Character sheet · live" prints.
+- **Moving between pages:** the browser's own cross-document View Transition. The header is its
+  own layer and swaps instantly, so it reads as staying put. The page under it cross-fades
+  (0.16s out, 0.26s in), or slides the way you paged on the Rules pager. Off under reduced
+  motion; browsers without support load pages as before.
 
 ## Do's and Don'ts
 

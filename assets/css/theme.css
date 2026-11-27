@@ -1698,6 +1698,82 @@ a.term:hover { color: var(--accent-cyan); }
   color: var(--accent-cyan);
 }
 
+/* ==========================================================================
+   Motion (content/motion-plan.md; assets/js/motion.js)
+   Every beat answers the reader reaching something, plays once, and leaves the
+   finished page. motion.js arms a beat (.beat-armed holds its animations on the
+   first frame) and plays it on scroll (.beat-play). Without the script, or
+   under reduced motion, neither class is set and nothing moves.
+   ========================================================================== */
+:root { --ease-out: cubic-bezier(0.22, 1, 0.36, 1); }
+
+.beat-armed, .beat-armed *, .beat-armed *::before, .beat-armed *::after {
+  animation-play-state: paused !important;
+}
+@keyframes beat-draw-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes beat-print { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes beat-fade { from { opacity: 0; } }
+/* Gold = something the city wrote down (same meaning as the character sheet). */
+@keyframes beat-stamp { 0% { color: var(--stamp-color); text-shadow: 0 0 10px var(--stamp-glow); } }
+@keyframes beat-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-green) 75%, transparent); }
+  100% { box-shadow: 0 0 0 9px color-mix(in srgb, var(--accent-green) 0%, transparent); }
+}
+
+/* The ledger registers: each row's account appears, its leader runs across,
+   the entry prints and takes a gold stamp. Rows 420ms apart (--i set by motion.js). */
+.ledger { --stamp-color: var(--accent-gold); --stamp-glow: rgba(242, 201, 76, 0.7); }
+:root[data-theme="light"] .ledger { --stamp-glow: rgba(113, 43, 140, 0.22); }
+:root .next-step--close .ledger { --stamp-color: var(--signal-gold); --stamp-glow: rgba(242, 201, 76, 0.7); }
+.ledger dl > div { --beat-d: calc(var(--i, 0) * 420ms + 150ms); }
+.ledger:is(.beat-armed, .beat-play) .ledger-title::before {
+  transform-origin: left;
+  animation: beat-draw-x 0.3s var(--ease-out) both;
+}
+.ledger:is(.beat-armed, .beat-play) dl > div { animation: beat-fade 0.2s ease-out var(--beat-d) both; }
+.ledger:is(.beat-armed, .beat-play) dt::after {
+  transform-origin: left;
+  animation: beat-draw-x 0.3s var(--ease-out) calc(var(--beat-d) + 120ms) both;
+}
+.ledger:is(.beat-armed, .beat-play) dd {
+  animation:
+    beat-print 0.34s steps(16, end) calc(var(--beat-d) + 340ms) both,
+    beat-stamp 0.8s ease-out calc(var(--beat-d) + 680ms) both;
+}
+
+/* The sheet comes online: the live dot switches on with one ring, the status prints. */
+.next-step-slim-label { display: inline-block; }
+.next-step-slim:is(.beat-armed, .beat-play) .next-step-slim-status::before {
+  animation: beat-fade 0.12s linear 0.2s both, beat-ring 0.7s ease-out 0.32s both;
+}
+.next-step-slim:is(.beat-armed, .beat-play) .next-step-slim-label {
+  animation: beat-print 0.4s steps(22, end) 0.45s both;
+}
+
+/* Moving between pages: the browser's cross-document View Transition. The header
+   is its own layer and swaps instantly, so it reads as staying put; the page under
+   it cross-fades, or slides the way you paged on the Rules pager (the direction is
+   a transition type set by motion.js). Browsers without support load pages as before. */
+@view-transition { navigation: auto; }
+.site-header { view-transition-name: site-header; }
+::view-transition-old(site-header) { display: none; }
+::view-transition-new(site-header) { animation: none; }
+::view-transition-old(root) { animation: vt-out 0.16s ease-in both; }
+::view-transition-new(root) { animation: vt-in 0.26s var(--ease-out) both; }
+html:active-view-transition-type(next)::view-transition-old(root) { animation-name: vt-out-next; }
+html:active-view-transition-type(next)::view-transition-new(root) { animation-name: vt-in-next; }
+html:active-view-transition-type(prev)::view-transition-old(root) { animation-name: vt-out-prev; }
+html:active-view-transition-type(prev)::view-transition-new(root) { animation-name: vt-in-prev; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
+@keyframes vt-out-next { to { opacity: 0; transform: translateX(-18px); } }
+@keyframes vt-in-next { from { opacity: 0; transform: translateX(26px); } }
+@keyframes vt-out-prev { to { opacity: 0; transform: translateX(18px); } }
+@keyframes vt-in-prev { from { opacity: 0; transform: translateX(-26px); } }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}
+
 /* Motion off for people who've asked for it; any future animation inherits this */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
